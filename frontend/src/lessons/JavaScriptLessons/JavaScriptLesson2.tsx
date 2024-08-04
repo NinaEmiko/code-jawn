@@ -12,7 +12,7 @@ function JavaScriptLesson2({props}:{props:any}) {
 
   return (
     <Container>
-        <PageName props={{title: "JavaScript Lesson 2"}} />
+        <PageName props={{title: "JavaScript Lesson 1", handleBackClick:handleBackClick}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
@@ -20,16 +20,6 @@ function JavaScriptLesson2({props}:{props:any}) {
                 </div>
             </div>
         </Display>
-        <Controls 
-            leftBtnTopText="-"
-            leftBtnMiddleText="-"
-            handleClickLeftBtnBottom={() => handleBackClick()}
-            leftBtnBottomText="Back"
-            rightBtnLeftText="-"
-            rightBtnRightText="-"
-            rightBtnTopText="-"
-            rightBtnBottomText="-"
-        />
     </Container>
   )
 }

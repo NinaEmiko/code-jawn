@@ -1,5 +1,4 @@
 import Container from "../components/Container"
-import Controls from "../components/Controls"
 import Display from "../components/Display"
 import PageName from "../components/PageName"
 
@@ -34,15 +33,6 @@ function SelectLesson({props}:{props:any}) {
                 </div>
             </div>
         </Display>
-        <Controls 
-            leftBtnTopText="-"
-            leftBtnMiddleText="-"
-            leftBtnBottomText="-"
-            rightBtnLeftText="-"
-            rightBtnRightText="-"
-            rightBtnTopText="-"
-            rightBtnBottomText="-"
-        />
       </Container>
     )
   }

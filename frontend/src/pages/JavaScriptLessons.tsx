@@ -1,5 +1,4 @@
 import Container from "../components/Container"
-import Controls from "../components/Controls";
 import Display from "../components/Display"
 import PageName from "../components/PageName"
 
@@ -14,7 +13,7 @@ function JavaScriptLessons({props}:{props:any}) {
 
     return (
         <Container>
-        <PageName props={{title: "JavaScript Lessons"}} />
+        <PageName props={{title: "JavaScript Lessons", handleBackClick:handleBackClick}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
@@ -45,16 +44,6 @@ function JavaScriptLessons({props}:{props:any}) {
                 </div>
             </div>
         </Display>
-        <Controls 
-            leftBtnTopText="-"
-            leftBtnMiddleText="-"
-            handleClickLeftBtnBottom={() => handleBackClick()}
-            leftBtnBottomText="Back"
-            rightBtnLeftText="-"
-            rightBtnRightText="-"
-            rightBtnTopText="-"
-            rightBtnBottomText="-"
-        />
       </Container>
     )
   }
