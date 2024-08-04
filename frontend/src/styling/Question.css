@@ -1,6 +1,6 @@
 .question-text{
     color: gold;
-    font-size: 5vw;
+    font-size: 7vw;
     height: 15%;
     padding-bottom: 15px;
 
@@ -16,4 +16,41 @@
 
 .question-container{
     height: 100%;
+}
+.question-explanation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 6vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.question-explanation-incorrect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 6vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: red;
+}
+.question-explanation-correct{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 6vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: green;
+}
+
+.explanation-btn{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+    float: right;
+    font-size: 6vw;
 }
