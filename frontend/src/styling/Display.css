@@ -1,0 +1,72 @@
+/* CONTAINER */
+
+.display-jawn {
+    margin: 1%;
+    height: 63%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 3px;
+    background-color: var(--dark-jawn);
+    opacity: 90%;
+    overflow:hidden;
+    overflow-y: scroll;
+    position: relative;
+}
+
+/* PARENT */
+
+.parent-jawn{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+/* CHILD */
+
+.child-jawn{
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+/* TEXT */
+
+.text-jawn{
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 5vw;
+}
+
+.text-jawn-secondary{
+    align-items: center;
+    text-align: center;
+    color: var(--light-jawn);
+}
+
+/* WARNING TEXT */
+
+.warning-txt{
+    margin-top: 10px;
+    text-align: center;
+    color: red;
+    font-size: 7vw;
+}
+
+/* HEADER TEXT */
+
+.header-jawn{
+align-items: center;
+text-align: center;
+color: var(--mid-jawn);
+}
+
+.lesson-btn{
+    margin: 5px;
+    align-items: center;
+    text-align: center;
+    font-size: 8vw;
+}

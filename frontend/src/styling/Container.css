@@ -1,0 +1,53 @@
+:root {
+  --dark-jawn: #003135;
+  --mid-dark-jawn: #024950;
+  --orange-jawn: #964734;
+  --mid-light-jawn: #0FA4AF;
+  --light-jawn: #AFDDE5;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--dark-jawn);
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@font-face {
+  font-family: 'FantaisieArtistique';
+  src: local('FantaisieArtistique'), url(../assets/fonts/FantaisieArtistique.ttf) format('truetype');}
+
+@font-face {
+  font-family: 'Alice';
+  src: local('Alice'), url(../assets/fonts/Alice\ in\ Wonderland.ttf) format('truetype');}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: FantaisieArtistique;
+  color: var(--mid-light-jawn);
+}
+
+.container-jawn {
+  position: absolute;
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 3px;
+  background-color: var(--dark-jawn);
+  opacity: 90%;
+  box-sizing: border-box;
+} 
+
+input{
+  text-align: right;
+}
