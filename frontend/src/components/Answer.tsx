@@ -13,8 +13,6 @@ const Answer = ({props}:{props:any}) => {
             <br />
             {props.line4}
             <br />
-            {props.line5}
-            <br />
         </div>
     )
 }

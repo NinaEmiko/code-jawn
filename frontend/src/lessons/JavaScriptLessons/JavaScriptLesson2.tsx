@@ -11,7 +11,7 @@ function JavaScriptLesson2({props}:{props:any}) {
 
   return (
     <Container>
-        <PageName props={{title: "JavaScript Lesson 1", handleBackClick:handleBackClick}} />
+        <PageName props={{title: "JavaScript Lesson 1", handleBackClick:handleBackClick, buttonOneText:"Exit"}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">

@@ -1,11 +1,12 @@
 .answer-text{
-    color: white;
+    color: black;
     height: 15%;
-    background-color: var(--mid-dark-jawn);
+    background-color: var(--text-jawn);
     border-radius: 10px;
-    border: solid black;
+    border: solid var(--accent-jawn);
     padding: 20px;
     margin-bottom: 10px;
+    font-size: 5vw;
 }
 
 .answer-jawn{

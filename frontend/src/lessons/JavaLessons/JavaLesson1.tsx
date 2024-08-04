@@ -3,6 +3,7 @@ import Container from "../../components/Container"
 import Display from "../../components/Display"
 import PageName from "../../components/PageName"
 import JavaVariableQuestion1 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion1"
+import JavaVariableQuestion2 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion2"
 
 function JavaLesson1({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -19,7 +20,7 @@ function JavaLesson1({props}:{props:any}) {
             setCorrectAnswers(correctAnswers + 1)
             : 
             setIncorrectAnswers(incorrectAnswers + 1);
-            
+
         setQuestionsAnswered(questionsAnswered + 1);
     }
 
@@ -27,7 +28,7 @@ function JavaLesson1({props}:{props:any}) {
 
   return (
     <Container>
-        <PageName props={{title: "Java Lesson 1", handleBackClick:handleBackClick}} />
+        <PageName props={{title: "Java Lesson 1", handleBackClick:handleBackClick, buttonOneText:"Exit"}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
@@ -36,7 +37,12 @@ function JavaLesson1({props}:{props:any}) {
                     }
                     {questionsAnswered === 1 &&
                     <>
-                        Question answered successfully. Correct answers: {correctAnswers}. Incorrect answers: {incorrectAnswers}. Questions answered: {questionsAnswered};
+                        <JavaVariableQuestion2 props={{completeQuestion:completeQuestion}} />
+                    </>
+                    }
+                    {questionsAnswered === 2 &&
+                    <>
+                        Out of questions.
                     </>
                     }
                 </div>

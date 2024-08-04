@@ -1,6 +1,6 @@
 .question-text{
-    color: gold;
-    font-size: 7vw;
+    color: var(--sub-background-jawn);
+    font-size: 6vw;
     height: 15%;
     padding-bottom: 15px;
 
@@ -24,7 +24,7 @@
     font-size: 6vw;
     margin-top: 20px;
     margin-bottom: 20px;
-
+    color: var(--sub-background-jawn)
 }
 
 .question-explanation-incorrect{
@@ -53,4 +53,5 @@
     color: black;
     float: right;
     font-size: 6vw;
+    background-color: var(--text-jawn)
 }

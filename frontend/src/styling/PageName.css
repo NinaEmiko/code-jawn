@@ -6,14 +6,14 @@
     height: 14.5%;
     border-radius: 5px;
     box-shadow: 0 0 10px 3px;
-    background-color: var(--dark-jawn);
+    background-color: var(--background-jawn);
     opacity: 90%;
     /* text-align: center; */
 }
 
 .page-name-txt {
-  font-size: 8vw;
-  color: gold;
+  font-size: 9vw;
+  color: var(--header-jawn);
 }
 .page-name-column-1 {
   /* margin: 0 auto; */
@@ -33,5 +33,6 @@
 .page-name-back-btn{
   background-color: transparent;
   border: transparent;
-  font-size: 5vw;
+  font-size: 6vw;
+  color: var(--text-jawn);
 }

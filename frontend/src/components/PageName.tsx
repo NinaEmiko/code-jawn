@@ -1,23 +1,17 @@
-import { useEffect, useState } from "react";
 import "../styling/PageName.css";
 
 const PageName = ({props}:{props:any}) => {
-    const [buttonOne, setButtonOne] = useState('');
 
     const handleBackClick = () => {
         props.handleBackClick();
     }
 
-    useEffect(() => {
-        setButtonOne("Back")
-      },[])
-
     return (
         <div className="page-name-jawn">
             <div className="page-name-column-1">
-                {buttonOne &&
+                {props.buttonOneText &&
                     <button className="page-name-back-btn" onClick={() => handleBackClick()}>
-                        {buttonOne}
+                        {props.buttonOneText}
                     </button>
                 }   
             </div>
