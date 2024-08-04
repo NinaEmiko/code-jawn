@@ -1,7 +1,10 @@
 const Answer = ({props}:{props:any}) => {
+    const handleAnswerClick = () => {
+        props.answerClicked();
+    }
 
     return (
-        <div className="answer-text">
+        <div onClick={() => handleAnswerClick()} className="answer-text">
             {props.line1}
             <br />
             {props.line2}
@@ -9,6 +12,8 @@ const Answer = ({props}:{props:any}) => {
             {props.line3}
             <br />
             {props.line4}
+            <br />
+            {props.line5}
             <br />
         </div>
     )

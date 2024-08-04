@@ -1,5 +1,4 @@
 import Container from "../../components/Container"
-import Controls from "../../components/Controls"
 import Display from "../../components/Display"
 import PageName from "../../components/PageName"
 

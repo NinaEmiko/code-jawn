@@ -9,6 +9,9 @@
 .question-jawn{
     display: block;
     height: 25%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .question-container{
