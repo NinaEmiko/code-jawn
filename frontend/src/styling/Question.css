@@ -1,0 +1,16 @@
+.question-text{
+    color: gold;
+    font-size: 5vw;
+    height: 15%;
+    padding-bottom: 15px;
+
+}
+
+.question-jawn{
+    display: block;
+    height: 25%;
+}
+
+.question-container{
+    height: 100%;
+}

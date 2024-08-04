@@ -2,6 +2,7 @@ import Container from "../../components/Container"
 import Controls from "../../components/Controls"
 import Display from "../../components/Display"
 import PageName from "../../components/PageName"
+import JavaVariableQuestion1 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion1"
 
 function JavaLesson1({props}:{props:any}) {
 
@@ -16,7 +17,7 @@ function JavaLesson1({props}:{props:any}) {
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
-                    
+                    <JavaVariableQuestion1 props={undefined} />
                 </div>
             </div>
         </Display>
