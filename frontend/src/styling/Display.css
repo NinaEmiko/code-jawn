@@ -34,7 +34,7 @@
 .child-jawn{
     align-items: center;
     justify-content: center;
-    text-align: center;
+    /* text-align: center; Messing up answer button styling */ 
     position: absolute;
     top: 50%;
     left: 50%;
