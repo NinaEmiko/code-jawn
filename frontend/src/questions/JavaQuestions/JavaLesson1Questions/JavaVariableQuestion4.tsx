@@ -5,7 +5,7 @@ import Question from "../../../components/Question"
 import { useState } from "react"
 
 
-function JavaVariableQuestion2({props}:{props:any}) {
+function JavaVariableQuestion4({props}:{props:any}) {
     const [answer, setAnswer] = useState('');
 
     const handleAnswer1Click = () => {
@@ -25,7 +25,7 @@ function JavaVariableQuestion2({props}:{props:any}) {
     }
 
     const endQuestion = () => {
-        answer === 'D' ? props.completeQuestion(true) : props.completeQuestion(false);
+        answer === 'C' ? props.completeQuestion(true) : props.completeQuestion(false);
     }
 
     return (
@@ -33,25 +33,25 @@ function JavaVariableQuestion2({props}:{props:any}) {
             {answer === '' &&
                 <div className="question-container">
                     <div className="question-jawn">
-                        <Question props={{text: "Select the correct option."}} />
+                        <Question props={{text: "Select the best variable name."}} />
                     </div>
                     <div className="answer-jawn">
                             
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            line1: "String count = 5;"
+                            line1: "int spv = 50;"
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            line1: "boolean count = \"five\";"
+                            line1: "int SpeedPerVehicle = 50;"
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            line1: "int count = \"5\";"
+                            line1: "int speedPerVehicle = 50;"
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer4Click,
-                            line1: "int count = 5;"
+                            line1: "int speed per vehicle = 50;"
                             }} />
                     </div>
                 </div>
@@ -60,15 +60,14 @@ function JavaVariableQuestion2({props}:{props:any}) {
                 <div className="question-container">
                     <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
                     <div className="answer-jawn">
-                        <Answer props={{
+                    <Answer props={{
                             answerClicked:null,
-                            line1: "String count = 5;"
+                            line1: "int spv = 50;"
                             }} />
                     </div>
                     <div className="question-explanation">
-                        This statement is declaring a String variable named count.
-                        It is attempting to assign an int value of 5 to count.
-                        int values cannot be assigned to String variables.
+                        spv is not clear enough of a name for a variable.
+                        What spv stands for is not immediately apparent.
                     </div>
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
@@ -81,13 +80,12 @@ function JavaVariableQuestion2({props}:{props:any}) {
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "boolean count = \"five\";"
+                            line1: "int SpeedPerVehicle = 50;"
                             }} />
                     </div>
                     <div className="question-explanation">
-                        This is declaring a boolean variable named count.
-                        It is attempting to assign a String value of "five" to count.
-                        String values cannot be assigned to boolean variables.
+                        Variable names should be in camel case.
+                        For example: milesPerHour, timesWeWentToTheStore, daysWorked.
                     </div>
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
@@ -96,17 +94,16 @@ function JavaVariableQuestion2({props}:{props:any}) {
             }
             {answer === 'C' &&
                 <div className="question-container">
-                    <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
+                    <div className="question-explanation-correct">You have chosen the correct answer.</div>
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "int count = \"5\";"
+                            line1: "int speedPerVehicle = 50;"
                             }} />
                     </div>
                     <div className="question-explanation">
-                        This is declaring an int variable named count.
-                        It is attempting to assign a String value of "5" to count.
-                        String values cannot be assigned to int variables.
+                        This variable is in camel case.
+                        It is clear what the variable represents.
                     </div>
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
@@ -115,16 +112,17 @@ function JavaVariableQuestion2({props}:{props:any}) {
             }
             {answer === 'D' &&
                 <div className="question-container">
-                        <div className="question-explanation-correct">You have chosen the correct answer.</div>
+                        <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
                         <div className="answer-jawn">
                             <Answer props={{
-                                answerClicked:handleAnswer4Click,
-                                line1: "int count = 5;"
+                                answerClicked:null,
+                                line1: "int speed per vehicle = 50;"
                                 }} />
                         </div>
                         <div className="question-explanation">
-                            This is declaring an int variable named count.
-                            It is assigning an int value of 5 to count.
+                            Variable names should be one word.
+                            milesPerHour is correct.
+                            miles per hour is incorrect.
                         </div>
                         <button className="explanation-btn" onClick={endQuestion} >
                             Continue
@@ -135,5 +133,5 @@ function JavaVariableQuestion2({props}:{props:any}) {
     )
 }
   
-export default JavaVariableQuestion2
+export default JavaVariableQuestion4
   

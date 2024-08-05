@@ -4,6 +4,9 @@ import Display from "../../components/Display"
 import PageName from "../../components/PageName"
 import JavaVariableQuestion1 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion1"
 import JavaVariableQuestion2 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion2"
+import JavaVariableQuestion3 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion3"
+import JavaVariableQuestion4 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion4"
+import JavaVariableQuestion5 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion5"
 
 function JavaLesson1({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -36,14 +39,27 @@ function JavaLesson1({props}:{props:any}) {
                         <JavaVariableQuestion1 props={{completeQuestion:completeQuestion}} />
                     }
                     {questionsAnswered === 1 &&
-                    <>
                         <JavaVariableQuestion2 props={{completeQuestion:completeQuestion}} />
-                    </>
                     }
                     {questionsAnswered === 2 &&
-                    <>
-                        Out of questions.
-                    </>
+                        <>
+                            <JavaVariableQuestion3 props={{completeQuestion:completeQuestion}} />
+                        </>
+                    }
+                    {questionsAnswered === 3 &&
+                        <>
+                            <JavaVariableQuestion4 props={{completeQuestion:completeQuestion}} />
+                        </>
+                    }
+                    {questionsAnswered === 4 &&
+                        <>
+                            <JavaVariableQuestion5 props={{completeQuestion:completeQuestion}} />
+                        </>
+                    }
+                    {questionsAnswered === 5 &&
+                        <div className="question-explanation">
+                            Score: {correctAnswers}/5
+                        </div>
                     }
                 </div>
             </div>

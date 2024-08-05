@@ -2,6 +2,7 @@ import Container from "../components/Container"
 import Display from "../components/Display"
 import PageName from "../components/PageName"
 
+
 function JavaLessons({props}:{props:any}) {
 
     const handleButtonClick = (lesson: string) => {

@@ -2,10 +2,11 @@ import Answer from "../../../components/Answer"
 import "../../../styling/Question.css"
 import "../../../styling/Answer.css"
 import Question from "../../../components/Question"
+import { generateTabs } from "../../../helpers/TabHelper"
 import { useState } from "react"
 
 
-function JavaVariableQuestion2({props}:{props:any}) {
+function JavaVariableQuestion5({props}:{props:any}) {
     const [answer, setAnswer] = useState('');
 
     const handleAnswer1Click = () => {
@@ -25,7 +26,7 @@ function JavaVariableQuestion2({props}:{props:any}) {
     }
 
     const endQuestion = () => {
-        answer === 'D' ? props.completeQuestion(true) : props.completeQuestion(false);
+        answer === 'C' ? props.completeQuestion(true) : props.completeQuestion(false);
     }
 
     return (
@@ -33,25 +34,25 @@ function JavaVariableQuestion2({props}:{props:any}) {
             {answer === '' &&
                 <div className="question-container">
                     <div className="question-jawn">
-                        <Question props={{text: "Select the correct option."}} />
+                        <Question props={{text: "Select the option that is correct."}} />
                     </div>
                     <div className="answer-jawn">
                             
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            line1: "String count = 5;"
+                            line1: "String isHappy = false;"
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            line1: "boolean count = \"five\";"
+                            line1: "boolean isHappy = \"false\";"
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            line1: "int count = \"5\";"
+                            line1: "boolean isHappy = true;"
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer4Click,
-                            line1: "int count = 5;"
+                            line1: "boolean isHappy = yes;"
                             }} />
                     </div>
                 </div>
@@ -62,13 +63,13 @@ function JavaVariableQuestion2({props}:{props:any}) {
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "String count = 5;"
+                            line1: "String isHappy = false;"
                             }} />
                     </div>
                     <div className="question-explanation">
-                        This statement is declaring a String variable named count.
-                        It is attempting to assign an int value of 5 to count.
-                        int values cannot be assigned to String variables.
+                        This statement is declaring a String variable named isHappy.
+                        It is attempting to assign it a value of false.
+                        false is a boolean data type and cannot be assigned to a String variable.
                     </div>
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
@@ -81,13 +82,13 @@ function JavaVariableQuestion2({props}:{props:any}) {
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "boolean count = \"five\";"
+                            line1: "boolean isHappy = \"false\";"
                             }} />
                     </div>
                     <div className="question-explanation">
-                        This is declaring a boolean variable named count.
-                        It is attempting to assign a String value of "five" to count.
-                        String values cannot be assigned to boolean variables.
+                        This statement is declaring a variable named isHappy.
+                        It is attempting to assign it a value of "false".
+                        "false" is a String data type and cannot be assigned to a boolean variable.
                     </div>
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
@@ -96,17 +97,16 @@ function JavaVariableQuestion2({props}:{props:any}) {
             }
             {answer === 'C' &&
                 <div className="question-container">
-                    <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
+                    <div className="question-explanation-correct">You have chosen the correct answer.</div>
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "int count = \"5\";"
+                            line1: "boolean isHappy = true;"
                             }} />
                     </div>
                     <div className="question-explanation">
-                        This is declaring an int variable named count.
-                        It is attempting to assign a String value of "5" to count.
-                        String values cannot be assigned to int variables.
+                        This statement is declaring a boolean variable named isHappy.
+                        It is assigning it a value of true.
                     </div>
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
@@ -115,16 +115,17 @@ function JavaVariableQuestion2({props}:{props:any}) {
             }
             {answer === 'D' &&
                 <div className="question-container">
-                        <div className="question-explanation-correct">You have chosen the correct answer.</div>
+                        <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
                         <div className="answer-jawn">
                             <Answer props={{
                                 answerClicked:handleAnswer4Click,
-                                line1: "int count = 5;"
+                                line1: "boolean isHappy = yes;"
                                 }} />
                         </div>
                         <div className="question-explanation">
-                            This is declaring an int variable named count.
-                            It is assigning an int value of 5 to count.
+                            This statement is declaring a boolean variable named isHappy.
+                            It is attempting to assign it a value of yes.
+                            yes is not a keyword or a value assignable to a boolean variable.
                         </div>
                         <button className="explanation-btn" onClick={endQuestion} >
                             Continue
@@ -135,5 +136,5 @@ function JavaVariableQuestion2({props}:{props:any}) {
     )
 }
   
-export default JavaVariableQuestion2
+export default JavaVariableQuestion5
   
