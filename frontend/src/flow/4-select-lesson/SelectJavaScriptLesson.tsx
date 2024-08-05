@@ -13,7 +13,7 @@ function JavaScriptLessons({props}:{props:any}) {
 
     return (
         <Container>
-        <PageName props={{title: "JavaScript Lessons", handleBackClick:handleBackClick, buttonOneText:"Back"}} />
+        <PageName props={{title: "JavaScript", handleBackClick:handleBackClick, buttonOneText:"Back"}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">

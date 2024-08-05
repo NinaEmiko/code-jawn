@@ -6,10 +6,13 @@
     justify-content: center;
     margin: 1%;
     height: 8%;
-    border-radius: 5px;
-    box-shadow: 0 0 10px 3px;
-    background-color: var(--background-jawn);
-    opacity: 90%;
+    background-color: transparent;
     text-align: center;
     display: flex;
+}
+
+.profile-icon{
+    max-width: 15%;
+    width: 15%;
+    float: left;
 }

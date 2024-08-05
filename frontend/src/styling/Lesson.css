@@ -20,10 +20,10 @@
     padding: 8px;
     background: transparent;
     width: 100%;
-    border-top: solid var(--sub-background-jawn);
+    border-top: transparent;
     border-left: transparent;
-    border-right: solid var(--sub-background-jawn);
-    border-bottom: transparent;
+    border-right: transparent;
+    border-bottom: solid var(--sub-background-jawn);
     text-align: right;
 }
 .lesson-section-jawn{

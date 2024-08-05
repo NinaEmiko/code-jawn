@@ -4,6 +4,7 @@ import PageName from "../../components/PageName"
 import JavaIcon from '../../assets/java-icon.png'
 import JavaScriptIcon from '../../assets/javascript-icon.png'
 import LolaIcon from '../../assets/lola-icon.jpg'
+import Controls from "../../components/Controls"
 
 function SelectLesson({props}:{props:any}) {
 
@@ -58,6 +59,7 @@ function SelectLesson({props}:{props:any}) {
                 </div>
             </div>
         </Display>
+        <Controls children={undefined} />
       </Container>
     )
   }

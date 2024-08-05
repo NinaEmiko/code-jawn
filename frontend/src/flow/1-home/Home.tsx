@@ -3,6 +3,7 @@ import SelectLanguage from "../2-select-language/SelectLanguage"
 import JavaScriptSections from "../3-languages/JavaScriptSections";
 import JavaSections from "../3-languages/JavaSections";
 import "../../styling/Language.css"
+import Controls from "../../components/Controls";
 
 function Home() {
     const [activeTab, setActiveTab] = useState("Select a Language");

@@ -30,7 +30,7 @@ function JavaLessons({props}:{props:any}) {
 
   return (
     <Container>
-        <PageName props={{title: "Java Lessons", handleBackClick:handleBackClick, buttonOneText:"Back"}} />
+        <PageName props={{title: "Java", handleBackClick:handleBackClick, buttonOneText:"Back"}} />
         <Display>
             <div className="parent-jawn-lessons">
                 <div className="child-jawn-lessons">
@@ -50,8 +50,8 @@ function JavaLessons({props}:{props:any}) {
                         <SelectLoopsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
                     
-                    <div onClick={() => handleShowSection('If/Else')} className="lesson-section-jawn">If/Else</div>
-                    {showSection === 'If/Else' &&
+                    <div onClick={() => handleShowSection('Conditionals')} className="lesson-section-jawn">Conditionals</div>
+                    {showSection === 'Conditionals' &&
                         <SelectConditionalsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
                     
