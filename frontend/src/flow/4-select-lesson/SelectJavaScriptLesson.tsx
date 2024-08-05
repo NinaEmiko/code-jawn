@@ -1,6 +1,6 @@
-import Container from "../components/Container"
-import Display from "../components/Display"
-import PageName from "../components/PageName"
+import Container from "../../components/Container"
+import Display from "../../components/Display"
+import PageName from "../../components/PageName"
 
 function JavaScriptLessons({props}:{props:any}) {
 
@@ -8,7 +8,7 @@ function JavaScriptLessons({props}:{props:any}) {
         props.handleRedirectJavaScriptLessons(lesson);
     }
     const handleBackClick = () => {
-        props.handleRedirectHome("Select a Lesson");
+        props.handleRedirectHome("Select a Language");
     }
 
     return (

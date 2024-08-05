@@ -1,6 +1,6 @@
-import Container from "../components/Container"
-import Display from "../components/Display"
-import PageName from "../components/PageName"
+import Container from "../../components/Container"
+import Display from "../../components/Display"
+import PageName from "../../components/PageName"
 
 function SelectLesson({props}:{props:any}) {
 
@@ -10,14 +10,14 @@ function SelectLesson({props}:{props:any}) {
 
     return (
       <Container>
-        <PageName props={{title: "Select a Lesson"}} />
+        <PageName props={{title: "Select a Language"}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
                     <div className="lesson-btn-container">
                         <button 
                             className="lesson-btn"
-                            onClick={() => handleButtonClick("Java Lessons")}
+                            onClick={() => handleButtonClick("Java")}
                             >
                                 Java
                         </button>
@@ -25,7 +25,7 @@ function SelectLesson({props}:{props:any}) {
                     <div className="lesson-btn-container">
                         <button 
                             className="lesson-btn"
-                            onClick={() => handleButtonClick("JavaScript Lessons")}
+                            onClick={() => handleButtonClick("JavaScript")}
                             >
                                 JavaScript
                         </button>

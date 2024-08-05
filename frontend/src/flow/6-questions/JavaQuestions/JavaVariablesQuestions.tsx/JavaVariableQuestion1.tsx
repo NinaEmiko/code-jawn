@@ -1,8 +1,8 @@
-import Answer from "../../../components/Answer"
-import "../../../styling/Question.css"
-import "../../../styling/Answer.css"
-import Question from "../../../components/Question"
-import { generateTabs } from "../../../helpers/TabHelper"
+import Answer from "../../../../components/Answer"
+import "../../../../styling/Question.css"
+import "../../../../styling/Answer.css"
+import Question from "../../../../components/Question"
+import { generateTabs } from "../../../../helpers/TabHelper"
 import { useState } from "react"
 
 

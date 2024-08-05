@@ -1,6 +1,6 @@
-import Container from "../components/Container"
-import Display from "../components/Display"
-import PageName from "../components/PageName"
+import Container from "../../components/Container"
+import Display from "../../components/Display"
+import PageName from "../../components/PageName"
 
 
 function JavaLessons({props}:{props:any}) {
@@ -10,7 +10,7 @@ function JavaLessons({props}:{props:any}) {
     }
 
     const handleBackClick = () => {
-        props.handleRedirectHome("Select a Lesson");
+        props.handleRedirectHome("Select a Language");
     }
 
   return (
@@ -19,20 +19,22 @@ function JavaLessons({props}:{props:any}) {
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
+                    Variables
                     <div className="lesson-btn-container">
                         <button 
                             className="lesson-btn"
                             onClick={() => handleButtonClick("Java Lesson 1")}
                             >
-                                Lesson 1
+                                Initializing Variables
                         </button>
                     </div>
+                    DataTypes
                     <div className="lesson-btn-container">
                         <button 
                             className="lesson-btn"
                             onClick={() => handleButtonClick("Java Lesson 2")}
                             >
-                                Lesson 2
+                                Strings
                         </button>
                     </div>
                     <div className="lesson-btn-container">
@@ -40,7 +42,7 @@ function JavaLessons({props}:{props:any}) {
                             className="lesson-btn"
                             onClick={() => handleButtonClick("Java Lesson 3")}
                             >
-                                Lesson 3
+                                ints
                         </button>
                     </div>
                 </div>

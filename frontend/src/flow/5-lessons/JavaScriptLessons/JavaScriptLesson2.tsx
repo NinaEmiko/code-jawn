@@ -1,8 +1,8 @@
-import Container from "../../components/Container"
-import Display from "../../components/Display"
-import PageName from "../../components/PageName"
+import Container from "../../../components/Container"
+import Display from "../../../components/Display"
+import PageName from "../../../components/PageName"
 
-function JavaScriptLesson3({props}:{props:any}) {
+function JavaScriptLesson2({props}:{props:any}) {
 
 
     const handleBackClick = () => {
@@ -23,4 +23,4 @@ function JavaScriptLesson3({props}:{props:any}) {
   )
 }
 
-export default JavaScriptLesson3
+export default JavaScriptLesson2

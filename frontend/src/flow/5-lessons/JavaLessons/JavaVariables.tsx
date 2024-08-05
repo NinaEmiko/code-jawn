@@ -1,12 +1,12 @@
 import { useState } from "react"
-import Container from "../../components/Container"
-import Display from "../../components/Display"
-import PageName from "../../components/PageName"
-import JavaVariableQuestion1 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion1"
-import JavaVariableQuestion2 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion2"
-import JavaVariableQuestion3 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion3"
-import JavaVariableQuestion4 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion4"
-import JavaVariableQuestion5 from "../../questions/JavaQuestions/JavaLesson1Questions/JavaVariableQuestion5"
+import Container from "../../../components/Container"
+import Display from "../../../components/Display"
+import PageName from "../../../components/PageName"
+import JavaVariableQuestion1 from "../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion1"
+import JavaVariableQuestion2 from "../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion2"
+import JavaVariableQuestion3 from "../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion3"
+import JavaVariableQuestion4 from "../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion4"
+import JavaVariableQuestion5 from "../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion5"
 
 function JavaLesson1({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
