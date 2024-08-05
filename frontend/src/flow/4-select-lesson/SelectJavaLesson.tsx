@@ -5,7 +5,7 @@ import PageName from "../../components/PageName"
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLession";
 import SelectVariablesLesson from "./SelectJavaLesson/SelectVariablesLesson";
 import SelectLoopsLesson from "./SelectJavaLesson/SelectLoopsLesson";
-import SelectIfElseLesson from "./SelectJavaLesson/SelectConditionalsLesson";
+import SelectConditionalsLesson from "./SelectJavaLesson/SelectConditionalsLesson";
 import SelectArraysLesson from "./SelectJavaLesson/SelectArraysLesson";
 import SelectCollectionsLesson from "./SelectJavaLesson/SelectCollectionsLesson";
 import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
@@ -52,12 +52,7 @@ function JavaLessons({props}:{props:any}) {
                     
                     <div onClick={() => handleShowSection('If/Else')} className="lesson-section-jawn">If/Else</div>
                     {showSection === 'If/Else' &&
-                        <SelectIfElseLesson props={{handleButtonClick:handleButtonClick}} />
-                    }
-
-                    <div onClick={() => handleShowSection('Switch')} className="lesson-section-jawn">Switch</div>
-                    {showSection === 'Switch' &&
-                        <SelectSwitchLesson props={{handleButtonClick:handleButtonClick}} />
+                        <SelectConditionalsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
                     
                     <div onClick={() => handleShowSection('Arrays')} className="lesson-section-jawn">Arrays</div>
