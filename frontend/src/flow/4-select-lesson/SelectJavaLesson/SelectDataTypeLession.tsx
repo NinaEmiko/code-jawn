@@ -20,43 +20,43 @@ function SelectDataTypeLesson({props}:{props:any}) {
             </button>
             <button 
                 className="lesson-btn"
-                onClick={() => handleButtonClick("Java Data Types ints")}
+                onClick={() => handleButtonClick("Java Data Types booleans")}
                 >
                     booleans
             </button>
             <button 
                 className="lesson-btn"
-                onClick={() => handleButtonClick("Java Data Types ints")}
+                onClick={() => handleButtonClick("Java Data Types Longs")}
                 >
                     Longs
             </button>
             <button 
                 className="lesson-btn"
-                onClick={() => handleButtonClick("Java Data Types ints")}
+                onClick={() => handleButtonClick("Java Data Types floats")}
                 >
                     floats
             </button>
             <button 
                 className="lesson-btn"
-                onClick={() => handleButtonClick("Java Data Types ints")}
+                onClick={() => handleButtonClick("Java Data Types doubles")}
                 >
                     doubles
             </button>
             <button 
                 className="lesson-btn"
-                onClick={() => handleButtonClick("Java Data Types ints")}
+                onClick={() => handleButtonClick("Java Data Types shorts")}
                 >
                     shorts
             </button>
             <button 
                 className="lesson-btn"
-                onClick={() => handleButtonClick("Java Data Types ints")}
+                onClick={() => handleButtonClick("Java Data Types bytes")}
                 >
                     bytes
             </button>
             <button 
                 className="lesson-btn"
-                onClick={() => handleButtonClick("Java Data Types ints")}
+                onClick={() => handleButtonClick("Java Data Types chars")}
                 >
                     chars
             </button>
