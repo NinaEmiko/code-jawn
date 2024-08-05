@@ -1,9 +1,10 @@
 .answer-text{
-    color: black;
+    color: white;
     height: 15%;
-    background-color: var(--text-jawn);
-    border-radius: 10px;
-    border: solid var(--accent-jawn);
+    background-color: transparent;
+    /* border-radius: 10px; */
+    border-top: solid var(--accent-jawn);
+    border-left: solid var(--accent-jawn);
     padding: 20px;
     margin-bottom: 10px;
     font-size: 5vw;
