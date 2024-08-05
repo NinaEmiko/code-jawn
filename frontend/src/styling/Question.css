@@ -49,9 +49,12 @@
 .explanation-btn{
     margin-top: 20px;
     padding: 10px;
-    border-radius: 10px;
-    color: black;
+    border-top: solid var(--accent-jawn);
+    border-left: solid var(--accent-jawn);
+    border-right: transparent;
+    border-bottom: transparent;
+    color: white;
     float: right;
     font-size: 6vw;
-    background-color: var(--text-jawn)
+    background-color: transparent;
 }
