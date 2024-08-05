@@ -1,9 +1,9 @@
 :root {
-  --dark-jawn: #003135;
-  --mid-dark-jawn: #024950;
-  --orange-jawn: #964734;
-  --mid-light-jawn: #0FA4AF;
-  --light-jawn: #AFDDE5;
+  --background-jawn: #000000; 
+  --sub-background-jawn: #e102ff;
+  --header-jawn: #ae03ff;
+  --text-jawn: #ff7100;
+  --accent-jawn: #fd9702;
 }
 
 html, body, #root {
@@ -12,7 +12,7 @@ html, body, #root {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--dark-jawn);
+  background-color: var(--background-jawn);
 }
 body{
   display: flex;
@@ -31,7 +31,7 @@ body{
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: FantaisieArtistique;
-  color: var(--mid-light-jawn);
+  color: var(--text-jawn);
 }
 
 .container-jawn {
@@ -43,7 +43,7 @@ body{
   justify-content: center;
   border-radius: 5px;
   box-shadow: 0 0 10px 3px;
-  background-color: var(--dark-jawn);
+  background-color: var(--background-jawn);
   opacity: 90%;
   box-sizing: border-box;
 } 

@@ -5,18 +5,18 @@
     align-items: center;
     justify-content: center;
     margin: 1%;
-    height: 28%;
+    height: 0%;
     border-radius: 5px;
     box-shadow: 0 0 10px 3px;
-    background-color: var(--dark-jawn);
+    background-color: var(--background-jawn);
     opacity: 90%;
     text-align: center;
     display: flex;
 }
 
 .controls-btn{
-    background-color: var(--mid-light-jawn);
-    border: 1px solid var(--mid-dark-jawn);
+    background-color: var(--text-jawn);
+    border: 1px solid var(--sub-background-jawn);
     border-radius: 15px;
     color: black;
     outline: none;
@@ -45,27 +45,27 @@
 }
   
 .controls-left button:nth-child(1) {
-    color: var(--light-jawn);
-    background: var(--mid-dark-jawn);
-    border-color: var(--mid-light-jawn);
+    color: var(--accent-jawn);
+    background: var(--sub-background-jawn);
+    border-color: var(--text-jawn);
     width: 100%;
     height: 100%;
 }
 
 .controls-left button:nth-child(2) {
     grid-row: 2;
-    color: var(--light-jawn);
-    background: var(--mid-dark-jawn);
-    border-color: var(--mid-light-jawn);
+    color: var(--accent-jawn);
+    background: var(--sub-background-jawn);
+    border-color: var(--text-jawn);
     width: 100%;
     height: 100%;
 }
   
 .controls-left button:nth-child(3) {
     grid-row: 3;
-    color: var(--light-jawn);
-    background: var(--mid-dark-jawn);
-    border-color: var(--mid-light-jawn);
+    color: var(--accent-jawn);
+    background: var(--sub-background-jawn);
+    border-color: var(--text-jawn);
     width: 100%;
     height: 100%;
 }
@@ -94,14 +94,14 @@
   
 .controls-right button:nth-child(1) {
     grid-column: 2;
-    background-color: var(--orange-jawn);
+    background-color: var(--header-jawn);
     width: 100%;
     height: 100%;
 }
 .controls-right button:nth-child(2) {
     grid-column: 1;
     grid-row: 2;
-    background-color: var(--orange-jawn);
+    background-color: var(--header-jawn);
     width: 100%;
     height: 100%;
 }
@@ -109,7 +109,7 @@
 .controls-right button:nth-child(3) {
     grid-column: 3;
     grid-row: 2;
-    background-color: var(--orange-jawn);
+    background-color: var(--header-jawn);
     width: 100%;
     height: 100%;
 }
@@ -117,7 +117,7 @@
 .controls-right button:nth-child(4) {
     grid-column: 2;
     grid-row: 3;
-    background-color: var(--orange-jawn);
+    background-color: var(--hdeaer-jawn);
     width: 100%;
     height: 100%;
 }

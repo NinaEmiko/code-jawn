@@ -2,10 +2,10 @@
 
 .display-jawn {
     margin: 1%;
-    height: 63%;
+    height: 84.5%;
     border-radius: 5px;
     box-shadow: 0 0 10px 3px;
-    background-color: var(--dark-jawn);
+    background-color: var(--background-jawn);
     opacity: 90%;
     overflow:hidden;
     overflow-y: scroll;
@@ -44,7 +44,7 @@
 .text-jawn-secondary{
     align-items: center;
     text-align: center;
-    color: var(--light-jawn);
+    color: var(--accent-jawn);
 }
 
 /* WARNING TEXT */
@@ -61,12 +61,5 @@
 .header-jawn{
 align-items: center;
 text-align: center;
-color: var(--mid-jawn);
-}
-
-.lesson-btn{
-    margin: 5px;
-    align-items: center;
-    text-align: center;
-    font-size: 8vw;
+color: var(--accent-jawn);
 }

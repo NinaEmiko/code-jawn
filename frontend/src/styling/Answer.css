@@ -1,0 +1,15 @@
+.answer-text{
+    color: black;
+    height: 15%;
+    background-color: var(--text-jawn);
+    border-radius: 10px;
+    border: solid var(--accent-jawn);
+    padding: 20px;
+    margin-bottom: 10px;
+    font-size: 5vw;
+}
+
+.answer-jawn{
+    display: block;
+    height: 75%;
+}

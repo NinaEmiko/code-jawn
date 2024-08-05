@@ -1,5 +1,4 @@
 import Container from "../components/Container"
-import Controls from "../components/Controls";
 import Display from "../components/Display"
 import PageName from "../components/PageName"
 
@@ -14,11 +13,11 @@ function JavaScriptLessons({props}:{props:any}) {
 
     return (
         <Container>
-        <PageName props={{title: "JavaScript Lessons"}} />
+        <PageName props={{title: "JavaScript Lessons", handleBackClick:handleBackClick, buttonOneText:"Back"}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
-                    <div className="lesson-btn">
+                    <div className="lesson-btn-container">
                         <button 
                             className="lesson-btn"
                             onClick={() => handleButtonClick("JavaScript Lesson 1")}
@@ -26,7 +25,7 @@ function JavaScriptLessons({props}:{props:any}) {
                                 Lesson 1
                         </button>
                     </div>
-                    <div className="lesson-btn">
+                    <div className="lesson-btn-container">
                         <button 
                             className="lesson-btn"
                             onClick={() => handleButtonClick("JavaScript Lesson 2")}
@@ -34,7 +33,7 @@ function JavaScriptLessons({props}:{props:any}) {
                                 Lesson 2
                         </button>
                     </div>
-                    <div className="lesson-btn">
+                    <div className="lesson-btn-container">
                         <button 
                             className="lesson-btn"
                             onClick={() => handleButtonClick("JavaScript Lesson 3")}
@@ -45,16 +44,6 @@ function JavaScriptLessons({props}:{props:any}) {
                 </div>
             </div>
         </Display>
-        <Controls 
-            leftBtnTopText="-"
-            leftBtnMiddleText="-"
-            handleClickLeftBtnBottom={() => handleBackClick()}
-            leftBtnBottomText="Back"
-            rightBtnLeftText="-"
-            rightBtnRightText="-"
-            rightBtnTopText="-"
-            rightBtnBottomText="-"
-        />
       </Container>
     )
   }

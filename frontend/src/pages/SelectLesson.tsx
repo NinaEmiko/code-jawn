@@ -1,5 +1,4 @@
 import Container from "../components/Container"
-import Controls from "../components/Controls"
 import Display from "../components/Display"
 import PageName from "../components/PageName"
 
@@ -15,7 +14,7 @@ function SelectLesson({props}:{props:any}) {
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
-                    <div className="lesson-btn">
+                    <div className="lesson-btn-container">
                         <button 
                             className="lesson-btn"
                             onClick={() => handleButtonClick("Java Lessons")}
@@ -23,7 +22,7 @@ function SelectLesson({props}:{props:any}) {
                                 Java
                         </button>
                     </div>
-                    <div className="lesson-btn">
+                    <div className="lesson-btn-container">
                         <button 
                             className="lesson-btn"
                             onClick={() => handleButtonClick("JavaScript Lessons")}
@@ -34,15 +33,6 @@ function SelectLesson({props}:{props:any}) {
                 </div>
             </div>
         </Display>
-        <Controls 
-            leftBtnTopText="-"
-            leftBtnMiddleText="-"
-            leftBtnBottomText="-"
-            rightBtnLeftText="-"
-            rightBtnRightText="-"
-            rightBtnTopText="-"
-            rightBtnBottomText="-"
-        />
       </Container>
     )
   }

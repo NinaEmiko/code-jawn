@@ -2,9 +2,18 @@ import "../styling/PageName.css";
 
 const PageName = ({props}:{props:any}) => {
 
+    const handleBackClick = () => {
+        props.handleBackClick();
+    }
+
     return (
         <div className="page-name-jawn">
             <div className="page-name-column-1">
+                {props.buttonOneText &&
+                    <button className="page-name-back-btn" onClick={() => handleBackClick()}>
+                        {props.buttonOneText}
+                    </button>
+                }   
             </div>
             <div className="page-name-column-2">
                 <div className="page-name-txt">{props.title}</div>
