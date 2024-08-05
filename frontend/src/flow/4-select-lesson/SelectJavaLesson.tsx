@@ -4,9 +4,8 @@ import Display from "../../components/Display"
 import PageName from "../../components/PageName"
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLession";
 import SelectVariablesLesson from "./SelectJavaLesson/SelectVariablesLesson";
-import SelectForLoopsLesson from "./SelectJavaLesson/SelectForLoopsLesson";
-import SelectWhileLoopsLesson from "./SelectJavaLesson/SelectWhileLoopsLesson";
-import SelectIfElseLesson from "./SelectJavaLesson/SelectIfElseLesson";
+import SelectLoopsLesson from "./SelectJavaLesson/SelectLoopsLesson";
+import SelectIfElseLesson from "./SelectJavaLesson/SelectConditionalsLesson";
 import SelectSwitchLesson from "./SelectJavaLesson/SelectSwitchLesson";
 import SelectArraysLesson from "./SelectJavaLesson/SelectArraysLesson";
 import SelectCollectionsLesson from "./SelectJavaLesson/SelectCollectionsLesson";
@@ -37,24 +36,19 @@ function JavaLessons({props}:{props:any}) {
             <div className="parent-jawn-lessons">
                 <div className="child-jawn-lessons">
 
-                    <div onClick={() => handleShowSection('Variables')} className="lesson-section-jawn">Variables</div>
-                    {showSection === 'Variables' &&
-                        <SelectVariablesLesson props={{handleButtonClick:handleButtonClick}} />
-                    }
-
                     <div onClick={() => handleShowSection('Data Types')} className="lesson-section-jawn">Data Types</div>
                     {showSection === 'Data Types' &&
                         <SelectDataTypeLesson props={{handleButtonClick:handleButtonClick}} />
                     }
 
-                    <div onClick={() => handleShowSection('For Loops')} className="lesson-section-jawn">For Loops</div>
-                    {showSection === 'For Loops' &&
-                        <SelectForLoopsLesson props={{handleButtonClick:handleButtonClick}} />
+                    <div onClick={() => handleShowSection('Variables')} className="lesson-section-jawn">Variables</div>
+                    {showSection === 'Variables' &&
+                        <SelectVariablesLesson props={{handleButtonClick:handleButtonClick}} />
                     }
 
-                    <div onClick={() => handleShowSection('While Loops')} className="lesson-section-jawn">While Loops</div>
-                    {showSection === 'While Loops' &&
-                        <SelectWhileLoopsLesson props={{handleButtonClick:handleButtonClick}} />
+                    <div onClick={() => handleShowSection('For Loops')} className="lesson-section-jawn">For Loops</div>
+                    {showSection === 'For Loops' &&
+                        <SelectLoopsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
                     
                     <div onClick={() => handleShowSection('If/Else')} className="lesson-section-jawn">If/Else</div>

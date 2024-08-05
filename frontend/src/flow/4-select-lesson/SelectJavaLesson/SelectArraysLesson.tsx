@@ -6,10 +6,8 @@ function SelectArraysLesson({props}:{props:any}) {
 
     return (
         <div className="lesson-btn-container">
-            <button 
-                className="lesson-btn"
-                onClick={() => handleButtonClick("")}
-                >
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("")}>
                     Coming Soon
             </button>
         </div>

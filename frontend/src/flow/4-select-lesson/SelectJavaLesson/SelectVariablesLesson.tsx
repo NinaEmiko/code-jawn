@@ -6,34 +6,24 @@ function SelectVariablesLesson({props}:{props:any}) {
 
     return (
         <div className="lesson-btn-container">
-            <button 
-                className="lesson-btn"
-                onClick={() => handleButtonClick("Java Initializing Variables")}
-                >
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java Initializing Variables")}>
                     Initializing Variables
             </button>
-            <button 
-                className="lesson-btn"
-                onClick={() => handleButtonClick("")}
-                >
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("")}>
                     Naming Variables
             </button>
-            <button 
-                className="lesson-btn"
-                onClick={() => handleButtonClick("")}
-                >
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("")}>
                     Assigning Values
             </button>
-            <button 
-                className="lesson-btn"
-                onClick={() => handleButtonClick("")}
-                >
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("")}>
                     Updating Values
             </button>
-            <button 
-                className="lesson-btn"
-                onClick={() => handleButtonClick("")}
-                >
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("")}>
                     Constants
             </button>
         </div>

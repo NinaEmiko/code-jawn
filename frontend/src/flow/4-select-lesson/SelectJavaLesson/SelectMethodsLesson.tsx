@@ -11,6 +11,10 @@ function SelectMethodsLesson({props}:{props:any}) {
                     Method Signatures
             </button>
             <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java Methods Return Types")}>
+                    Return Types
+            </button>
+            <button className="lesson-btn"
                 onClick={() => handleButtonClick("Java Methods Parameters")}>
                     Parameters
             </button>
@@ -19,17 +23,14 @@ function SelectMethodsLesson({props}:{props:any}) {
                     Return Statement
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Break Statement")}>
-                    Break Statement
-            </button>
-            <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Continue Statement")}>
-                    Continue Statement
-            </button>
-            <button className="lesson-btn"
                 onClick={() => handleButtonClick("Java Methods Scope")}>
                     Scope
             </button>
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java Methods Naming Methods")}>
+                    Naming Methods
+            </button>
+
         </div>
     )
 }
