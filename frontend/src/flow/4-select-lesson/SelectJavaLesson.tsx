@@ -6,7 +6,6 @@ import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLession";
 import SelectVariablesLesson from "./SelectJavaLesson/SelectVariablesLesson";
 import SelectLoopsLesson from "./SelectJavaLesson/SelectLoopsLesson";
 import SelectIfElseLesson from "./SelectJavaLesson/SelectConditionalsLesson";
-import SelectSwitchLesson from "./SelectJavaLesson/SelectSwitchLesson";
 import SelectArraysLesson from "./SelectJavaLesson/SelectArraysLesson";
 import SelectCollectionsLesson from "./SelectJavaLesson/SelectCollectionsLesson";
 import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
