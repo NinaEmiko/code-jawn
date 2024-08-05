@@ -14,17 +14,17 @@ function SelectLesson({props}:{props:any}) {
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
-                    <div className="lesson-btn-container">
+                    <div className="language-btn-container">
                         <button 
-                            className="lesson-btn"
+                            className="language-btn"
                             onClick={() => handleButtonClick("Java")}
                             >
                                 Java
                         </button>
                     </div>
-                    <div className="lesson-btn-container">
+                    <div className="language-btn-container">
                         <button 
-                            className="lesson-btn"
+                            className="language-btn"
                             onClick={() => handleButtonClick("JavaScript")}
                             >
                                 JavaScript

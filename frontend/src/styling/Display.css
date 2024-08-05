@@ -14,6 +14,14 @@
 
 /* PARENT */
 
+.parent-jawn-lessons{
+    position: relative;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 .parent-jawn{
     position: relative;
     height: 100%;
@@ -25,11 +33,23 @@
 
 .child-jawn{
     align-items: center;
+    justify-content: center;
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
+}
+
+.child-jawn-lessons{
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    box-sizing: border-box;
 }
 
 /* TEXT */

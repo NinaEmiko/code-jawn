@@ -16,8 +16,20 @@
 .lesson-btn{
     margin: 5px;
     font-size: 8vw;
-    border-radius: 10px;
+    color: var(--header-jawn);
+    padding: 8px;
+    background: transparent;
+    width: 100%;
+}
+.lesson-section-jawn{
     color: black;
-    padding: 10px;
-    background: var(--text-jawn);
+    height: 20%;
+    background-color: var(--text-jawn);
+    border-radius: 10px;
+    border: solid var(--accent-jawn);
+    padding: 20px;
+    margin-bottom: 10px;
+    font-size: 8vw;
+    font-weight: bold;
+    text-align: center;
 }

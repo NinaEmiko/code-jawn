@@ -1,7 +1,8 @@
 import { useState } from "react";
 import SelectLanguage from "../2-select-language/SelectLanguage"
 import JavaScriptSections from "../3-languages/JavaScriptSections";
-import JavaLessonsSections from "../3-languages/JavaLessonsSections";
+import JavaSections from "../3-languages/JavaSections";
+import "../../styling/Language.css"
 
 function Home() {
     const [activeTab, setActiveTab] = useState("Select a Language");
@@ -16,7 +17,7 @@ function Home() {
             <SelectLanguage props={{handleRedirectHome:handleRedirectHome}} />
         }
         {activeTab === "Java" &&
-            <JavaLessonsSections props={{handleRedirectHome:handleRedirectHome}} />
+            <JavaSections props={{handleRedirectHome:handleRedirectHome}} />
         }
         {activeTab === "JavaScript" &&
             <JavaScriptSections props={{handleRedirectHome:handleRedirectHome}} />

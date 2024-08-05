@@ -1,6 +1,7 @@
-import Container from "../../../components/Container"
-import Display from "../../../components/Display"
-import PageName from "../../../components/PageName"
+import { useState } from "react";
+import Container from "../../../../components/Container"
+import Display from "../../../../components/Display"
+import PageName from "../../../../components/PageName"
 
 function JavaLesson2({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);

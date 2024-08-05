@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SelectJavaLesson from "../4-select-lesson/SelectJavaLesson";
-import JavaVariables from "../5-lessons/JavaLessons/JavaVariables";
-import JavaDataTypes from "../5-lessons/JavaLessons/JavaDataTypes";
+import JavaVariables from "../5-lessons/JavaLessons/JavaVariables/JavaVariables";
+import JavaDataTypes from "../5-lessons/JavaLessons/JavaDataTypes/JavaDataTypesStrings";
 import JavaLesson3 from "../5-lessons/JavaLessons/JavaLesson3";
 
 function SelectJavaLessons({props}:{props:any}) {
@@ -20,21 +20,21 @@ function SelectJavaLessons({props}:{props:any}) {
                 handleRedirectHome:props.handleRedirectHome
               }} />
         }
-        {activeTab === "Java Lesson 1" &&
+        {activeTab === "Java Initializing Variables" &&
             <JavaVariables
               props={{
                 handleRedirectJavaLessons:handleRedirectJavaLessons,
                 handleRedirectHome:props.handleRedirectHome
               }} />
         }
-        {activeTab === "Java Lesson 2" &&
+        {activeTab === "Java Data Types Strings" &&
             <JavaDataTypes
               props={{
                 handleRedirectJavaLessons:handleRedirectJavaLessons,
                 handleRedirectHome:props.handleRedirectHome
               }} />
         }
-        {activeTab === "Java Lesson 3" &&
+        {activeTab === "Java Data Types ints" &&
             <JavaLesson3
                 props={{handleRedirectJavaLessons:handleRedirectJavaLessons,
                 handleRedirectHome:props.handleRedirectHome
