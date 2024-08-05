@@ -1,15 +1,18 @@
 /* CONTAINER */
 
 .display-jawn {
-    margin: 1%;
-    height: 84.5%;
-    border-radius: 5px;
-    box-shadow: 0 0 10px 3px;
+    /* margin: 1%; */
+    height: 77.5%;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
     background-color: var(--background-jawn);
-    opacity: 90%;
+    border-color: var(--accent-jawn);
     overflow:hidden;
     overflow-y: scroll;
     position: relative;
+    width: 100%;
 }
 
 /* PARENT */

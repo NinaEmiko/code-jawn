@@ -34,6 +34,10 @@ function SelectForLoopsLesson({props}:{props:any}) {
                 onClick={() => handleButtonClick("Java Do While Loops Syntax")}>
                     Do While Loops Syntax
             </button>
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java For Each Loops Syntax")}>
+                    For Each Syntax
+            </button>
         </div>
     )
 }

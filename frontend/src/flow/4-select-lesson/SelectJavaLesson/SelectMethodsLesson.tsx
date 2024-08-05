@@ -27,10 +27,13 @@ function SelectMethodsLesson({props}:{props:any}) {
                     Scope
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Naming Methods")}>
+                onClick={() => handleButtonClick("Java Methods Naming")}>
                     Naming Methods
             </button>
-
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java Methods Overloading")}>
+                    Overloading Methods
+            </button>
         </div>
     )
 }

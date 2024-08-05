@@ -22,14 +22,11 @@
     width: 100%;
 }
 .lesson-section-jawn{
-    color: black;
+    color: var(--text-jawn);
     height: 20%;
-    background-color: var(--text-jawn);
-    border-radius: 10px;
-    border: solid var(--accent-jawn);
+    background-color: transparent;
     padding: 20px;
     margin-bottom: 10px;
     font-size: 8vw;
-    font-weight: bold;
-    text-align: center;
+    text-align: left;
 }

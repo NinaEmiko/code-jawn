@@ -1,4 +1,5 @@
 import "../styling/PageName.css";
+import BackIcon from "../assets/back-icon.png"
 
 const PageName = ({props}:{props:any}) => {
 
@@ -11,7 +12,9 @@ const PageName = ({props}:{props:any}) => {
             <div className="page-name-column-1">
                 {props.buttonOneText &&
                     <button className="page-name-back-btn" onClick={() => handleBackClick()}>
-                        {props.buttonOneText}
+                        <img className="back-icon"
+                            src={BackIcon}
+                            alt="JavaScript Icon" />
                     </button>
                 }   
             </div>

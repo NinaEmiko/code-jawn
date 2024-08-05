@@ -7,8 +7,28 @@ function SelectArraysLesson({props}:{props:any}) {
     return (
         <div className="lesson-btn-container">
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("")}>
-                    Coming Soon
+                onClick={() => handleButtonClick("Java Initializing Arrays")}>
+                    Initializing Arrays
+            </button>
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java Arrays Assigning Values")}>
+                    Assigning Values
+            </button>
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java Arrays Indexes")}>
+                    Array Indexes
+            </button>
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java Arrays Updating Values")}>
+                    Updating Values
+            </button>
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java Arrays Length Method")}>
+                    Length Method
+            </button>
+            <button className="lesson-btn"
+                onClick={() => handleButtonClick("Java Arrays Looping")}>
+                    Looping Through An Array
             </button>
         </div>
     )
