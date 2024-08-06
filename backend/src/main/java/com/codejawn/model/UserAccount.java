@@ -1,27 +1,39 @@
 package com.codejawn.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import lombok.*;
-import javax.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@Data
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "user_account")
+@Data
+@NoArgsConstructor
 public class UserAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    @Size(max = 100)
-    private String login;
-
-    @Column(nullable = false)
-    @Size(max = 100)
+    @NotEmpty(message = "Password is required")
+    @Size(min = 8)
     private String password;
+
+    @NotEmpty(message = "Username is required")
+    @Size(min = 8)
+    private String username;
+
+    @NotEmpty(message = "Email is required")
+    @Email
+    private String email;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private List<Role> roles = new ArrayList<>();
 
 }
