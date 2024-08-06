@@ -27,7 +27,7 @@ public class UserAccount {
     @Size(min = 8)
     private String username;
 
-    @NotEmpty(message = "Email is required")
+    @NotEmpty(message = "Email is required" )
     @Email
     private String email;
 
