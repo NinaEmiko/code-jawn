@@ -3,6 +3,7 @@ import SelectJavaLesson from "../4-select-lesson/SelectJavaLesson";
 import JavaVariables from "../5-lessons/JavaLessons/JavaVariables/JavaVariables";
 import JavaDataTypes from "../5-lessons/JavaLessons/JavaDataTypes/JavaDataTypesStrings";
 import JavaLesson3 from "../5-lessons/JavaLessons/JavaLesson3";
+import JavaDataTypesStrings from "../5-lessons/JavaLessons/JavaDataTypes/JavaDataTypesStrings";
 
 function SelectJavaLessons({props}:{props:any}) {
     const [activeTab, setActiveTab] = useState("Java Lessons");
@@ -28,7 +29,7 @@ function SelectJavaLessons({props}:{props:any}) {
               }} />
         }
         {activeTab === "Java Data Types Strings" &&
-            <JavaDataTypes
+            <JavaDataTypesStrings
               props={{
                 handleRedirectJavaLessons:handleRedirectJavaLessons,
                 handleRedirectHome:props.handleRedirectHome
