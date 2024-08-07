@@ -1,18 +1,22 @@
 /* CONTAINER STYLES */
 
 .controls-jawn {
-    display: flex;
-    align-items: center;
     justify-content: center;
     margin: 1%;
     height: 8%;
     background-color: transparent;
-    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.profile-jawn, .computer-jawn{
+    width: 50%;
+    justify-content: center;
+    align-items: center;
     display: flex;
 }
-
 .profile-icon{
-    max-width: 15%;
-    width: 15%;
-    float: left;
+    width: 35%;
+}
+.computer-icon{
+    width: 33%;
 }
