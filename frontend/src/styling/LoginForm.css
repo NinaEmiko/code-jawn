@@ -1,0 +1,41 @@
+ul {
+    list-style-type: none;
+    margin-left: 17.5px;
+}
+
+.nav-link.custom-button.active {
+    background-color: var(--mid-light-jawn);
+    color: black;
+}
+
+li {
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    color: black;
+    font-size: 5vw;
+}
+
+.tab-jawn{
+    display: inline;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control{
+    display: block;
+    width: 100%; 
+    padding-left: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    height: 35px;
+    padding: 5px 10px;
+}
+
+.form-control:focus{
+    box-shadow: 0 0 10px 5px;
+    color: var(--orange-jawn);
+}
