@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -44,7 +45,7 @@ public class UserAccountController {
         this.jwtGenerator = jwtGenerator;
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public ResponseEntity<AuthResponseDTO> login(@RequestBody LoginDTO loginDTO){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -55,7 +56,7 @@ public class UserAccountController {
         return new ResponseEntity<>(new AuthResponseDTO(token), HttpStatus.OK);
     }
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterDTO registerDTO) {
         if (userAccountRepository.existsByUsername(registerDTO.getUsername())) {
             return new ResponseEntity<>("Username is taken!", HttpStatus.BAD_REQUEST);
@@ -66,8 +67,12 @@ public class UserAccountController {
         userAccount.setEmail(registerDTO.getEmail());
         userAccount.setPassword(passwordEncoder.encode((registerDTO.getPassword())));
 
-        Role roles = roleRepository.findByName("USER").get();
-        userAccount.setRoles(Collections.singletonList(roles));
+        Optional<Role> role = roleRepository.findByName("USER");
+        Role actualRole = null;
+        if (role.isPresent()) {
+            actualRole = role.get();
+        }
+        userAccount.setRoles(Collections.singletonList(actualRole));
 
         userAccountRepository.save(userAccount);
 
