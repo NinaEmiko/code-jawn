@@ -6,18 +6,18 @@ import PageName from '../../components/PageName';
 import '../../styling/LoginForm.css';
 import '../../styling/Tabs.css';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
 
 interface LoginFormProps {
-  onLogin: (e: FormEvent, login: string, password: string) => void;
-  onRegister: (login: string, password: string) => void;
-  currentUser: {userName: string, id: number, loggedIn: boolean};
+  onLogin: (e: FormEvent, username: string, password: string) => void;
+  onRegister: (username: string, password: string, email: string) => void;
+  currentUser: {username: string, id: number, loggedIn: boolean};
   logout: () => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser, logout }) => {
   const [activeButton, setActiveButton] = useState('Login');
-  const [login, setLogin] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmationPassword, setConfirmationPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -40,7 +40,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    if (name === 'login') setLogin(value);
+    if (name === 'username') setUsername(value);
+    else if (name === 'email') setEmail(value);
     else if (name === 'password') setPassword(value);
     else if (name === 'confirmation-password') setConfirmationPassword(value);
   };
@@ -49,7 +50,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
     
     e.preventDefault();
 
-    onLogin(e, login, password);
+    onLogin(e, username, password);
     setMessage("Username or password is incorrect.")
   };
 
@@ -57,15 +58,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
 
     e.preventDefault();
     
-    if (login.length < 4 || login.length > 16) {
+    if (username.length < 4 || username.length > 16) {
       setMessage("Username must be 4-16 characters.")
     } else if(password.length < 7 || password.length > 16) {
       setMessage("Passwords must be 8-16 characters.")
     } else if (password != confirmationPassword) {
       setMessage("Passwords must match.")
     }  else {
-      onRegister(login, password);
-      setMessage("Username taken.")
+      onRegister(username, password, email);
+      // setMessage("Username taken.")
     }
   };
 
@@ -92,8 +93,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                   <div className="username-jawn">
                     <input
                       type="text"
-                      value={login}
-                      name="login"
+                      value={username}
+                      name="username"
                       className="form-control"
                       placeholder="Username"
                       onChange={onChangeHandler}
@@ -121,10 +122,20 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                   <div className="username-jawn">
                     <input
                       type="text"
-                      value={login}
-                      name="login"
+                      value={username}
+                      name="username"
                       className="form-control"
                       placeholder="Username"
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className="username-jawn">
+                    <input
+                      type="text"
+                      value={email}
+                      name="email"
+                      className="form-control"
+                      placeholder="Email"
                       onChange={onChangeHandler}
                     />
                   </div>
