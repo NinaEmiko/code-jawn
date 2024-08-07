@@ -84,10 +84,10 @@ function App() {
 
   return (
     <>
-      {!currentUser.loggedIn &&
+      {/* {!currentUser.loggedIn &&
         <LoginForm onLogin={onLogin} onRegister={onRegister} currentUser={currentUser} logout={(logout)} />
-      }
-      {currentUser.loggedIn &&
+      } */}
+      {!currentUser.loggedIn &&
         <Home />
       }
     </>
