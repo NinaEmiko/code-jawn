@@ -1,0 +1,16 @@
+.answer-text{
+    color: white;
+    height: 15%;
+    background-color: transparent;
+    /* border-radius: 10px; */
+    border-top: solid var(--accent-jawn);
+    border-left: solid var(--accent-jawn);
+    padding: 20px;
+    margin-bottom: 10px;
+    font-size: 5vw;
+}
+
+.answer-jawn{
+    display: block;
+    height: 75%;
+}

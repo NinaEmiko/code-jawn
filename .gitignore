@@ -1,0 +1,7 @@
+backend/.idea
+.idea
+/backend/target
+/backend/mvnw
+backend/mvnw.cmd
+.gitignore
+frontend/node_modules
