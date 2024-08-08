@@ -1,8 +1,6 @@
 import { useState } from "react";
 import SelectJavaLesson from "../4-select-lesson/SelectJavaLesson";
 import JavaVariables from "../5-lessons/JavaLessons/JavaVariables/JavaVariables";
-import JavaDataTypes from "../5-lessons/JavaLessons/JavaDataTypes/JavaDataTypesStrings";
-import JavaLesson3 from "../5-lessons/JavaLessons/JavaLesson3";
 import JavaDataTypesStrings from "../5-lessons/JavaLessons/JavaDataTypes/JavaDataTypesStrings";
 import JavaDataTypesInts from "../5-lessons/JavaLessons/JavaDataTypes/JavaDataTypesInts";
 
