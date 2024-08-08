@@ -14,3 +14,33 @@
     display: block;
     height: 75%;
 }
+.answer-input{
+    width: 100%;
+    font-size: 250%;
+    background: transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    /* border-color: var(--header-jawn); */
+}
+.answer-input:focus{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    outline: none;
+    border-color: var(--header-jawn);
+
+}
+
+.input-btn {
+    font-size: 8vw;
+    color: var(--text-jawn);
+    border-right: none;
+    border-bottom: none;
+    background-color: transparent;
+    margin-top: 10%;
+    float: right;
+    border-top: solid var(--accent-jawn);
+    border-left: solid var(--accent-jawn);
+
+}
