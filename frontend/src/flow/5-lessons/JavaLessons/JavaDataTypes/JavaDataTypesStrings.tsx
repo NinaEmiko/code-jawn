@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Container from "../../../../components/Container"
 import Display from "../../../../components/Display"
-import PageName from "../../../../components/PageName"
 import JavaDataTypesStringsQuestion1 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion1";
 import JavaDataTypesStringsQuestion2 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion2";
 import JavaDataTypesStringsQuestion3 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion3";
@@ -28,7 +27,7 @@ function JavaLesson2({props}:{props:any}) {
 
   return (
     <Container>
-        <PageName props={{title: "Java Lesson 2", handleBackClick:handleBackClick, buttonOneText:"Exit"}} />
+        <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">

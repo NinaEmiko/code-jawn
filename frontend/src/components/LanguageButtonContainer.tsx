@@ -31,7 +31,7 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
                 </div>
             </div>
             <div className="expand-icon">
-                V
+            v
             </div>
         </div>
     )

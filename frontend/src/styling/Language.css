@@ -13,7 +13,6 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    /* top: 0; */
     margin-bottom: 10px;
 }
 
@@ -70,4 +69,5 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-size: 7vw;
 }

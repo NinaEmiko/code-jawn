@@ -1,6 +1,5 @@
 import Container from "../../components/Container"
 import Display from "../../components/Display"
-import PageName from "../../components/PageName"
 import LolaIcon from '../../assets/lola-icon.jpg'
 import Controls from "../../components/Controls"
 import LanguageButtonContainer from "../../components/LanguageButtonContainer"

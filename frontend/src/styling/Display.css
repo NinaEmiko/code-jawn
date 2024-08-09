@@ -88,3 +88,13 @@ align-items: center;
 text-align: center;
 color: var(--accent-jawn);
 }
+
+.back-btn-jawn{
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    font-size: 20vw;
+    border: none;
+    font-weight: bold;
+    padding-left: 10%;
+}
