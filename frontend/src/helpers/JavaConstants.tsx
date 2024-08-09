@@ -27,6 +27,15 @@ export const INT_QUESTION_1_BOOLEANS = {
     ANSWER_4: false
 }
 
+export const INT_QUESTION_4_ANSWERS = {
+    CORRECT_ANSWER: "17"
+}
+
+export const INT_QUESTION_4_EXPLANATIONS = {
+    CORRECT_ANSWER: `You are correct! By removing the quotation marks from "17", you changed it from a String value to an int value.`,
+    INCORRECT_ANSWER: `Correct answer: 17. "17" is a String value. By removing the quotation marks, it becomes an int value.`
+}
+
 export const VARIABLES_QUESTIONS = {
     INITIALIZATION_QUESTION_1: `Select the option that displays the use of variables.`,
     INITIALIZATION_QUESTION_2: `UPDATE`,

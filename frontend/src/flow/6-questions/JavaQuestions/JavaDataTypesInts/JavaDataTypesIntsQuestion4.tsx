@@ -2,7 +2,9 @@ import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
 import { useState } from "react"
-import { DATA_TYPES_QUESTIONS } from "../../../../helpers/JavaConstants";
+import { DATA_TYPES_QUESTIONS, INT_QUESTION_4_ANSWERS, INT_QUESTION_4_EXPLANATIONS } from "../../../../helpers/JavaConstants";
+import Explanation from "../../../../components/Explanation";
+import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader";
 
 
 function JavaDataTypesIntsQuestion4({props}:{props:any}) {
@@ -14,8 +16,9 @@ function JavaDataTypesIntsQuestion4({props}:{props:any}) {
       };
 
     const endQuestion = () => {
-        value === '17' ? props.completeQuestion(true) : props.completeQuestion(false);
+        value === INT_QUESTION_4_ANSWERS.CORRECT_ANSWER ? props.completeQuestion(true) : props.completeQuestion(false);
     }
+
     const handleSubmit = () => {
         setShowAnswer(true);
     }
@@ -38,17 +41,16 @@ function JavaDataTypesIntsQuestion4({props}:{props:any}) {
                 </div>
                 :
                 <>
-                    {value != "17" ?
+                    {value != INT_QUESTION_4_ANSWERS.CORRECT_ANSWER ?
                         <>
-                            <div className="question-explanation-incorrect">Your answer: {value} is incorrect.</div>
-                            <div className="question-explanation">Correct answer: 17</div>
-                            <div className="question-explanation">"17" is a String value. By removing the quotation marks, it becomes an int value.</div>
+                            <AnswerExplanationHeader props={{correct: false}} />
+                            <Explanation props={INT_QUESTION_4_EXPLANATIONS.INCORRECT_ANSWER} />
                             <button className="explanation-btn" onClick={() => endQuestion}>Continue</button>
                         </>
                     :
                         <>
-                            <div className="question-explanation-correct">You are correct!</div>
-                            <div className="question-explanation">By removing the quotation marks from "17", you changed it from a String value to an int value.</div>
+                            <AnswerExplanationHeader props={{correct: true}} />
+                            <Explanation props={INT_QUESTION_4_EXPLANATIONS.CORRECT_ANSWER} />
                             <button className="explanation-btn" onClick={() => endQuestion}>Continue</button>
                         </>    
                     }

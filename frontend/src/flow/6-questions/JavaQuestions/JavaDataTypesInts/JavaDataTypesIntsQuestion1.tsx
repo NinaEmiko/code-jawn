@@ -59,7 +59,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
             }
             {answer === 'A' &&
                 <div className="question-container">
-                <AnswerExplanationHeader props={INT_QUESTION_1_BOOLEANS.ANSWER_1} />
+                <AnswerExplanationHeader props={{correct: INT_QUESTION_1_BOOLEANS.ANSWER_1}} />
                 <div className="answer-jawn">
                     <Answer props={{
                             answerClicked:handleAnswer1Click,
@@ -72,7 +72,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
             }
             {answer === 'B' &&
                 <div className="question-container">
-                <AnswerExplanationHeader props={INT_QUESTION_1_BOOLEANS.ANSWER_2} />
+                <AnswerExplanationHeader props={{correct: INT_QUESTION_1_BOOLEANS.ANSWER_2}} />
                 <div className="answer-jawn">
                     <Answer props={{
                             answerClicked:handleAnswer2Click,
@@ -85,7 +85,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
             }
             {answer === 'C' &&
                 <div className="question-container">
-                <AnswerExplanationHeader props={INT_QUESTION_1_BOOLEANS.ANSWER_3} />
+                <AnswerExplanationHeader props={{correct: INT_QUESTION_1_BOOLEANS.ANSWER_3}} />
                 <div className="answer-jawn">
                     <Answer props={{
                             answerClicked:handleAnswer3Click,
@@ -98,7 +98,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
             }
             {answer === 'D' &&
                 <div className="question-container">
-                <AnswerExplanationHeader props={INT_QUESTION_1_BOOLEANS.ANSWER_4} />
+                <AnswerExplanationHeader props={{correct: INT_QUESTION_1_BOOLEANS.ANSWER_4}} />
                 <div className="answer-jawn">
                     <Answer props={{
                         answerClicked:handleAnswer4Click,
