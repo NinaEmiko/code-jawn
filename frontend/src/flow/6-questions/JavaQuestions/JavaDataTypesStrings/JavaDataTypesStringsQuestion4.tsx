@@ -40,19 +40,19 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                             
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            line1: "There are no quotations around Lola."
+                            code: "There are no quotations around Lola."
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            line1: "There is nothing missing."
+                            code: "There is nothing missing."
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            line1: "It is missing an ="
+                            code: "It is missing an ="
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer4Click,
-                            line1:  "It contains a 5 and that is an int value"
+                            code:  "It contains a 5 and that is an int value"
                             }} />
                     </div>
                 </div>

@@ -40,19 +40,19 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                             
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            line1: "false"
+                            code: "false"
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            line1: "5"
+                            code: "5"
                             }} />
                          <Answer props={{
                              answerClicked:handleAnswer3Click,
-                             line1: "\"This is a String.\""
+                             code: "\"This is a String.\""
                              }} />
                          <Answer props={{
                              answerClicked:handleAnswer4Click,
-                             line1: "This is a String."
+                             code: "This is a String."
                              }} />
                     </div>
                 </div>

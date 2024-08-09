@@ -1,8 +1,6 @@
 .answer-text{
     color: white;
-    height: 15%;
     background-color: transparent;
-    /* border-radius: 10px; */
     border-top: solid var(--accent-jawn);
     border-left: solid var(--accent-jawn);
     padding: 20px;
@@ -21,7 +19,6 @@
     border-left: none;
     border-right: none;
     border-top: none;
-    /* border-color: var(--header-jawn); */
 }
 .answer-input:focus{
     border-left: none;
