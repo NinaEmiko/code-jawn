@@ -3,6 +3,9 @@ import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
 import { useState } from "react"
+import { STRINGS_QUESTION_2_ANSWERS, STRINGS_QUESTION_2_BOOLEANS, STRINGS_QUESTION_2_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
+import Explanation from "../../../../components/Explanation"
+import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
 
 
 function JavaDataTypesStringsQuestion2({props}:{props:any}) {
@@ -33,41 +36,39 @@ function JavaDataTypesStringsQuestion2({props}:{props:any}) {
             {answer === '' &&
                 <div className="question-container">
                     <div className="question-jawn">
-                        <Question props={{text: "Select value that is not of type String."}} />
+                        <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_2}} />
                     </div>
                     <div className="answer-jawn">
                             
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            code: "five"
+                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_1
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            code: "\"5\""
+                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_2
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            code: "\"5.5\""
+                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_3
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer4Click,
-                            code: "\"five\""
+                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_4
                             }} />
                     </div>
                 </div>
             }
             {answer === 'A' &&
                 <div className="question-container">
-                    <div className="question-explanation-correct">You have chosen the correct answer.</div>
-                    <div className="answer-jawn">
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_2_BOOLEANS.ANSWER_1}} />
+                <div className="answer-jawn">
                     <Answer props={{
-                            answerClicked:handleAnswer1Click,
-                            line1: "five"
+                            answerClicked:null,
+                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_1
                             }} />
                     </div>
-                    <div className="question-explanation">
-                    Update.
-                    </div>
+                    <Explanation props={STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_1} />
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -75,16 +76,14 @@ function JavaDataTypesStringsQuestion2({props}:{props:any}) {
             }
             {answer === 'B' &&
                 <div className="question-container">
-                    <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_2_BOOLEANS.ANSWER_2}} />
                     <div className="answer-jawn">
                     <Answer props={{
-                            answerClicked:handleAnswer2Click,
-                            line1: "\"5\""
+                            answerClicked:null,
+                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_2
                             }} />
                     </div>
-                    <div className="question-explanation">
-                    Update.
-                    </div>
+                    <Explanation props={STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_2} />
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -92,16 +91,14 @@ function JavaDataTypesStringsQuestion2({props}:{props:any}) {
             }
             {answer === 'C' &&
                 <div className="question-container">
-                    <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_2_BOOLEANS.ANSWER_3}} />
                     <div className="answer-jawn">
                     <Answer props={{
-                            answerClicked:handleAnswer3Click,
-                            line1: "\"5.5\""
+                            answerClicked:null,
+                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_3
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        Update.
-                    </div>
+                    <Explanation props={STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_3} />
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -109,16 +106,14 @@ function JavaDataTypesStringsQuestion2({props}:{props:any}) {
             }
             {answer === 'D' &&
                 <div className="question-container">
-                        <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
-                        <div className="answer-jawn">
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_2_BOOLEANS.ANSWER_4}} />
+                    <div className="answer-jawn">
                         <Answer props={{
-                            answerClicked:handleAnswer4Click,
-                            line1: "\"five\""
+                            answerClicked:null,
+                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_4
                             }} />
                         </div>
-                        <div className="question-explanation">
-                            Update.
-                        </div>
+                        <Explanation props={STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_4} />
                         <button className="explanation-btn" onClick={endQuestion} >
                             Continue
                         </button>

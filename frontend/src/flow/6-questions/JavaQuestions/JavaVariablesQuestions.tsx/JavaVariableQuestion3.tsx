@@ -3,6 +3,8 @@ import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
 import { useState } from "react"
+import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
+import { INITIALIZING_VARIABLES_QUESTIONS, INITIALIZING_VARIABLES_QUESTION_3_ANSWERS, INITIALIZING_VARIABLES_QUESTION_3_BOOLEANS, INITIALIZING_VARIABLES_QUESTION_3_EXPLANATIONS } from "../../../../helpers/JavaConstants/VariablesConstants/InitializingVariablesConstants"
 
 
 function JavaVariableQuestion3({props}:{props:any}) {
@@ -33,44 +35,39 @@ function JavaVariableQuestion3({props}:{props:any}) {
             {answer === '' &&
                 <div className="question-container">
                     <div className="question-jawn">
-                        <Question props={{text: "Select the option that is incorrect"}} />
+                        <Question props={{text: INITIALIZING_VARIABLES_QUESTIONS.INITIALIZATION_QUESTION_3}} />
                     </div>
                     <div className="answer-jawn">
                             
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            line1: "String number = \"5\";"
+                            code: INITIALIZING_VARIABLES_QUESTION_3_ANSWERS.ANSWER_1
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            line1: "int 5 = number;"
+                            code: INITIALIZING_VARIABLES_QUESTION_3_ANSWERS.ANSWER_2
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            line1: "int number = 5;"
+                            code: INITIALIZING_VARIABLES_QUESTION_3_ANSWERS.ANSWER_3
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer4Click,
-                            line1: "number = 5;"
+                            code: INITIALIZING_VARIABLES_QUESTION_3_ANSWERS.ANSWER_4
                             }} />
                     </div>
                 </div>
             }
             {answer === 'A' &&
                 <div className="question-container">
-                    <div className="question-explanation-correct">You have chosen an incorrect answer.</div>
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_3_BOOLEANS.ANSWER_1} />
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "String number = \"5\";"
+                            code: INITIALIZING_VARIABLES_QUESTION_3_ANSWERS.ANSWER_1
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        This statment is declaring a String variable named number and assigning it a value of "5".
-                        Values wrapped in double quotes are of type String.
-                        false is a boolean value, but "false" is a String value.
-                        5 is an int value, but "5" is a String value.
-                    </div>
+                    {INITIALIZING_VARIABLES_QUESTION_3_EXPLANATIONS.ANSWER_1}
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -78,19 +75,14 @@ function JavaVariableQuestion3({props}:{props:any}) {
             }
             {answer === 'B' &&
                 <div className="question-container">
-                    <div className="question-explanation-correct">You have chosen the correct answer.</div>
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_3_BOOLEANS.ANSWER_2} />
                     <div className="answer-jawn">
                     <Answer props={{
                             answerClicked:null,
-                            line1: "int 5 = number;"
+                            code: INITIALIZING_VARIABLES_QUESTION_3_ANSWERS.ANSWER_2
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        This statement is declaring an int variable named 5.
-                        It is attempting to assign it a value of number.
-                        Variable names cannot begin with a number.
-                        int variables cannot be assigned the value of number.
-                    </div>
+                    {INITIALIZING_VARIABLES_QUESTION_3_EXPLANATIONS.ANSWER_2}
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -98,16 +90,14 @@ function JavaVariableQuestion3({props}:{props:any}) {
             }
             {answer === 'C' &&
                 <div className="question-container">
-                    <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_3_BOOLEANS.ANSWER_3} />
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "int number = 5;"
+                            code: INITIALIZING_VARIABLES_QUESTION_3_ANSWERS.ANSWER_3
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        This statment is declaring an int variable named number and assigning it a value of 5.
-                    </div>
+                    {INITIALIZING_VARIABLES_QUESTION_3_EXPLANATIONS.ANSWER_3}
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -115,17 +105,14 @@ function JavaVariableQuestion3({props}:{props:any}) {
             }
             {answer === 'D' &&
                 <div className="question-container">
-                        <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
-                        <div className="answer-jawn">
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_3_BOOLEANS.ANSWER_4} />
+                    <div className="answer-jawn">
                             <Answer props={{
                                 answerClicked:null,
-                                line1: "number = 5;"
+                                code: INITIALIZING_VARIABLES_QUESTION_3_ANSWERS.ANSWER_4
                                 }} />
                         </div>
-                        <div className="question-explanation">
-                            This statement is updating the value of a variable to the value of 5.
-                            Once a variable is declared, it's value can be changed using the above syntax.
-                        </div>
+                        {INITIALIZING_VARIABLES_QUESTION_3_EXPLANATIONS.ANSWER_4}
                         <button className="explanation-btn" onClick={endQuestion} >
                             Continue
                         </button>
