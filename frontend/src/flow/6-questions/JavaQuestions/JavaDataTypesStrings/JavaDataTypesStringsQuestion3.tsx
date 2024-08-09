@@ -40,19 +40,19 @@ function JavaDataTypesStringsQuestion3({props}:{props:any}) {
                             
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            line1: "\"This is my house\""
+                            code: "\"This is my house\""
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            line1: "They are all of type String"
+                            code: "They are all of type String"
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            line1: "\'This is my house\'"
+                            code: "\'This is my house\'"
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer4Click,
-                            line1:  "\`This is my house\`"
+                            code:  "\`This is my house\`"
                             }} />
                     </div>
                 </div>
