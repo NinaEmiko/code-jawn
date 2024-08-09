@@ -62,7 +62,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_1}} />
                 <div className="answer-jawn">
                     <Answer props={{
-                            answerClicked:handleAnswer1Click,
+                            answerClicked:null,
                             code: INTS_QUESTION_1_ANSWERS.ANSWER_1
                             }} />
                     </div>
@@ -75,7 +75,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_2}} />
                 <div className="answer-jawn">
                     <Answer props={{
-                            answerClicked:handleAnswer2Click,
+                            answerClicked:null,
                             line1: INTS_QUESTION_1_ANSWERS.ANSWER_2
                             }} />
                     </div>
@@ -88,7 +88,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_3}} />
                 <div className="answer-jawn">
                     <Answer props={{
-                            answerClicked:handleAnswer3Click,
+                            answerClicked:null,
                             code: INTS_QUESTION_1_ANSWERS.ANSWER_3
                             }} />
                     </div>
@@ -101,7 +101,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_4}} />
                 <div className="answer-jawn">
                     <Answer props={{
-                        answerClicked:handleAnswer4Click,
+                        answerClicked:null,
                         code: INTS_QUESTION_1_ANSWERS.ANSWER_4
                         }} />
                 </div>

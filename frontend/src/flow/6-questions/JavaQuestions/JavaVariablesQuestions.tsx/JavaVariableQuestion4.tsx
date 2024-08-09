@@ -3,6 +3,8 @@ import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
 import { useState } from "react"
+import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
+import { INITIALIZING_VARIABLES_QUESTIONS, INITIALIZING_VARIABLES_QUESTION_4_ANSWERS, INITIALIZING_VARIABLES_QUESTION_4_BOOLEANS, INITIALIZING_VARIABLES_QUESTION_4_EXPLANATIONS } from "../../../../helpers/JavaConstants/VariablesConstants/InitializingVariablesConstants"
 
 
 function JavaVariableQuestion4({props}:{props:any}) {
@@ -33,42 +35,39 @@ function JavaVariableQuestion4({props}:{props:any}) {
             {answer === '' &&
                 <div className="question-container">
                     <div className="question-jawn">
-                        <Question props={{text: "Select the best variable name."}} />
+                        <Question props={{text: INITIALIZING_VARIABLES_QUESTIONS.INITIALIZATION_QUESTION_4}} />
                     </div>
                     <div className="answer-jawn">
                             
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            line1: "int spv = 50;"
+                            code: INITIALIZING_VARIABLES_QUESTION_4_ANSWERS.ANSWER_1
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            line1: "int SpeedPerVehicle = 50;"
+                            code: INITIALIZING_VARIABLES_QUESTION_4_ANSWERS.ANSWER_2
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            line1: "int speedPerVehicle = 50;"
+                            code: INITIALIZING_VARIABLES_QUESTION_4_ANSWERS.ANSWER_3
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer4Click,
-                            line1: "int speed per vehicle = 50;"
+                            code: INITIALIZING_VARIABLES_QUESTION_4_ANSWERS.ANSWER_4
                             }} />
                     </div>
                 </div>
             }
             {answer === 'A' &&
                 <div className="question-container">
-                    <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_4_BOOLEANS.ANSWER_1} />
                     <div className="answer-jawn">
                     <Answer props={{
                             answerClicked:null,
-                            line1: "int spv = 50;"
+                            code: INITIALIZING_VARIABLES_QUESTION_4_ANSWERS.ANSWER_1
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        spv is not clear enough of a name for a variable.
-                        What spv stands for is not immediately apparent.
-                    </div>
+                    {INITIALIZING_VARIABLES_QUESTION_4_EXPLANATIONS.ANSWER_1}
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -76,17 +75,14 @@ function JavaVariableQuestion4({props}:{props:any}) {
             }
             {answer === 'B' &&
                 <div className="question-container">
-                    <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_4_BOOLEANS.ANSWER_2} />
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "int SpeedPerVehicle = 50;"
+                            code: INITIALIZING_VARIABLES_QUESTION_4_ANSWERS.ANSWER_2
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        Variable names should be in camel case.
-                        For example: milesPerHour, timesWeWentToTheStore, daysWorked.
-                    </div>
+                    {INITIALIZING_VARIABLES_QUESTION_4_EXPLANATIONS.ANSWER_2}
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -94,17 +90,14 @@ function JavaVariableQuestion4({props}:{props:any}) {
             }
             {answer === 'C' &&
                 <div className="question-container">
-                    <div className="question-explanation-correct">You have chosen the correct answer.</div>
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_4_BOOLEANS.ANSWER_3} />
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "int speedPerVehicle = 50;"
+                            code: INITIALIZING_VARIABLES_QUESTION_4_ANSWERS.ANSWER_3
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        This variable is in camel case.
-                        It is clear what the variable represents.
-                    </div>
+                    {INITIALIZING_VARIABLES_QUESTION_4_EXPLANATIONS.ANSWER_3}
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -112,18 +105,14 @@ function JavaVariableQuestion4({props}:{props:any}) {
             }
             {answer === 'D' &&
                 <div className="question-container">
-                        <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
-                        <div className="answer-jawn">
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_4_BOOLEANS.ANSWER_4} />
+                    <div className="answer-jawn">
                             <Answer props={{
                                 answerClicked:null,
-                                line1: "int speed per vehicle = 50;"
+                                code: INITIALIZING_VARIABLES_QUESTION_4_ANSWERS.ANSWER_4
                                 }} />
                         </div>
-                        <div className="question-explanation">
-                            Variable names should be one word.
-                            milesPerHour is correct.
-                            miles per hour is incorrect.
-                        </div>
+                        {INITIALIZING_VARIABLES_QUESTION_4_EXPLANATIONS.ANSWER_4}
                         <button className="explanation-btn" onClick={endQuestion} >
                             Continue
                         </button>

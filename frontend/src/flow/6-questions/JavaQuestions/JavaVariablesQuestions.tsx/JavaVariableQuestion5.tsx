@@ -3,6 +3,8 @@ import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
 import { useState } from "react"
+import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
+import { INITIALIZING_VARIABLES_QUESTIONS, INITIALIZING_VARIABLES_QUESTION_5_ANSWERS, INITIALIZING_VARIABLES_QUESTION_5_BOOLEANS, INITIALIZING_VARIABLES_QUESTION_5_EXPLANATIONS } from "../../../../helpers/JavaConstants/VariablesConstants/InitializingVariablesConstants"
 
 
 function JavaVariableQuestion5({props}:{props:any}) {
@@ -33,43 +35,39 @@ function JavaVariableQuestion5({props}:{props:any}) {
             {answer === '' &&
                 <div className="question-container">
                     <div className="question-jawn">
-                        <Question props={{text: "Select the option that is correct."}} />
+                        <Question props={{text: INITIALIZING_VARIABLES_QUESTIONS.INITIALIZATION_QUESTION_5}} />
                     </div>
                     <div className="answer-jawn">
                             
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            line1: "String isHappy = false;"
+                            code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_1
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            line1: "boolean isHappy = \"false\";"
+                            code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_2
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            line1: "boolean isHappy = true;"
+                            code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_3
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer4Click,
-                            line1: "boolean isHappy = yes;"
+                            code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_4
                             }} />
                     </div>
                 </div>
             }
             {answer === 'A' &&
                 <div className="question-container">
-                    <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_5_BOOLEANS.ANSWER_1} />
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "String isHappy = false;"
+                            code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_1
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        This statement is declaring a String variable named isHappy.
-                        It is attempting to assign it a value of false.
-                        false is a boolean data type and cannot be assigned to a String variable.
-                    </div>
+                    {INITIALIZING_VARIABLES_QUESTION_5_EXPLANATIONS.ANSWER_1}
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -77,18 +75,14 @@ function JavaVariableQuestion5({props}:{props:any}) {
             }
             {answer === 'B' &&
                 <div className="question-container">
-                    <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_5_BOOLEANS.ANSWER_2} />
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "boolean isHappy = \"false\";"
+                            code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_2
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        This statement is declaring a variable named isHappy.
-                        It is attempting to assign it a value of "false".
-                        "false" is a String data type and cannot be assigned to a boolean variable.
-                    </div>
+                    {INITIALIZING_VARIABLES_QUESTION_5_EXPLANATIONS.ANSWER_2}
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -96,17 +90,14 @@ function JavaVariableQuestion5({props}:{props:any}) {
             }
             {answer === 'C' &&
                 <div className="question-container">
-                    <div className="question-explanation-correct">You have chosen the correct answer.</div>
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_5_BOOLEANS.ANSWER_3} />
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:null,
-                            line1: "boolean isHappy = true;"
+                            code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_3
                             }} />
                     </div>
-                    <div className="question-explanation">
-                        This statement is declaring a boolean variable named isHappy.
-                        It is assigning it a value of true.
-                    </div>
+                    {INITIALIZING_VARIABLES_QUESTION_5_EXPLANATIONS.ANSWER_3}
                     <button className="explanation-btn" onClick={endQuestion} >
                         Continue
                     </button>
@@ -114,18 +105,14 @@ function JavaVariableQuestion5({props}:{props:any}) {
             }
             {answer === 'D' &&
                 <div className="question-container">
-                        <div className="question-explanation-incorrect">You have chosen an incorrect answer.</div>
-                        <div className="answer-jawn">
+                    <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_5_BOOLEANS.ANSWER_4} />
+                    <div className="answer-jawn">
                             <Answer props={{
                                 answerClicked:handleAnswer4Click,
-                                line1: "boolean isHappy = yes;"
+                                code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_4
                                 }} />
                         </div>
-                        <div className="question-explanation">
-                            This statement is declaring a boolean variable named isHappy.
-                            It is attempting to assign it a value of yes.
-                            yes is not a keyword or a value assignable to a boolean variable.
-                        </div>
+                        {INITIALIZING_VARIABLES_QUESTION_5_EXPLANATIONS.ANSWER_4}
                         <button className="explanation-btn" onClick={endQuestion} >
                             Continue
                         </button>
