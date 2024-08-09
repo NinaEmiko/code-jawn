@@ -1,42 +1,4 @@
-export const DATA_TYPES_QUESTIONS = {
-    INT_QUESTION_1: `Select the value that is of type int.`,
-    INT_QUESTION_2: `UPDATE`,
-    INT_QUESTION_3: `UPDATE`,
-    INT_QUESTION_4: `"Fix this value to make it into a valid int."`,
-    INT_QUESTION_5: `UPDATE`
-}
-
-export const INT_QUESTION_1_ANSWERS = {
-    ANSWER_1: `"five"`,
-    ANSWER_2: `"5"`,
-    ANSWER_3: `5`,
-    ANSWER_4: `"five"`
-}
-
-export const INT_QUESTION_1_EXPLANATIONS = {
-    ANSWER_1: `UPDATE`,
-    ANSWER_2: `UPDATE`,
-    ANSWER_3: `UPDATE`,
-    ANSWER_4: `UPDATE`
-}
-
-export const INT_QUESTION_1_BOOLEANS = {
-    ANSWER_1: false,
-    ANSWER_2: false,
-    ANSWER_3: true,
-    ANSWER_4: false
-}
-
-export const INT_QUESTION_4_ANSWERS = {
-    CORRECT_ANSWER: "17"
-}
-
-export const INT_QUESTION_4_EXPLANATIONS = {
-    CORRECT_ANSWER: `You are correct! By removing the quotation marks from "17", you changed it from a String value to an int value.`,
-    INCORRECT_ANSWER: `Correct answer: 17. "17" is a String value. By removing the quotation marks, it becomes an int value.`
-}
-
-export const VARIABLES_QUESTIONS = {
+export const INITIALIZING_VARIABLES_QUESTIONS = {
     INITIALIZATION_QUESTION_1: `Select the option that displays the use of variables.`,
     INITIALIZATION_QUESTION_2: `Select the correct option.`,
     INITIALIZATION_QUESTION_3: `UPDATE`,
@@ -44,7 +6,7 @@ export const VARIABLES_QUESTIONS = {
     INITIALIZATION_QUESTION_5: `UPDATE`,
 }
 
-export const VARIABLES_QUESTION_1_ANSWERS = {
+export const INITIALIZING_VARIABLES_QUESTION_1_ANSWERS = {
     ANSWER_1: `String name = \"Lola\";`,
     ANSWER_2: `for(int i = 0; i < 10; i++) {
     doSomething();
@@ -55,7 +17,7 @@ export const VARIABLES_QUESTION_1_ANSWERS = {
     ANSWER_4: `import java.util.List;`
 }
 
-export const VARIABLES_QUESTION_1_EXPLANATIONS = {
+export const INITIALIZING_VARIABLES_QUESTION_1_EXPLANATIONS = {
     ANSWER_1: `This is a variable.
 It declares the data type as String.
 It declares the name of the variable as name.
@@ -71,21 +33,21 @@ It is typically found at the top of a java class file.
 By importing java.util.List, the user has the ablilty to create List objects.`
 }
 
-export const VARIABLES_QUESTION_1_BOOLEANS = {
+export const INITIALIZING_VARIABLES_QUESTION_1_BOOLEANS = {
     ANSWER_1: true,
     ANSWER_2: false,
     ANSWER_3: false,
     ANSWER_4: false
 }
 
-export const VARIABLES_QUESTION_2_ANSWERS = {
+export const INITIALIZING_VARIABLES_QUESTION_2_ANSWERS = {
     ANSWER_1: `String count = 5;`,
     ANSWER_2: `boolean count = "five";`,
     ANSWER_3: `int count = "5";`,
     ANSWER_4: `int count = 5;`
 }
 
-export const VARIABLES_QUESTION_2_EXPLANATIONS = {
+export const INITIALIZING_VARIABLES_QUESTION_2_EXPLANATIONS = {
     ANSWER_1: `This statement is declaring a String variable named count.
 It is attempting to assign an int value of 5 to count.
 int values cannot be assigned to String variables.`,
@@ -99,7 +61,7 @@ String values cannot be assigned to int variables.`,
 It is assigning an int value of 5 to count.`
 }
 
-export const VARIABLES_QUESTION_2_BOOLEANS = {
+export const INITIALIZING_VARIABLES_QUESTION_2_BOOLEANS = {
     ANSWER_1: false,
     ANSWER_2: false,
     ANSWER_3: false,

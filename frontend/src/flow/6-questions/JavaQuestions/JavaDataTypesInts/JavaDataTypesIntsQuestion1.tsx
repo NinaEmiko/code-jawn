@@ -3,9 +3,9 @@ import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
 import { useState } from "react"
-import { DATA_TYPES_QUESTIONS, INT_QUESTION_1_ANSWERS, INT_QUESTION_1_BOOLEANS, INT_QUESTION_1_EXPLANATIONS } from "../../../../helpers/JavaConstants"
 import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
 import Explanation from "../../../../components/Explanation"
+import { INTS_QUESTIONS, INTS_QUESTION_1_ANSWERS, INTS_QUESTION_1_BOOLEANS, INTS_QUESTION_1_EXPLANATIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypesIntsConstants"
 
 function JavaDataTypesIntsQuestion1({props}:{props:any}) {
     const [answer, setAnswer] = useState('');
@@ -35,77 +35,77 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
             {answer === '' &&
                 <div className="question-container">
                     <div className="question-jawn">
-                        <Question props={{text: DATA_TYPES_QUESTIONS.INT_QUESTION_1}} />
+                        <Question props={{text: INTS_QUESTIONS.INT_QUESTION_1}} />
                     </div>
                     <div className="answer-jawn">
                         <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            code: INT_QUESTION_1_ANSWERS.ANSWER_1
+                            code: INTS_QUESTION_1_ANSWERS.ANSWER_1
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            code: INT_QUESTION_1_ANSWERS.ANSWER_2
+                            code: INTS_QUESTION_1_ANSWERS.ANSWER_2
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            code: INT_QUESTION_1_ANSWERS.ANSWER_3
+                            code: INTS_QUESTION_1_ANSWERS.ANSWER_3
                             }} />
                         <Answer props={{
                             answerClicked:handleAnswer4Click,
-                            code: INT_QUESTION_1_ANSWERS.ANSWER_4
+                            code: INTS_QUESTION_1_ANSWERS.ANSWER_4
                             }} />
                     </div>
                 </div>
             }
             {answer === 'A' &&
                 <div className="question-container">
-                <AnswerExplanationHeader props={{correct: INT_QUESTION_1_BOOLEANS.ANSWER_1}} />
+                <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_1}} />
                 <div className="answer-jawn">
                     <Answer props={{
                             answerClicked:handleAnswer1Click,
-                            code: INT_QUESTION_1_ANSWERS.ANSWER_1
+                            code: INTS_QUESTION_1_ANSWERS.ANSWER_1
                             }} />
                     </div>
-                    <Explanation props={INT_QUESTION_1_EXPLANATIONS.ANSWER_1} />
+                    <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_1} />
                     <button className="explanation-btn" onClick={endQuestion} >Continue</button>
                 </div>
             }
             {answer === 'B' &&
                 <div className="question-container">
-                <AnswerExplanationHeader props={{correct: INT_QUESTION_1_BOOLEANS.ANSWER_2}} />
+                <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_2}} />
                 <div className="answer-jawn">
                     <Answer props={{
                             answerClicked:handleAnswer2Click,
-                            line1: INT_QUESTION_1_ANSWERS.ANSWER_2
+                            line1: INTS_QUESTION_1_ANSWERS.ANSWER_2
                             }} />
                     </div>
-                    <Explanation props={INT_QUESTION_1_EXPLANATIONS.ANSWER_2} />
+                    <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_2} />
                     <button className="explanation-btn" onClick={endQuestion} >Continue</button>
                 </div>
             }
             {answer === 'C' &&
                 <div className="question-container">
-                <AnswerExplanationHeader props={{correct: INT_QUESTION_1_BOOLEANS.ANSWER_3}} />
+                <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_3}} />
                 <div className="answer-jawn">
                     <Answer props={{
                             answerClicked:handleAnswer3Click,
-                            code: INT_QUESTION_1_ANSWERS.ANSWER_3
+                            code: INTS_QUESTION_1_ANSWERS.ANSWER_3
                             }} />
                     </div>
-                    <Explanation props={INT_QUESTION_1_EXPLANATIONS.ANSWER_3} />
+                    <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_3} />
                     <button className="explanation-btn" onClick={endQuestion} >Continue</button>
                 </div>
             }
             {answer === 'D' &&
                 <div className="question-container">
-                <AnswerExplanationHeader props={{correct: INT_QUESTION_1_BOOLEANS.ANSWER_4}} />
+                <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_4}} />
                 <div className="answer-jawn">
                     <Answer props={{
                         answerClicked:handleAnswer4Click,
-                        code: INT_QUESTION_1_ANSWERS.ANSWER_4
+                        code: INTS_QUESTION_1_ANSWERS.ANSWER_4
                         }} />
                 </div>
-                <Explanation props={INT_QUESTION_1_EXPLANATIONS.ANSWER_4} />
+                <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_4} />
                 <button className="explanation-btn" onClick={endQuestion} >Continue</button>
                 </div>
             }
