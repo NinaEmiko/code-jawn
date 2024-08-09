@@ -1,10 +1,8 @@
 import Container from "../../components/Container"
 import Display from "../../components/Display"
-import PageName from "../../components/PageName"
-import JavaIcon from '../../assets/java-icon.png'
-import JavaScriptIcon from '../../assets/javascript-icon.png'
 import LolaIcon from '../../assets/lola-icon.jpg'
 import Controls from "../../components/Controls"
+import LanguageButtonContainer from "../../components/LanguageButtonContainer"
 
 function SelectLesson({props}:{props:any}) {
 
@@ -14,7 +12,6 @@ function SelectLesson({props}:{props:any}) {
 
     return (
       <Container>
-        <PageName props={{title: "Select a Language"}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
@@ -29,33 +26,18 @@ function SelectLesson({props}:{props:any}) {
                         Please select the language you wish to learn.
                     </div>
 
-                    <div className="language-btn-container">
-                        <img className="language-icon"
-                            onClick={() => handleButtonClick("Java")}
-                            src={JavaIcon}
-                            alt="Java Icon" />
-                        <button className="language-btn"
-                            onClick={() => handleButtonClick("Java")}
-                            >
-                                Java
-                        </button>
-                        <div className="additional-text">
-                            0%
-                        </div>
-                    </div>
-                    <div className="language-btn-container">
-                        <img className="language-icon"
-                            onClick={() => handleButtonClick("JavaScript")}
-                            src={JavaScriptIcon}
-                            alt="JavaScript Icon" />
-                        <button className="language-btn"
-                            onClick={() => handleButtonClick("JavaScript")}>
-                                JavaScript
-                        </button>
-                        <div className="additional-text">
-                            100%
-                        </div>
-                    </div>
+                    <LanguageButtonContainer props={{
+                        iconAltText: "Java Icon",
+                        language: "Java",
+                        percentageComplete: "0",
+                        handleButtonClick:handleButtonClick}} />
+
+                    <LanguageButtonContainer props={{
+                        iconAltText: "JavaScript Icon",
+                        language: "JavaScript",
+                        percentageComplete: "100",
+                        handleButtonClick:handleButtonClick}} />
+                    
                 </div>
             </div>
         </Display>

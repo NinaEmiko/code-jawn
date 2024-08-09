@@ -2,11 +2,11 @@
 
 .display-jawn {
     /* margin: 1%; */
-    height: 77.5%;
+    height: 90%;
     border-left: none;
     border-right: none;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
+    border-top: none;
+    border-bottom: none;
     background-color: var(--background-jawn);
     border-color: var(--accent-jawn);
     overflow:hidden;
@@ -44,7 +44,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 90%;
 }
 
 .child-jawn-lessons{
@@ -87,4 +87,14 @@
 align-items: center;
 text-align: center;
 color: var(--accent-jawn);
+}
+
+.back-btn-jawn{
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    font-size: 20vw;
+    border: none;
+    font-weight: bold;
+    padding-left: 10%;
 }

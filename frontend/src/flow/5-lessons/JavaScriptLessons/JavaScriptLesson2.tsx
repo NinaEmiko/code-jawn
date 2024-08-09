@@ -1,6 +1,5 @@
 import Container from "../../../components/Container"
 import Display from "../../../components/Display"
-import PageName from "../../../components/PageName"
 
 function JavaScriptLesson2({props}:{props:any}) {
 
@@ -11,7 +10,7 @@ function JavaScriptLesson2({props}:{props:any}) {
 
   return (
     <Container>
-        <PageName props={{title: "JavaScript Lesson 1", handleBackClick:handleBackClick, buttonOneText:"Exit"}} />
+        <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">

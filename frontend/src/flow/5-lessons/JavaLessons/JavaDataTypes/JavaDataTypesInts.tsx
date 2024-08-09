@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Container from "../../../../components/Container"
 import Display from "../../../../components/Display"
-import PageName from "../../../../components/PageName"
 import JavaDataTypesIntsQuestion1 from "../../../6-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion1";
 import JavaDataTypesIntsQuestion4 from "../../../6-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion4";
 
@@ -26,7 +25,7 @@ function JavaDataTypesInts({props}:{props:any}) {
 
   return (
     <Container>
-        <PageName props={{title: "Java Lesson 2", handleBackClick:handleBackClick, buttonOneText:"Exit"}} />
+        <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
