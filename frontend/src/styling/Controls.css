@@ -2,11 +2,13 @@
 
 .controls-jawn {
     justify-content: center;
-    margin: 1%;
-    height: 8%;
-    background-color: transparent;
+    height: 10%;
+    background-color: var(--background-light-jawn);
     display: flex;
     align-items: center;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    width: 100%;
 }
 .profile-jawn, .computer-jawn{
     width: 50%;

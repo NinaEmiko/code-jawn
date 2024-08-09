@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Container from "../../../../components/Container"
 import Display from "../../../../components/Display"
-import PageName from "../../../../components/PageName"
 import JavaVariableQuestion1 from "../../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion1"
 import JavaVariableQuestion2 from "../../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion2"
 import JavaVariableQuestion3 from "../../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion3"
@@ -31,7 +30,6 @@ function JavaLesson1({props}:{props:any}) {
 
   return (
     <Container>
-        <PageName props={{title: "Java Lesson 1", handleBackClick:handleBackClick, buttonOneText:"Exit"}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">

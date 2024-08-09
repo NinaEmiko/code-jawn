@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Container from "../../components/Container"
 import Display from "../../components/Display"
-import PageName from "../../components/PageName"
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLession";
 import SelectVariablesLesson from "./SelectJavaLesson/SelectVariablesLesson";
 import SelectLoopsLesson from "./SelectJavaLesson/SelectLoopsLesson";
@@ -10,6 +9,7 @@ import SelectArraysLesson from "./SelectJavaLesson/SelectArraysLesson";
 import SelectCollectionsLesson from "./SelectJavaLesson/SelectCollectionsLesson";
 import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
 import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
+import LanguageLessonContainer from "../../components/LanguageLessonContainer";
 
 
 function JavaLessons({props}:{props:any}) {
@@ -30,11 +30,14 @@ function JavaLessons({props}:{props:any}) {
 
   return (
     <Container>
-        <PageName props={{title: "Java", handleBackClick:handleBackClick, buttonOneText:"Back"}} />
+        <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
         <Display>
             <div className="parent-jawn-lessons">
                 <div className="child-jawn-lessons">
 
+                    {/* <div onClick={() => handleShowSection('Data Types')}>
+                        <LanguageLessonContainer props={{lesson: "Data Types"}} />
+                    </div> */}
                     <div onClick={() => handleShowSection('Data Types')} className="lesson-section-jawn">Data Types</div>
                     {showSection === 'Data Types' &&
                         <SelectDataTypeLesson props={{handleButtonClick:handleButtonClick}} />

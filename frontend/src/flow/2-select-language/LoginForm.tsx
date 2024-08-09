@@ -2,7 +2,6 @@ import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'reac
 import Container from '../../components/Container';
 import Controls from '../../components/Controls';
 import Display from '../../components/Display';
-import PageName from '../../components/PageName';
 import '../../styling/LoginForm.css';
 import '../../styling/Tabs.css';
 import Cookies from 'js-cookie';
@@ -79,7 +78,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
 
   return (
     <Container>
-      <PageName props={{title: "Welcome", currentUser: currentUser, logout: logout}} />
       <Display>
         <div className="parent-jawn">
           <div className="child-jawn">
