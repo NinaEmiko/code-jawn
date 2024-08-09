@@ -2,6 +2,7 @@ import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
 import { useState } from "react"
+import { DATA_TYPES_QUESTIONS } from "../../../../helpers/JavaConstants";
 
 
 function JavaDataTypesIntsQuestion4({props}:{props:any}) {
@@ -24,7 +25,7 @@ function JavaDataTypesIntsQuestion4({props}:{props:any}) {
             {!showAnswer ?
                 <div className="question-container">
                     <div className="question-jawn">
-                        <Question props={{text: "Fix this value to make it into a valid int."}} />
+                        <Question props={{text: DATA_TYPES_QUESTIONS.INT_QUESTION_4}} />
                     </div>
                     <div className="answer-jawn">   
                         <input
