@@ -4,10 +4,9 @@ import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
 import { useEffect, useState } from "react"
 import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
-
+import { DATA_TYPES_QUESTIONS, VARIABLES_QUESTIONS } from "../../../../helpers/JavaConstants"
 
 function JavaVariableQuestion1({props}:{props:any}) {
-    const [question, setQuestion] = useState(``)
     const [codeBlock1, setCodeBlock1] = useState(``);
     const [codeBlock2, setCodeBlock2] = useState(``);
     const [codeBlock3, setCodeBlock3] = useState(``);
@@ -24,12 +23,6 @@ function JavaVariableQuestion1({props}:{props:any}) {
 
 
 useEffect(() => {
-
-if(question === ``){
-setQuestion(
-`Select the option that displays the use of variables.`
-)
-}
 
 if(codeBlock1 === ``){
 setCodeBlock1(
@@ -125,7 +118,7 @@ return (
         {answer === '' &&
             <div className="question-container">
                 <div className="question-jawn">
-                    <Question props={{text: question}} />
+                    <Question props={{text: VARIABLES_QUESTIONS.INITIALIZATION_QUESTION_1}} />
                 </div>
                 <div className="answer-jawn">
                     <Answer props={{
