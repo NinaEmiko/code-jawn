@@ -2,7 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
+    background-color: rgb(109, 109, 109);
+    border-radius: 25px;
+    margin-top: 5%;
 }
 
 .code-jawn-icon-container{
@@ -28,10 +31,10 @@
 }
 
 .language-icon {
-    margin-right: 10px;
-    width: 85px;
+    margin-right: 1%;
+    width: 20%;
     height: 85px;
-    max-width: 85px;
+    max-width: 20%;
     max-height: 85px;
 }
 
@@ -41,20 +44,30 @@
     max-width: 250px;
     max-height: 250px;
 }
+.center-language-btn{
+    width: 60%;
+}
 
 .language-btn {
     font-size: 8vw;
     color: var(--text-jawn);
     border: transparent;
     background-color: transparent;
-    margin-top: auto;
+    text-align: left;
+
 }
 
 .additional-text {
-    text-align: right;
     flex-grow: 1;
-    /* margin-left: auto;  */
     font-size: 5vw;
-    color: var(--header-jawn);
-    margin-top: auto;
+    color: var(--accent-jawn);
+    text-align: left;
+    padding-left: 3%;
+}
+
+.expand-icon{
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
