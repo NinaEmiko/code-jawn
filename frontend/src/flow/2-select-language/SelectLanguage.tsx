@@ -13,7 +13,6 @@ function SelectLesson({props}:{props:any}) {
 
     return (
       <Container>
-        <PageName props={{title: "Select a Language"}} />
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">

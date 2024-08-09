@@ -2,11 +2,11 @@
 
 .display-jawn {
     /* margin: 1%; */
-    height: 77.5%;
+    height: 90%;
     border-left: none;
     border-right: none;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
+    border-top: none;
+    border-bottom: none;
     background-color: var(--background-jawn);
     border-color: var(--accent-jawn);
     overflow:hidden;

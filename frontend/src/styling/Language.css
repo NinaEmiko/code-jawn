@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: rgb(109, 109, 109);
+    background-color: var(--background-light-jawn);
     border-radius: 25px;
     margin-top: 5%;
 }
@@ -19,9 +19,9 @@
 
 .select-language-sub-text{
     text-align: center;
-    color: var(--header-jawn);
+    color: var(--text-jawn);
     padding-bottom: 10%;
-    font-size: 5vw;
+    font-size: 6vw;
 }
 
 
@@ -39,10 +39,10 @@
 }
 
 .code-jawn-icon {
-    width: 250px;
-    height: 250px;
-    max-width: 250px;
-    max-height: 250px;
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
 }
 .center-language-btn{
     width: 60%;
