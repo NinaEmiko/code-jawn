@@ -1,4 +1,5 @@
 import DataTypesIcon from "../assets/data-types-icon.png"
+import VariablesIcon from "../assets/variables-icon.png"
 
 const LanguageButtonContainer = ({props}:{props:any}) => {
 
@@ -6,6 +7,8 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
         switch (lesson){
             case "Data Types":
                 return DataTypesIcon;
+                case "Variables":
+                    return VariablesIcon;
         }
     }
 

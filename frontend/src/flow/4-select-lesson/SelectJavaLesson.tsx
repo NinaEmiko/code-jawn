@@ -44,8 +44,13 @@ function JavaLessons({props}:{props:any}) {
                     {showSection === 'Data Types' &&
                         <SelectDataTypeLesson props={{handleButtonClick:handleButtonClick}} />
                     }
-
-                    <div onClick={() => handleShowSection('Variables')} className="lesson-section-jawn">Variables</div>
+                    <div className="language-btn-container" onClick={() => handleShowSection("Variables")}>
+                        <LanguageLessonContainer props={{
+                            lesson: "Variables",
+                            handleShowSection:handleShowSection,
+                            percentageComplete:"0",
+                            iconAltText:"Variables Icon"}} />
+                    </div>
                     {showSection === 'Variables' &&
                         <SelectVariablesLesson props={{handleButtonClick:handleButtonClick}} />
                     }
