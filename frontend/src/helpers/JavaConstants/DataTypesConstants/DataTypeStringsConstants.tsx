@@ -31,7 +31,7 @@ export const STRINGS_QUESTION_2_ANSWERS = {
     ANSWER_1: `five`,
     ANSWER_2: `"5"`,
     ANSWER_3: `"5.5"`,
-    ANSWER_4: `"five`
+    ANSWER_4: `"five"`
 }
 
 export const STRINGS_QUESTION_2_EXPLANATIONS = {
