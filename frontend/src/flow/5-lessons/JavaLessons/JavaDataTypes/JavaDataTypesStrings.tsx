@@ -5,6 +5,7 @@ import JavaDataTypesStringsQuestion1 from "../../../6-questions/JavaQuestions/Ja
 import JavaDataTypesStringsQuestion2 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion2";
 import JavaDataTypesStringsQuestion3 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion3";
 import JavaDataTypesStringsQuestion4 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion4";
+import ProgressTracker from "../../../../components/ProgressTracker";
 
 function JavaLesson2({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -28,6 +29,7 @@ function JavaLesson2({props}:{props:any}) {
   return (
     <Container>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+        <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:4}}/>
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">

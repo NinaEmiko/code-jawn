@@ -50,3 +50,10 @@ body{
 input{
   text-align: right;
 }
+.progress-tracker{
+  width: 100%;
+  text-align: center;
+  font-size: 7vw;
+  color: var(--text-jawn);
+  top: 0;
+}

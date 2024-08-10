@@ -3,6 +3,7 @@ import Container from "../../../../components/Container"
 import Display from "../../../../components/Display"
 import JavaDataTypesIntsQuestion1 from "../../../6-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion1";
 import JavaDataTypesIntsQuestion4 from "../../../6-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion4";
+import ProgressTracker from "../../../../components/ProgressTracker";
 
 function JavaDataTypesInts({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -26,6 +27,7 @@ function JavaDataTypesInts({props}:{props:any}) {
   return (
     <Container>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+        <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:2}}/>
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
