@@ -34,11 +34,13 @@ function JavaLessons({props}:{props:any}) {
         <Display>
             <div className="parent-jawn-lessons">
                 <div className="child-jawn-lessons">
-
-                    {/* <div onClick={() => handleShowSection('Data Types')}>
-                        <LanguageLessonContainer props={{lesson: "Data Types"}} />
-                    </div> */}
-                    <div onClick={() => handleShowSection('Data Types')} className="lesson-section-jawn">Data Types</div>
+                    <div className="language-btn-container" onClick={() => handleShowSection("Data Types")}>
+                        <LanguageLessonContainer props={{
+                            lesson: "Data Types",
+                            handleShowSection:handleShowSection,
+                            percentageComplete:"0",
+                            iconAltText:"Data Types Icon"}} />
+                    </div>
                     {showSection === 'Data Types' &&
                         <SelectDataTypeLesson props={{handleButtonClick:handleButtonClick}} />
                     }
