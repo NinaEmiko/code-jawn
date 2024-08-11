@@ -26,19 +26,20 @@ function SelectLesson({props}:{props:any}) {
                     <div className="select-language-sub-text">
                         Please select the language you wish to learn.
                     </div>
-
-                    <LanguageButtonContainer props={{
-                        iconAltText: "Java Icon",
-                        language: "Java",
-                        percentageComplete: "0",
-                        handleButtonClick:handleButtonClick}} />
-
+                    <div className="container-for-language-btn">
+                        <LanguageButtonContainer props={{
+                            iconAltText: "Java Icon",
+                            language: "Java",
+                            percentageComplete: "0",
+                            handleButtonClick:handleButtonClick}} />
+                    </div>
+                    <div className="container-for-language-btn">
                     <LanguageButtonContainer props={{
                         iconAltText: "JavaScript Icon",
                         language: "JavaScript",
                         percentageComplete: "100",
                         handleButtonClick:handleButtonClick}} />
-                    
+                    </div>
                 </div>
             </div>
         </Display>

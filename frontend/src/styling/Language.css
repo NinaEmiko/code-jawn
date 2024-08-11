@@ -5,8 +5,17 @@
     padding: 15px;
     background-color: var(--background-light-jawn);
     border-radius: 25px;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
     width: 100%;
+}
+
+.container-for-language-btn{
+    width: 100%;
+    /* padding: 15px; */
+    background-color: var(--background-light-jawn);
+    border-radius: 25px;
+    margin-bottom: 5%;
+    justify-content: space-between;
 }
 
 .code-jawn-icon-container{
