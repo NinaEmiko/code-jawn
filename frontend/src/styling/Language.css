@@ -59,13 +59,14 @@
 }
 
 .language-btn {
+    flex-grow: 1;
     font-size: 8vw;
     color: var(--text-jawn);
-    border: transparent;
-    background-color: transparent;
+    /* border: transparent; */
+    /* background-color: transparent; */
     text-align: left;
     width: 100%;
-
+    padding-left: 3%;
 }
 
 .additional-text {
