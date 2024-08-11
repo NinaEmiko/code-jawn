@@ -1,0 +1,2 @@
+INSERT IGNORE INTO role (name) VALUES ('USER');
+INSERT IGNORE INTO role (name) VALUES ('ADMIN');

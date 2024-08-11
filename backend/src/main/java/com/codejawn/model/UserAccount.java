@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "user_account")
 public class UserAccount {
 
     @Id
@@ -27,13 +28,19 @@ public class UserAccount {
     @Size(min = 8)
     private String username;
 
-    @NotEmpty(message = "Email is required" )
+    @NotEmpty(message = "Email is required")
     @Email
     private String email;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    @ManyToMany
+    @JoinTable(
+        name = "user_account_role",
+        joinColumns = @JoinColumn(name = "user_account_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
     private List<Role> roles = new ArrayList<>();
+    @OneToOne
+    @JoinColumn(name= "lesson_tracker_id")
+    private LessonTracker lessonTracker;
 
 }
