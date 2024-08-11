@@ -30,7 +30,7 @@ function JavaDataTypesIntsQuestion4({props}:{props:any}) {
                     <div className="question-jawn">
                         <Question props={{text: INTS_QUESTIONS.INT_QUESTION_4}} />
                     </div>
-                    <div className="answer-jawn">   
+                    <div className="answer-jawn-input">   
                         <input
                             className="answer-input"
                             value={value}
