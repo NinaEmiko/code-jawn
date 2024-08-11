@@ -7,27 +7,33 @@ function SelectArraysLesson({props}:{props:any}) {
     return (
         <div className="lesson-btn-container">
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Initializing Arrays")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Initializing Arrays")} */}
                     Initializing Arrays
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Arrays Assigning Values")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Arrays Assigning Values")} */}
                     Assigning Values
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Arrays Indexes")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Arrays Indexes")} */}
                     Array Indexes
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Arrays Updating Values")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Arrays Updating Values")} */}
                     Updating Values
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Arrays Length Method")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Arrays Length Method")} */}
                     Length Method
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Arrays Looping")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Arrays Looping")} */}
                     Looping Through An Array
             </button>
         </div>
