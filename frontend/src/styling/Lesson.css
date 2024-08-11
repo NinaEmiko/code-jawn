@@ -11,19 +11,17 @@
     margin: 5px;
     align-items: center;
     text-align: center;
+    padding-right: 10px;
 }
 
 .lesson-btn{
     margin: 5px;
-    font-size: 8vw;
+    font-size: 7vw;
     color: white;
-    padding: 8px;
+    padding: 5px;
     background: transparent;
     width: 100%;
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-    border-bottom: solid var(--sub-background-jawn);
+    border: transparent;
     text-align: right;
 }
 .lesson-section-jawn{

@@ -19,7 +19,7 @@ function SelectForLoopsLesson({props}:{props:any}) {
             <button className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java For Loops Incrementing/Decrementing")} */}
-                    For Loops Incrementing/Decrementing
+                    For Loops Increment/Decrement
             </button>
             <button className="lesson-btn"
                 onClick={() => null}>
