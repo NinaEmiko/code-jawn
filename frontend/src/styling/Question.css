@@ -16,6 +16,10 @@
 .question-container{
     height: 100%;
 }
+
+.question-explanation-container{
+    height: 25%;
+}
 .question-explanation{
     display: flex;
     flex-direction: column;

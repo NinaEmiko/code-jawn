@@ -58,7 +58,7 @@ const endQuestion = () => {
                 </div>
             }
             {answer === 'A' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_2_BOOLEANS.ANSWER_1} />
                     <div className="answer-jawn">
                         <AnswerCodeBlock props={{
@@ -73,7 +73,7 @@ const endQuestion = () => {
                 </div>
             }
             {answer === 'B' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_2_BOOLEANS.ANSWER_2} />
                     <div className="answer-jawn">
                         <AnswerCodeBlock props={{
@@ -88,7 +88,7 @@ const endQuestion = () => {
                 </div>
             }
             {answer === 'C' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_2_BOOLEANS.ANSWER_3} />
                     <div className="answer-jawn">
                         <AnswerCodeBlock props={{
@@ -103,7 +103,7 @@ const endQuestion = () => {
                 </div>
             }
             {answer === 'D' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_2_EXPLANATIONS.ANSWER_4} />
                     <div className="answer-jawn">
                         <AnswerCodeBlock props={{
