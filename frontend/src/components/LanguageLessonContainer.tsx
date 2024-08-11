@@ -1,5 +1,14 @@
 import DataTypesIcon from "../assets/data-types-icon.png"
 import VariablesIcon from "../assets/variables-icon.png"
+import ForLoopsIcon from "../assets/for-loops-icon.png"
+import ConditionalsIcon from "../assets/conditionals-icon.png"
+import ArrayIcon from "../assets/array-icon.png"
+import CollectionsIcon from "../assets/collections-icon.png"
+import MethodsIcon from "../assets/methods-icon.png"
+import OperatorsIcon from "../assets/operators-icon.png"
+
+
+
 
 const LanguageButtonContainer = ({props}:{props:any}) => {
 
@@ -7,9 +16,22 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
         switch (lesson){
             case "Data Types":
                 return DataTypesIcon;
-                case "Variables":
-                    return VariablesIcon;
-        }
+            case "Variables":
+                return VariablesIcon;
+            case "For Loops":
+                return ForLoopsIcon;
+            case "Conditionals":
+                return ConditionalsIcon;
+            case "Arrays":
+                return ArrayIcon;
+            case "Collections":
+                return CollectionsIcon;
+            case "Methods":
+                return MethodsIcon;
+            case "Operators":
+                return OperatorsIcon;
+                
+            }
     }
 
     return (
