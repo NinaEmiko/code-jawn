@@ -62,7 +62,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
             }
             {answer === 'A' &&
                 <div className="question-explanation-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_1_BOOLEANS.ANSWER_1}} />
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_4_BOOLEANS.ANSWER_1}} />
                     <div className="answer-jawn">
                     <AnswerText props={{
                             answerClicked:null,
@@ -70,14 +70,14 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_1} />
-                    <button className="explanation-btn" onClick={endQuestion} >
+                    <button className="explanation-btn" onClick={() => endQuestion()} >
                         Continue
                     </button>
                 </div>
             }
             {answer === 'B' &&
                 <div className="question-explanation-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_2_BOOLEANS.ANSWER_2}} />
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_4_BOOLEANS.ANSWER_2}} />
                     <div className="answer-jawn">
                     <AnswerText props={{
                             answerClicked:null,
@@ -85,14 +85,14 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_2} />
-                    <button className="explanation-btn" onClick={endQuestion} >
+                    <button className="explanation-btn" onClick={() => endQuestion()} >
                         Continue
                     </button>
                 </div>
             }
             {answer === 'C' &&
                 <div className="question-explanation-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_3}} />
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_4_BOOLEANS.ANSWER_3}} />
                     <div className="answer-jawn">
                     <AnswerText props={{
                             answerClicked:null,
@@ -100,7 +100,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_3} />
-                    <button className="explanation-btn" onClick={endQuestion} >
+                    <button className="explanation-btn" onClick={() => endQuestion()} >
                         Continue
                     </button>
                 </div>
@@ -115,7 +115,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                             }} />
                         </div>
                         <Explanation props={STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_4} />
-                        <button className="explanation-btn" onClick={endQuestion} >
+                        <button className="explanation-btn" onClick={() => endQuestion()} >
                             Continue
                         </button>
                 </div>

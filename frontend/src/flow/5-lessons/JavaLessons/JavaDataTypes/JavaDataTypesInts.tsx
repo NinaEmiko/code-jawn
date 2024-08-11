@@ -38,9 +38,9 @@ function JavaDataTypesInts({props}:{props:any}) {
                 {/* {questionsAnswered === 4 &&
                     <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion}} />
                 } */}
-                {questionsAnswered === 4 &&
+                {questionsAnswered === 2 &&
                     <div className="question-explanation">
-                        Score: {correctAnswers}/4
+                        Score: {correctAnswers}/2
                     </div>
                 }
             </div>
