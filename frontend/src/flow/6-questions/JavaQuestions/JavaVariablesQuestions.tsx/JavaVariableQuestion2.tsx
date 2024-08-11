@@ -1,4 +1,4 @@
-import Answer from "../../../../components/Answer"
+import AnswerCodeBlock from "../../../../components/AnswerCodeBlock"
 import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
@@ -38,19 +38,19 @@ const endQuestion = () => {
                         <Question props={{text: INITIALIZING_VARIABLES_QUESTIONS.INITIALIZATION_QUESTION_2}} />
                     </div>
                     <div className="answer-jawn">
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer1Click,
                             code: INITIALIZING_VARIABLES_QUESTION_2_ANSWERS.ANSWER_1
                             }} />
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer2Click,
                             code: INITIALIZING_VARIABLES_QUESTION_2_ANSWERS.ANSWER_2
                             }} />
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer3Click,
                             code: INITIALIZING_VARIABLES_QUESTION_2_ANSWERS.ANSWER_3
                             }} />
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer4Click,
                             code: INITIALIZING_VARIABLES_QUESTION_2_ANSWERS.ANSWER_4
                             }} />
@@ -61,7 +61,7 @@ const endQuestion = () => {
                 <div className="question-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_2_BOOLEANS.ANSWER_1} />
                     <div className="answer-jawn">
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:null,
                             code: INITIALIZING_VARIABLES_QUESTION_2_ANSWERS.ANSWER_1
                             }} />
@@ -76,7 +76,7 @@ const endQuestion = () => {
                 <div className="question-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_2_BOOLEANS.ANSWER_2} />
                     <div className="answer-jawn">
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:null,
                             code: INITIALIZING_VARIABLES_QUESTION_2_ANSWERS.ANSWER_2
                             }} />
@@ -91,7 +91,7 @@ const endQuestion = () => {
                 <div className="question-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_2_BOOLEANS.ANSWER_3} />
                     <div className="answer-jawn">
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:null,
                             code: INITIALIZING_VARIABLES_QUESTION_2_ANSWERS.ANSWER_3
                             }} />
@@ -106,7 +106,7 @@ const endQuestion = () => {
                 <div className="question-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_2_EXPLANATIONS.ANSWER_4} />
                     <div className="answer-jawn">
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:null,
                             code: INITIALIZING_VARIABLES_QUESTION_2_ANSWERS.ANSWER_4
                             }} />
