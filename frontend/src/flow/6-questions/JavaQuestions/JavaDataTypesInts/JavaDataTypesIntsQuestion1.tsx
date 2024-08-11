@@ -67,7 +67,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_1} />
-                    <button className="explanation-btn" onClick={endQuestion} >Continue</button>
+                    <button className="explanation-btn" onClick={() => endQuestion()} >Continue</button>
                 </div>
             }
             {answer === 'B' &&
@@ -80,7 +80,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_2} />
-                    <button className="explanation-btn" onClick={endQuestion} >Continue</button>
+                    <button className="explanation-btn" onClick={() => endQuestion()} >Continue</button>
                 </div>
             }
             {answer === 'C' &&
@@ -93,7 +93,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_3} />
-                    <button className="explanation-btn" onClick={endQuestion} >Continue</button>
+                    <button className="explanation-btn" onClick={() => endQuestion()} >Continue</button>
                 </div>
             }
             {answer === 'D' &&
@@ -106,7 +106,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                         }} />
                 </div>
                 <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_4} />
-                <button className="explanation-btn" onClick={endQuestion} >Continue</button>
+                <button className="explanation-btn" onClick={() => endQuestion()} >Continue</button>
                 </div>
             }
         </>
