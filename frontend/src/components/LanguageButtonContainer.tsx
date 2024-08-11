@@ -21,9 +21,9 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
                 src={handleIcon(props.language)}
                 alt={props.iconAltText} />
             <div className="center-language-btn">
-                <button className="language-btn">
+                <div className="language-btn">
                     {props.language}
-                </button>
+                </div>
                 <div className="additional-text">
                     {props.percentageComplete}%
                 </div>
