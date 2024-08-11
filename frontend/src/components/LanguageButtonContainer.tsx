@@ -16,14 +16,12 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
     }
 
     return (
-        <div className="language-btn-container">
+        <div className="language-btn-container" onClick={() => handleButtonClick(props.language)}>
             <img className="language-icon"
-                onClick={() => handleButtonClick(props.language)}
                 src={handleIcon(props.language)}
                 alt={props.iconAltText} />
             <div className="center-language-btn">
-                <button className="language-btn"
-                    onClick={() => handleButtonClick(props.language)}>
+                <button className="language-btn">
                     {props.language}
                 </button>
                 <div className="additional-text">
