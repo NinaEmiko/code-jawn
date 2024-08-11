@@ -1,7 +1,7 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { solarizedDarkAtom } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-const Answer = ({props}:{props:any}) => {
+const AnswerCodeBlock = ({props}:{props:any}) => {
 
     const customStyle = {
         ...solarizedDarkAtom,
@@ -30,4 +30,4 @@ const Answer = ({props}:{props:any}) => {
         </div>
     )
 }
-export default Answer;
+export default AnswerCodeBlock;

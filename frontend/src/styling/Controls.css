@@ -6,8 +6,7 @@
     background-color: var(--background-light-jawn);
     display: flex;
     align-items: center;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    padding-bottom: 10px;
     width: 100%;
 }
 .profile-jawn, .computer-jawn{
@@ -17,8 +16,8 @@
     display: flex;
 }
 .profile-icon{
-    width: 35%;
+    width: 25%;
 }
 .computer-icon{
-    width: 33%;
+    width: 24%;
 }
