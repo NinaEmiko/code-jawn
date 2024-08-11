@@ -4,6 +4,7 @@ import JavaDataTypesStringsQuestion2 from "../../../6-questions/JavaQuestions/Ja
 import JavaDataTypesStringsQuestion3 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion3";
 import JavaDataTypesStringsQuestion4 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion4";
 import ProgressTracker from "../../../../components/ProgressTracker";
+import JavaDataTypesStringsQuestion5 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
 
 function JavaLesson2({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -42,12 +43,12 @@ function JavaLesson2({props}:{props:any}) {
                 {questionsAnswered === 3 &&
                     <JavaDataTypesStringsQuestion4 props={{completeQuestion:completeQuestion}} />
                 }
-                {/* {questionsAnswered === 4 &&
-                    <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion}} />
-                } */}
                 {questionsAnswered === 4 &&
+                    <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion}} />
+                }
+                {questionsAnswered === 5 &&
                     <div className="question-explanation">
-                        Score: {correctAnswers}/4
+                        Score: {correctAnswers}/5
                     </div>
                 }
             </div>

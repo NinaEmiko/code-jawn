@@ -3,7 +3,7 @@ export const STRINGS_QUESTIONS = {
     STRING_QUESTION_2: `Select value that is not of type String.`,
     STRING_QUESTION_3: `Select value that is not of type String.`,
     STRING_QUESTION_4: `What is missing from this to make it a String value: Lola works at 5.`,
-    STRING_QUESTION_5: ``
+    STRING_QUESTION_5: `Update this value to make it into a string:`
 }
 
 export const STRINGS_QUESTION_1_ANSWERS = {
@@ -88,4 +88,14 @@ export const STRINGS_QUESTION_4_BOOLEANS = {
     ANSWER_2: false,
     ANSWER_3: false,
     ANSWER_4: false
+}
+export const STRINGS_QUESTION_5_ANSWERS = {
+    CORRECT_ANSWER_1: `"17"`,
+    CORRECT_ANSWER_2: `'17'`,
+    CORRECT_ANSWER_3: `\`17\``
+}
+
+export const STRINGS_QUESTION_5_EXPLANATIONS = {
+    CORRECT_ANSWER: `You are correct! By surrounding 17 with "", '', or \`\`, you have turned it into a String value.`,
+    INCORRECT_ANSWER: `You are incorrect. To turn 17 into a String value you must surround it with "", '', or \`\`.`
 }
