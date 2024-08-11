@@ -44,38 +44,79 @@ function JavaLessons({props}:{props:any}) {
                     {showSection === 'Data Types' &&
                         <SelectDataTypeLesson props={{handleButtonClick:handleButtonClick}} />
                     }
-
-                    <div onClick={() => handleShowSection('Variables')} className="lesson-section-jawn">Variables</div>
+                    <div className="language-btn-container" onClick={() => handleShowSection("Variables")}>
+                        <LanguageLessonContainer props={{
+                            lesson: "Variables",
+                            handleShowSection:handleShowSection,
+                            percentageComplete:"0",
+                            iconAltText:"Variables Icon"}} />
+                    </div>
                     {showSection === 'Variables' &&
                         <SelectVariablesLesson props={{handleButtonClick:handleButtonClick}} />
                     }
 
-                    <div onClick={() => handleShowSection('For Loops')} className="lesson-section-jawn">For Loops</div>
+                    <div className="language-btn-container" onClick={() => handleShowSection("For Loops")}>
+                        <LanguageLessonContainer props={{
+                            lesson: "For Loops",
+                            handleShowSection:handleShowSection,
+                            percentageComplete:"0",
+                            iconAltText:"For Loops Icon"}} />
+                    </div>
                     {showSection === 'For Loops' &&
                         <SelectLoopsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
                     
-                    <div onClick={() => handleShowSection('Conditionals')} className="lesson-section-jawn">Conditionals</div>
+                    <div className="language-btn-container" onClick={() => handleShowSection("Conditionals")}>
+                        <LanguageLessonContainer props={{
+                            lesson: "Conditionals",
+                            handleShowSection:handleShowSection,
+                            percentageComplete:"0",
+                            iconAltText:"Conditionals Icon"}} />
+                    </div>
                     {showSection === 'Conditionals' &&
                         <SelectConditionalsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
                     
-                    <div onClick={() => handleShowSection('Arrays')} className="lesson-section-jawn">Arrays</div>
+                    <div className="language-btn-container" onClick={() => handleShowSection("Arrays")}>
+                        <LanguageLessonContainer props={{
+                            lesson: "Arrays",
+                            handleShowSection:handleShowSection,
+                            percentageComplete:"0",
+                            iconAltText:"Arrays Icon"}} />
+                    </div>
                     {showSection === 'Arrays' &&
                         <SelectArraysLesson props={{handleButtonClick:handleButtonClick}} />
                     }
                     
-                    <div onClick={() => handleShowSection('Collections')} className="lesson-section-jawn">Collections</div>
+                    <div className="language-btn-container" onClick={() => handleShowSection("Collections")}>
+                        <LanguageLessonContainer props={{
+                            lesson: "Collections",
+                            handleShowSection:handleShowSection,
+                            percentageComplete:"0",
+                            iconAltText:"Collections Icon"}} />
+                    </div>
                     {showSection === 'Collections' &&
                         <SelectCollectionsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
                     
-                    <div onClick={() => handleShowSection('Methods')} className="lesson-section-jawn">Methods</div>
+                    <div className="language-btn-container" onClick={() => handleShowSection("Methods")}>
+                        <LanguageLessonContainer props={{
+                            lesson: "Methods",
+                            handleShowSection:handleShowSection,
+                            percentageComplete:"0",
+                            iconAltText:"Methods Icon"}} />
+                    </div>
                     {showSection === 'Methods' &&
                         <SelectMethodsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
                     
-                    <div onClick={() => handleShowSection('Operators')} className="lesson-section-jawn">Operators</div>
+                    <div className="language-btn-container" onClick={() => handleShowSection("Operators")}>
+                        <LanguageLessonContainer props={{
+                            lesson: "Operators",
+                            handleShowSection:handleShowSection,
+                            percentageComplete:"0",
+                            iconAltText:"Operators Icon"}} />
+                    </div>
                     {showSection === 'Operators' &&
                         <SelectOperatorsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
