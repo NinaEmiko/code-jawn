@@ -58,7 +58,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                 </div>
             }
             {answer === 'A' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_1}} />
                 <div className="answer-jawn">
                     <AnswerCodeBlock props={{
@@ -71,7 +71,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                 </div>
             }
             {answer === 'B' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_2}} />
                 <div className="answer-jawn">
                     <AnswerCodeBlock props={{
@@ -84,7 +84,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                 </div>
             }
             {answer === 'C' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_3}} />
                 <div className="answer-jawn">
                     <AnswerCodeBlock props={{
@@ -97,7 +97,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                 </div>
             }
             {answer === 'D' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_4}} />
                 <div className="answer-jawn">
                     <AnswerCodeBlock props={{
