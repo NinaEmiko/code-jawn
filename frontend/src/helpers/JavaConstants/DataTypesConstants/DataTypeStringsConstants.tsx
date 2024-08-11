@@ -49,10 +49,10 @@ export const STRINGS_QUESTION_2_BOOLEANS = {
 }
 
 export const STRINGS_QUESTION_3_ANSWERS = {
-    ANSWER_1: `"This is my house"`,
-    ANSWER_2: `They are all of type String`,
-    ANSWER_3: `'This is my house'`,
-    ANSWER_4: `\`This is my house\``
+    ANSWER_1: `"This is my house."`,
+    ANSWER_2: `They are all of type String.`,
+    ANSWER_3: `'This is my house.'`,
+    ANSWER_4: `\`This is my house.\``
 }
 
 export const STRINGS_QUESTION_3_EXPLANATIONS = {
@@ -72,8 +72,8 @@ export const STRINGS_QUESTION_3_BOOLEANS = {
 export const STRINGS_QUESTION_4_ANSWERS = {
     ANSWER_1: `There are no quotations around Lola.`,
     ANSWER_2: `There is nothing missing.`,
-    ANSWER_3: `It is missing an =`,
-    ANSWER_4: `It contains a 5 and that is an int value`
+    ANSWER_3: `It is missing an = sign.`,
+    ANSWER_4: `It contains a 5 and that is an int value.`
 }
 
 export const STRINGS_QUESTION_4_EXPLANATIONS = {
