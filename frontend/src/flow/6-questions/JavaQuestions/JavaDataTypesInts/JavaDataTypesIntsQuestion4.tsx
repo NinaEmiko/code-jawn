@@ -30,7 +30,7 @@ function JavaDataTypesIntsQuestion4({props}:{props:any}) {
                     <div className="question-jawn">
                         <Question props={{text: INTS_QUESTIONS.INT_QUESTION_4}} />
                     </div>
-                    <div className="answer-jawn">   
+                    <div className="answer-jawn-input">   
                         <input
                             className="answer-input"
                             value={value}
@@ -45,13 +45,13 @@ function JavaDataTypesIntsQuestion4({props}:{props:any}) {
                         <>
                             <AnswerExplanationHeader props={{correct: false}} />
                             <Explanation props={INTS_QUESTION_4_EXPLANATIONS.INCORRECT_ANSWER} />
-                            <button className="explanation-btn" onClick={() => endQuestion}>Continue</button>
+                            <button className="explanation-btn" onClick={() => endQuestion()}>Continue</button>
                         </>
                     :
                         <>
                             <AnswerExplanationHeader props={{correct: true}} />
                             <Explanation props={INTS_QUESTION_4_EXPLANATIONS.CORRECT_ANSWER} />
-                            <button className="explanation-btn" onClick={() => endQuestion}>Continue</button>
+                            <button className="explanation-btn" onClick={() => endQuestion()}>Continue</button>
                         </>    
                     }
                 </>

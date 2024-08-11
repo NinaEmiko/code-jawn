@@ -1,4 +1,4 @@
-import Answer from "../../../../components/Answer"
+import AnswerCodeBlock from "../../../../components/AnswerCodeBlock"
 import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
@@ -38,19 +38,19 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                         <Question props={{text: INTS_QUESTIONS.INT_QUESTION_1}} />
                     </div>
                     <div className="answer-jawn">
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer1Click,
                             code: INTS_QUESTION_1_ANSWERS.ANSWER_1
                             }} />
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer2Click,
                             code: INTS_QUESTION_1_ANSWERS.ANSWER_2
                             }} />
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer3Click,
                             code: INTS_QUESTION_1_ANSWERS.ANSWER_3
                             }} />
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer4Click,
                             code: INTS_QUESTION_1_ANSWERS.ANSWER_4
                             }} />
@@ -58,55 +58,55 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                 </div>
             }
             {answer === 'A' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_1}} />
                 <div className="answer-jawn">
-                    <Answer props={{
+                    <AnswerCodeBlock props={{
                             answerClicked:null,
                             code: INTS_QUESTION_1_ANSWERS.ANSWER_1
                             }} />
                     </div>
                     <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_1} />
-                    <button className="explanation-btn" onClick={endQuestion} >Continue</button>
+                    <button className="explanation-btn" onClick={() => endQuestion()} >Continue</button>
                 </div>
             }
             {answer === 'B' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_2}} />
                 <div className="answer-jawn">
-                    <Answer props={{
+                    <AnswerCodeBlock props={{
                             answerClicked:null,
                             line1: INTS_QUESTION_1_ANSWERS.ANSWER_2
                             }} />
                     </div>
                     <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_2} />
-                    <button className="explanation-btn" onClick={endQuestion} >Continue</button>
+                    <button className="explanation-btn" onClick={() => endQuestion()} >Continue</button>
                 </div>
             }
             {answer === 'C' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_3}} />
                 <div className="answer-jawn">
-                    <Answer props={{
+                    <AnswerCodeBlock props={{
                             answerClicked:null,
                             code: INTS_QUESTION_1_ANSWERS.ANSWER_3
                             }} />
                     </div>
                     <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_3} />
-                    <button className="explanation-btn" onClick={endQuestion} >Continue</button>
+                    <button className="explanation-btn" onClick={() => endQuestion()} >Continue</button>
                 </div>
             }
             {answer === 'D' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                 <AnswerExplanationHeader props={{correct: INTS_QUESTION_1_BOOLEANS.ANSWER_4}} />
                 <div className="answer-jawn">
-                    <Answer props={{
+                    <AnswerCodeBlock props={{
                         answerClicked:null,
                         code: INTS_QUESTION_1_ANSWERS.ANSWER_4
                         }} />
                 </div>
                 <Explanation props={INTS_QUESTION_1_EXPLANATIONS.ANSWER_4} />
-                <button className="explanation-btn" onClick={endQuestion} >Continue</button>
+                <button className="explanation-btn" onClick={() => endQuestion()} >Continue</button>
                 </div>
             }
         </>

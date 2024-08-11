@@ -7,35 +7,43 @@ function SelectForLoopsLesson({props}:{props:any}) {
     return (
         <div className="lesson-btn-container">
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java For Loops Syntax")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java For Loops Syntax")} */}
                     For Loops Syntax
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java For Loops Condition")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java For Loops Condition")} */}
                     For Loops Condition
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java For Loops Incrementing/Decrementing")}>
-                    For Loops Incrementing/Decrementing
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java For Loops Incrementing/Decrementing")} */}
+                    For Loops Increment/Decrement
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java For Loops Nested")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java For Loops Nested")} */}
                     Nested For Loops
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java While Loops Syntax")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java While Loops Syntax")} */}
                     While Loops Syntax
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java While Loops Condition")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java While Loops Condition")} */}
                     While Loops Condition
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Do While Loops Syntax")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Do While Loops Syntax")} */}
                     Do While Loops Syntax
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java For Each Loops Syntax")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java For Each Loops Syntax")} */}
                     For Each Syntax
             </button>
         </div>

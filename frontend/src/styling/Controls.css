@@ -8,6 +8,7 @@
     align-items: center;
     padding-bottom: 5px;
     width: 100%;
+    bottom: 0;
 }
 .profile-jawn, .computer-jawn{
     width: 50%;
@@ -19,5 +20,5 @@
     width: 25%;
 }
 .computer-icon{
-    width: 25%;
+    width: 24%;
 }

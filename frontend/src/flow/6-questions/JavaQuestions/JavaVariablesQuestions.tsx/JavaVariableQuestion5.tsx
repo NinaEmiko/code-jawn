@@ -1,4 +1,4 @@
-import Answer from "../../../../components/Answer"
+import AnswerCodeBlock from "../../../../components/AnswerCodeBlock"
 import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
@@ -39,19 +39,19 @@ function JavaVariableQuestion5({props}:{props:any}) {
                     </div>
                     <div className="answer-jawn">
                             
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer1Click,
                             code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_1
                             }} />
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer2Click,
                             code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_2
                             }} />
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer3Click,
                             code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_3
                             }} />
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:handleAnswer4Click,
                             code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_4
                             }} />
@@ -59,10 +59,10 @@ function JavaVariableQuestion5({props}:{props:any}) {
                 </div>
             }
             {answer === 'A' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_5_BOOLEANS.ANSWER_1} />
                     <div className="answer-jawn">
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:null,
                             code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_1
                             }} />
@@ -74,10 +74,10 @@ function JavaVariableQuestion5({props}:{props:any}) {
                 </div>
             }
             {answer === 'B' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_5_BOOLEANS.ANSWER_2} />
                     <div className="answer-jawn">
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:null,
                             code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_2
                             }} />
@@ -89,10 +89,10 @@ function JavaVariableQuestion5({props}:{props:any}) {
                 </div>
             }
             {answer === 'C' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_5_BOOLEANS.ANSWER_3} />
                     <div className="answer-jawn">
-                        <Answer props={{
+                        <AnswerCodeBlock props={{
                             answerClicked:null,
                             code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_3
                             }} />
@@ -104,10 +104,10 @@ function JavaVariableQuestion5({props}:{props:any}) {
                 </div>
             }
             {answer === 'D' &&
-                <div className="question-container">
+                <div className="question-explanation-container">
                     <AnswerExplanationHeader props={INITIALIZING_VARIABLES_QUESTION_5_BOOLEANS.ANSWER_4} />
                     <div className="answer-jawn">
-                            <Answer props={{
+                            <AnswerCodeBlock props={{
                                 answerClicked:handleAnswer4Click,
                                 code: INITIALIZING_VARIABLES_QUESTION_5_ANSWERS.ANSWER_4
                                 }} />

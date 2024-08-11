@@ -1,8 +1,7 @@
 /* CONTAINER */
 
 .display-jawn {
-    /* margin: 1%; */
-    height: 90%;
+    height: 95%;
     border-left: none;
     border-right: none;
     border-top: none;
@@ -13,48 +12,29 @@
     overflow-y: scroll;
     position: relative;
     width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 /* PARENT */
 
-.parent-jawn-lessons{
-    position: relative;
-    width: 100%;
-    overflow: auto;
-    height: 100%;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
 .parent-jawn{
     position: relative;
     height: 100%;
     width: 100%;
     overflow-y: hidden;
     overflow: auto;
-
+    display: flex;
+    justify-content: center;
 }
 
 /* CHILD */
 
 .child-jawn{
     align-items: center;
-    justify-content: center;
-    /* text-align: center; Messing up answer button styling */ 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 90%;
-}
-
-.child-jawn-lessons{
-    text-align: center;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 /* TEXT */
@@ -84,17 +64,21 @@
 /* HEADER TEXT */
 
 .header-jawn{
-align-items: center;
-text-align: center;
-color: var(--accent-jawn);
+    align-items: center;
+    text-align: center;
+    color: var(--accent-jawn);
+}
+
+.back-btn-container{
+    justify-content: center;
+    align-items: center;
 }
 
 .back-btn-jawn{
-    top: 0;
-    left: 0;
     background-color: transparent;
-    font-size: 20vw;
+    font-size: 250%;
     border: none;
     font-weight: bold;
     padding-left: 10%;
+    height: 5%;
 }

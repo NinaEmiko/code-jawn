@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Container from "../../../../components/Container"
-import Display from "../../../../components/Display"
 import JavaDataTypesIntsQuestion1 from "../../../6-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion1";
 import JavaDataTypesIntsQuestion4 from "../../../6-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion4";
 import ProgressTracker from "../../../../components/ProgressTracker";
@@ -25,31 +23,29 @@ function JavaDataTypesInts({props}:{props:any}) {
     }
 
   return (
-    <Container>
+    <>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
         <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:2}}/>
-        <Display>
-            <div className="parent-jawn">
-                <div className="child-jawn">
-                {questionsAnswered === 0 &&
-                        <JavaDataTypesIntsQuestion1 props={{completeQuestion:completeQuestion}} />
-                    }
-                    {questionsAnswered === 1 &&
-                        <JavaDataTypesIntsQuestion4 props={{completeQuestion:completeQuestion}} />
-                    }
-    
-                    {/* {questionsAnswered === 4 &&
-                        <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion}} />
-                    } */}
-                    {questionsAnswered === 4 &&
-                        <div className="question-explanation">
-                            Score: {correctAnswers}/4
-                        </div>
-                    }
-                </div>
+        <div className="parent-jawn">
+            <div className="child-jawn">
+            {questionsAnswered === 0 &&
+                    <JavaDataTypesIntsQuestion1 props={{completeQuestion:completeQuestion}} />
+                }
+                {questionsAnswered === 1 &&
+                    <JavaDataTypesIntsQuestion4 props={{completeQuestion:completeQuestion}} />
+                }
+
+                {/* {questionsAnswered === 4 &&
+                    <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion}} />
+                } */}
+                {questionsAnswered === 2 &&
+                    <div className="question-explanation">
+                        Score: {correctAnswers}/2
+                    </div>
+                }
             </div>
-        </Display>
-    </Container>
+        </div>
+    </>
   )
 }
 

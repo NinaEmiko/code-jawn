@@ -4,13 +4,21 @@
     border-top: solid var(--accent-jawn);
     border-left: solid var(--accent-jawn);
     padding: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 1%;
     font-size: 5vw;
+    height: 20%;
 }
 
 .answer-jawn{
-    display: block;
-    height: 75%;
+    padding-top: 9%;
+    padding-bottom: 9%;
+    height: 70%;
+}
+
+.answer-jawn-input{
+    padding-top: 9%;
+    padding-bottom: 9%;
+    height: 15%;
 }
 .answer-input{
     width: 100%;
