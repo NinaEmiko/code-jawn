@@ -13,7 +13,7 @@ function SelectJavaLessons({props}:{props:any}) {
 
   return (
    <>
-        {activeTab === "Java Lessons" &&
+      {activeTab === "Java Lessons" &&
             <SelectJavaLesson 
               props={{
                 handleRedirectJavaLessons:handleRedirectJavaLessons,
