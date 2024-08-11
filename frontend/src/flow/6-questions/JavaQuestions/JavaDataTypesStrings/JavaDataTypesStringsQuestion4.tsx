@@ -3,7 +3,7 @@ import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
 import Question from "../../../../components/Question"
 import { useState } from "react"
-import { STRINGS_QUESTION_3_BOOLEANS, STRINGS_QUESTION_4_ANSWERS, STRINGS_QUESTION_4_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
+import { STRINGS_QUESTION_1_BOOLEANS, STRINGS_QUESTION_2_BOOLEANS, STRINGS_QUESTION_3_BOOLEANS, STRINGS_QUESTION_4_ANSWERS, STRINGS_QUESTION_4_BOOLEANS, STRINGS_QUESTION_4_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
 import Explanation from "../../../../components/Explanation"
 
@@ -61,7 +61,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
             }
             {answer === 'A' &&
                 <div className="question-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_1}} />
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_1_BOOLEANS.ANSWER_1}} />
                     <div className="answer-jawn">
                     <AnswerCodeBlock props={{
                             answerClicked:null,
@@ -76,7 +76,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
             }
             {answer === 'B' &&
                 <div className="question-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_2}} />
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_2_BOOLEANS.ANSWER_2}} />
                     <div className="answer-jawn">
                     <AnswerCodeBlock props={{
                             answerClicked:null,
@@ -106,7 +106,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
             }
             {answer === 'D' &&
                 <div className="question-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_4}} />
+                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_4_BOOLEANS.ANSWER_4}} />
                     <div className="answer-jawn">
                         <AnswerCodeBlock props={{
                             answerClicked:null,
