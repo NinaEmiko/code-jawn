@@ -6,8 +6,8 @@
 }
 
 .question-jawn{
-    display: block;
-    height: 25%;
+    display: flex;
+    height: 10%;
     align-items: center;
     justify-content: center;
     text-align: left;
@@ -56,4 +56,11 @@
     float: right;
     font-size: 6vw;
     background-color: transparent;
+}
+
+.progress-tracker{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

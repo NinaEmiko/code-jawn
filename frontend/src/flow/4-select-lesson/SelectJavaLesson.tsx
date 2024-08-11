@@ -10,6 +10,7 @@ import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
 import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import LanguageLessonContainer from "../../components/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
+import Controls from "../../components/Controls";
 
 
 function JavaLessons({props}:{props:any}) {
@@ -30,10 +31,12 @@ function JavaLessons({props}:{props:any}) {
 
   return (
     <Container>
-        <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+        <div className="back-btn-container">
+            <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+        </div>
         <Display>
-            <div className="parent-jawn-lessons">
-                <div className="child-jawn-lessons">
+            <div className="parent-jawn">
+                <div className="child-jawn">
                     <div className="language-btn-container" onClick={() => handleShowSection("Data Types")}>
                         <LanguageLessonContainer props={{
                             lesson: "Data Types",
@@ -44,6 +47,7 @@ function JavaLessons({props}:{props:any}) {
                     {showSection === 'Data Types' &&
                         <SelectDataTypeLesson props={{handleButtonClick:handleButtonClick}} />
                     }
+                    
                     <div className="language-btn-container" onClick={() => handleShowSection("Variables")}>
                         <LanguageLessonContainer props={{
                             lesson: "Variables",
@@ -123,6 +127,7 @@ function JavaLessons({props}:{props:any}) {
                 </div>
             </div>
         </Display>
+        {/* <Controls children={undefined} /> */}
     </Container>
   )
 }

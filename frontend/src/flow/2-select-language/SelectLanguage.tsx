@@ -12,6 +12,7 @@ function SelectLesson({props}:{props:any}) {
 
     return (
       <Container>
+                {/* <button className="back-btn-jawn" >{" "}</button> */}
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">
@@ -41,7 +42,7 @@ function SelectLesson({props}:{props:any}) {
                 </div>
             </div>
         </Display>
-        <Controls children={undefined} />
+        {/* <Controls children={undefined} /> */}
       </Container>
     )
   }
