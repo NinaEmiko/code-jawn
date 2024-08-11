@@ -6,7 +6,7 @@ import JavaDataTypesStringsQuestion4 from "../../../6-questions/JavaQuestions/Ja
 import ProgressTracker from "../../../../components/ProgressTracker";
 import JavaDataTypesStringsQuestion5 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
 
-function JavaLesson2({props}:{props:any}) {
+function JavaDataTypesStrings({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
     const [questionsAnswered, setQuestionsAnswered] = useState(0);
@@ -57,4 +57,4 @@ function JavaLesson2({props}:{props:any}) {
   )
 }
 
-export default JavaLesson2
+export default JavaDataTypesStrings
