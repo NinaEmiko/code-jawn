@@ -14,6 +14,12 @@
     padding-bottom: 9%;
     height: 70%;
 }
+
+.answer-jawn-input{
+    padding-top: 9%;
+    padding-bottom: 9%;
+    height: 15%;
+}
 .answer-input{
     width: 100%;
     font-size: 250%;
