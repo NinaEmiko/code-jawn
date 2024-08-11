@@ -8,13 +8,11 @@ function SelectDataTypeLesson({props}:{props:any}) {
     return (
         <div className="lesson-btn-container">
             <button className="lesson-btn"
-                onClick={() => null}>
-                {/* onClick={() => handleButtonClick("Java Data Types Strings")} */}
+                onClick={() => handleButtonClick("Java Data Types Strings")}>
                     Strings
             </button>
             <button className="lesson-btn"
-                onClick={() => null}>
-                {/* onClick={() => handleButtonClick("Java Data Types ints")} */}
+                onClick={() => handleButtonClick("Java Data Types ints")}>
                     ints
             </button>
             <button className="lesson-btn"
