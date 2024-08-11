@@ -7,31 +7,38 @@ function SelectMethodsLesson({props}:{props:any}) {
     return (
         <div className="lesson-btn-container">
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Signatures")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Methods Signatures") */}
                     Method Signatures
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Return Types")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Methods Return Types") */}
                     Return Types
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Parameters")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Methods Parameters") */}
                     Parameters
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Return Statement")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Methods Return Statement") */}
                     Return Statement
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Scope")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Methods Scope") */}
                     Scope
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Naming")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Methods Naming") */}
                     Naming Methods
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Methods Overloading")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Methods Overloading") */}
                     Overloading Methods
             </button>
         </div>

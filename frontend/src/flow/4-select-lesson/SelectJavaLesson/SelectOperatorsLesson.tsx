@@ -7,71 +7,89 @@ function SelectOperatorsLesson({props}:{props:any}) {
     return (
         <div className="lesson-btn-container">
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators &&")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators &&")}> */}
+
                     &&
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators ||")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators ||")} */}
                     ||
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators !")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators !")} */}
                     !
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators +")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators +")} */}
                     +
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators -")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators -")} */}
                     -
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators /")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators /") */}
                     /
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators *")}>
+                onClick={() =>null}>
+                {/* onClick={() => handleButtonClick("Java Operators *")} */}
                     *
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators %")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators %") */}
                     %
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators ++")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators ++") */}
                     ++
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators --")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators --") */}
                     --
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators <")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators <") */}
                     {"<"}
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators >")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators >") */}
                     {">"}
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators ==")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators ==") */}
                     ==
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators <=")}>
+                onClick={() =>null}>
+                {/* onClick={() => handleButtonClick("Java Operators <=") */}
                     {"<="}
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators >=")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators >=") */}
                     {">="}
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators !=")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators !=") */}
                     !=
             </button>
             <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Operators =")}>
+                onClick={() => null}>
+                {/* onClick={() => handleButtonClick("Java Operators =") */}
                     =
             </button>
         </div>
