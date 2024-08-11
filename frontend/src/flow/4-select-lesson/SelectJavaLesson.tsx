@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Container from "../../components/Container"
 import Display from "../../components/Display"
-import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLession";
 import SelectVariablesLesson from "./SelectJavaLesson/SelectVariablesLesson";
 import SelectLoopsLesson from "./SelectJavaLesson/SelectLoopsLesson";
 import SelectConditionalsLesson from "./SelectJavaLesson/SelectConditionalsLesson";
@@ -10,6 +9,7 @@ import SelectCollectionsLesson from "./SelectJavaLesson/SelectCollectionsLesson"
 import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
 import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import LanguageLessonContainer from "../../components/LanguageLessonContainer";
+import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 
 
 function JavaLessons({props}:{props:any}) {
