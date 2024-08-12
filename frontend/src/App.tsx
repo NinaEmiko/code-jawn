@@ -1,8 +1,9 @@
 import Home from "./flow/1-home/Home"
 import { FormEvent, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
-import { request, setAuthHeader } from "./helpers/axiosHelper";
+import { setAuthHeader } from "./helpers/axiosHelper";
 import LoginForm from "./flow/2-select-language/LoginForm";
+import { register, login } from "./api/api"
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -10,6 +11,8 @@ function App() {
     id: 0,
     loggedIn: false,
   });
+
+  console.log(currentUser)
 
   const logout = () => {
     setCurrentUser((prev) => ({
@@ -22,50 +25,32 @@ function App() {
     Cookies.set('authHeader', "");
   };
 
-  const onLogin = (e: FormEvent, username: string, password: string) => {
-
+  const loginCall = async (e: FormEvent, username: string, password: string) => {
     e.preventDefault();
-    request('POST', `http://localhost:8080/api/auth/login`, {
-      username: username,
-      password: password,
-    })
-      .then((response) => {
-        Cookies.set('storedId', response.data.id);
-        Cookies.set('storedUsername', response.data.username);
-        Cookies.set('authHeader', response.data.token);
-        setAuthHeader(response.data.token);
+    const data = await login(username, password);
+        Cookies.set('storedId', data.id);
+        Cookies.set('storedUsername', data.username);
+        Cookies.set('authHeader', data.token);
+        setAuthHeader(data.token);
         setCurrentUser({
-          id: response.data.id,
-          username: response.data.username,
+          id: data.id,
+          username: data.username,
           loggedIn: true,
         });
-      })
-      .catch((error) => {
-        setAuthHeader(null);
-      });
-  };
+}
 
-  const onRegister = (username: string, password: string, email: string) => {
+  const registerCall = async (username: string, email: string, password: string) => {
 
-    request('POST', `http://localhost:8080/api/auth/register`, {
-      username: username,
-      email: email,
-      password: password,
-    })
-      .then((response) => {
-        Cookies.set('storedId', response.data.id);
-        Cookies.set('storedUsername', response.data.username);
-        Cookies.set('authHeader', response.data.token);
-        setAuthHeader(response.data.token);
+    const data = await register(username, email, password);
+        Cookies.set('storedId', data.id);
+        Cookies.set('storedUsername', data.username);
+        Cookies.set('authHeader', data.token);
+        setAuthHeader(data.token);
         setCurrentUser({
-          id: response.data.id,
-          username: response.data.username,
+          id: data.id,
+          username: data.username,
           loggedIn: true,
         });
-      })
-      .catch((error) => {
-        setAuthHeader(null);
-      });
   };
 
   useEffect(() => {
@@ -84,10 +69,10 @@ function App() {
 
   return (
     <>
-      {/* {!currentUser.loggedIn &&
-        <LoginForm onLogin={onLogin} onRegister={onRegister} currentUser={currentUser} logout={(logout)} />
-      } */}
       {!currentUser.loggedIn &&
+        <LoginForm onLogin={loginCall} onRegister={registerCall} currentUser={currentUser} logout={(logout)} />
+      }
+      {currentUser.loggedIn &&
         <Home />
       }
     </>

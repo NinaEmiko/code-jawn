@@ -82,3 +82,25 @@
     padding-left: 10%;
     height: 5%;
 }
+
+.form-jawn{
+    /* margin-top: 150%; */
+    margin-top: 50%;
+}
+
+.tab-jawn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+input.form-control{
+    height: 60%;
+    font-size: 7vw;
+}
+
+.username-jawn, .password-jawn{
+    height: 60%;
+}
