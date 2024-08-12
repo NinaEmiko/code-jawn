@@ -45,10 +45,19 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers(
+                                .requestMatchers(HttpMethod.POST,
                                         "/api/auth/login",
                                         "/api/auth/register"
                                 ).permitAll()
+//                                .requestMatchers(HttpMethod.GET,
+//                                        ""
+//                                ).permitAll()
+//                                .requestMatchers(HttpMethod.DELETE,
+//                                        ""
+//                                ).permitAll()
+//                                .requestMatchers(HttpMethod.PUT,
+//                                        ""
+//                                ).permitAll()
                                 .anyRequest().authenticated()
                 )
                 .httpBasic();

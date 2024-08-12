@@ -26,10 +26,12 @@ public class UserAccount {
 
     @NotEmpty(message = "Username is required")
     @Size(min = 8)
+    @Column(unique = true)
     private String username;
 
     @NotEmpty(message = "Email is required")
     @Email
+    @Column(unique = true)
     private String email;
 
     @ManyToMany

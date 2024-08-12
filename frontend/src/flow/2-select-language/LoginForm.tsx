@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import Container from '../../components/Container';
-import Controls from '../../components/Controls';
 import Display from '../../components/Display';
 import '../../styling/LoginForm.css';
 import '../../styling/Tabs.css';
@@ -108,12 +107,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                       onChange={onChangeHandler}
                     />
                   </div>
-                  <button onClick={() => submitForm()}>Login</button>
+                  <button className="input-btn" onClick={() => submitForm()}>Login</button>
                 </form>
               )}
 
               {activeButton === 'Register' && (
                 <form 
+                className="form-jawn" 
                 onSubmit={onSubmitRegister}
                 ref={registerFormRef}
                 >
@@ -156,7 +156,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                     />
                     <p style={{color: "red"}}>{message}</p>
                   </div>
-                  <button onClick={() => submitForm()}>Register</button>
+                  <button className="input-btn" onClick={() => submitForm()}>Register</button>
                 </form>
               )}
             </div>
@@ -177,8 +177,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           </div>
         </div>
       </Display>
-      <Controls children={undefined}
-      />
+      {/* <Controls children={undefined} /> */}
     </Container>
   );
 };

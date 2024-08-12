@@ -31,6 +31,7 @@ public class UserAccountController {
 
     private AuthenticationManager authenticationManager;
     private UserAccountRepository userAccountRepository;
+    private UserAccountService userAccountService;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
     private JWTGenerator jwtGenerator;
@@ -62,19 +63,11 @@ public class UserAccountController {
             return new ResponseEntity<>("Username is taken!", HttpStatus.BAD_REQUEST);
         }
 
-        UserAccount userAccount = new UserAccount();
-        userAccount.setUsername(registerDTO.getUsername());
-        userAccount.setEmail(registerDTO.getEmail());
-        userAccount.setPassword(passwordEncoder.encode((registerDTO.getPassword())));
+        String userName = registerDTO.getUsername();
+        String email = registerDTO.getEmail();
+        String password = registerDTO.getPassword();
 
-        Optional<Role> role = roleRepository.findByName("USER");
-        Role actualRole = null;
-        if (role.isPresent()) {
-            actualRole = role.get();
-        }
-        userAccount.setRoles(Collections.singletonList(actualRole));
-
-        userAccountRepository.save(userAccount);
+        UserAccount userAccount = userAccountService.register(userName, email, password);
 
         return new ResponseEntity<>("User registered success!", HttpStatus.OK);
     }
