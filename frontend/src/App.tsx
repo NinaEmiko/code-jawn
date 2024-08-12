@@ -12,6 +12,8 @@ function App() {
     loggedIn: false,
   });
 
+  console.log(currentUser)
+
   const logout = () => {
     setCurrentUser((prev) => ({
       ...prev,
@@ -23,44 +25,32 @@ function App() {
     Cookies.set('authHeader', "");
   };
 
-  const onLogin = (e: FormEvent, username: string, password: string) => {
-
+  const loginCall = async (e: FormEvent, username: string, password: string) => {
     e.preventDefault();
-    login(username, password)
-      .then((response) => {
-        Cookies.set('storedId', response.data.id);
-        Cookies.set('storedUsername', response.data.username);
-        Cookies.set('authHeader', response.data.token);
-        setAuthHeader(response.data.token);
+    const data = await login(username, password);
+        Cookies.set('storedId', data.id);
+        Cookies.set('storedUsername', data.username);
+        Cookies.set('authHeader', data.token);
+        setAuthHeader(data.token);
         setCurrentUser({
-          id: response.data.id,
-          username: response.data.username,
+          id: data.id,
+          username: data.username,
           loggedIn: true,
         });
-      })
-      .catch((error) => {
-        setAuthHeader(null);
-      });
-      console.log(Cookies.get('storedId'))
-  };
+}
 
-  const onRegister = (username: string, email: string, password: string) => {
+  const registerCall = async (username: string, email: string, password: string) => {
 
-    register(username, email, password)
-      .then((response) => {
-        Cookies.set('storedId', response.data.id);
-        Cookies.set('storedUsername', response.data.username);
-        Cookies.set('authHeader', response.data.token);
-        setAuthHeader(response.data.token);
+    const data = await register(username, email, password);
+        Cookies.set('storedId', data.id);
+        Cookies.set('storedUsername', data.username);
+        Cookies.set('authHeader', data.token);
+        setAuthHeader(data.token);
         setCurrentUser({
-          id: response.data.id,
-          username: response.data.username,
+          id: data.id,
+          username: data.username,
           loggedIn: true,
         });
-      })
-      .catch((error) => {
-        setAuthHeader(null);
-      });
   };
 
   useEffect(() => {
@@ -80,7 +70,7 @@ function App() {
   return (
     <>
       {!currentUser.loggedIn &&
-        <LoginForm onLogin={onLogin} onRegister={onRegister} currentUser={currentUser} logout={(logout)} />
+        <LoginForm onLogin={loginCall} onRegister={registerCall} currentUser={currentUser} logout={(logout)} />
       }
       {currentUser.loggedIn &&
         <Home />
