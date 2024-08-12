@@ -1,5 +1,6 @@
 package com.codejawn.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -26,10 +27,12 @@ public class UserAccount {
 
     @NotEmpty(message = "Username is required")
     @Size(min = 8)
+    @Column(unique = true)
     private String username;
 
     @NotEmpty(message = "Email is required")
     @Email
+    @Column(unique = true)
     private String email;
 
     @ManyToMany
@@ -38,6 +41,7 @@ public class UserAccount {
         joinColumns = @JoinColumn(name = "user_account_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+    @JsonManagedReference
     private List<Role> roles = new ArrayList<>();
     @OneToOne
     @JoinColumn(name= "lesson_tracker_id")
