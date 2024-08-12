@@ -1,8 +1,9 @@
 import Home from "./flow/1-home/Home"
 import { FormEvent, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
-import { request, setAuthHeader } from "./helpers/axiosHelper";
+import { setAuthHeader } from "./helpers/axiosHelper";
 import LoginForm from "./flow/2-select-language/LoginForm";
+import { register, login } from "./api/api"
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -25,10 +26,7 @@ function App() {
   const onLogin = (e: FormEvent, username: string, password: string) => {
 
     e.preventDefault();
-    request('POST', `http://localhost:8080/api/auth/login`, {
-      username: username,
-      password: password,
-    })
+    login(username, password)
       .then((response) => {
         Cookies.set('storedId', response.data.id);
         Cookies.set('storedUsername', response.data.username);
@@ -43,15 +41,12 @@ function App() {
       .catch((error) => {
         setAuthHeader(null);
       });
+      console.log(Cookies.get('storedId'))
   };
 
-  const onRegister = (username: string, password: string, email: string) => {
+  const onRegister = (username: string, email: string, password: string) => {
 
-    request('POST', `http://localhost:8080/api/auth/register`, {
-      username: username,
-      email: email,
-      password: password,
-    })
+    register(username, email, password)
       .then((response) => {
         Cookies.set('storedId', response.data.id);
         Cookies.set('storedUsername', response.data.username);

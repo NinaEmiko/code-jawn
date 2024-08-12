@@ -63,7 +63,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
     } else if (password != confirmationPassword) {
       setMessage("Passwords must match.")
     }  else {
-      onRegister(username, password, email);
+      onRegister(username, email, password);
       // setMessage("Username taken.")
     }
   };
