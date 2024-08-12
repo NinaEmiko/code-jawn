@@ -3,8 +3,8 @@
 --INSERT IGNORE INTO role (name) VALUES ('ADMIN');
 
 --UNIQUE USERNAME AND EMAIL
---ALTER TABLE user_account
---ADD CONSTRAINT unique_username UNIQUE (username);
---
---ALTER TABLE user_account
---ADD CONSTRAINT unique_email UNIQUE (email);
+ALTER TABLE user_account
+ADD CONSTRAINT unique_username UNIQUE (username);
+
+ALTER TABLE user_account
+ADD CONSTRAINT unique_email UNIQUE (email);
