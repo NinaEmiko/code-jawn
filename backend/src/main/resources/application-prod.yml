@@ -9,7 +9,7 @@ spring:
     testWhileIdle: true
     validationQuery: SELECT 1
   profiles:
-    include: prod
+    active: prod
 
 security:
   jwt:
