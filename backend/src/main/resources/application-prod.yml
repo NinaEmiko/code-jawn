@@ -8,8 +8,6 @@ spring:
     initialization-mode: always
     testWhileIdle: true
     validationQuery: SELECT 1
-  profiles:
-    active: prod
 
 security:
   jwt:
