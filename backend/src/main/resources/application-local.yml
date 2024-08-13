@@ -11,7 +11,7 @@ spring:
 #    init:
 #      mode: always
   profiles:
-    include: local
+    active: local
 
 security:
   jwt:
