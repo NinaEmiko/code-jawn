@@ -15,7 +15,7 @@ spring:
     repositories:
       base-packages: com.codejawn.repository
     entityScan: com.codejawn.model
-  profiles:
-    include: local
+#  profiles:
+#    include: local
 server:
   port: 8081
