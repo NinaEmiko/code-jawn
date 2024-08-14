@@ -73,7 +73,7 @@ function App() {
         <LoginForm onLogin={loginCall} onRegister={registerCall} currentUser={currentUser} logout={(logout)} />
       }
       {currentUser.loggedIn &&
-        <Home />
+        <Home props={{logout:logout}} />
       }
     </>
   )
