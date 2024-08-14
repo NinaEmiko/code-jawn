@@ -10,9 +10,12 @@ function SelectLesson({props}:{props:any}) {
         props.handleRedirectHome(lesson);
     }
 
+    const handleLogOut = () =>{
+        props.logout()
+    }
     return (
       <Container>
-                {/* <button className="back-btn-jawn" >{" "}</button> */}
+                <button onClick={() => handleLogOut()} className="" >{"Log out"}</button>
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">

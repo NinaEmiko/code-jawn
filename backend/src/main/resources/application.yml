@@ -17,5 +17,3 @@ spring:
     entityScan: com.codejawn.model
   profiles:
     include: local
-server:
-  port: 8080
