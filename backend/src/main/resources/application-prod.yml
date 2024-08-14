@@ -21,7 +21,7 @@ logging:
 URL: ${PROD_ORIGIN_URL}
 
 cors:
-  allowed-origins: ${PROD_ORIGIN_URL}
+  allowed-origins: "${PROD_ORIGIN_URL}"
   allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
   allowed-headers: "*"
   allow-credentials: true
