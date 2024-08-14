@@ -32,21 +32,17 @@ public class UserAccountService {
 
     public UserAccount register(String userName, String email, String password) {
         logger.info("Inside register service method.");
+
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(userName);
         userAccount.setEmail(email);
-        userAccount.setPassword(passwordEncoder.encode((password)));
+        userAccount.setPassword(passwordEncoder.encode(password));
 
-        Optional<Role> role = roleRepository.findByName("USER");
-        Role actualRole = null;
-        if (role.isPresent()) {
-            actualRole = role.get();
-        }
-        userAccount.setRoles(Collections.singletonList(actualRole));
+        Role role = roleRepository.findByName("USER")
+                .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));
 
-        userAccountRepository.save(userAccount);
+        userAccount.setRoles(Collections.singletonList(role));
 
-        userAccount.setPassword(passwordEncoder.encode(userAccount.getPassword()));
         return userAccountRepository.save(userAccount);
     }
 
