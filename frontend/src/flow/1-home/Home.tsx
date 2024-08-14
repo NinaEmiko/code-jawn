@@ -4,7 +4,7 @@ import JavaScriptSections from "../3-languages/JavaScriptSections";
 import JavaSections from "../3-languages/JavaSections";
 import "../../styling/Language.css"
 
-function Home() {
+function Home({props}:{props:any}) {
     const [activeTab, setActiveTab] = useState("Select a Language");
 
     const handleRedirectHome = (component: string) => {
@@ -14,7 +14,7 @@ function Home() {
   return (
     <>
         {activeTab === "Select a Language" &&
-            <SelectLanguage props={{handleRedirectHome:handleRedirectHome}} />
+            <SelectLanguage props={{handleRedirectHome:handleRedirectHome, logout:props.logout}} />
         }
         {activeTab === "Java" &&
             <JavaSections props={{handleRedirectHome:handleRedirectHome}} />
