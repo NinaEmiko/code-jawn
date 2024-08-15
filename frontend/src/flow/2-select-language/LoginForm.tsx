@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 
 interface LoginFormProps {
   onLogin: (e: FormEvent, username: string, password: string) => void;
-  onRegister: (username: string, password: string, email: string) => void;
+  onRegister: (e: FormEvent, username: string, password: string, email: string) => void;
   currentUser: {username: string, id: number, loggedIn: boolean};
   logout: () => void;
 }
@@ -63,7 +63,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
     } else if (password != confirmationPassword) {
       setMessage("Passwords must match.")
     }  else {
-      onRegister(username, email, password);
+      onRegister(e, username, email, password);
       // setMessage("Username taken.")
     }
   };
