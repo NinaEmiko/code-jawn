@@ -107,7 +107,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                       onChange={onChangeHandler}
                     />
                   </div>
-                  <button className="input-btn" onClick={() => submitForm()}>Login</button>
+                  <button className="input-btn" type="submit">Login</button>
                 </form>
               )}
 
@@ -156,7 +156,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                     />
                     <p style={{color: "red"}}>{message}</p>
                   </div>
-                  <button className="input-btn" onClick={() => submitForm()}>Register</button>
+                  <button className="input-btn" type="submit">Register</button>
                 </form>
               )}
             </div>
