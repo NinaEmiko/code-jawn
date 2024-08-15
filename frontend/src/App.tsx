@@ -39,8 +39,8 @@ function App() {
         });
 }
 
-  const registerCall = async (username: string, email: string, password: string) => {
-
+  const registerCall = async (e: FormEvent, username: string, email: string, password: string) => {
+    e.preventDefault();
     const data = await register(username, email, password);
         Cookies.set('storedId', data.id);
         Cookies.set('storedUsername', data.username);
