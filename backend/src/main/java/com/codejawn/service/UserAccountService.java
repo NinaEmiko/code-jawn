@@ -2,8 +2,7 @@ package com.codejawn.service;
 
 import com.codejawn.controller.UserAccountController;
 import com.codejawn.dto.AuthResponseDTO;
-import com.codejawn.model.Role;
-import com.codejawn.model.UserAccount;
+import com.codejawn.model.*;
 import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.security.JWTGenerator;
@@ -28,15 +27,19 @@ public class UserAccountService {
     private JWTGenerator jwtGenerator;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
+    private final LessonTrackerService lessonTrackerService;
     private final Logger logger = Logger.getLogger(UserAccountService.class.getName());
 
     public UserAccount register(String userName, String email, String password) {
         logger.info("Inside register service method.");
 
+        LessonTracker lessonTracker = lessonTrackerService.createNewLessonTracker();
+
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(userName);
         userAccount.setEmail(email);
         userAccount.setPassword(passwordEncoder.encode(password));
+        userAccount.setLessonTracker(lessonTracker);
 
         Role role = roleRepository.findByName("USER")
                 .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));
