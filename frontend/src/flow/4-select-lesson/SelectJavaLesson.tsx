@@ -10,9 +10,6 @@ import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
 import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import LanguageLessonContainer from "../../components/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
-import Controls from "../../components/Controls";
-import { progressConstants } from "../../helpers/ProgressConstants";
-
 
 function JavaLessons({props}:{props:any}) {
     const [showSection, setShowSection] = useState('');
@@ -46,6 +43,7 @@ function JavaLessons({props}:{props:any}) {
                                 handleShowSection:handleShowSection,
                                 lessonsCompleted: 0,
                                 totalLessons: 1,
+                                expanded: showSection === "Data Types",
                                 iconAltText:"Data Types Icon"}} />
                         </div>
                         <div>
@@ -62,6 +60,7 @@ function JavaLessons({props}:{props:any}) {
                                 handleShowSection:handleShowSection,
                                 lessonsCompleted: 0,
                                 totalLessons: 1,
+                                expanded: showSection === "Variables",
                                 iconAltText:"Variables Icon"}} />
                         </div>
                         <div>
@@ -78,6 +77,7 @@ function JavaLessons({props}:{props:any}) {
                                 handleShowSection:handleShowSection,
                                 lessonsCompleted: 0,
                                 totalLessons: 1,
+                                expanded: showSection === "For Loops",
                                 iconAltText:"For Loops Icon"}} />
                         </div>
                         <div>
@@ -94,6 +94,7 @@ function JavaLessons({props}:{props:any}) {
                                 handleShowSection:handleShowSection,
                                 lessonsCompleted: 0,
                                 totalLessons: 1,
+                                expanded: showSection === "Conditionals",
                                 iconAltText:"Conditionals Icon"}} />
                         </div>
                         <div>
@@ -110,6 +111,7 @@ function JavaLessons({props}:{props:any}) {
                                 handleShowSection:handleShowSection,
                                 lessonsCompleted: 0,
                                 totalLessons: 1,
+                                expanded: showSection === "Arrays",
                                 iconAltText:"Arrays Icon"}} />
                         </div>
                         <div>
@@ -126,6 +128,7 @@ function JavaLessons({props}:{props:any}) {
                                 handleShowSection:handleShowSection,
                                 lessonsCompleted: 0,
                                 totalLessons: 1,
+                                expanded: showSection === "Collections",
                                 iconAltText:"Collections Icon"}} />
                         </div>
                         <div>
@@ -142,6 +145,7 @@ function JavaLessons({props}:{props:any}) {
                                 handleShowSection:handleShowSection,
                                 lessonsCompleted: 0,
                                 totalLessons: 1,
+                                expanded: showSection === "Methods",
                                 iconAltText:"Methods Icon"}} />
                         </div>
                         <div>
@@ -158,6 +162,7 @@ function JavaLessons({props}:{props:any}) {
                                 handleShowSection:handleShowSection,
                                 lessonsCompleted: 0,
                                 totalLessons: 1,
+                                expanded: showSection === "Operators",
                                 iconAltText:"Operators Icon"}} />
                         </div>
                         <div>
