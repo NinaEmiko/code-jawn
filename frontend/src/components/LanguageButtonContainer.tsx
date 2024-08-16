@@ -1,5 +1,6 @@
 import JavaIcon from '../assets/java-icon.png'
 import JavaScriptIcon from '../assets/javascript-icon.png'
+import EmojiGenerator from './EmojiGenerator';
 
 const LanguageButtonContainer = ({props}:{props:any}) => {
 
@@ -25,7 +26,7 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
                     {props.language}
                 </div>
                 <div className="additional-text">
-                    {props.percentageComplete}%
+                    <EmojiGenerator props={{lessonsCompleted:props.lessonsCompleted, totalLessons:props.totalLessons}} />
                 </div>
             </div>
             <div className="expand-icon">

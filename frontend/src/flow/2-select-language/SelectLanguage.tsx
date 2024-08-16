@@ -3,6 +3,7 @@ import Display from "../../components/Display"
 import LolaIcon from '../../assets/lola-icon.jpg'
 import Controls from "../../components/Controls"
 import LanguageButtonContainer from "../../components/LanguageButtonContainer"
+import { progressConstants } from "../../helpers/ProgressConstants"
 
 function SelectLesson({props}:{props:any}) {
 
@@ -33,14 +34,16 @@ function SelectLesson({props}:{props:any}) {
                         <LanguageButtonContainer props={{
                             iconAltText: "Java Icon",
                             language: "Java",
-                            percentageComplete: "0",
+                            lessonsCompleted: 0,
+                            totalLessons: 1,
                             handleButtonClick:handleButtonClick}} />
                     </div>
                     <div className="container-for-language-btn">
                     <LanguageButtonContainer props={{
                         iconAltText: "JavaScript Icon",
                         language: "JavaScript",
-                        percentageComplete: "100",
+                        lessonsCompleted: 1,
+                        totalLessons: 1,
                         handleButtonClick:handleButtonClick}} />
                     </div>
                 </div>
