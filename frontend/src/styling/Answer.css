@@ -4,9 +4,20 @@
     border-top: solid var(--accent-jawn);
     border-left: solid var(--accent-jawn);
     padding: 20px;
-    margin-bottom: 1%;
+    margin-bottom: 5%;
     font-size: 5vw;
-    height: 20%;
+    height: 16%;
+}
+
+.answer-text-template-literal{
+    color: #859900;
+    background-color: transparent;
+    border-top: solid var(--accent-jawn);
+    border-left: solid var(--accent-jawn);
+    padding: 20px;
+    margin-bottom: 5%;
+    font-size: 5vw;
+    height: 16%;
 }
 
 .answer-jawn{
