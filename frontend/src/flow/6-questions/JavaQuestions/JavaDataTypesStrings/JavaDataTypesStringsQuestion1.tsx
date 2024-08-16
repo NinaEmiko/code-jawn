@@ -6,6 +6,7 @@ import { useState } from "react"
 import { STRINGS_QUESTION_1_ANSWERS, STRINGS_QUESTION_1_BOOLEANS, STRINGS_QUESTION_1_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
 import Explanation from "../../../../components/Explanation"
+import AnswerTemplateLiteral from "../../../../components/AnswerTemplateLiteral"
 
 
 function JavaDataTypesStringsQuestion1({props}:{props:any}) {
@@ -52,9 +53,9 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                              answerClicked:handleAnswer3Click,
                              code: STRINGS_QUESTION_1_ANSWERS.ANSWER_3
                              }} />
-                         <AnswerCodeBlock props={{
+                         <AnswerTemplateLiteral props={{
                              answerClicked:handleAnswer4Click,
-                             code: STRINGS_QUESTION_1_ANSWERS.ANSWER_4
+                             text: STRINGS_QUESTION_1_ANSWERS.ANSWER_4
                              }} />
                     </div>
                 </div>
@@ -108,9 +109,9 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                 <div className="question-explanation-container">
                 <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_1_BOOLEANS.ANSWER_4}} />
                 <div className="answer-jawn">
-                        <AnswerCodeBlock props={{
+                        <AnswerTemplateLiteral props={{
                             answerClicked:null,
-                            code: STRINGS_QUESTION_1_ANSWERS.ANSWER_4
+                            text: STRINGS_QUESTION_1_ANSWERS.ANSWER_4
                             }} />
                         </div>
                         <Explanation props={STRINGS_QUESTION_1_EXPLANATIONS.ANSWER_4} />
