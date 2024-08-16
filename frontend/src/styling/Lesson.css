@@ -17,7 +17,7 @@
 .lesson-btn{
     margin: 5px;
     font-size: 7vw;
-    color: white;
+    color: var(--accent-jawn);
     padding: 5px;
     background: transparent;
     width: 100%;

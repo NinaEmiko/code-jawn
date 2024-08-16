@@ -11,6 +11,7 @@ import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import LanguageLessonContainer from "../../components/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 import Controls from "../../components/Controls";
+import { progressConstants } from "../../helpers/ProgressConstants";
 
 
 function JavaLessons({props}:{props:any}) {
@@ -43,7 +44,8 @@ function JavaLessons({props}:{props:any}) {
                             <LanguageLessonContainer props={{
                                 lesson: "Data Types",
                                 handleShowSection:handleShowSection,
-                                percentageComplete:"0",
+                                lessonsCompleted: 0,
+                                totalLessons: 1,
                                 iconAltText:"Data Types Icon"}} />
                         </div>
                         <div>
@@ -58,7 +60,8 @@ function JavaLessons({props}:{props:any}) {
                             <LanguageLessonContainer props={{
                                 lesson: "Variables",
                                 handleShowSection:handleShowSection,
-                                percentageComplete:"0",
+                                lessonsCompleted: 0,
+                                totalLessons: 1,
                                 iconAltText:"Variables Icon"}} />
                         </div>
                         <div>
@@ -73,7 +76,8 @@ function JavaLessons({props}:{props:any}) {
                             <LanguageLessonContainer props={{
                                 lesson: "For Loops",
                                 handleShowSection:handleShowSection,
-                                percentageComplete:"0",
+                                lessonsCompleted: 0,
+                                totalLessons: 1,
                                 iconAltText:"For Loops Icon"}} />
                         </div>
                         <div>
@@ -88,7 +92,8 @@ function JavaLessons({props}:{props:any}) {
                             <LanguageLessonContainer props={{
                                 lesson: "Conditionals",
                                 handleShowSection:handleShowSection,
-                                percentageComplete:"0",
+                                lessonsCompleted: 0,
+                                totalLessons: 1,
                                 iconAltText:"Conditionals Icon"}} />
                         </div>
                         <div>
@@ -103,7 +108,8 @@ function JavaLessons({props}:{props:any}) {
                             <LanguageLessonContainer props={{
                                 lesson: "Arrays",
                                 handleShowSection:handleShowSection,
-                                percentageComplete:"0",
+                                lessonsCompleted: 0,
+                                totalLessons: 1,
                                 iconAltText:"Arrays Icon"}} />
                         </div>
                         <div>
@@ -118,7 +124,8 @@ function JavaLessons({props}:{props:any}) {
                             <LanguageLessonContainer props={{
                                 lesson: "Collections",
                                 handleShowSection:handleShowSection,
-                                percentageComplete:"0",
+                                lessonsCompleted: 0,
+                                totalLessons: 1,
                                 iconAltText:"Collections Icon"}} />
                         </div>
                         <div>
@@ -133,7 +140,8 @@ function JavaLessons({props}:{props:any}) {
                             <LanguageLessonContainer props={{
                                 lesson: "Methods",
                                 handleShowSection:handleShowSection,
-                                percentageComplete:"0",
+                                lessonsCompleted: 0,
+                                totalLessons: 1,
                                 iconAltText:"Methods Icon"}} />
                         </div>
                         <div>
@@ -148,7 +156,8 @@ function JavaLessons({props}:{props:any}) {
                             <LanguageLessonContainer props={{
                                 lesson: "Operators",
                                 handleShowSection:handleShowSection,
-                                percentageComplete:"0",
+                                lessonsCompleted: 0,
+                                totalLessons: 1,
                                 iconAltText:"Operators Icon"}} />
                         </div>
                         <div>
