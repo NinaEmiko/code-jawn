@@ -6,6 +6,7 @@ import ArrayIcon from "../assets/array-icon.png"
 import CollectionsIcon from "../assets/collections-icon.png"
 import MethodsIcon from "../assets/methods-icon.png"
 import OperatorsIcon from "../assets/operators-icon.png"
+import EmojiGenerator from "./EmojiGenerator"
 
 
 
@@ -44,7 +45,7 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
                     {props.lesson}
                 </div>
                 <div className="additional-text">
-                    {props.percentageComplete}%
+                    <EmojiGenerator props={{lessonsCompleted:props.lessonsCompleted, totalLessons:props.totalLessons}} />
                 </div>
             </div>
             <div className="expand-icon">
