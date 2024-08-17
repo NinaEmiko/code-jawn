@@ -122,7 +122,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                   </form>
                   <div>
                     <div className="sub-text">
-                      Not a member? <a className="link" onClick={() => handleTabClick('Register')} href="">Sign up</a>
+                      Not a member? <a className="link" onClick={() => handleTabClick('Register')} >Sign up</a>
                     </div>
                   </div>
                 </>
@@ -181,7 +181,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                 </form>
                 <div>
                     <div className="sub-text">
-                      Already a member? <a className="link" onClick={() => handleTabClick('Login')} href="">Sign in</a>
+                      Already a member? <a className="link" onClick={() => handleTabClick('Login')} >Sign in</a>
                     </div>
                   </div>
                 </div>
