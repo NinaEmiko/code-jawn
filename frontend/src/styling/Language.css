@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: var(--background-light-jawn);
+    background-color: var(--primary-light-jawn);
     border-radius: 25px;
     /* margin-bottom: 5%; */
     width: 100%;
@@ -12,7 +12,7 @@
 .container-for-language-btn{
     width: 100%;
     /* padding: 15px; */
-    background-color: var(--background-light-jawn);
+    background-color: var(--primary-light-jawn);
     border-radius: 25px;
     margin-bottom: 5%;
     justify-content: space-between;
@@ -28,9 +28,9 @@
 
 .select-language-sub-text{
     text-align: center;
-    color: var(--text-jawn);
+    color: var(--off-white-jawn);
     padding-bottom: 10%;
-    font-size: 6vw;
+    font-size: var(--text);
 }
 
 
@@ -60,10 +60,8 @@
 
 .language-btn {
     flex-grow: 1;
-    font-size: 8vw;
-    color: var(--text-jawn);
-    /* border: transparent; */
-    /* background-color: transparent; */
+    font-size: var(--header-text);
+    color: var(--off-white-jawn);
     text-align: left;
     width: 100%;
     padding-left: 3%;
@@ -71,7 +69,7 @@
 
 .additional-text {
     flex-grow: 1;
-    font-size: 5vw;
+    font-size: var(--sub-text);
     color: var(--accent-jawn);
     text-align: left;
     padding-left: 3%;
@@ -83,6 +81,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 7vw;
+    font-size: var(--text);
     color: var(--accent-jawn);
 }

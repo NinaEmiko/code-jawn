@@ -1,9 +1,8 @@
 import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
-import Container from '../../components/Container';
-import Display from '../../components/Display';
 import '../../styling/LoginForm.css';
-import '../../styling/Tabs.css';
 import Cookies from 'js-cookie';
+import Header from '../../components/Header';
+import HeaderDisplay from '../../components/HeaderDisplay';
 
 interface LoginFormProps {
   onLogin: (e: FormEvent, username: string, password: string) => void;
@@ -13,7 +12,7 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser, logout }) => {
-  const [activeButton, setActiveButton] = useState('Login');
+  const [activeButton, setActiveButton] = useState('Sign In');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,9 +22,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   const registerFormRef = useRef<HTMLFormElement | null>(null);
   
   const submitForm = () => {
-    if (activeButton === "Register" && registerFormRef.current) {
+    if (activeButton === "Sign Up" && registerFormRef.current) {
       registerFormRef.current.requestSubmit();
-    } else if (activeButton === "Login" && loginFormRef.current) {
+    } else if (activeButton === "Sign In" && loginFormRef.current) {
       loginFormRef.current.requestSubmit();
     }
   };
@@ -72,71 +71,28 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
 
   return (
     <div className="container-jawn2">
-      <div className="top-display">
-        <div className="header">
-          Welcome
-        </div>
-        <div className="header">
-          {activeButton}
-        </div>
-      </div>
+
+      <HeaderDisplay>
+        {activeButton ==="Sign In" ?
+          <Header props={{text: "Welcome back"}} />
+          :
+          <Header props={{text: "Welcome"}} />
+        }
+        <Header props={{text: activeButton}} />
+      </HeaderDisplay>
 
       <div className="display-jawn2">
         <div className="parent-jawn2">
           <div className="child-jawn2">
-              {activeButton === 'Login' && (
-                <>
-                  <form 
-                  className="form-jawn" 
-                  onSubmit={onSubmitLogin}
-                  ref={loginFormRef}
-                  >
-                    <div className="username-jawn">
-                      <div className="text">
-                        Username
-                      </div>
-                      <input
-                        type="text"
-                        value={username}
-                        name="username"
-                        className="form-control"
-                        onChange={onChangeHandler}
-                      />
-                    </div>
-                    <div className="password-jawn">
-                      <div className="text">
-                        Password
-                      </div>
-                      <input
-                        type="password"
-                        value={password}
-                        name="password"
-                        className="form-control"
-                        onChange={onChangeHandler}
-                      />
-                    </div>
-                    <div className="sub-text2">
-                      <a href="">Forgot Password</a>
-                    </div>
-                    <button className="input-btn" type="submit">Login</button>
-                  </form>
-                  <div>
-                    <div className="sub-text">
-                      Not a member? <a className="link" onClick={() => handleTabClick('Register')} >Sign up</a>
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {activeButton === 'Register' && (
-                <div>
+            {activeButton === 'Sign In' && (
+              <>
                 <form 
                 className="form-jawn" 
-                onSubmit={onSubmitRegister}
-                ref={registerFormRef}
+                onSubmit={onSubmitLogin}
+                ref={loginFormRef}
                 >
                   <div className="username-jawn">
-                  <div className="text">
+                    <div className="text">
                       Username
                     </div>
                     <input
@@ -144,25 +100,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                       value={username}
                       name="username"
                       className="form-control"
-                      placeholder="Username"
-                      onChange={onChangeHandler}
-                    />
-                  </div>
-                  <div className="username-jawn">
-                  <div className="text">
-                      Email
-                    </div>
-                    <input
-                      type="text"
-                      value={email}
-                      name="email"
-                      className="form-control"
-                      placeholder="Email"
                       onChange={onChangeHandler}
                     />
                   </div>
                   <div className="password-jawn">
-                  <div className="text">
+                    <div className="text">
                       Password
                     </div>
                     <input
@@ -170,25 +112,75 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                       value={password}
                       name="password"
                       className="form-control"
-                      placeholder="Password"
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className="sub-text2">
+                    <a href="">Forgot Password</a>
+                  </div>
+                  <button className="input-btn" type="submit">Sign In</button>
+                </form>
+                <div className="sub-text">
+                  Not a member? <a className="link" onClick={() => handleTabClick('Sign Up')} >Sign up</a>
+                </div>
+              </>
+            )}
+
+            {activeButton === 'Sign Up' && (
+              <div>
+                <form 
+                className="form-jawn" 
+                onSubmit={onSubmitRegister}
+                ref={registerFormRef}
+                >
+                  <div className="username-jawn">
+                    <div className="text">
+                      Username
+                    </div>
+                    <input
+                      type="text"
+                      value={username}
+                      name="username"
+                      className="form-control"
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className="username-jawn">
+                    <div className="text">
+                      Email
+                    </div>
+                    <input
+                      type="text"
+                      value={email}
+                      name="email"
+                      className="form-control"
+                      onChange={onChangeHandler}
+                    />
+                  </div>
+                  <div className="password-jawn">
+                    <div className="text">
+                      Password
+                    </div>
+                    <input
+                      type="password"
+                      value={password}
+                      name="password"
+                      className="form-control"
                       onChange={onChangeHandler}
                     />
                     <p style={{color: "red"}}>{message}</p>
                   </div>
                   <div className="spacer"> </div>
-                  <button className="input-btn" type="submit">Register</button>
-
+                  <button className="input-btn" type="submit">Sign Up</button>
                 </form>
-                <div>
-                    <div className="sub-text">
-                      Already a member? <a className="link" onClick={() => handleTabClick('Login')} >Sign in</a>
-                    </div>
-                  </div>
+                <div className="sub-text">
+                  Already a member? <a className="link" onClick={() => handleTabClick('Sign In')}>Sign in</a>
                 </div>
-              )}
+              </div>
+            )}
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 };
