@@ -45,13 +45,13 @@ function JavaDataTypesIntsQuestion4({props}:{props:any}) {
                         <>
                             <AnswerExplanationHeader props={{correct: false}} />
                             <Explanation props={INTS_QUESTION_4_EXPLANATIONS.INCORRECT_ANSWER} />
-                            <button className="explanation-btn" onClick={() => endQuestion()}>Continue</button>
+                            <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
                         </>
                     :
                         <>
                             <AnswerExplanationHeader props={{correct: true}} />
                             <Explanation props={INTS_QUESTION_4_EXPLANATIONS.CORRECT_ANSWER} />
-                            <button className="explanation-btn" onClick={() => endQuestion()}>Continue</button>
+                            <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
                         </>    
                     }
                 </>

@@ -18,16 +18,24 @@
 
 .top-display{
     height: 25%;
-    background: transparent;
+    background-color: var(--primary-jawn);
+    /* border-bottom-right-radius: 70px; */
+}
+
+.inner-top-display{
+    background: var(--sub-secondary-jawn);
     padding: 5%;
+    border-bottom-right-radius: 70px;
+    height: 100%;
 }
 
 .display-jawn2 {
-    border-top-left-radius: 35px;
-    border-top-right-radius: 35px;
+    border-top-left-radius: 70px;
+    /* border-top-right-radius: 35px; */
     height: 75%;
     background-color: var(--primary-jawn);
     width: 100%;
+    overflow: hidden;
 }
 
 /* PARENT */
@@ -49,7 +57,6 @@
     justify-content: center;
     overflow: auto;
     overflow-y: scroll;
-    
 }
 
 /* CHILD */

@@ -68,7 +68,7 @@ function JavaVariableQuestion1({props}:{props:any}) {
                     <div className="question-explanation">
                         {INITIALIZING_VARIABLES_QUESTION_1_EXPLANATIONS.ANSWER_1}
                     </div>
-                    <button className="explanation-btn" onClick={endQuestion} >
+                    <button className="input-btn" onClick={endQuestion} >
                         Continue
                     </button>
                 </div>
@@ -85,7 +85,7 @@ function JavaVariableQuestion1({props}:{props:any}) {
                     <div className="question-explanation">
                         {INITIALIZING_VARIABLES_QUESTION_1_EXPLANATIONS.ANSWER_2}
                     </div>
-                    <button className="explanation-btn" onClick={endQuestion} >
+                    <button className="input-btn" onClick={endQuestion} >
                         Continue
                     </button>
                 </div>
@@ -102,7 +102,7 @@ function JavaVariableQuestion1({props}:{props:any}) {
                     <div className="question-explanation">
                         {INITIALIZING_VARIABLES_QUESTION_1_EXPLANATIONS.ANSWER_3}
                     </div>
-                    <button className="explanation-btn" onClick={endQuestion} >
+                    <button className="input-btn" onClick={endQuestion} >
                         Continue
                     </button>
                 </div>
@@ -119,7 +119,7 @@ function JavaVariableQuestion1({props}:{props:any}) {
                         <div className="question-explanation">
                             {INITIALIZING_VARIABLES_QUESTION_1_EXPLANATIONS.ANSWER_4}
                         </div>
-                        <button className="explanation-btn" onClick={endQuestion} >
+                        <button className="input-btn" onClick={endQuestion} >
                             Continue
                         </button>
                 </div>
