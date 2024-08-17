@@ -3,6 +3,9 @@ import '../../styling/LoginForm.css';
 import Cookies from 'js-cookie';
 import Header from '../../components/Header';
 import HeaderDisplay from '../../components/HeaderDisplay';
+import SubDisplay from '../../components/SubDisplay';
+import LoginContainer from '../../components/LoginContainer';
+import JustText from '../../components/JustText';
 
 interface LoginFormProps {
   onLogin: (e: FormEvent, username: string, password: string) => void;
@@ -70,7 +73,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   }, []);
 
   return (
-    <div className="container-jawn2">
+    <LoginContainer>
 
       <HeaderDisplay>
         {activeButton ==="Sign In" ?
@@ -81,107 +84,93 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
         <Header props={{text: activeButton}} />
       </HeaderDisplay>
 
-      <div className="display-jawn2">
-        <div className="parent-jawn2">
-          <div className="child-jawn2">
-            {activeButton === 'Sign In' && (
-              <>
-                <form 
-                className="form-jawn" 
-                onSubmit={onSubmitLogin}
-                ref={loginFormRef}
-                >
-                  <div className="username-jawn">
-                    <div className="text">
-                      Username
-                    </div>
-                    <input
-                      type="text"
-                      value={username}
-                      name="username"
-                      className="form-control"
-                      onChange={onChangeHandler}
-                    />
-                  </div>
-                  <div className="password-jawn">
-                    <div className="text">
-                      Password
-                    </div>
-                    <input
-                      type="password"
-                      value={password}
-                      name="password"
-                      className="form-control"
-                      onChange={onChangeHandler}
-                    />
-                  </div>
-                  <div className="sub-text2">
-                    <a href="">Forgot Password</a>
-                  </div>
-                  <button className="input-btn" type="submit">Sign In</button>
-                </form>
-                <div className="sub-text">
-                  Not a member? <a className="link" onClick={() => handleTabClick('Sign Up')} >Sign up</a>
-                </div>
-              </>
-            )}
+      <SubDisplay>
+        {activeButton === 'Sign In' && (
+          <form 
+          className="form-jawn" 
+          onSubmit={onSubmitLogin}
+          ref={loginFormRef}
+          >
 
-            {activeButton === 'Sign Up' && (
-              <div>
-                <form 
-                className="form-jawn" 
-                onSubmit={onSubmitRegister}
-                ref={registerFormRef}
-                >
-                  <div className="username-jawn">
-                    <div className="text">
-                      Username
-                    </div>
-                    <input
-                      type="text"
-                      value={username}
-                      name="username"
-                      className="form-control"
-                      onChange={onChangeHandler}
-                    />
-                  </div>
-                  <div className="username-jawn">
-                    <div className="text">
-                      Email
-                    </div>
-                    <input
-                      type="text"
-                      value={email}
-                      name="email"
-                      className="form-control"
-                      onChange={onChangeHandler}
-                    />
-                  </div>
-                  <div className="password-jawn">
-                    <div className="text">
-                      Password
-                    </div>
-                    <input
-                      type="password"
-                      value={password}
-                      name="password"
-                      className="form-control"
-                      onChange={onChangeHandler}
-                    />
-                    <p style={{color: "red"}}>{message}</p>
-                  </div>
-                  <div className="spacer"> </div>
-                  <button className="input-btn" type="submit">Sign Up</button>
-                </form>
-                <div className="sub-text">
-                  Already a member? <a className="link" onClick={() => handleTabClick('Sign In')}>Sign in</a>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
+            <JustText props={{text: "Username"}} />
+            <input
+              type="text"
+              value={username}
+              name="username"
+              className="form-control"
+              onChange={onChangeHandler}
+            />
+
+            <JustText props={{text: "Password"}} />
+            <input
+              type="password"
+              value={password}
+              name="password"
+              className="form-control"
+              onChange={onChangeHandler}
+            />
+
+            <div className="sub-text2">
+              <a href="">Forgot Password</a>
+            </div>
+
+            <button className="input-btn" type="submit">Sign In</button>
+
+            <div className="sub-text">
+              Not a member? <a className="link" onClick={() => handleTabClick('Sign Up')} >Sign up</a>
+            </div>
+
+          </form>
+        )}
+
+        {activeButton === 'Sign Up' && (
+          <form 
+          className="form-jawn" 
+          onSubmit={onSubmitRegister}
+          ref={registerFormRef}
+          >
+
+            <JustText props={{text: "Username"}} />
+            <input
+              type="text"
+              value={username}
+              name="username"
+              className="form-control"
+              onChange={onChangeHandler}
+            />
+
+            <JustText props={{text: "Email"}} />
+            <input
+              type="text"
+              value={email}
+              name="email"
+              className="form-control"
+              onChange={onChangeHandler}
+            />
+
+            <JustText props={{text: "Password"}} />
+            <input
+              type="password"
+              value={password}
+              name="password"
+              className="form-control"
+              onChange={onChangeHandler}
+            />
+                
+            <p style={{color: "red"}}>{message}</p>
+              
+            <div className="spacer"> </div>
+             
+            <button className="input-btn" type="submit">Sign Up</button>
+
+            <div className="sub-text">
+              Already a member? <a className="link" onClick={() => handleTabClick('Sign In')}>Sign in</a>
+            </div>
+            
+          </form>
+        )}
+      </SubDisplay>
+    </LoginContainer>
   );
 };
 

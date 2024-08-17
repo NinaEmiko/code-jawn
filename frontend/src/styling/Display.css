@@ -118,10 +118,6 @@
     color: var(--accent-jawn);
 }
 
-.username-jawn, .password-jawn{
-    height: 60%;
-}
-
 .spacer{
     margin: 14%;
 }
