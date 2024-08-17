@@ -28,7 +28,7 @@ function SelectLesson({props}:{props:any}) {
                     </div>
 
                     <div className="select-language-sub-text">
-                        Please select the language you wish to learn.
+                        Select a Language
                     </div>
                     <div className="container-for-language-btn">
                         <LanguageButtonContainer props={{

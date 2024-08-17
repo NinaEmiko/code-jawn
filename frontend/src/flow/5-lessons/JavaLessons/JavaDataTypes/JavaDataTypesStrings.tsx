@@ -5,15 +5,21 @@ import JavaDataTypesStringsQuestion3 from "../../../6-questions/JavaQuestions/Ja
 import JavaDataTypesStringsQuestion4 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion4";
 import ProgressTracker from "../../../../components/ProgressTracker";
 import JavaDataTypesStringsQuestion5 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
+import JavaDataTypesStringsLecture1 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture1";
+import JavaDataTypesStringsLecture2 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture2";
 
 function JavaDataTypesStrings({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
     const [questionsAnswered, setQuestionsAnswered] = useState(0);
-
+    const [lecturesCompleted, setLecturesCompleted] = useState(0);
 
     const handleBackClick = () => {
         props.handleRedirectJavaLessons("Java Lessons");
+    }
+
+    const completeLecture = () => {
+        setLecturesCompleted(lecturesCompleted + 1);
     }
 
     const completeQuestion = (correct: boolean) => {
@@ -31,25 +37,41 @@ function JavaDataTypesStrings({props}:{props:any}) {
         <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:4}}/>
         <div className="parent-jawn">
             <div className="child-jawn">
-            {questionsAnswered === 0 &&
-                    <JavaDataTypesStringsQuestion1 props={{completeQuestion:completeQuestion}} />
+
+                {lecturesCompleted < 2 &&
+                    <>
+                        {lecturesCompleted === 0 &&
+                            <JavaDataTypesStringsLecture1 props={{completeLecture:completeLecture}} />
+                        }
+                        {lecturesCompleted === 1 &&
+                            <JavaDataTypesStringsLecture2 props={{completeLecture:completeLecture}} />
+                        }
+                    </>
                 }
-                {questionsAnswered === 1 &&
-                    <JavaDataTypesStringsQuestion2 props={{completeQuestion:completeQuestion}} />
-                }
-                {questionsAnswered === 2 &&
-                    <JavaDataTypesStringsQuestion3 props={{completeQuestion:completeQuestion}} />
-                }
-                {questionsAnswered === 3 &&
-                    <JavaDataTypesStringsQuestion4 props={{completeQuestion:completeQuestion}} />
-                }
-                {questionsAnswered === 4 &&
-                    <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion}} />
-                }
-                {questionsAnswered === 5 &&
-                    <div className="question-explanation">
-                        Score: {correctAnswers}/5
-                    </div>
+                
+                {lecturesCompleted === 2 &&
+                    <>
+                        {questionsAnswered === 0 &&
+                            <JavaDataTypesStringsQuestion1 props={{completeQuestion:completeQuestion}} />
+                        }
+                        {questionsAnswered === 1 &&
+                            <JavaDataTypesStringsQuestion2 props={{completeQuestion:completeQuestion}} />
+                        }
+                        {questionsAnswered === 2 &&
+                            <JavaDataTypesStringsQuestion3 props={{completeQuestion:completeQuestion}} />
+                        }
+                        {questionsAnswered === 3 &&
+                            <JavaDataTypesStringsQuestion4 props={{completeQuestion:completeQuestion}} />
+                        }
+                        {questionsAnswered === 4 &&
+                            <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion}} />
+                        }
+                        {questionsAnswered === 5 &&
+                            <div className="question-explanation">
+                                Score: {correctAnswers}/5
+                            </div>
+                        }
+                    </>
                 }
             </div>
         </div>
