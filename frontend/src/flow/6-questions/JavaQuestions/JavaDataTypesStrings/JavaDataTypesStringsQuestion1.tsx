@@ -70,7 +70,7 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={STRINGS_QUESTION_1_EXPLANATIONS.ANSWER_1} />
-                    <button className="explanation-btn" onClick={() => endQuestion()} >
+                    <button className="input-btn" onClick={() => endQuestion()} >
                         Continue
                     </button>
                 </div>
@@ -85,7 +85,7 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={STRINGS_QUESTION_1_EXPLANATIONS.ANSWER_2} />
-                    <button className="explanation-btn" onClick={() => endQuestion()} >
+                    <button className="input-btn" onClick={() => endQuestion()} >
                         Continue
                     </button>
                 </div>
@@ -100,7 +100,7 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={STRINGS_QUESTION_1_EXPLANATIONS.ANSWER_3} />
-                    <button className="explanation-btn" onClick={() => endQuestion()} >
+                    <button className="input-btn" onClick={() => endQuestion()} >
                         Continue
                     </button>
                 </div>
@@ -115,7 +115,7 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                             }} />
                         </div>
                         <Explanation props={STRINGS_QUESTION_1_EXPLANATIONS.ANSWER_4} />
-                        <button className="explanation-btn" onClick={() => endQuestion()} >
+                        <button className="input-btn" onClick={() => endQuestion()} >
                             Continue
                         </button>
                 </div>

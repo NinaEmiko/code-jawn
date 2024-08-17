@@ -77,7 +77,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
 
       <HeaderDisplay>
         {activeButton ==="Sign In" ?
-          <Header props={{text: "Welcome back"}} />
+          <Header props={{text: "Welcome Back"}} />
           :
           <Header props={{text: "Welcome"}} />
         }

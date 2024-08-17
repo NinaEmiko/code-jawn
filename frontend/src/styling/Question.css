@@ -15,10 +15,12 @@
 
 .question-container{
     height: 100%;
+    width: 100%;
 }
 
 .question-explanation-container{
     height: 25%;
+    width: 100%;
 }
 .question-explanation{
     display: flex;
@@ -27,7 +29,8 @@
     font-size: var(--text);
     margin-top: 20px;
     margin-bottom: 20px;
-    color: var(--sub-secondary-jawn)
+    color: var(--sub-secondary-jawn);
+    width: 100%;
 }
 
 .question-explanation-incorrect{
@@ -38,6 +41,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     color: red;
+    width: 100%;
 }
 .question-explanation-correct{
     display: flex;
@@ -47,19 +51,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     color: green;
-}
-
-.explanation-btn{
-    margin-top: 20px;
-    padding: 10px;
-    border-top: solid var(--accent-jawn);
-    border-left: solid var(--accent-jawn);
-    border-right: transparent;
-    border-bottom: transparent;
-    color: white;
-    float: right;
-    font-size: var(--text);
-    background-color: transparent;
+    width: 100%;
 }
 
 .progress-tracker{
@@ -67,4 +59,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
