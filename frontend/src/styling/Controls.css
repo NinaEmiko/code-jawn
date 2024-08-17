@@ -3,7 +3,7 @@
 .controls-jawn {
     justify-content: center;
     height: 10%;
-    background-color: var(--background-light-jawn);
+    background-color: var(--primary-light-jawn);
     display: flex;
     align-items: center;
     /* padding-bottom: 10px; */

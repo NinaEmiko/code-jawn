@@ -1,14 +1,16 @@
 :root {
-  --background-jawn: #2d2d2d; 
-  --background-light-jawn: #595959;
-  --sub-background-jawn: #e102ff;
-  --header-jawn: #ae03ff;
-  --text-jawn: #d9d9d9;
+  /* COLORS */
   --off-white-jawn: #d9d9d9;
   --primary-jawn: #2d2d2d;
+  --primary-light-jawn: #595959;
   --secondary-jawn: #ff7100;
   --sub-secondary-jawn: #ff8c34;
   --accent-jawn: #12edd8;
+
+  /* FONT SIZES  */
+  --header-text: 9vw;
+  --text: 6vw;
+  --sub-text: 5vw;
 }
 
 html, body, #root {
@@ -17,7 +19,7 @@ html, body, #root {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--background-jawn);
+  background-color: var(--primary-jawn);
 }
 body{
   display: flex;
@@ -36,7 +38,7 @@ body{
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: FantaisieArtistique;
-  color: var(--text-jawn);
+  color: var(--off-white-jawn);
 }
 
 .container-jawn {
@@ -46,7 +48,7 @@ body{
   width: 100%;
   max-width: 100%;
   justify-content: center;
-  background-color: var(--background-jawn);
+  background-color: var(--primary-jawn);
   opacity: 90%;
   box-sizing: border-box;
 } 
@@ -68,32 +70,31 @@ input{
 .progress-tracker{
   width: 100%;
   text-align: center;
-  font-size: 7vw;
-  color: var(--text-jawn);
+  font-size: var(--text);
+  color: var(--off-white-jawn);
   top: 0;
 }
 
 .text{
-  font-size: 6vw;
+  font-size: var(--text);
   color: var(--sub-secondary-jawn);
   margin-top: 3%;
-  /* margin-bottom: 3%; */
-  font-weight: bold;
+  margin-bottom: 1%;
 }
 .sub-text{
   float: right;
   margin: 3%;
-  font-size: 6vw;
+  font-size: var(--sub-text);
 }
 
 .sub-text2{
   float: right;
   margin-bottom: 5%;
-  font-size: 6vw;
+  font-size: var(--sub-text);
 }
 
-.header{
-  font-size: 10vw;
+.header-text{
+  font-size: var(--header-text);
   color: black;
   font-weight: bold;
 }

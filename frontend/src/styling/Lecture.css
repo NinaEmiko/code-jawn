@@ -1,20 +1,20 @@
 .lecture-title{
     margin-bottom: 9%;
     color: var(--secondary-jawn);
-    font-size: 9vw;
+    font-size: var(--header-text);
     text-align: center;
 }
 .lecture-text{
     margin-bottom: 6%;
     color: var(--off-white-jawn);
-    font-size: 5vw;
+    font-size: var(--sub-text);
     font-weight: bold;
     text-align: center;
 }
 .lecture-example{
     margin-bottom: 3%;
     color: var(--off-white-jawn);
-    font-size: 5vw;
+    font-size: var(--sub-text);
 }
 
 .table-jawn{
