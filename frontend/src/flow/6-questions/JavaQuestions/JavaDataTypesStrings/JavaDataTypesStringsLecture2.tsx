@@ -38,7 +38,7 @@ const JavaDataTypesStringsLecture2 = ({props}:{props:any}) => {
                 </div>
             </div>
             
-            <button onClick={()=> handleClickContinue()} className="explanation-btn">Begin</button>
+            <button onClick={()=> handleClickContinue()} className="input-btn">Begin</button>
         </div>
     )
 }

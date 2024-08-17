@@ -17,20 +17,22 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
     }
 
     return (
-        <div className="language-btn-container" onClick={() => handleButtonClick(props.language)}>
-            <img className="language-icon"
-                src={handleIcon(props.language)}
-                alt={props.iconAltText} />
-            <div className="center-language-btn">
-                <div className="language-btn">
-                    {props.language}
+        <div className="container-for-language-btn">
+            <div className="language-btn-container" onClick={() => handleButtonClick(props.language)}>
+                <img className="language-icon"
+                    src={handleIcon(props.language)}
+                    alt={props.iconAltText} />
+                <div className="center-language-btn">
+                    <div className="language-btn">
+                        {props.language}
+                    </div>
+                    <div className="additional-text">
+                        <EmojiGenerator props={{lessonsCompleted:props.lessonsCompleted, totalLessons:props.totalLessons}} />
+                    </div>
                 </div>
-                <div className="additional-text">
-                    <EmojiGenerator props={{lessonsCompleted:props.lessonsCompleted, totalLessons:props.totalLessons}} />
+                <div className="expand-icon">
+                    ▶
                 </div>
-            </div>
-            <div className="expand-icon">
-                ▶
             </div>
         </div>
     )

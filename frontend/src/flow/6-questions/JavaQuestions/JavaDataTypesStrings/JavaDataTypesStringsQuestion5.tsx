@@ -52,7 +52,7 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
                             onChange={handleChange}
                         />
                     </div>
-                    <button className="explanation-btn" onClick={() => handleSubmit()}>Submit</button>
+                    <button className="input-btn" onClick={() => handleSubmit()}>Submit</button>
                 </div>
                 :
                 <>
@@ -62,13 +62,13 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
                         <>
                             <AnswerExplanationHeader props={{correct: true}} />
                             <Explanation props={{text: STRINGS_QUESTION_5_EXPLANATIONS.CORRECT_ANSWER}} />
-                            <button className="explanation-btn" onClick={() => endQuestion()}>Continue</button>
+                            <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
                         </>    
                     ) : (
                         <>
                             <AnswerExplanationHeader props={{correct: false}} />
                             <Explanation props={{text: STRINGS_QUESTION_5_EXPLANATIONS.INCORRECT_ANSWER}} />
-                            <button className="explanation-btn" onClick={() => endQuestion()}>Continue</button>
+                            <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
                         </>
                     )    
                 }

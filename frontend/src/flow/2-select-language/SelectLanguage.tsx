@@ -4,6 +4,10 @@ import LolaIcon from '../../assets/lola-icon.jpg'
 import Controls from "../../components/Controls"
 import LanguageButtonContainer from "../../components/LanguageButtonContainer"
 import { progressConstants } from "../../helpers/ProgressConstants"
+import SubDisplay from "../../components/SubDisplay"
+import HeaderDisplay from "../../components/HeaderDisplay"
+import Header from "../../components/Header"
+import LoginContainer from "../../components/LoginContainer"
 
 function SelectLesson({props}:{props:any}) {
 
@@ -15,42 +19,31 @@ function SelectLesson({props}:{props:any}) {
         props.logout()
     }
     return (
-      <Container>
-                <button onClick={() => handleLogOut()} className="" >{"Log out"}</button>
-        <Display>
-            <div className="parent-jawn">
-                <div className="child-jawn">
-
-                    <div className="code-jawn-icon-container">
-                        <img className="code-jawn-icon"
-                            src={LolaIcon}
-                            alt="Code Jawn Icon" />
-                    </div>
-
-                    <div className="select-language-sub-text">
-                        Select a Language
-                    </div>
-                    <div className="container-for-language-btn">
-                        <LanguageButtonContainer props={{
-                            iconAltText: "Java Icon",
-                            language: "Java",
-                            lessonsCompleted: 0,
-                            totalLessons: 1,
-                            handleButtonClick:handleButtonClick}} />
-                    </div>
-                    <div className="container-for-language-btn">
-                    <LanguageButtonContainer props={{
-                        iconAltText: "JavaScript Icon",
-                        language: "JavaScript",
-                        lessonsCompleted: 1,
-                        totalLessons: 1,
-                        handleButtonClick:handleButtonClick}} />
-                    </div>
-                </div>
+      <LoginContainer>
+        <HeaderDisplay>
+            <button onClick={() => handleLogOut()} className="" >{"Log out"}</button>
+            <Header props={{text: "Select a Language"}} />
+            <div className="code-jawn-icon-container">
+                <img className="code-jawn-icon"
+                    src={LolaIcon}
+                    alt="Code Jawn Icon" />
             </div>
-        </Display>
-        {/* <Controls children={undefined} /> */}
-      </Container>
+        </HeaderDisplay>
+        <SubDisplay>
+            <LanguageButtonContainer props={{
+                    iconAltText: "Java Icon",
+                    language: "Java",
+                    lessonsCompleted: 0,
+                    totalLessons: 1,
+                    handleButtonClick:handleButtonClick}} />
+            <LanguageButtonContainer props={{
+                iconAltText: "JavaScript Icon",
+                language: "JavaScript",
+                lessonsCompleted: 1,
+                totalLessons: 1,
+                handleButtonClick:handleButtonClick}} />
+        </SubDisplay>
+      </LoginContainer>
     )
   }
   
