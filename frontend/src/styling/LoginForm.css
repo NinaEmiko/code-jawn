@@ -44,5 +44,5 @@ input {
 }
 
 .link{
-    /* color: var(--accent-jawn); */
+    text-decoration: underline;
 }
