@@ -5,7 +5,7 @@
     border-left: solid var(--accent-jawn);
     padding: 20px;
     margin-bottom: 5%;
-    font-size: 5vw;
+    font-size: var(--sub-text);
     height: 16%;
 }
 
@@ -16,7 +16,7 @@
     border-left: solid var(--accent-jawn);
     padding: 20px;
     margin-bottom: 5%;
-    font-size: 5vw;
+    font-size: var(--sub-text);
     height: 16%;
 }
 
@@ -44,15 +44,16 @@
     border-right: none;
     border-top: none;
     outline: none;
-    border-color: var(--header-jawn);
+    border-color: var(--sub-secondary-jawn);
 }
 
 .input-btn {
-    font-size: 8vw;
+    font-size: var(--text);
     border: none;
     color: black;
     border-radius: 20px;
     padding: 3%;
     width: 100%;
     background-color: var(--accent-jawn);
+    font-weight: bold;
 }
