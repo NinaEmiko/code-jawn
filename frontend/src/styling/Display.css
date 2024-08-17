@@ -16,6 +16,20 @@
     padding-bottom: 5%;
 }
 
+.top-display{
+    height: 25%;
+    background: transparent;
+    padding: 5%;
+}
+
+.display-jawn2 {
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    height: 75%;
+    background-color: var(--background-jawn);
+    width: 100%;
+}
+
 /* PARENT */
 
 .parent-jawn{
@@ -28,6 +42,13 @@
     justify-content: center;
 }
 
+.parent-jawn2{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 /* CHILD */
 
 .child-jawn{
@@ -35,6 +56,15 @@
     width: 90%;
     display: flex;
     flex-direction: column;
+}
+
+.child-jawn2{
+    /* align-items: center; */
+    width: 90%;
+    margin-top: 15%;
+    /* height: 50%; */
+    /* display: flex; */
+    /* flex-direction: column; */
 }
 
 /* TEXT */
@@ -81,26 +111,32 @@
     font-weight: bold;
     padding-left: 10%;
     height: 5%;
+    color: var(--accent-jawn);
 }
 
 .form-jawn{
     /* margin-top: 150%; */
-    margin-top: 50%;
+    /* margin-top: 50%; */
 }
 
 .tab-jawn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* height: 100%; */
+    /* width: 100%; */
 }
 
 input.form-control{
     height: 60%;
     font-size: 7vw;
+    
 }
 
 .username-jawn, .password-jawn{
     height: 60%;
+}
+
+.spacer{
+    margin: 14%;
 }

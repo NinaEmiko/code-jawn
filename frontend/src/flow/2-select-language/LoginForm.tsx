@@ -17,7 +17,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmationPassword, setConfirmationPassword] = useState('');
   const [message, setMessage] = useState('');
 
   const loginFormRef = useRef<HTMLFormElement | null>(null);
@@ -41,7 +40,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
     if (name === 'username') setUsername(value);
     else if (name === 'email') setEmail(value);
     else if (name === 'password') setPassword(value);
-    else if (name === 'confirmation-password') setConfirmationPassword(value);
   };
 
   const onSubmitLogin = (e: FormEvent) => {
@@ -60,11 +58,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
       setMessage("Username must be 4-16 characters.")
     } else if(password.length < 7 || password.length > 16) {
       setMessage("Passwords must be 8-16 characters.")
-    } else if (password != confirmationPassword) {
-      setMessage("Passwords must match.")
-    }  else {
+    } else {
       onRegister(e, username, email, password);
-      // setMessage("Username taken.")
     }
   };
 
@@ -76,48 +71,74 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   }, []);
 
   return (
-    <Container>
-      <Display>
-        <div className="parent-jawn">
-          <div className="child-jawn">
-            <div className="tab-jawn">
+    <div className="container-jawn2">
+      <div className="top-display">
+        <div className="header">
+          Welcome
+        </div>
+        <div className="header">
+          {activeButton}
+        </div>
+      </div>
+
+      <div className="display-jawn2">
+        <div className="parent-jawn2">
+          <div className="child-jawn2">
               {activeButton === 'Login' && (
-                <form 
-                className="form-jawn" 
-                onSubmit={onSubmitLogin}
-                ref={loginFormRef}
-                >
-                  <div className="username-jawn">
-                    <input
-                      type="text"
-                      value={username}
-                      name="username"
-                      className="form-control"
-                      placeholder="Username"
-                      onChange={onChangeHandler}
-                    />
+                <>
+                  <form 
+                  className="form-jawn" 
+                  onSubmit={onSubmitLogin}
+                  ref={loginFormRef}
+                  >
+                    <div className="username-jawn">
+                      <div className="text">
+                        Username
+                      </div>
+                      <input
+                        type="text"
+                        value={username}
+                        name="username"
+                        className="form-control"
+                        onChange={onChangeHandler}
+                      />
+                    </div>
+                    <div className="password-jawn">
+                      <div className="text">
+                        Password
+                      </div>
+                      <input
+                        type="password"
+                        value={password}
+                        name="password"
+                        className="form-control"
+                        onChange={onChangeHandler}
+                      />
+                    </div>
+                    <div className="sub-text2">
+                      <a href="">Forgot Password</a>
+                    </div>
+                    <button className="input-btn" type="submit">Login</button>
+                  </form>
+                  <div>
+                    <div className="sub-text">
+                      Not a member? <a className="link" onClick={() => handleTabClick('Register')} href="">Sign up</a>
+                    </div>
                   </div>
-                  <div className="password-jawn">
-                    <input
-                      type="password"
-                      value={password}
-                      name="password"
-                      className="form-control"
-                      placeholder="Password"
-                      onChange={onChangeHandler}
-                    />
-                  </div>
-                  <button className="input-btn" type="submit">Login</button>
-                </form>
+                </>
               )}
 
               {activeButton === 'Register' && (
+                <div>
                 <form 
                 className="form-jawn" 
                 onSubmit={onSubmitRegister}
                 ref={registerFormRef}
                 >
                   <div className="username-jawn">
+                  <div className="text">
+                      Username
+                    </div>
                     <input
                       type="text"
                       value={username}
@@ -128,6 +149,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                     />
                   </div>
                   <div className="username-jawn">
+                  <div className="text">
+                      Email
+                    </div>
                     <input
                       type="text"
                       value={email}
@@ -138,6 +162,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                     />
                   </div>
                   <div className="password-jawn">
+                  <div className="text">
+                      Password
+                    </div>
                     <input
                       type="password"
                       value={password}
@@ -146,39 +173,23 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                       placeholder="Password"
                       onChange={onChangeHandler}
                     />
-                    <input
-                      type="password"
-                      value={confirmationPassword}
-                      name="confirmation-password"
-                      className="form-control"
-                      placeholder="Confirm Password"
-                      onChange={onChangeHandler}
-                    />
                     <p style={{color: "red"}}>{message}</p>
                   </div>
+                  <div className="spacer"> </div>
                   <button className="input-btn" type="submit">Register</button>
+
                 </form>
+                <div>
+                    <div className="sub-text">
+                      Already a member? <a className="link" onClick={() => handleTabClick('Login')} href="">Sign in</a>
+                    </div>
+                  </div>
+                </div>
               )}
-            </div>
-          </div>
-          <div className="display-tabs-top-2">
-            <button
-              className={activeButton === 'Login' ? 'active' : ''}
-              onClick={() => handleTabClick('Login')}
-            >
-              Login
-            </button>
-            <button
-              className={activeButton === 'Register' ? 'active' : ''}
-              onClick={() => handleTabClick('Register')}
-            >
-              Register
-            </button>
           </div>
         </div>
-      </Display>
-      {/* <Controls children={undefined} /> */}
-    </Container>
+        </div>
+    </div>
   );
 };
 

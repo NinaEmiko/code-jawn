@@ -49,13 +49,10 @@
 
 .input-btn {
     font-size: 8vw;
-    color: var(--text-jawn);
-    border-right: none;
-    border-bottom: none;
-    background-color: transparent;
-    margin-top: 10%;
-    float: right;
-    border-top: solid var(--accent-jawn);
-    border-left: solid var(--accent-jawn);
-
+    border: none;
+    color: black;
+    border-radius: 20px;
+    padding: 3%;
+    width: 100%;
+    background-color: var(--accent-jawn);
 }
