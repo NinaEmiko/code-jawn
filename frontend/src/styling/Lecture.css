@@ -1,0 +1,45 @@
+.lecture-title{
+    margin-bottom: 9%;
+    color: var(--secondary-jawn);
+    font-size: 9vw;
+    text-align: center;
+}
+.lecture-text{
+    margin-bottom: 6%;
+    color: var(--off-white-jawn);
+    font-size: 5vw;
+    font-weight: bold;
+    text-align: center;
+}
+.lecture-example{
+    margin-bottom: 3%;
+    color: var(--off-white-jawn);
+    font-size: 5vw;
+}
+
+.table-jawn{
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.row-jawn{
+    display: table-row;
+}
+
+.cell-jawn{
+    display: table-cell;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    width: 50%;
+}
+
+.cell-header-jawn{
+    display: table-cell;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    color: var(--secondary-jawn);
+    width: 50%;
+}

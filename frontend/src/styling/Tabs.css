@@ -68,7 +68,7 @@
 /* UNIVERSAL */
 
 button.active {
-    color: var(--orange-jawn);
+    color: var(--accent-jawn);
     font-size: 5vw;
   }
 
