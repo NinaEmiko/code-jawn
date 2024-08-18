@@ -33,15 +33,21 @@ function JavaLessons({props}:{props:any}) {
 
   return (
     <LoginContainer>
+        <div className="back-btn-container">
+                    <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+                </div>
         <HeaderDisplay>
-            <div className="back-btn-container">
-                <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+            <div className="top-header">
+                
+                <Header props={{text: "Java Lessons"}} />
             </div>
-            <Header props={{text: "Java Lessons"}} />
+            <div className="bottom-header">
+
+            </div>
         </HeaderDisplay>
         <SubDisplay>
-            <div className="container-for-language-btn">
-                <div className="language-btn-container" onClick={() => handleShowSection("Data Types")}>
+            <div className="container-for-language-btn2">
+                <div className="language-btn-container2" onClick={() => handleShowSection("Data Types")}>
                     <LanguageLessonContainer props={{
                         lesson: "Data Types",
                         handleShowSection:handleShowSection,
@@ -57,8 +63,8 @@ function JavaLessons({props}:{props:any}) {
                 </div>
             </div>
 
-            <div className="container-for-language-btn">
-                <div className="language-btn-container" onClick={() => handleShowSection("Variables")}>
+            <div className="container-for-language-btn2">
+                <div className="language-btn-container2" onClick={() => handleShowSection("Variables")}>
                     <LanguageLessonContainer props={{
                         lesson: "Variables",
                         handleShowSection:handleShowSection,
@@ -74,8 +80,8 @@ function JavaLessons({props}:{props:any}) {
                 </div>
             </div>
 
-            <div className="container-for-language-btn">
-                <div className="language-btn-container" onClick={() => handleShowSection("For Loops")}>
+            <div className="container-for-language-btn2">
+                <div className="language-btn-container2" onClick={() => handleShowSection("For Loops")}>
                     <LanguageLessonContainer props={{
                         lesson: "For Loops",
                         handleShowSection:handleShowSection,
@@ -91,8 +97,8 @@ function JavaLessons({props}:{props:any}) {
                 </div>
             </div>
             
-            <div className="container-for-language-btn">
-                <div className="language-btn-container" onClick={() => handleShowSection("Conditionals")}>
+            <div className="container-for-language-btn2">
+                <div className="language-btn-container2" onClick={() => handleShowSection("Conditionals")}>
                     <LanguageLessonContainer props={{
                         lesson: "Conditionals",
                         handleShowSection:handleShowSection,
@@ -108,8 +114,8 @@ function JavaLessons({props}:{props:any}) {
                 </div>
             </div>
             
-            <div className="container-for-language-btn">
-                <div className="language-btn-container" onClick={() => handleShowSection("Arrays")}>
+            <div className="container-for-language-btn2">
+                <div className="language-btn-container2" onClick={() => handleShowSection("Arrays")}>
                     <LanguageLessonContainer props={{
                         lesson: "Arrays",
                         handleShowSection:handleShowSection,
@@ -125,8 +131,8 @@ function JavaLessons({props}:{props:any}) {
                 </div>
             </div>
             
-            <div className="container-for-language-btn">
-                <div className="language-btn-container" onClick={() => handleShowSection("Collections")}>
+            <div className="container-for-language-btn2">
+                <div className="language-btn-container2" onClick={() => handleShowSection("Collections")}>
                     <LanguageLessonContainer props={{
                         lesson: "Collections",
                         handleShowSection:handleShowSection,
@@ -142,8 +148,8 @@ function JavaLessons({props}:{props:any}) {
                 </div>
             </div>
             
-            <div className="container-for-language-btn">
-                <div className="language-btn-container" onClick={() => handleShowSection("Methods")}>
+            <div className="container-for-language-btn2">
+                <div className="language-btn-container2" onClick={() => handleShowSection("Methods")}>
                     <LanguageLessonContainer props={{
                         lesson: "Methods",
                         handleShowSection:handleShowSection,
@@ -159,8 +165,8 @@ function JavaLessons({props}:{props:any}) {
                 </div>
             </div>
             
-            <div className="container-for-language-btn">
-                <div className="language-btn-container" onClick={() => handleShowSection("Operators")}>
+            <div className="container-for-language-btn2">
+                <div className="language-btn-container2" onClick={() => handleShowSection("Operators")}>
                     <LanguageLessonContainer props={{
                         lesson: "Operators",
                         handleShowSection:handleShowSection,

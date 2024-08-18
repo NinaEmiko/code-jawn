@@ -1,8 +1,8 @@
 :root {
   /* COLORS */
   --off-white-jawn: #d9d9d9;
-  --primary-jawn: #2d2d2d;
-  --primary-light-jawn: #595959;
+  --primary-jawn: #3c3c3c;
+  --primary-light-jawn: #626262;
   --secondary-jawn: #ff7100;
   --sub-secondary-jawn: #ff8c34;
   --accent-jawn: #12edd8;
@@ -85,16 +85,21 @@ input{
   float: right;
   margin: 3%;
   font-size: var(--sub-text);
+  /* color: black; */
 }
 
 .sub-text2{
   float: right;
   margin-bottom: 5%;
   font-size: var(--sub-text);
+  color: black;
 }
 
 .header-text{
   font-size: var(--header-text);
   color: black;
   font-weight: bold;
+}
+.jawnski{
+  /* color: black; */
 }
