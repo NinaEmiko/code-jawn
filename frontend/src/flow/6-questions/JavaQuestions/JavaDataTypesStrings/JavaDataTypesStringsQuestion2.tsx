@@ -6,6 +6,7 @@ import { useState } from "react"
 import { STRINGS_QUESTION_2_ANSWERS, STRINGS_QUESTION_2_BOOLEANS, STRINGS_QUESTION_2_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import Explanation from "../../../../components/Explanation"
 import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
+import DividerJawn from "../../../../components/DividerJawn"
 
 
 function JavaDataTypesStringsQuestion2({props}:{props:any}) {
@@ -44,14 +45,17 @@ function JavaDataTypesStringsQuestion2({props}:{props:any}) {
                             answerClicked:handleAnswer1Click,
                             code: STRINGS_QUESTION_2_ANSWERS.ANSWER_1
                             }} />
+                            <DividerJawn />
                         <AnswerCodeBlock props={{
                             answerClicked:handleAnswer2Click,
                             code: STRINGS_QUESTION_2_ANSWERS.ANSWER_2
                             }} />
+                            <DividerJawn />
                         <AnswerCodeBlock props={{
                             answerClicked:handleAnswer3Click,
                             code: STRINGS_QUESTION_2_ANSWERS.ANSWER_3
                             }} />
+                            <DividerJawn />
                         <AnswerCodeBlock props={{
                             answerClicked:handleAnswer4Click,
                             code: STRINGS_QUESTION_2_ANSWERS.ANSWER_4

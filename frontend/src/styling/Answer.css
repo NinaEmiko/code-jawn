@@ -1,8 +1,6 @@
 .answer-text{
     color: white;
     background-color: transparent;
-    border-top: solid var(--accent-jawn);
-    border-left: solid var(--accent-jawn);
     padding: 20px;
     margin-bottom: 5%;
     font-size: var(--sub-text);
@@ -12,8 +10,6 @@
 .answer-text-template-literal{
     color: #859900;
     background-color: transparent;
-    border-top: solid var(--accent-jawn);
-    border-left: solid var(--accent-jawn);
     padding: 20px;
     margin-bottom: 5%;
     font-size: var(--sub-text);
@@ -30,21 +26,26 @@
     padding-top: 9%;
     padding-bottom: 9%;
     height: 15%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 .answer-input{
-    width: 100%;
-    font-size: 250%;
+    width: 90%;
+    font-size: var(--header-text);
     background: transparent;
     border-left: none;
     border-right: none;
     border-top: none;
+    box-sizing: border-box;
 }
 .answer-input:focus{
     border-left: none;
     border-right: none;
     border-top: none;
     outline: none;
-    border-color: var(--sub-secondary-jawn);
+    border-color: var(--accent-jawn);
+    box-sizing: border-box;
 }
 
 .input-btn {

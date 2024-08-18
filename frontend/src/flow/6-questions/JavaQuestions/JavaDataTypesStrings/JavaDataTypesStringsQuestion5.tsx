@@ -41,19 +41,21 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
     return (
         <>
             {!showAnswer ?
-                <div className="question-container">
-                    <div className="question-jawn">
-                        <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_5}} />
-                    </div>
-                    <div className="answer-jawn-input">   
-                        <input
-                            className="answer-input"
-                            value={value}
-                            onChange={handleChange}
-                        />
+                <>
+                    <div className="question-container">
+                        <div className="question-jawn">
+                            <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_5}} />
+                        </div>
+                        <div className="answer-jawn-input">   
+                            <input
+                                className="answer-input"
+                                value={value}
+                                onChange={handleChange}
+                            />
+                        </div>
                     </div>
                     <button className="input-btn" onClick={() => handleSubmit()}>Submit</button>
-                </div>
+                </>         
                 :
                 <>
                     {correct
