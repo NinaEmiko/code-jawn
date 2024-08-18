@@ -20,13 +20,19 @@ function SelectLesson({props}:{props:any}) {
     }
     return (
       <LoginContainer>
+        <button onClick={() => handleLogOut()} className="header-btn" >{"Log out"}</button>
         <HeaderDisplay>
-            <button onClick={() => handleLogOut()} className="" >{"Log out"}</button>
-            <Header props={{text: "Select a Language"}} />
-            <div className="code-jawn-icon-container">
-                <img className="code-jawn-icon"
-                    src={LolaIcon}
-                    alt="Code Jawn Icon" />
+            <div className="top-header">
+                
+                <Header props={{text: "Select a Language"}} />
+                <div className="code-jawn-icon-container">
+                    <img className="code-jawn-icon"
+                        src={LolaIcon}
+                        alt="Code Jawn Icon" />
+                </div>
+            </div>
+            <div className="bottom-header">
+
             </div>
         </HeaderDisplay>
         <SubDisplay>

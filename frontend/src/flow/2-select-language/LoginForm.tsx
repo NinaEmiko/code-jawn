@@ -6,6 +6,7 @@ import HeaderDisplay from '../../components/HeaderDisplay';
 import SubDisplay from '../../components/SubDisplay';
 import LoginContainer from '../../components/LoginContainer';
 import JustText from '../../components/JustText';
+import LoginHeaderDisplay from '../../components/LoginHeaderDisplay';
 
 interface LoginFormProps {
   onLogin: (e: FormEvent, username: string, password: string) => void;
@@ -76,12 +77,17 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
     <LoginContainer>
 
       <HeaderDisplay>
-        {activeButton ==="Sign In" ?
-          <Header props={{text: "Welcome Back"}} />
-          :
-          <Header props={{text: "Welcome"}} />
-        }
-        <Header props={{text: activeButton}} />
+        <div className="top-header">
+          {activeButton ==="Sign In" ?
+            <Header props={{text: "Welcome Back"}} />
+            :
+            <Header props={{text: "Welcome"}} />
+          }
+          <Header props={{text: activeButton}} />
+        </div>
+        <div className="bottom-header">
+
+        </div>
       </HeaderDisplay>
 
       <SubDisplay>
@@ -111,7 +117,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
             />
 
             <div className="sub-text2">
-              <a href="">Forgot Password</a>
+              <a className="jawnski" href="">Forgot Password</a>
             </div>
 
             <button className="input-btn" type="submit">Sign In</button>
