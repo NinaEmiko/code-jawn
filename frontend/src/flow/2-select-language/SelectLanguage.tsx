@@ -23,13 +23,8 @@ function SelectLesson({props}:{props:any}) {
         <button onClick={() => handleLogOut()} className="header-btn" >{"Log out"}</button>
         <HeaderDisplay>
             <div className="top-header">
-                
+                <div className="spacer"></div>
                 <Header props={{text: "Select a Language"}} />
-                <div className="code-jawn-icon-container">
-                    <img className="code-jawn-icon"
-                        src={LolaIcon}
-                        alt="Code Jawn Icon" />
-                </div>
             </div>
             <div className="bottom-header">
 

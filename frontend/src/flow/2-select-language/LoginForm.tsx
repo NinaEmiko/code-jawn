@@ -6,7 +6,8 @@ import HeaderDisplay from '../../components/HeaderDisplay';
 import SubDisplay from '../../components/SubDisplay';
 import LoginContainer from '../../components/LoginContainer';
 import JustText from '../../components/JustText';
-import LoginHeaderDisplay from '../../components/LoginHeaderDisplay';
+import LolaIcon from '../../assets/lola-icon.jpg'
+
 
 interface LoginFormProps {
   onLogin: (e: FormEvent, username: string, password: string) => void;
@@ -84,6 +85,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
             <Header props={{text: "Welcome"}} />
           }
           <Header props={{text: activeButton}} />
+          {/* <div className="code-jawn-icon-container">
+              <img className="code-jawn-icon"
+                  src={LolaIcon}
+                  alt="Code Jawn Icon" />
+          </div> */}
         </div>
         <div className="bottom-header">
 
