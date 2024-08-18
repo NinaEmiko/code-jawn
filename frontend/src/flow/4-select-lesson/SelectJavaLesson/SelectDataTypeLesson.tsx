@@ -10,6 +10,7 @@ function SelectDataTypeLesson({props}:{props:any}) {
             <button className="lesson-btn"
                 onClick={() => handleButtonClick("Java Data Types Strings")}>
                     Strings
+                
             </button>
             <button className="lesson-btn"
                 onClick={() => handleButtonClick("Java Data Types ints")}>
