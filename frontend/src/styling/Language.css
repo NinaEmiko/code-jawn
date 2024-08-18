@@ -83,7 +83,7 @@
 .language-btn {
     flex-grow: 1;
     font-size: var(--header-text);
-    color: black;
+    color: var(--sub-secondary-jawn);
     text-align: left;
     width: 100%;
     padding-left: 3%;
@@ -103,18 +103,22 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: var(--text);
+    font-size: var(--header-text);
     color: var(--accent-jawn);
 }
 .language-btn-link{
+    color: black;
+    text-align: center;
+    font-size: var(--text);
+    font-weight: bold;
+}
+.language-btn-link-container{
+    align-items: center;
+    justify-content: center;
     width: 100%;
     background-color: var(--accent-jawn);
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     height: 25%;
-    color: black;
-    text-align: center;
-    font-size: var(--text);
-    padding-right: 5%;
-    font-weight: bold;
+    display: flex;
 }

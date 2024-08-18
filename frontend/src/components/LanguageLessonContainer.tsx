@@ -51,11 +51,13 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
             <div className="expand-icon">
             {props.expanded ?
                 <>
-                    <i className="chevron-up"></i>
+                    {/* <i className="chevron-up"></i> */}
+                    -
                 </>
             :
                 <>
-                    <i className="chevron-down"></i>
+                    {/* <i className="chevron-down"></i>*/}
+                     +
                 </>
             }
             </div>

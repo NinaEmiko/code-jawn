@@ -34,8 +34,10 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
                     
                 </div>
             </div>
-            <div className="language-btn-link">
-                Go to lessons
+            <div className="language-btn-link-container">
+                <div className="language-btn-link">
+                    Go to lessons
+                </div>
             </div>
         </div>
     )
