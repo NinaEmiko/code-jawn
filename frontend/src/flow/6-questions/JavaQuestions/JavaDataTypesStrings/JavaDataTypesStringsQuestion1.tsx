@@ -7,6 +7,7 @@ import { STRINGS_QUESTION_1_ANSWERS, STRINGS_QUESTION_1_BOOLEANS, STRINGS_QUESTI
 import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
 import Explanation from "../../../../components/Explanation"
 import AnswerTemplateLiteral from "../../../../components/AnswerTemplateLiteral"
+import DividerJawn from "../../../../components/DividerJawn"
 
 
 function JavaDataTypesStringsQuestion1({props}:{props:any}) {
@@ -45,14 +46,18 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                             answerClicked:handleAnswer1Click,
                             code: STRINGS_QUESTION_1_ANSWERS.ANSWER_1
                             }} />
+
+                        <DividerJawn />
                         <AnswerCodeBlock props={{
                             answerClicked:handleAnswer2Click,
                             code: STRINGS_QUESTION_1_ANSWERS.ANSWER_2
                             }} />
-                         <AnswerCodeBlock props={{
+                        <DividerJawn />
+                        <AnswerCodeBlock props={{
                              answerClicked:handleAnswer3Click,
                              code: STRINGS_QUESTION_1_ANSWERS.ANSWER_3
                              }} />
+                        <DividerJawn />
                          <AnswerTemplateLiteral props={{
                              answerClicked:handleAnswer4Click,
                              text: STRINGS_QUESTION_1_ANSWERS.ANSWER_4

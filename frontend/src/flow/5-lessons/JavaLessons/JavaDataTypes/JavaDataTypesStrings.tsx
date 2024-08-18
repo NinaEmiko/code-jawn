@@ -41,7 +41,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
         <HeaderDisplay>
         <div className="top-header">
             {/* <Header props={{text: "Strings"}} /> */}
-            <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:4}}/>
+            <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/>
         </div>
         <div className="bottom-header">
 

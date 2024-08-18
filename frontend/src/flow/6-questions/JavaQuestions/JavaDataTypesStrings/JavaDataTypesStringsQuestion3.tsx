@@ -8,6 +8,7 @@ import { STRINGS_QUESTIONS, STRINGS_QUESTION_3_ANSWERS, STRINGS_QUESTION_3_BOOLE
 import Explanation from "../../../../components/Explanation"
 import AnswerText from "../../../../components/AnswerText"
 import AnswerTemplateLiteral from "../../../../components/AnswerTemplateLiteral"
+import DividerJawn from "../../../../components/DividerJawn"
 
 
 function JavaDataTypesStringsQuestion3({props}:{props:any}) {
@@ -46,14 +47,17 @@ function JavaDataTypesStringsQuestion3({props}:{props:any}) {
                             answerClicked:handleAnswer1Click,
                             code: STRINGS_QUESTION_3_ANSWERS.ANSWER_1
                             }} />
+                            <DividerJawn />
                         <AnswerText props={{
                             answerClicked:handleAnswer2Click,
                             text: STRINGS_QUESTION_3_ANSWERS.ANSWER_2
                             }} />
+                            <DividerJawn />
                         <AnswerTemplateLiteral props={{
                             answerClicked:handleAnswer3Click,
                             text: STRINGS_QUESTION_3_ANSWERS.ANSWER_3
                             }} />
+                            <DividerJawn />
                         <AnswerTemplateLiteral props={{
                             answerClicked:handleAnswer4Click,
                             text: STRINGS_QUESTION_3_ANSWERS.ANSWER_4
