@@ -8,13 +8,16 @@
     margin-bottom: 6%;
     color: var(--off-white-jawn);
     font-size: var(--sub-text);
-    font-weight: bold;
+    /* font-weight: bold; */
     text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 .lecture-example{
     margin-bottom: 3%;
     color: var(--off-white-jawn);
     font-size: var(--sub-text);
+    padding-bottom: 5%;
 }
 
 .table-jawn{
@@ -42,4 +45,14 @@
     text-align: center;
     color: var(--secondary-jawn);
     width: 50%;
+}
+
+.lecture-container{
+    width: 100%;
+    background-color: var(--primary-light-jawn);
+    border-radius: 25px;
+    margin-bottom: 5%;
+    justify-content: space-between;
+    /* height: 1%; */
+    box-shadow: 0 0 20px black; 
 }

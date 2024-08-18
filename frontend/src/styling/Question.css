@@ -21,6 +21,9 @@
 .question-explanation-container{
     height: 25%;
     width: 100%;
+    /* box-shadow: 0 0 20px black; 
+    background-color: var(--primary-light-jawn);
+    border-radius: 25px; */
 }
 .question-explanation{
     display: flex;
@@ -43,6 +46,7 @@
     color: red;
     width: 100%;
 }
+
 .question-explanation-correct{
     display: flex;
     flex-direction: column;
@@ -54,10 +58,30 @@
     width: 100%;
 }
 
-.progress-tracker{
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.progress-container {
     width: 100%;
+    background-color: var(--primary-jawn);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+    position: relative;
+}
+
+.progress-tracker {
+    height: 100%;
+    background-color: var(--accent-jawn);
+    transition: width 0.5s;
+}
+progress {
+    width: 100%;
+    height: 20px;
+    background-color: var(--primary-jawn);
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-bar,
+progress::-webkit-progress-value,
+progress::-moz-progress-bar {
+    background-color: var(--primary-jawn);
+    border-radius: 10px;
 }

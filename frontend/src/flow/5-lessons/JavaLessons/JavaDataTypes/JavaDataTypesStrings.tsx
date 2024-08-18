@@ -7,6 +7,10 @@ import ProgressTracker from "../../../../components/ProgressTracker";
 import JavaDataTypesStringsQuestion5 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
 import JavaDataTypesStringsLecture1 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture1";
 import JavaDataTypesStringsLecture2 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture2";
+import LoginContainer from "../../../../components/LoginContainer";
+import HeaderDisplay from "../../../../components/HeaderDisplay";
+import SubDisplay from "../../../../components/SubDisplay";
+import Header from "../../../../components/Header";
 
 function JavaDataTypesStrings({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -32,11 +36,18 @@ function JavaDataTypesStrings({props}:{props:any}) {
     }
 
   return (
-    <>
+    <LoginContainer>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
-        <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:4}}/>
-        <div className="parent-jawn">
-            <div className="child-jawn">
+        <HeaderDisplay>
+        <div className="top-header">
+            {/* <Header props={{text: "Strings"}} /> */}
+            <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:4}}/>
+        </div>
+        <div className="bottom-header">
+
+        </div>
+      </HeaderDisplay>
+        <SubDisplay>
 
                 {lecturesCompleted < 2 &&
                     <>
@@ -73,9 +84,8 @@ function JavaDataTypesStrings({props}:{props:any}) {
                         }
                     </>
                 }
-            </div>
-        </div>
-    </>
+        </SubDisplay>
+    </LoginContainer>
   )
 }
 
