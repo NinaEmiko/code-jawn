@@ -7,11 +7,8 @@ const JavaDataTypesStringsLecture2 = ({props}:{props:any}) => {
     }
 
     return (
+        <>
         <div className="lecture-container">
-
-            <div className="lecture-title">
-                Strings
-            </div>
             
             <div className="lecture-text">
                 Strings are useful for storing data such as a user's name, email address and occupation.
@@ -37,9 +34,9 @@ const JavaDataTypesStringsLecture2 = ({props}:{props:any}) => {
                     </div>
                 </div>
             </div>
-            
-            <button onClick={()=> handleClickContinue()} className="input-btn">Begin</button>
         </div>
+        <button onClick={()=> handleClickContinue()} className="input-btn">Begin</button>
+        </>
     )
 }
 export default JavaDataTypesStringsLecture2;

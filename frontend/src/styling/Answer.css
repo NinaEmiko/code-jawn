@@ -56,4 +56,5 @@
     width: 100%;
     background-color: var(--accent-jawn);
     font-weight: bold;
+    box-shadow: 0 0 20px black; 
 }

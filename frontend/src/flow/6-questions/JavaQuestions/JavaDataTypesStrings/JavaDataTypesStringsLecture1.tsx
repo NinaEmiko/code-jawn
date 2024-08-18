@@ -7,11 +7,8 @@ const JavaDataTypesStringsLecture1 = ({props}:{props:any}) => {
     }
 
     return (
+        <>
         <div className="lecture-container">
-
-            <div className="lecture-title">
-                Strings
-            </div>
 
             <div className="lecture-text">
                 A String is a sequence of characters.
@@ -38,8 +35,10 @@ const JavaDataTypesStringsLecture1 = ({props}:{props:any}) => {
                     </div>
                 </div>
             </div>
-            <button onClick={()=> handleClickContinue()} className="input-btn">Continue</button>
         </div>
+        <button onClick={()=> handleClickContinue()} className="input-btn">Continue</button>
+
+        </>
     )
 }
 export default JavaDataTypesStringsLecture1;
