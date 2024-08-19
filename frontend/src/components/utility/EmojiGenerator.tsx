@@ -3,7 +3,7 @@ import { progressConstants } from "../../helpers/ProgressConstants";
 const EmojiGenerator = ({props}:{props:any}) => {
 
     return (
-        <div className="question-text">
+        <div className="progress-emoji">
             {props.lessonsCompleted === 0 &&
             progressConstants.NOT_STARTED
             }

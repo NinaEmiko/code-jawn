@@ -2,7 +2,7 @@
 
 .app-bar{
     justify-content: center;
-    height: 12.5%;
+    height: 10%;
     background-color: var(--sub-secondary-jawn);
     display: flex;
     align-items: center;

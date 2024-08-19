@@ -8,14 +8,9 @@ function SelectLesson({props}:{props:any}) {
     const handleButtonClick = (lesson: string) => {
         props.handleRedirectHome(lesson);
     }
-
-    const handleLogOut = () =>{
-        props.logout()
-    }
     
     return (
       <>
-        <button onClick={() => handleLogOut()} className="header-btn" >{"Log out"}</button>
         <HeaderDisplay>
             <Header props={{text: "Select a Language"}} />
         </HeaderDisplay>

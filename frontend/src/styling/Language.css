@@ -72,9 +72,15 @@
     color: var(--sub-secondary-jawn);
     text-align: left;
     width: 100%;
-    padding-left: 3%;
-    max-height: 50%;
-    height: 50%;
+    max-height: 33%;
+    height: 33%;
+}
+
+.progress-emoji{
+    color: var(--off-white-jawn);
+    font-size: var(--text);
+    max-height: 33%;
+    height: 33%;
 }
 
 .additional-text {

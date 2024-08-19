@@ -104,7 +104,7 @@ function App() {
       {currentUser.loggedIn &&
       <>
           {activeTab === "Select a Language" &&
-            <SelectLanguage props={{handleRedirectHome:handleRedirectHome, logout:logout}} />
+            <SelectLanguage props={{handleRedirectHome:handleRedirectHome}} />
           }
           {activeTab === "Java" &&
             <JavaSections props={{handleRedirectHome:handleRedirectHome}} />
@@ -119,7 +119,7 @@ function App() {
                 <Header props={{text: "Profile"}} />
               </HeaderDisplay>
 
-              <Profile props={undefined} />
+              <Profile props={{logout:logout}} />
             </>
           }
           <AppBar props={{handleClickProfile:handleClickProfile, handleClickLearn:handleClickLearn}} />
