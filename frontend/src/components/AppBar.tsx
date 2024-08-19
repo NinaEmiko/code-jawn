@@ -1,5 +1,3 @@
-import '../styling/Container.css'
-
 const AppBar = ({props}:{props:any}) => {
 
     return (

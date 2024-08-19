@@ -1,5 +1,4 @@
-import "../../../../styling/Question.css"
-import "../../../../styling/Answer.css"
+
 import Question from "../../../../components/question/Question"
 import { useState } from "react"
 import Explanation from "../../../../components/answer/Explanation";

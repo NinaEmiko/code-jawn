@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import "../styling/Container.css";
 
 const Container: React.FC<{children: ReactNode }> = ( {children}:{children:any} ) => {
 

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../../../../styling/Lecture.css'
 import JavaDataTypesStringsLecture1 from './JavaDataTypesStringsLecture1';
 import JavaDataTypesStringsLecture2 from './JavaDataTypesStringsLecture2';
 

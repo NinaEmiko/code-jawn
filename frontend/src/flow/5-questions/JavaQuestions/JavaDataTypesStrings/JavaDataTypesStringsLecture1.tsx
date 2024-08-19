@@ -1,6 +1,3 @@
-import { useState } from 'react';
-import '../../../../styling/Lecture.css'
-
 const JavaDataTypesStringsLecture1 = () => {
 
     return (

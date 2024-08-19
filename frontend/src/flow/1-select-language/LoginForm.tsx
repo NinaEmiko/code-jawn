@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
-import '../../styling/LoginForm.css';
 import Cookies from 'js-cookie';
 import Header from '../../components/Header';
 import HeaderDisplay from '../../components/HeaderDisplay';

@@ -1,6 +1,4 @@
 import { ReactNode } from "react";
-import "../styling/Display.css";
-
 
 const HeaderDisplay: React.FC<{children: ReactNode }> = ( {children}:{children:any} ) => {
 

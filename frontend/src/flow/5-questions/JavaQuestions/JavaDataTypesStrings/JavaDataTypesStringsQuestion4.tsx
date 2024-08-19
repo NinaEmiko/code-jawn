@@ -1,6 +1,4 @@
 import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock"
-import "../../../../styling/Question.css"
-import "../../../../styling/Answer.css"
 import Question from "../../../../components/question/Question"
 import { useState } from "react"
 import { STRINGS_QUESTION_1_BOOLEANS, STRINGS_QUESTION_2_BOOLEANS, STRINGS_QUESTION_3_BOOLEANS, STRINGS_QUESTION_4_ANSWERS, STRINGS_QUESTION_4_BOOLEANS, STRINGS_QUESTION_4_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"

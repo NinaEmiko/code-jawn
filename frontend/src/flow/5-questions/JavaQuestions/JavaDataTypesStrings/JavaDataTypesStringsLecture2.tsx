@@ -1,5 +1,3 @@
-import '../../../../styling/Lecture.css'
-
 const JavaDataTypesStringsLecture2 = () => {
 
     return (

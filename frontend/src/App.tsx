@@ -4,7 +4,15 @@ import { setAuthHeader } from "./helpers/axiosHelper";
 import LoginForm from "./flow/1-select-language/LoginForm";
 import { register, login } from "./api/api"
 import AppBar from "./components/AppBar";
+import "./styling/Answer.css"
+import "./styling/Container.css"
+import "./styling/Controls.css"
+import "./styling/Display.css"
 import "./styling/Language.css"
+import "./styling/Lecture.css"
+import "./styling/Lesson.css"
+import "./styling/LoginForm.css"
+import "./styling/Question.css"
 import JavaScriptSections from "./flow/2-languages/JavaScriptSections";
 import JavaSections from "./flow/2-languages/JavaSections";
 import SelectLanguage from "./flow/1-select-language/SelectLanguage";

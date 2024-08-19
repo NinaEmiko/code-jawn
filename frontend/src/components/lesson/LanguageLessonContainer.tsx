@@ -1,15 +1,12 @@
-import DataTypesIcon from "../assets/data-types-icon.png"
-import VariablesIcon from "../assets/variables-icon.png"
-import ForLoopsIcon from "../assets/for-loops-icon.png"
-import ConditionalsIcon from "../assets/conditionals-icon.png"
-import ArrayIcon from "../assets/array-icon.png"
-import CollectionsIcon from "../assets/collections-icon.png"
-import MethodsIcon from "../assets/methods-icon.png"
-import OperatorsIcon from "../assets/operators-icon.png"
+import DataTypesIcon from "../../assets/data-types-icon.png"
+import VariablesIcon from "../../assets/variables-icon.png"
+import ForLoopsIcon from "../../assets/for-loops-icon.png"
+import ConditionalsIcon from "../../assets/conditionals-icon.png"
+import ArrayIcon from "../../assets/array-icon.png"
+import CollectionsIcon from "../../assets/collections-icon.png"
+import MethodsIcon from "../../assets/methods-icon.png"
+import OperatorsIcon from "../../assets/operators-icon.png"
 import EmojiGenerator from "../utility/EmojiGenerator"
-
-
-
 
 const LanguageButtonContainer = ({props}:{props:any}) => {
 
