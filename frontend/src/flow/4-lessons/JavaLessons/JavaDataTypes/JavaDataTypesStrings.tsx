@@ -5,9 +5,6 @@ import JavaDataTypesStringsQuestion3 from "../../../5-questions/JavaQuestions/Ja
 import JavaDataTypesStringsQuestion4 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion4";
 import ProgressTracker from "../../../../components/utility/ProgressTracker";
 import JavaDataTypesStringsQuestion5 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
-import JavaDataTypesStringsLecture1 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture1";
-import JavaDataTypesStringsLecture2 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture2";
-import Container from "../../../../components/Container";
 import HeaderDisplay from "../../../../components/HeaderDisplay";
 import Display from "../../../../components/Display";
 import Header from "../../../../components/Header";
@@ -37,7 +34,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
     }
 
   return (
-    <Container>
+    <>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
         <HeaderDisplay>
             <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/>
@@ -75,7 +72,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
                     </>
                 }
         </Display>
-    </Container>
+    </>
   )
 }
 

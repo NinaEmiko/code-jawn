@@ -8,7 +8,6 @@ import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
 import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import LanguageLessonContainer from "../../components/lesson/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
-import Container from "../../components/Container";
 import Display from "../../components/Display";
 import HeaderDisplay from "../../components/HeaderDisplay";
 import Header from "../../components/Header";
@@ -30,7 +29,7 @@ function JavaLessons({props}:{props:any}) {
     }
 
   return (
-    <Container>
+    <>
         <div className="back-btn-container">
                     <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
                 </div>
@@ -174,7 +173,7 @@ function JavaLessons({props}:{props:any}) {
                 </div>
             </div>
         </Display>
-    </Container>
+    </>
   )
 }
 

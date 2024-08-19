@@ -3,7 +3,6 @@ import Cookies from 'js-cookie';
 import Header from '../../components/Header';
 import HeaderDisplay from '../../components/HeaderDisplay';
 import Display from '../../components/Display';
-import Container from '../../components/Container';
 import JustText from '../../components/utility/JustText';
 import LolaIcon from '../../assets/lola-icon.jpg'
 import AppBar from '../../components/AppBar';
@@ -67,7 +66,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   }, []);
 
   return (
-    <Container>
+    <>
 
       <HeaderDisplay>
           {activeButton ==="Sign In" ?
@@ -169,7 +168,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           </form>
         )}
       </Display>
-    </Container>
+    </>
   );
 };
 

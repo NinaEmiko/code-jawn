@@ -2,7 +2,6 @@ import LanguageButtonContainer from "../../components/language/LanguageButtonCon
 import Display from "../../components/Display"
 import HeaderDisplay from "../../components/HeaderDisplay"
 import Header from "../../components/Header"
-import Container from "../../components/Container"
 
 function SelectLesson({props}:{props:any}) {
 
@@ -15,7 +14,7 @@ function SelectLesson({props}:{props:any}) {
     }
     
     return (
-      <Container>
+      <>
         <button onClick={() => handleLogOut()} className="header-btn" >{"Log out"}</button>
         <HeaderDisplay>
             <Header props={{text: "Select a Language"}} />
@@ -34,7 +33,7 @@ function SelectLesson({props}:{props:any}) {
                 totalLessons: 1,
                 handleButtonClick:null}} />
         </Display>
-      </Container>
+      </>
     )
   }
   

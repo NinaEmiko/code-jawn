@@ -16,6 +16,7 @@ import "./styling/Question.css"
 import JavaScriptSections from "./flow/2-languages/JavaScriptSections";
 import JavaSections from "./flow/2-languages/JavaSections";
 import SelectLanguage from "./flow/1-select-language/SelectLanguage";
+import Container from "./components/Container";
 
 function App() {
   const [activeTab, setActiveTab] = useState("Select a Language");
@@ -83,7 +84,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <Container>
       {!currentUser.loggedIn &&
         <LoginForm onLogin={loginCall} onRegister={registerCall} currentUser={currentUser} logout={(logout)} />
       }
@@ -100,7 +101,7 @@ function App() {
           } 
         </>
       }
-    </>
+    </Container>
   )
 }
 
