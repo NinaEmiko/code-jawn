@@ -1,9 +1,9 @@
 import { useState } from "react"
-import JavaVariableQuestion1 from "../../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion1"
-import JavaVariableQuestion2 from "../../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion2"
-import JavaVariableQuestion3 from "../../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion3"
-import JavaVariableQuestion4 from "../../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion4"
-import JavaVariableQuestion5 from "../../../6-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion5"
+import JavaVariableQuestion1 from "../../../5-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion1"
+import JavaVariableQuestion2 from "../../../5-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion2"
+import JavaVariableQuestion3 from "../../../5-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion3"
+import JavaVariableQuestion4 from "../../../5-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion4"
+import JavaVariableQuestion5 from "../../../5-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion5"
 
 function JavaLesson1({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);

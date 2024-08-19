@@ -1,8 +1,8 @@
 import { useState } from "react";
-import SelectJavaLesson from "../4-select-lesson/SelectJavaLesson";
-import JavaVariables from "../5-lessons/JavaLessons/JavaVariables/JavaVariables";
-import JavaDataTypesStrings from "../5-lessons/JavaLessons/JavaDataTypes/JavaDataTypesStrings";
-import JavaDataTypesInts from "../5-lessons/JavaLessons/JavaDataTypes/JavaDataTypesInts";
+import SelectJavaLesson from "../3-select-lesson/SelectJavaLesson";
+import JavaVariables from "../4-lessons/JavaLessons/JavaVariables/JavaVariables";
+import JavaDataTypesStrings from "../4-lessons/JavaLessons/JavaDataTypes/JavaDataTypesStrings";
+import JavaDataTypesInts from "../4-lessons/JavaLessons/JavaDataTypes/JavaDataTypesInts";
 
 function SelectJavaLessons({props}:{props:any}) {
     const [activeTab, setActiveTab] = useState("Java Lessons");

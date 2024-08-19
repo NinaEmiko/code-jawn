@@ -1,8 +1,8 @@
 import { useState } from "react";
-import SelectJavaScriptLesson from "../4-select-lesson/SelectJavaScriptLesson";
-import JavaScriptLesson3 from "../5-lessons/JavaScriptLessons/JavaScriptLesson3";
-import JavaScriptLesson2 from "../5-lessons/JavaScriptLessons/JavaScriptLesson2";
-import JavaScriptLesson1 from "../5-lessons/JavaScriptLessons/JavaScriptLesson1";
+import SelectJavaScriptLesson from "../3-select-lesson/SelectJavaScriptLesson";
+import JavaScriptLesson3 from "../4-lessons/JavaScriptLessons/JavaScriptLesson3";
+import JavaScriptLesson2 from "../4-lessons/JavaScriptLessons/JavaScriptLesson2";
+import JavaScriptLesson1 from "../4-lessons/JavaScriptLessons/JavaScriptLesson1";
 
 function SelectJavaScriptLessons({props}:{props:any}) {
     const [activeTab, setActiveTab] = useState("JavaScript Lessons");
