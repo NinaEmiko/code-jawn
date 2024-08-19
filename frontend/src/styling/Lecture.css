@@ -46,11 +46,12 @@
 .lecture-jawn{
     height: 85%;
     padding: 5%;
+    overflow: scroll;
 }
 
 .lecture-container{
     width: 100%;
-    height: 65%;
+    height: 70%;
     background-color: var(--primary-light-jawn);
     border-radius: 25px;
     margin-bottom: 5%;
