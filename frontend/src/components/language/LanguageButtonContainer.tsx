@@ -1,6 +1,6 @@
 import JavaIcon from '../assets/java-icon.png'
 import JavaScriptIcon from '../assets/javascript-icon.png'
-import EmojiGenerator from './EmojiGenerator';
+import EmojiGenerator from '../utility/EmojiGenerator';
 
 const LanguageButtonContainer = ({props}:{props:any}) => {
 

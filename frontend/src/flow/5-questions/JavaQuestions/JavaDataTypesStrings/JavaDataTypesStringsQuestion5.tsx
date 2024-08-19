@@ -1,10 +1,10 @@
 import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
-import Question from "../../../../components/Question"
+import Question from "../../../../components/question/Question"
 import { useState } from "react"
 import { STRINGS_QUESTION_5_ANSWERS, STRINGS_QUESTION_5_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
-import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
-import Explanation from "../../../../components/Explanation"
+import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader"
+import Explanation from "../../../../components/answer/Explanation"
 
 
 function JavaDataTypesStringsQuestion5({props}:{props:any}) {

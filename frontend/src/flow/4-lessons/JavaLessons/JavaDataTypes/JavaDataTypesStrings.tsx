@@ -3,7 +3,7 @@ import JavaDataTypesStringsQuestion1 from "../../../5-questions/JavaQuestions/Ja
 import JavaDataTypesStringsQuestion2 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion2";
 import JavaDataTypesStringsQuestion3 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion3";
 import JavaDataTypesStringsQuestion4 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion4";
-import ProgressTracker from "../../../../components/ProgressTracker";
+import ProgressTracker from "../../../../components/utility/ProgressTracker";
 import JavaDataTypesStringsQuestion5 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
 import JavaDataTypesStringsLecture1 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture1";
 import JavaDataTypesStringsLecture2 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture2";

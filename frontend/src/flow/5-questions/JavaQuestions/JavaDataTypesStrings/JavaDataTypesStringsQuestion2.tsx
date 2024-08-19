@@ -1,12 +1,12 @@
-import AnswerCodeBlock from "../../../../components/AnswerCodeBlock"
+import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock"
 import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
-import Question from "../../../../components/Question"
+import Question from "../../../../components/question/Question"
 import { useState } from "react"
 import { STRINGS_QUESTION_2_ANSWERS, STRINGS_QUESTION_2_BOOLEANS, STRINGS_QUESTION_2_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
-import Explanation from "../../../../components/Explanation"
-import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
-import DividerJawn from "../../../../components/DividerJawn"
+import Explanation from "../../../../components/answer/Explanation"
+import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader"
+import DividerJawn from "../../../../components/utility/DividerJawn"
 
 
 function JavaDataTypesStringsQuestion2({props}:{props:any}) {

@@ -6,7 +6,7 @@ import SelectArraysLesson from "./SelectJavaLesson/SelectArraysLesson";
 import SelectCollectionsLesson from "./SelectJavaLesson/SelectCollectionsLesson";
 import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
 import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
-import LanguageLessonContainer from "../../components/LanguageLessonContainer";
+import LanguageLessonContainer from "../../components/lesson/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 import Container from "../../components/Container";
 import Display from "../../components/Display";

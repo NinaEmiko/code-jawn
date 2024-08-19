@@ -1,10 +1,10 @@
-import AnswerCodeBlock from "../../../../components/AnswerCodeBlock"
+import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock"
 import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
-import Question from "../../../../components/Question"
+import Question from "../../../../components/question/Question"
 import { useState } from "react"
-import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
-import Explanation from "../../../../components/Explanation"
+import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader"
+import Explanation from "../../../../components/answer/Explanation"
 import { INTS_QUESTIONS, INTS_QUESTION_1_ANSWERS, INTS_QUESTION_1_BOOLEANS, INTS_QUESTION_1_EXPLANATIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypesIntsConstants"
 
 function JavaDataTypesIntsQuestion1({props}:{props:any}) {

@@ -1,4 +1,4 @@
-import LanguageButtonContainer from "../../components/LanguageButtonContainer"
+import LanguageButtonContainer from "../../components/language/LanguageButtonContainer"
 import Display from "../../components/Display"
 import HeaderDisplay from "../../components/HeaderDisplay"
 import Header from "../../components/Header"

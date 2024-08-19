@@ -1,7 +1,7 @@
 import { useState } from "react";
 import JavaDataTypesIntsQuestion1 from "../../../5-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion1";
 import JavaDataTypesIntsQuestion4 from "../../../5-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion4";
-import ProgressTracker from "../../../../components/ProgressTracker";
+import ProgressTracker from "../../../../components/utility/ProgressTracker";
 
 function JavaDataTypesInts({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);

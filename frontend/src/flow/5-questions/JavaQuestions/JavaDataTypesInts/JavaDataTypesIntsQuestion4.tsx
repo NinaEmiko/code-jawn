@@ -1,9 +1,9 @@
 import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
-import Question from "../../../../components/Question"
+import Question from "../../../../components/question/Question"
 import { useState } from "react"
-import Explanation from "../../../../components/Explanation";
-import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader";
+import Explanation from "../../../../components/answer/Explanation";
+import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader";
 import { INTS_QUESTION_4_ANSWERS, INTS_QUESTIONS, INTS_QUESTION_4_EXPLANATIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypesIntsConstants";
 
 

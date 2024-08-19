@@ -6,7 +6,7 @@ import ArrayIcon from "../assets/array-icon.png"
 import CollectionsIcon from "../assets/collections-icon.png"
 import MethodsIcon from "../assets/methods-icon.png"
 import OperatorsIcon from "../assets/operators-icon.png"
-import EmojiGenerator from "./EmojiGenerator"
+import EmojiGenerator from "../utility/EmojiGenerator"
 
 
 

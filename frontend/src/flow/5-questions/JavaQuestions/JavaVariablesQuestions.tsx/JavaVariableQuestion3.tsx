@@ -1,9 +1,9 @@
-import AnswerCodeBlock from "../../../../components/AnswerCodeBlock"
+import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock"
 import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
-import Question from "../../../../components/Question"
+import Question from "../../../../components/question/Question"
 import { useState } from "react"
-import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
+import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader"
 import { INITIALIZING_VARIABLES_QUESTIONS, INITIALIZING_VARIABLES_QUESTION_3_ANSWERS, INITIALIZING_VARIABLES_QUESTION_3_BOOLEANS, INITIALIZING_VARIABLES_QUESTION_3_EXPLANATIONS } from "../../../../helpers/JavaConstants/VariablesConstants/InitializingVariablesConstants"
 
 

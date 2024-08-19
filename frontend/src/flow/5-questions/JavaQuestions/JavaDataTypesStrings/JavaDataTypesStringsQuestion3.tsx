@@ -1,14 +1,14 @@
-import AnswerCodeBlock from "../../../../components/AnswerCodeBlock"
+import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock"
 import "../../../../styling/Question.css"
 import "../../../../styling/Answer.css"
-import Question from "../../../../components/Question"
+import Question from "../../../../components/question/Question"
 import { useState } from "react"
-import AnswerExplanationHeader from "../../../../components/AnswerExplanationHeader"
+import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader"
 import { STRINGS_QUESTIONS, STRINGS_QUESTION_3_ANSWERS, STRINGS_QUESTION_3_BOOLEANS, STRINGS_QUESTION_3_EXPLANATIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
-import Explanation from "../../../../components/Explanation"
-import AnswerText from "../../../../components/AnswerText"
-import AnswerTemplateLiteral from "../../../../components/AnswerTemplateLiteral"
-import DividerJawn from "../../../../components/DividerJawn"
+import Explanation from "../../../../components/answer/Explanation"
+import AnswerText from "../../../../components/answer/AnswerText"
+import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral"
+import DividerJawn from "../../../../components/utility/DividerJawn"
 
 
 function JavaDataTypesStringsQuestion3({props}:{props:any}) {
