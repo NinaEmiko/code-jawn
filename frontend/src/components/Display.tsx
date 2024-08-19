@@ -3,7 +3,7 @@ import "../styling/Display.css";
 import "../styling/Lesson.css";
 
 
-const SubDisplay: React.FC<{children: ReactNode }> = ( {children}:{children:any} ) => {
+const Display: React.FC<{children: ReactNode }> = ( {children}:{children:any} ) => {
 
     return (
         <div className="display-jawn">
@@ -15,4 +15,4 @@ const SubDisplay: React.FC<{children: ReactNode }> = ( {children}:{children:any}
       </div>
     )
 }
-export default SubDisplay;
+export default Display;

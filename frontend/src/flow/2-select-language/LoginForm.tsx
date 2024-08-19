@@ -3,8 +3,8 @@ import '../../styling/LoginForm.css';
 import Cookies from 'js-cookie';
 import Header from '../../components/Header';
 import HeaderDisplay from '../../components/HeaderDisplay';
-import SubDisplay from '../../components/SubDisplay';
-import LoginContainer from '../../components/LoginContainer';
+import Display from '../../components/Display';
+import Container from '../../components/Container';
 import JustText from '../../components/JustText';
 import LolaIcon from '../../assets/lola-icon.jpg'
 import AppBar from '../../components/AppBar';
@@ -76,7 +76,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   }, []);
 
   return (
-    <LoginContainer>
+    <Container>
 
       <HeaderDisplay>
         <div className="top-header">
@@ -97,7 +97,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
         </div>
       </HeaderDisplay>
 
-      <SubDisplay>
+      <Display>
         {activeButton === 'Sign In' && (
           <form 
           className="form-jawn" 
@@ -182,8 +182,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
             
           </form>
         )}
-      </SubDisplay>
-    </LoginContainer>
+      </Display>
+    </Container>
   );
 };
 

@@ -4,7 +4,7 @@ import "../styling/Container.css";
 const Container: React.FC<{children: ReactNode }> = ( {children}:{children:any} ) => {
 
     return (
-        <div className="container-jawn2">
+        <div className="container-jawn">
             {children}
       </div>
     )

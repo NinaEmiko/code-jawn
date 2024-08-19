@@ -1,6 +1,4 @@
 import { useState } from "react"
-import Container from "../../components/Container"
-import Display from "../../components/Display"
 import SelectVariablesLesson from "./SelectJavaLesson/SelectVariablesLesson";
 import SelectLoopsLesson from "./SelectJavaLesson/SelectLoopsLesson";
 import SelectConditionalsLesson from "./SelectJavaLesson/SelectConditionalsLesson";
@@ -10,8 +8,8 @@ import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
 import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import LanguageLessonContainer from "../../components/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
-import LoginContainer from "../../components/LoginContainer";
-import SubDisplay from "../../components/SubDisplay";
+import Container from "../../components/Container";
+import Display from "../../components/Display";
 import HeaderDisplay from "../../components/HeaderDisplay";
 import Header from "../../components/Header";
 
@@ -32,7 +30,7 @@ function JavaLessons({props}:{props:any}) {
     }
 
   return (
-    <LoginContainer>
+    <Container>
         <div className="back-btn-container">
                     <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
                 </div>
@@ -44,7 +42,7 @@ function JavaLessons({props}:{props:any}) {
 
             </div>
         </HeaderDisplay>
-        <SubDisplay>
+        <Display>
             <div className="container-for-language-btn2">
                 <div className="language-btn-container2" onClick={() => handleShowSection("Data Types")}>
                     <LanguageLessonContainer props={{
@@ -180,8 +178,8 @@ function JavaLessons({props}:{props:any}) {
                     }
                 </div>
             </div>
-        </SubDisplay>
-    </LoginContainer>
+        </Display>
+    </Container>
   )
 }
 

@@ -1,8 +1,8 @@
 import LanguageButtonContainer from "../../components/LanguageButtonContainer"
-import SubDisplay from "../../components/SubDisplay"
+import Display from "../../components/Display"
 import HeaderDisplay from "../../components/HeaderDisplay"
 import Header from "../../components/Header"
-import LoginContainer from "../../components/LoginContainer"
+import Container from "../../components/Container"
 
 function SelectLesson({props}:{props:any}) {
 
@@ -15,7 +15,7 @@ function SelectLesson({props}:{props:any}) {
     }
     
     return (
-      <LoginContainer>
+      <Container>
         <button onClick={() => handleLogOut()} className="header-btn" >{"Log out"}</button>
         <HeaderDisplay>
             <div className="top-header">
@@ -25,7 +25,7 @@ function SelectLesson({props}:{props:any}) {
 
             </div>
         </HeaderDisplay>
-        <SubDisplay>
+        <Display>
             <LanguageButtonContainer props={{
                     iconAltText: "Java Icon",
                     language: "Java",
@@ -38,8 +38,8 @@ function SelectLesson({props}:{props:any}) {
                 lessonsCompleted: 1,
                 totalLessons: 1,
                 handleButtonClick:null}} />
-        </SubDisplay>
-      </LoginContainer>
+        </Display>
+      </Container>
     )
   }
   

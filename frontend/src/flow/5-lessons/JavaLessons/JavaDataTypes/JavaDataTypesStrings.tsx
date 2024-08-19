@@ -7,9 +7,9 @@ import ProgressTracker from "../../../../components/ProgressTracker";
 import JavaDataTypesStringsQuestion5 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
 import JavaDataTypesStringsLecture1 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture1";
 import JavaDataTypesStringsLecture2 from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture2";
-import LoginContainer from "../../../../components/LoginContainer";
+import Container from "../../../../components/Container";
 import HeaderDisplay from "../../../../components/HeaderDisplay";
-import SubDisplay from "../../../../components/SubDisplay";
+import Display from "../../../../components/Display";
 import Header from "../../../../components/Header";
 import JavaDataTypesStringsLecture from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture";
 
@@ -37,7 +37,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
     }
 
   return (
-    <LoginContainer>
+    <Container>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
         <HeaderDisplay>
         <div className="top-header">
@@ -47,7 +47,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
 
         </div>
       </HeaderDisplay>
-        <SubDisplay>
+        <Display>
 
                 {lecturesCompleted === false &&
                     <>
@@ -79,8 +79,8 @@ function JavaDataTypesStrings({props}:{props:any}) {
                         }
                     </>
                 }
-        </SubDisplay>
-    </LoginContainer>
+        </Display>
+    </Container>
   )
 }
 
