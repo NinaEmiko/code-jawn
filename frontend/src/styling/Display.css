@@ -10,7 +10,7 @@
 }
 
 .display-jawn {
-    height: 87.5%;
+    height: 90%;
 }
 
 .login-display-jawn {
@@ -127,8 +127,12 @@
 }
 
 .header-btn{
-    z-index: 4;
-    position: absolute;
+    /* z-index: 4; */
+    /* position: absolute;
     top: 0;
-    left: 0;
+    left: 0; */
+    font-size: var(--text);
+    color: black;
+    padding: 2%;
+    background-color: var(--accent-jawn);
 }

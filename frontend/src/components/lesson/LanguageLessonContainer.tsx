@@ -41,7 +41,7 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
                 <div className="language-btn">
                     {props.lesson}
                 </div>
-                <div className="additional-text">
+                <div className="">
                     <EmojiGenerator props={{lessonsCompleted:props.lessonsCompleted, totalLessons:props.totalLessons}} />
                 </div>
             </div>
