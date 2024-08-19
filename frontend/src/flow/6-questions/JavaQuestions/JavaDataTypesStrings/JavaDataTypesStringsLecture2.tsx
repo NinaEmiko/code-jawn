@@ -1,15 +1,9 @@
 import '../../../../styling/Lecture.css'
 
-const JavaDataTypesStringsLecture2 = ({props}:{props:any}) => {
-
-    const handleClickContinue = () =>{
-        props.completeLecture()
-    }
+const JavaDataTypesStringsLecture2 = () => {
 
     return (
-        <>
-        <div className="lecture-container">
-            
+        <div className="lecture-jawn">
             <div className="lecture-text">
                 Strings are useful for storing data such as a user's name, email address and occupation.
             </div>
@@ -35,8 +29,6 @@ const JavaDataTypesStringsLecture2 = ({props}:{props:any}) => {
                 </div>
             </div>
         </div>
-        <button onClick={()=> handleClickContinue()} className="input-btn">Begin</button>
-        </>
     )
 }
 export default JavaDataTypesStringsLecture2;
