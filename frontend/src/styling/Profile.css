@@ -1,0 +1,12 @@
+.profile-jawn2{
+    border-top-left-radius: 70px;
+    height: 87.5%;
+    background-color: var(--primary-jawn);
+    width: 100%;
+    overflow: hidden;
+    padding-top: 25%;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

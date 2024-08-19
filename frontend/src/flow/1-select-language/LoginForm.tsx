@@ -2,10 +2,10 @@ import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'reac
 import Cookies from 'js-cookie';
 import Header from '../../components/Header';
 import HeaderDisplay from '../../components/HeaderDisplay';
-import Display from '../../components/Display';
 import JustText from '../../components/utility/JustText';
 import LolaIcon from '../../assets/lola-icon.jpg'
 import AppBar from '../../components/AppBar';
+import LoginDisplay from '../../components/LoginDisplay';
 
 
 interface LoginFormProps {
@@ -82,7 +82,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           </div> */}
       </HeaderDisplay>
 
-      <Display>
+      <LoginDisplay>
         {activeButton === 'Sign In' && (
           <form 
           className="form-jawn" 
@@ -167,7 +167,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
             
           </form>
         )}
-      </Display>
+      </LoginDisplay>
     </>
   );
 };

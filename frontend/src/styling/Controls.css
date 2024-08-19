@@ -1,20 +1,25 @@
 /* CONTAINER STYLES */
 
-.controls-jawn {
+.app-bar{
     justify-content: center;
-    height: 10%;
-    background-color: var(--primary-light-jawn);
+    height: 12.5%;
+    background-color: var(--sub-secondary-jawn);
     display: flex;
     align-items: center;
     width: 100%;
     bottom: 0;
-}
+    box-shadow: 0 0 20px black; 
+    border: none;
+    z-index: 3;
+    position: absolute;
+  }
 
 .profile-jawn, .computer-jawn{
     width: 50%;
     justify-content: center;
     align-items: center;
     display: flex;
+    color: black;
 }
 
 .profile-icon{

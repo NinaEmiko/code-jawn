@@ -13,18 +13,31 @@ import "./styling/Lecture.css"
 import "./styling/Lesson.css"
 import "./styling/LoginForm.css"
 import "./styling/Question.css"
+import "./styling/Profile.css"
 import JavaScriptSections from "./flow/2-languages/JavaScriptSections";
 import JavaSections from "./flow/2-languages/JavaSections";
 import SelectLanguage from "./flow/1-select-language/SelectLanguage";
 import Container from "./components/Container";
+import Profile from "./flow/1-select-language/Profile";
+import HeaderDisplay from "./components/HeaderDisplay";
+import Header from "./components/Header";
 
 function App() {
   const [activeTab, setActiveTab] = useState("Select a Language");
+  const [showProfile, setShowProfile] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     username: '',
     id: 0,
     loggedIn: false,
   });
+
+  const handleClickProfile = () => {
+    setShowProfile(true);
+  }
+
+  const handleClickLearn = () => {
+    setShowProfile(false);
+  }
 
   const handleRedirectHome = (component: string) => {
     setActiveTab(component);
@@ -99,6 +112,17 @@ function App() {
           {activeTab === "JavaScript" &&
             <JavaScriptSections props={{handleRedirectHome:handleRedirectHome}} />
           } 
+
+          {showProfile && 
+            <>
+              <HeaderDisplay>
+                <Header props={{text: "Profile"}} />
+              </HeaderDisplay>
+
+              <Profile props={undefined} />
+            </>
+          }
+          <AppBar props={{handleClickProfile:handleClickProfile, handleClickLearn:handleClickLearn}} />
         </>
       }
     </Container>

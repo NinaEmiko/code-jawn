@@ -87,9 +87,3 @@ input{
   color: black;
   font-weight: bold;
 }
-
-.app-bar{
-  background-color: red;
-  height: 15px;
-  z-index: 2;
-}
