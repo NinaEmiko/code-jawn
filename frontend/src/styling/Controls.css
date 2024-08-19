@@ -6,19 +6,21 @@
     background-color: var(--primary-light-jawn);
     display: flex;
     align-items: center;
-    /* padding-bottom: 10px; */
     width: 100%;
     bottom: 0;
 }
+
 .profile-jawn, .computer-jawn{
     width: 50%;
     justify-content: center;
     align-items: center;
     display: flex;
 }
+
 .profile-icon{
     width: 25%;
 }
+
 .computer-icon{
     width: 24%;
 }

@@ -1,9 +1,4 @@
-import Container from "../../components/Container"
-import Display from "../../components/Display"
-import LolaIcon from '../../assets/lola-icon.jpg'
-import Controls from "../../components/Controls"
 import LanguageButtonContainer from "../../components/LanguageButtonContainer"
-import { progressConstants } from "../../helpers/ProgressConstants"
 import SubDisplay from "../../components/SubDisplay"
 import HeaderDisplay from "../../components/HeaderDisplay"
 import Header from "../../components/Header"
@@ -18,12 +13,12 @@ function SelectLesson({props}:{props:any}) {
     const handleLogOut = () =>{
         props.logout()
     }
+    
     return (
       <LoginContainer>
         <button onClick={() => handleLogOut()} className="header-btn" >{"Log out"}</button>
         <HeaderDisplay>
             <div className="top-header">
-                <div className="spacer"></div>
                 <Header props={{text: "Select a Language"}} />
             </div>
             <div className="bottom-header">
@@ -42,7 +37,7 @@ function SelectLesson({props}:{props:any}) {
                 language: "JavaScript",
                 lessonsCompleted: 1,
                 totalLessons: 1,
-                handleButtonClick:handleButtonClick}} />
+                handleButtonClick:null}} />
         </SubDisplay>
       </LoginContainer>
     )

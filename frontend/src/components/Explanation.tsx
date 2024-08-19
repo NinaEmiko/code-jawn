@@ -2,7 +2,7 @@ const Explanation = ({props}:{props:any}) => {
 
     return (
         <div className="question-explanation">
-            {props.text}
+            {props}
         </div>
         
     )

@@ -6,9 +6,9 @@ import "../styling/Lesson.css";
 const SubDisplay: React.FC<{children: ReactNode }> = ( {children}:{children:any} ) => {
 
     return (
-        <div className="display-jawn2">
-            <div className="parent-jawn2">
-                <div className="child-jawn2">
+        <div className="display-jawn">
+            <div className="parent-jawn">
+                <div className="child-jawn">
                     {children}
                 </div>
             </div>

@@ -7,6 +7,7 @@ import SubDisplay from '../../components/SubDisplay';
 import LoginContainer from '../../components/LoginContainer';
 import JustText from '../../components/JustText';
 import LolaIcon from '../../assets/lola-icon.jpg'
+import AppBar from '../../components/AppBar';
 
 
 interface LoginFormProps {

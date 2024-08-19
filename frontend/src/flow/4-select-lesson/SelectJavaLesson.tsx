@@ -38,7 +38,6 @@ function JavaLessons({props}:{props:any}) {
                 </div>
         <HeaderDisplay>
             <div className="top-header">
-                <div className="spacer"></div>
                 <Header props={{text: "Java Lessons"}} />
             </div>
             <div className="bottom-header">

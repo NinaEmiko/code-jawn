@@ -41,18 +41,7 @@ body{
   color: var(--off-white-jawn);
 }
 
-.container-jawn {
-  position: absolute;
-  height: 100%;
-  max-height: 100%;
-  width: 100%;
-  max-width: 100%;
-  justify-content: center;
-  background-color: var(--primary-jawn);
-  opacity: 90%;
-  box-sizing: border-box;
-} 
-
+.container-jawn,
 .container-jawn2 {
   position: absolute;
   height: 100%;
@@ -60,8 +49,16 @@ body{
   width: 100%;
   max-width: 100%;
   justify-content: center;
-  background-color: var(--sub-secondary-jawn);
   box-sizing: border-box;
+} 
+
+.container-jawn {
+  background-color: var(--primary-jawn);
+  opacity: 90%;
+} 
+
+.container-jawn2 {
+  background-color: var(--sub-secondary-jawn);
 } 
 
 input{
@@ -85,7 +82,6 @@ input{
   float: right;
   margin: 3%;
   font-size: var(--sub-text);
-  /* color: black; */
 }
 
 .sub-text2{
@@ -100,6 +96,9 @@ input{
   color: black;
   font-weight: bold;
 }
-.jawnski{
-  /* color: black; */
+
+.app-bar{
+  background-color: red;
+  height: 15px;
+  z-index: 2;
 }

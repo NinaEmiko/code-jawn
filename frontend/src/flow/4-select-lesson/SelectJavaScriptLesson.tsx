@@ -1,5 +1,5 @@
-import Container from "../../components/Container"
-import Display from "../../components/Display"
+import LoginContainer from "../../components/LoginContainer";
+import SubDisplay from "../../components/SubDisplay";
 
 function JavaScriptLessons({props}:{props:any}) {
 
@@ -11,9 +11,9 @@ function JavaScriptLessons({props}:{props:any}) {
     }
 
     return (
-        <Container>
+        <LoginContainer>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
-        <Display>
+        <SubDisplay>
             <div className="parent-jawn">
                 <div className="child-jawn">
                     <div className="lesson-btn-container">
@@ -42,8 +42,8 @@ function JavaScriptLessons({props}:{props:any}) {
                     </div>
                 </div>
             </div>
-        </Display>
-      </Container>
+        </SubDisplay>
+      </LoginContainer>
     )
   }
   

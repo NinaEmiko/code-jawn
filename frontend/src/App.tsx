@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { setAuthHeader } from "./helpers/axiosHelper";
 import LoginForm from "./flow/2-select-language/LoginForm";
 import { register, login } from "./api/api"
+import AppBar from "./components/AppBar";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({

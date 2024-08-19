@@ -41,7 +41,6 @@ function JavaDataTypesStrings({props}:{props:any}) {
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
         <HeaderDisplay>
         <div className="top-header">
-            {/* <Header props={{text: "Strings"}} /> */}
             <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/>
         </div>
         <div className="bottom-header">
