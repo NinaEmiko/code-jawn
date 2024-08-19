@@ -11,19 +11,20 @@ import LoginContainer from "../../../../components/LoginContainer";
 import HeaderDisplay from "../../../../components/HeaderDisplay";
 import SubDisplay from "../../../../components/SubDisplay";
 import Header from "../../../../components/Header";
+import JavaDataTypesStringsLecture from "../../../6-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture";
 
 function JavaDataTypesStrings({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
     const [questionsAnswered, setQuestionsAnswered] = useState(0);
-    const [lecturesCompleted, setLecturesCompleted] = useState(0);
+    const [lecturesCompleted, setLecturesCompleted] = useState(false);
 
     const handleBackClick = () => {
         props.handleRedirectJavaLessons("Java Lessons");
     }
 
     const completeLecture = () => {
-        setLecturesCompleted(lecturesCompleted + 1);
+        setLecturesCompleted(true);
     }
 
     const completeQuestion = (correct: boolean) => {
@@ -49,18 +50,13 @@ function JavaDataTypesStrings({props}:{props:any}) {
       </HeaderDisplay>
         <SubDisplay>
 
-                {lecturesCompleted < 2 &&
+                {lecturesCompleted === false &&
                     <>
-                        {lecturesCompleted === 0 &&
-                            <JavaDataTypesStringsLecture1 props={{completeLecture:completeLecture}} />
-                        }
-                        {lecturesCompleted === 1 &&
-                            <JavaDataTypesStringsLecture2 props={{completeLecture:completeLecture}} />
-                        }
+                        <JavaDataTypesStringsLecture props={{completeLecture:completeLecture}} />
                     </>
                 }
                 
-                {lecturesCompleted === 2 &&
+                {lecturesCompleted === true &&
                     <>
                         {questionsAnswered === 0 &&
                             <JavaDataTypesStringsQuestion1 props={{completeQuestion:completeQuestion}} />
