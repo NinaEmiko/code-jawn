@@ -1,5 +1,9 @@
 const Profile = ({props}:{props:any}) => {
 
+    const handleLogOut = () => {
+        props.logout();
+    }
+
     return (
         <div className="profile-jawn2">
             <div className="parent-jawn">
@@ -20,7 +24,7 @@ const Profile = ({props}:{props:any}) => {
                         Delete Account
                     </div>
                     <div>
-                        Log Out
+                        <button onClick={() => handleLogOut()} className="header-btn" >{"Log Out"}</button>
                     </div>
                 </div>
             </div>
