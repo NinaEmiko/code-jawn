@@ -35,12 +35,7 @@ function JavaLessons({props}:{props:any}) {
                     <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
                 </div>
         <HeaderDisplay>
-            <div className="top-header">
-                <Header props={{text: "Java Lessons"}} />
-            </div>
-            <div className="bottom-header">
-
-            </div>
+            <Header props={{text: "Java Lessons"}} />
         </HeaderDisplay>
         <Display>
             <div className="container-for-language-btn2">

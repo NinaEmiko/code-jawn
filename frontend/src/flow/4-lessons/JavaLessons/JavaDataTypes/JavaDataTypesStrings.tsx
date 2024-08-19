@@ -40,13 +40,8 @@ function JavaDataTypesStrings({props}:{props:any}) {
     <Container>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
         <HeaderDisplay>
-        <div className="top-header">
             <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/>
-        </div>
-        <div className="bottom-header">
-
-        </div>
-      </HeaderDisplay>
+        </HeaderDisplay>
         <Display>
 
                 {lecturesCompleted === false &&

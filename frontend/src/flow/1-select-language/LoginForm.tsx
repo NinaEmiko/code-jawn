@@ -79,7 +79,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
     <Container>
 
       <HeaderDisplay>
-        <div className="top-header">
           {activeButton ==="Sign In" ?
             <Header props={{text: "Welcome Back"}} />
             :
@@ -91,10 +90,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
                   src={LolaIcon}
                   alt="Code Jawn Icon" />
           </div> */}
-        </div>
-        <div className="bottom-header">
-
-        </div>
       </HeaderDisplay>
 
       <Display>

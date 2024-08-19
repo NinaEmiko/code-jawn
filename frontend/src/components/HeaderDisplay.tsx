@@ -7,7 +7,10 @@ const HeaderDisplay: React.FC<{children: ReactNode }> = ( {children}:{children:a
     return (
             <div className="top-display">
                 <div className="inner-top-display">
-                    {children}
+                    <div className="top-header">
+                        {children}
+                    </div>
+                    <div className="bottom-header" />
                 </div>
             </div>
     )

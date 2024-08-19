@@ -18,12 +18,7 @@ function SelectLesson({props}:{props:any}) {
       <Container>
         <button onClick={() => handleLogOut()} className="header-btn" >{"Log out"}</button>
         <HeaderDisplay>
-            <div className="top-header">
-                <Header props={{text: "Select a Language"}} />
-            </div>
-            <div className="bottom-header">
-
-            </div>
+            <Header props={{text: "Select a Language"}} />
         </HeaderDisplay>
         <Display>
             <LanguageButtonContainer props={{
