@@ -1,15 +1,10 @@
+import { useState } from 'react';
 import '../../../../styling/Lecture.css'
 
-const JavaDataTypesStringsLecture1 = ({props}:{props:any}) => {
-
-    const handleClickContinue = () =>{
-        props.completeLecture()
-    }
+const JavaDataTypesStringsLecture1 = () => {
 
     return (
-        <>
-        <div className="lecture-container">
-
+        <div className="lecture-jawn">
             <div className="lecture-text">
                 A String is a sequence of characters.
                 They must be wrapped in double quotes(" "), single quotes(' '), or backticks(` `).
@@ -36,9 +31,6 @@ const JavaDataTypesStringsLecture1 = ({props}:{props:any}) => {
                 </div>
             </div>
         </div>
-        <button onClick={()=> handleClickContinue()} className="input-btn">Continue</button>
-
-        </>
     )
 }
 export default JavaDataTypesStringsLecture1;
