@@ -48,20 +48,8 @@ body{
   width: 100%;
   max-width: 100%;
   justify-content: center;
-  background-color: var(--primary-jawn);
-  opacity: 90%;
   box-sizing: border-box;
-} 
-
-.container-jawn2 {
-  position: absolute;
-  height: 100%;
-  max-height: 100%;
-  width: 100%;
-  max-width: 100%;
-  justify-content: center;
   background-color: var(--sub-secondary-jawn);
-  box-sizing: border-box;
 } 
 
 input{
@@ -85,7 +73,6 @@ input{
   float: right;
   margin: 3%;
   font-size: var(--sub-text);
-  /* color: black; */
 }
 
 .sub-text2{
@@ -99,7 +86,4 @@ input{
   font-size: var(--header-text);
   color: black;
   font-weight: bold;
-}
-.jawnski{
-  /* color: black; */
 }

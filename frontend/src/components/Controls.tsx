@@ -1,4 +1,3 @@
-import "../styling/Controls.css";
 import ProfileIcon from "../assets/profile-icon.png"
 import ComputerIcon from "../assets/computer-icon.png"
 

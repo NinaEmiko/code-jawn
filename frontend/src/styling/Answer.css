@@ -1,5 +1,5 @@
-.answer-text{
-    color: white;
+.answer-text,
+.answer-text-template-literal{
     background-color: transparent;
     padding: 20px;
     margin-bottom: 5%;
@@ -7,13 +7,12 @@
     height: 16%;
 }
 
+.answer-text{
+    color: white;
+}
+
 .answer-text-template-literal{
     color: #859900;
-    background-color: transparent;
-    padding: 20px;
-    margin-bottom: 5%;
-    font-size: var(--sub-text);
-    height: 16%;
 }
 
 .answer-jawn{
@@ -30,6 +29,7 @@
     justify-content: center;
     display: flex;
 }
+
 .answer-input{
     width: 90%;
     font-size: var(--header-text);
@@ -39,6 +39,7 @@
     border-top: none;
     box-sizing: border-box;
 }
+
 .answer-input:focus{
     border-left: none;
     border-right: none;
