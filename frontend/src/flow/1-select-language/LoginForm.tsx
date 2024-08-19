@@ -25,14 +25,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
 
   const loginFormRef = useRef<HTMLFormElement | null>(null);
   const registerFormRef = useRef<HTMLFormElement | null>(null);
-  
-  const submitForm = () => {
-    if (activeButton === "Sign Up" && registerFormRef.current) {
-      registerFormRef.current.requestSubmit();
-    } else if (activeButton === "Sign In" && loginFormRef.current) {
-      loginFormRef.current.requestSubmit();
-    }
-  };
 
   const handleTabClick = (button: string) => {
     setActiveButton(button);
