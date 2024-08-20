@@ -38,6 +38,7 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
 
     return (
         <>
+        <div className="spacer-20" />
             {!showAnswer ?
                 <>
                     <div className="question-container">

@@ -32,6 +32,7 @@ function JavaDataTypesStringsQuestion2({props}:{props:any}) {
 
     return (
         <>
+        <div className="spacer-20" />
             {answer === '' &&
                 <div className="question-container">
                     <div className="question-jawn">
