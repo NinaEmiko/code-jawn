@@ -4,7 +4,6 @@
     background-color: var(--primary-jawn);
     width: 100%;
     overflow: hidden;
-    padding-top: 25%;
     z-index: 2;
     position: fixed;
     top: 0;
