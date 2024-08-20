@@ -62,13 +62,13 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
                     (
                         <>
                             <AnswerExplanationHeader props={{correct: true}} />
-                            <Explanation props={{text: STRINGS_QUESTION_5_EXPLANATIONS.CORRECT_ANSWER}} />
+                            <Explanation props={STRINGS_QUESTION_5_EXPLANATIONS.CORRECT_ANSWER} />
                             <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
                         </>    
                     ) : (
                         <>
                             <AnswerExplanationHeader props={{correct: false}} />
-                            <Explanation props={{text: STRINGS_QUESTION_5_EXPLANATIONS.INCORRECT_ANSWER}} />
+                            <Explanation props={STRINGS_QUESTION_5_EXPLANATIONS.INCORRECT_ANSWER} />
                             <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
                         </>
                     )    

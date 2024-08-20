@@ -7,8 +7,8 @@ import ProgressTracker from "../../../../components/utility/ProgressTracker";
 import JavaDataTypesStringsQuestion5 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
 import HeaderDisplay from "../../../../components/HeaderDisplay";
 import Display from "../../../../components/Display";
-import Header from "../../../../components/Header";
 import JavaDataTypesStringsLecture from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture";
+import JavaDataTypesStringsPostLesson from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsPostLesson";
 
 function JavaDataTypesStrings({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -18,6 +18,14 @@ function JavaDataTypesStrings({props}:{props:any}) {
 
     const handleBackClick = () => {
         props.handleRedirectJavaLessons("Java Lessons");
+    }
+
+    const handleCompleteLesson = () => {
+        props.handleRedirectJavaLessons("Java Lessons");
+    }
+
+    const updateLessonTracker = () => {
+
     }
 
     const completeLecture = () => {
@@ -32,7 +40,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
 
         setQuestionsAnswered(questionsAnswered + 1);
     }
-
+console.log("questions answered: " + questionsAnswered)
   return (
     <>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
@@ -65,9 +73,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
                             <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion}} />
                         }
                         {questionsAnswered === 5 &&
-                            <div className="question-explanation">
-                                Score: {correctAnswers}/5
-                            </div>
+                            <JavaDataTypesStringsPostLesson props={{handleCompleteLesson:handleCompleteLesson}} />
                         }
                     </>
                 }
