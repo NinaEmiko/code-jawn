@@ -16,7 +16,9 @@ const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
 
     return (
         <>
+        <div className="spacer-20" />
         <div className="lecture-container" onClick={() => updateActiveIndex()}>
+        
             {activeIndex === 0 ?
                 <JavaDataTypesStringsLecture1 />
             :   
@@ -32,8 +34,9 @@ const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
                 ))}
             </div>
         </div>
+        <div className="spacer-5" />
         <button onClick={()=> handleClickContinue()} className="input-btn">Begin</button>
-
+        <div className="spacer-5" />
         </>
     )
 }
