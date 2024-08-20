@@ -11,6 +11,7 @@ import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 import Display from "../../components/Display";
 import HeaderDisplay from "../../components/HeaderDisplay";
 import Header from "../../components/Header";
+import Spacer from "../../components/utility/Spacer";
 
 function JavaLessons({props}:{props:any}) {
     const [showSection, setShowSection] = useState('');
@@ -37,6 +38,7 @@ function JavaLessons({props}:{props:any}) {
             <Header props={{text: "Java Lessons"}} />
         </HeaderDisplay>
         <Display>
+            <div className="spacer-20" />
             <div className="container-for-language-btn2">
                 <div className="language-btn-container2" onClick={() => handleShowSection("Data Types")}>
                     <LanguageLessonContainer props={{
@@ -172,6 +174,7 @@ function JavaLessons({props}:{props:any}) {
                     }
                 </div>
             </div>
+            <div className="spacer-5" />
         </Display>
     </>
   )
