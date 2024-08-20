@@ -15,6 +15,7 @@ function SelectLesson({props}:{props:any}) {
             <Header props={{text: "Select a Language"}} />
         </HeaderDisplay>
         <Display>
+          <div className="spacer-20" />
             <LanguageButtonContainer props={{
                     iconAltText: "Java Icon",
                     language: "Java",

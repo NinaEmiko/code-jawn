@@ -83,6 +83,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
       </HeaderDisplay>
 
       <LoginDisplay>
+      <div className="spacer-20" />
         {activeButton === 'Sign In' && (
           <form 
           className="form-jawn" 
