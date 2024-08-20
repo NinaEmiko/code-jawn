@@ -21,6 +21,7 @@ import Container from "./components/Container";
 import Profile from "./flow/1-select-language/Profile";
 import HeaderDisplay from "./components/HeaderDisplay";
 import Header from "./components/Header";
+import ProfileHeaderDisplay from "./components/ProfileHeaderDisplay";
 
 function App() {
   const [activeTab, setActiveTab] = useState("Select a Language");
@@ -115,9 +116,9 @@ function App() {
 
           {showProfile && 
             <>
-              <HeaderDisplay>
+              <ProfileHeaderDisplay>
                 <Header props={{text: "Profile"}} />
-              </HeaderDisplay>
+              </ProfileHeaderDisplay>
 
               <Profile props={{logout:logout}} />
             </>
