@@ -60,12 +60,12 @@
     border-radius: 0 0 70px 0;
     background-color: var(--sub-secondary-jawn);
     box-shadow: 0 0 20px black; 
-    padding: 5%;
+    padding: 3%;
 }
 
 .bottom-header{
     pointer-events: none;
-    height: 50%;
+    height: 100%;
     width: 100%;
     border-radius: 70px 0 0 0;
     box-shadow:
