@@ -11,7 +11,6 @@ import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 import Display from "../../components/Display";
 import HeaderDisplay from "../../components/HeaderDisplay";
 import Header from "../../components/Header";
-import Spacer from "../../components/utility/Spacer";
 
 function JavaLessons({props}:{props:any}) {
     const [showSection, setShowSection] = useState('');

@@ -10,7 +10,7 @@ const Profile = ({props}:{props:any}) => {
         
         <div className="profile-jawn2">
             <div className="parent-jawn">
-                <div className="child-jawn">
+                <div className="child-jawn2">
                     <div className="spacer-20"/>
                     <div className="text2">
                         Account
@@ -57,6 +57,7 @@ const Profile = ({props}:{props:any}) => {
                     <div className="sub-text3">
                         Support
                     </div>
+                    <div className="spacer-15"/>
                 </div>
             </div>
       </div>
