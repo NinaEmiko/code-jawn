@@ -19,7 +19,7 @@ html, body, #root {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--primary-jawn);
+  background-color: var(--sub-secondary-jawn);
 }
 body{
   display: flex;
