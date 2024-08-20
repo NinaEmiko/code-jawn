@@ -6,6 +6,7 @@ import AnswerExplanationHeader from "../../../../components/answer/AnswerExplana
 import Explanation from "../../../../components/answer/Explanation"
 import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral"
 import DividerJawn from "../../../../components/utility/DividerJawn"
+import TopDividerJawn from "../../../../components/utility/TopDividerJawn"
 
 
 function JavaDataTypesStringsQuestion1({props}:{props:any}) {
@@ -60,6 +61,7 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                              answerClicked:handleAnswer4Click,
                              text: STRINGS_QUESTION_1_ANSWERS.ANSWER_4
                              }} />
+
                     </div>
                 </div>
             }
