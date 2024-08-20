@@ -35,6 +35,13 @@
     /* margin-top: 10%;     */
 }
 
+.child-jawn2{
+    width: 90%;
+    /* margin-top: 10%;     */
+    overflow: auto;
+    overflow-y: scroll;
+}
+
 /* HEADER */
 
 .top-display{
