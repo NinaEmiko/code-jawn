@@ -44,11 +44,11 @@
 }
 
 .question-container{
-    width: 100%;
+    /* width: 100%;
     box-shadow: 0 0 20px black; 
     border-radius: 25px;
     margin-bottom: 5%;
-    background-color: var(--primary-light-jawn);
+    background-color: var(--primary-light-jawn); */
 }
 
 .question-explanation-container{
