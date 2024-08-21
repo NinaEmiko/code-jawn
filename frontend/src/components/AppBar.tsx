@@ -1,5 +1,5 @@
 import ProfileIcon from "../assets/profile-icon.png"
-import ComputerIcon from "../assets/computer-icon.png"
+import LearnIcon from "../assets/learn-icon.png"
 
 const AppBar = ({props}:{props:any}) => {
 
@@ -14,16 +14,14 @@ const AppBar = ({props}:{props:any}) => {
     return (
         <div className="app-bar">
             <div className="profile-jawn" onClick={() => handleClickProfile()}>
-                {/* <img className="profile-icon"
-                    src={ComputerIcon}
-                    alt="Computer icon" /> */}
-                    Profile
+                <img className="profile-icon"
+                    src={ProfileIcon}
+                    alt="Profile icon" />
             </div>
-            <div className="computer-jawn" onClick={() => handleClickLearn()}>
-                {/* <img className="computer-icon"
-                src={ProfileIcon}
-                alt="Profile icon" /> */}
-                Learn
+            <div className="learn-jawn" onClick={() => handleClickLearn()}>
+                <img className="learn-icon"
+                src={LearnIcon}
+                alt="Learn icon" />
             </div>
         </div>
     )
