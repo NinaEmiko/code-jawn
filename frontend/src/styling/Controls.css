@@ -14,7 +14,7 @@
     position: absolute;
   }
 
-.profile-jawn, .computer-jawn{
+.profile-jawn, .learn-jawn{
     width: 50%;
     justify-content: center;
     align-items: center;
@@ -26,6 +26,6 @@
     width: 25%;
 }
 
-.computer-icon{
-    width: 24%;
+.learn-icon{
+    width: 25%;
 }
