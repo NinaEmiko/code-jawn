@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import JavaDataTypesStringsQuestion1 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion1";
 import JavaDataTypesStringsQuestion2 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion2";
 import JavaDataTypesStringsQuestion3 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion3";
@@ -9,12 +9,14 @@ import HeaderDisplay from "../../../../components/HeaderDisplay";
 import Display from "../../../../components/Display";
 import JavaDataTypesStringsLecture from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture";
 import JavaDataTypesStringsPostLesson from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsPostLesson";
+import { updateJavaDataTypesLT } from "../../../../api/api";
 
 function JavaDataTypesStrings({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
     const [questionsAnswered, setQuestionsAnswered] = useState(0);
     const [lecturesCompleted, setLecturesCompleted] = useState(false);
+    const [restCallSuccessful, setRestCallSuccessful] = useState(false);
 
     const handleBackClick = () => {
         props.handleRedirectJavaLessons("Java Lessons");
@@ -24,8 +26,11 @@ function JavaDataTypesStrings({props}:{props:any}) {
         props.handleRedirectJavaLessons("Java Lessons");
     }
 
-    const updateLessonTracker = () => {
-
+    const updateLessonTracker = async () => {
+        const data = await updateJavaDataTypesLT(props.currentUser.id, "Strings");
+        if (data === "SUCCESS"){
+            setRestCallSuccessful(true);
+        }
     }
 
     const completeLecture = () => {
@@ -40,7 +45,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
 
         setQuestionsAnswered(questionsAnswered + 1);
     }
-console.log("questions answered: " + questionsAnswered)
+
   return (
     <>
         <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
@@ -70,10 +75,10 @@ console.log("questions answered: " + questionsAnswered)
                             <JavaDataTypesStringsQuestion4 props={{completeQuestion:completeQuestion}} />
                         }
                         {questionsAnswered === 4 &&
-                            <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion}} />
+                            <JavaDataTypesStringsQuestion5 props={{completeQuestion:completeQuestion, updateLessonTracker:updateLessonTracker}} />
                         }
                         {questionsAnswered === 5 &&
-                            <JavaDataTypesStringsPostLesson props={{handleCompleteLesson:handleCompleteLesson}} />
+                            <JavaDataTypesStringsPostLesson props={{handleCompleteLesson:handleCompleteLesson, restCallSuccessful:restCallSuccessful}} />
                         }
                     </>
                 }
