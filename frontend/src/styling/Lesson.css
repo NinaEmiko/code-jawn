@@ -25,6 +25,18 @@
     text-align: right;
     font-weight: bold;
 }
+
+.lesson-btn-complete{
+    margin: 5px;
+    font-size: var(--text);
+    color: green;
+    padding: 5px;
+    background: transparent;
+    width: 100%;
+    border: transparent;
+    text-align: right;
+    font-weight: bold;
+}
 .lesson-section-jawn{
     color: var(--off-white-jawn);
     height: 20%;

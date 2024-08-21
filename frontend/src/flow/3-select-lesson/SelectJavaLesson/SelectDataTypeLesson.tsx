@@ -1,16 +1,36 @@
+import { useEffect, useState } from "react";
+import { getJavaDataTypesLT } from "../../../api/api";
+
 function SelectDataTypeLesson({props}:{props:any}) {
+    const [stringsComplete, setStringsComplete] = useState(false);
+
+    const getJavaDataTypesLTCall = async () => {
+        const data = await getJavaDataTypesLT(props.currentUser.id);
+            setStringsComplete(data.stringsLessonIsComplete);
+    }
 
     const handleButtonClick = (lesson: string) => {
         props.handleButtonClick(lesson);
         props.handleUpdateHeader("Java Data Types", true)
     }
 
+    useEffect(() => {
+        getJavaDataTypesLTCall();
+    })
+
     return (
         <div className="lesson-btn-container">
-            <button className="lesson-btn"
-                onClick={() => handleButtonClick("Java Data Types Strings")}>
-                    Strings →
-            </button>
+            {stringsComplete ?
+                <button className="lesson-btn-complete"
+                    onClick={() => handleButtonClick("Java Data Types Strings")}>
+                        Strings →
+                </button>
+            :
+                <button className="lesson-btn"
+                    onClick={() => handleButtonClick("Java Data Types Strings")}>
+                        Strings →
+                </button>
+            }       
             <button className="lesson-btn"
                 // onClick={() => handleButtonClick("Java Data Types ints")}>
                     onClick={() => null}>
