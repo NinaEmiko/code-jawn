@@ -20,6 +20,19 @@ public class JavaDataTypesLTService {
         return  javaDataTypesLTRepository.save(javaDataTypesLT);
     }
 
+    public JavaDataTypesLT getLT(long userId) {
+        try {
+            Optional<UserAccount> optionalUserAccount = userAccountRepository.findById(userId);
+            if (optionalUserAccount.isPresent()) {
+                UserAccount userAccount = optionalUserAccount.get();
+                return userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
+            }
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+        return null;
+    }
+
     public String updateLT(long userId, String lesson) {
         Optional<UserAccount> optionalUserAccount = userAccountRepository.findById(userId);
         if (optionalUserAccount.isPresent()){
