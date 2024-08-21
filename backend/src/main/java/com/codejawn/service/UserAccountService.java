@@ -40,6 +40,7 @@ public class UserAccountService {
         userAccount.setEmail(email);
         userAccount.setPassword(passwordEncoder.encode(password));
         userAccount.setLessonTracker(lessonTracker);
+        userAccount.setSubscriptionActive(true);
 
         Role role = roleRepository.findByName("USER")
                 .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));

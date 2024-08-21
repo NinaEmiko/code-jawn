@@ -47,4 +47,7 @@ public class UserAccount {
     @JoinColumn(name= "lesson_tracker_id")
     private LessonTracker lessonTracker;
 
+    @Column
+    private boolean subscriptionActive;
+
 }
