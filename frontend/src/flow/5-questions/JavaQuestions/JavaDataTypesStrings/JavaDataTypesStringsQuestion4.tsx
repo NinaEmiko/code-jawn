@@ -28,7 +28,11 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
     }
 
     const endQuestion = () => {
-        answer === 'A' ? props.completeQuestion(true) : props.completeQuestion(false);
+        props.completeQuestion(true);
+    }
+
+    const retry = () => {
+        setAnswer('');
     }
 
     return (
@@ -88,7 +92,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_2} />
-                    <button className="input-btn" onClick={() => endQuestion()} >
+                    <button className="input-btn" onClick={() => retry()} >
                         Continue
                     </button>
                 </div>
@@ -103,7 +107,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                             }} />
                     </div>
                     <Explanation props={STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_3} />
-                    <button className="input-btn" onClick={() => endQuestion()} >
+                    <button className="input-btn" onClick={() => retry()} >
                         Continue
                     </button>
                 </div>
@@ -118,7 +122,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                             }} />
                         </div>
                         <Explanation props={STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_4} />
-                        <button className="input-btn" onClick={() => endQuestion()} >
+                        <button className="input-btn" onClick={() => retry()} >
                             Continue
                         </button>
                 </div>
