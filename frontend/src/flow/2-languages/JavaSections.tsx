@@ -31,7 +31,8 @@ function SelectJavaLessons({props}:{props:any}) {
             <JavaDataTypesStrings
               props={{
                 handleRedirectJavaLessons:handleRedirectJavaLessons,
-                handleRedirectHome:props.handleRedirectHome
+                handleRedirectHome:props.handleRedirectHome,
+                currentUser:props.currentUser
               }} />
         }
         {activeTab === "Java Data Types ints" &&

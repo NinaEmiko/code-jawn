@@ -19,6 +19,7 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
             value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_2 ||
             value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_3 ){
                 props.completeQuestion(true);
+                props.updateLessonTracker();
 
             } else {
                 props.completeQuestion(false);
