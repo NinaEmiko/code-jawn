@@ -2,15 +2,13 @@ package com.codejawn.controller;
 
 import com.codejawn.dto.LoginDTO;
 import com.codejawn.dto.UpdateLTDTO;
+import com.codejawn.model.JavaDataTypesLT;
 import com.codejawn.service.JavaDataTypesLTService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.logging.Logger;
 
@@ -20,6 +18,13 @@ import java.util.logging.Logger;
 public class JavaDataTypesLTController {
     private final Logger logger = Logger.getLogger(JavaDataTypesLTController.class.getName());
     private final JavaDataTypesLTService javaDataTypesLTService;
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<?> getJavaDataTypesLT(@PathVariable @Valid long id){
+        logger.info("Inside getJavaDataTypesLT controller method.");
+        JavaDataTypesLT javaDataTypesLT = javaDataTypesLTService.getLT(id);
+        return new ResponseEntity<>(javaDataTypesLT, HttpStatus.OK);
+    }
 
     @PutMapping("/update")
     public ResponseEntity<String> updateJavaDataTypesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){

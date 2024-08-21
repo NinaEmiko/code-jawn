@@ -15,14 +15,12 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
       };
 
     const endQuestion = () => {
-        if (value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_1 ||
-            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_2 ||
-            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_3 ){
+        if (correct){
                 props.completeQuestion(true);
                 props.updateLessonTracker();
 
             } else {
-                props.completeQuestion(false);
+                setShowAnswer(false);
             }
     }
 
@@ -31,11 +29,11 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
             value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_2 ||
             value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_3 ){
                 setCorrect(true);
-            } else {
-                setCorrect(false);
             }
         setShowAnswer(true);
     }
+
+    
 
     return (
         <>

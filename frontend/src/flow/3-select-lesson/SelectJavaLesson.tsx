@@ -50,7 +50,7 @@ function JavaLessons({props}:{props:any}) {
                 </div>
                 <div>
                     {showSection === 'Data Types' &&
-                        <SelectDataTypeLesson props={{handleButtonClick:handleButtonClick}} />
+                        <SelectDataTypeLesson props={{handleButtonClick:handleButtonClick, currentUser:props.currentUser}} />
                     }
                 </div>
             </div>

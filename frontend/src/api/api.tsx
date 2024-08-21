@@ -28,6 +28,16 @@ export const register = async (username: string, email: string, password: string
     }
 };
 
+export const getJavaDataTypesLT = async (userId: number) => {
+    try {
+        const response = await axios.get(`${ENDPOINTS.GET_JAVA_DATA_TYPES_LT}/${userId}`);
+        return response.data;
+    } catch (error) {
+      console.error('Error retrieving javaDataTypesLT:', error);
+      throw error;
+    }
+};
+
 export const updateJavaDataTypesLT = async (userId: number, lesson: string) => {
     try {
         const response = await axios.put(`${ENDPOINTS.UPDATE_JAVA_DATA_TYPES_LT}`, {
