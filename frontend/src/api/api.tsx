@@ -27,3 +27,16 @@ export const register = async (username: string, email: string, password: string
       throw error;
     }
 };
+
+export const updateJavaDataTypesLT = async (userId: number, lesson: string) => {
+    try {
+        const response = await axios.put(`${ENDPOINTS.UPDATE_JAVA_DATA_TYPES_LT}`, {
+            userId: userId,
+            lesson: lesson
+        });
+        return response.data;
+    } catch (error) {
+      console.error('Error updating javaDataTypesLT:', error);
+      throw error;
+    }
+};

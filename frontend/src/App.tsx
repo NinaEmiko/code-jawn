@@ -58,12 +58,12 @@ function App() {
   const loginCall = async (e: FormEvent, username: string, password: string) => {
     e.preventDefault();
     const data = await login(username, password);
-        Cookies.set('storedId', data.id);
+        Cookies.set('storedId', data.userId);
         Cookies.set('storedUsername', data.username);
         Cookies.set('authHeader', data.token);
         setAuthHeader(data.token);
         setCurrentUser({
-          id: data.id,
+          id: data.userId,
           username: data.username,
           loggedIn: true,
         });
@@ -72,12 +72,12 @@ function App() {
   const registerCall = async (e: FormEvent, username: string, email: string, password: string) => {
     e.preventDefault();
     const data = await register(username, email, password);
-        Cookies.set('storedId', data.id);
+        Cookies.set('storedId', data.userId);
         Cookies.set('storedUsername', data.username);
         Cookies.set('authHeader', data.token);
         setAuthHeader(data.token);
         setCurrentUser({
-          id: data.id,
+          id: data.userId,
           username: data.username,
           loggedIn: true,
         });
@@ -108,7 +108,7 @@ function App() {
             <SelectLanguage props={{handleRedirectHome:handleRedirectHome}} />
           }
           {activeTab === "Java" &&
-            <JavaSections props={{handleRedirectHome:handleRedirectHome}} />
+            <JavaSections props={{handleRedirectHome:handleRedirectHome, currentUser:currentUser}} />
           }
           {activeTab === "JavaScript" &&
             <JavaScriptSections props={{handleRedirectHome:handleRedirectHome}} />

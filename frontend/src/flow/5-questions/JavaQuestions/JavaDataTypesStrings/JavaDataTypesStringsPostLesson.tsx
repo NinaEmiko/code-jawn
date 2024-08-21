@@ -42,8 +42,10 @@ const JavaDataTypesStringsPostLesson = ({props}:{props:any}) => {
 
                 </div>
             </div>
+            {props.restCallSuccessful &&
             <button className="input-btn" onClick={() => handleClickContinue()}>Continue</button>
-        </>         
+            }
+            </>         
     )
 }
 export default JavaDataTypesStringsPostLesson;

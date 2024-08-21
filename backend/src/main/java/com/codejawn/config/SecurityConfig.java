@@ -41,7 +41,10 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
+                                .requestMatchers("/api/auth/login",
+                                        "/api/auth/register",
+                                        "/api/java/datatypes/lessons/update")
+                                .permitAll()
                                 .anyRequest().authenticated()
                 )
                 .httpBasic()
