@@ -29,7 +29,7 @@
 .lesson-btn-complete{
     margin: 5px;
     font-size: var(--text);
-    color: green;
+    color: rgb(185, 185, 185);
     padding: 5px;
     background: transparent;
     width: 100%;
