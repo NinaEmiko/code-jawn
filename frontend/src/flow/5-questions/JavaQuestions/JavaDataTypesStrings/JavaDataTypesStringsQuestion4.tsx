@@ -77,21 +77,21 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                     correct:STRINGS_QUESTION_4_BOOLEANS.ANSWER_2,
                     answer:STRINGS_QUESTION_4_ANSWERS.ANSWER_2,
                     explanation:STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_2,
-                    endQuestion:endQuestion}} />
+                    endQuestion:retry}} />
             }
             {answer === 'C' &&
                 <MultipleChoiceAnswer props={{
                     correct:STRINGS_QUESTION_4_BOOLEANS.ANSWER_3,
                     answer:STRINGS_QUESTION_4_ANSWERS.ANSWER_3,
                     explanation:STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_3,
-                    endQuestion:endQuestion}} />
+                    endQuestion:retry}} />
             }
             {answer === 'D' &&
                 <MultipleChoiceAnswer props={{
                     correct:STRINGS_QUESTION_4_BOOLEANS.ANSWER_4,
                     answer:STRINGS_QUESTION_4_ANSWERS.ANSWER_4,
                     explanation:STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_4,
-                    endQuestion:endQuestion}} />
+                    endQuestion:retry}} />
             }
         </>
     )
