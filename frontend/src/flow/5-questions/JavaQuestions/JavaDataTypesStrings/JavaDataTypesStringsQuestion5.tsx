@@ -28,7 +28,9 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
     const handleSubmit = () => {
         if (value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_1 ||
             value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_2 ||
-            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_3 ){
+            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_3 ||
+            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_4 ||
+            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_5){
                 setCorrect(true);
             }
         setShowAnswer(true);
