@@ -7,6 +7,9 @@ spring:
     initialization-mode: always
     testWhileIdle: true
     validationQuery: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
 #  sql:
 #    init:
 #      mode: always
