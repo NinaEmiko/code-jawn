@@ -1,9 +1,7 @@
-import Question from "../../../../components/question/Question"
 import { useState } from "react"
 import { STRINGS_QUESTION_5_ANSWERS, STRINGS_QUESTION_5_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
-import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader"
-import Explanation from "../../../../components/answer/Explanation"
-import JustText from "../../../../components/utility/JustText"
+import InputQuestion from "../../../../components/question/InputQuestion"
+import InputAnswer from "../../../../components/answer/InputAnswer"
 
 
 function JavaDataTypesStringsQuestion5({props}:{props:any}) {
@@ -26,56 +24,41 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
     }
 
     const handleSubmit = () => {
-        if (value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_1 ||
-            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_2 ||
-            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_3 ||
-            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_4 ||
-            value === STRINGS_QUESTION_5_ANSWERS.CORRECT_ANSWER_5){
+
+        if (Object.values(STRINGS_QUESTION_5_ANSWERS).includes(value)){
                 setCorrect(true);
             }
         setShowAnswer(true);
     }
 
-    
-
     return (
         <>
-        <div className="spacer-20" />
-            {!showAnswer ?
+            <div className="spacer-20" />
+            {!showAnswer ? 
+                <InputQuestion props={{
+                    question:STRINGS_QUESTIONS.STRING_QUESTION_5,
+                    value:value,
+                    handleChange:handleChange,
+                    handleSubmit:handleSubmit}} />   
+            :
                 <>
-                    <div className="question-container">
-                        <div className="question-jawn">
-                            <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_5}} />
-                        </div>
-                        <div className="answer-jawn-input">   
-                            <input
-                                className="answer-input"
-                                value={value}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    </div>
-                    <button className="input-btn" onClick={() => handleSubmit()}>Submit</button>
-                </>         
-                :
-                <>
-                    {correct
-                    ?
-                    (
-                        <>
-                            <AnswerExplanationHeader props={{correct: true}} />
-                            <Explanation props={STRINGS_QUESTION_5_EXPLANATIONS.CORRECT_ANSWER} />
-                            <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
-                        </>    
-                    ) : (
-                        <>
-                            <JustText props={{text: "Your answer: " + value}} />
-                            <AnswerExplanationHeader props={{correct: false}} />
-                            <Explanation props={STRINGS_QUESTION_5_EXPLANATIONS.INCORRECT_ANSWER} />
-                            <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
-                        </>
-                    )    
-                }
+                    {correct ?
+                        (
+                        <InputAnswer props={{
+                            value:value,
+                            correct:true,
+                            explanation:STRINGS_QUESTION_5_EXPLANATIONS.CORRECT_ANSWER,
+                            endQuestion:endQuestion}} />
+                        )
+                    :
+                        (
+                        <InputAnswer props={{
+                            value:value,
+                            correct:false,
+                            explanation:STRINGS_QUESTION_5_EXPLANATIONS.INCORRECT_ANSWER,
+                            endQuestion:endQuestion}} />
+                        )    
+                    }
                 </>
             }
         </>
