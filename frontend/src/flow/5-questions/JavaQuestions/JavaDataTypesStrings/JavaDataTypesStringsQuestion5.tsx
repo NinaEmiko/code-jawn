@@ -3,6 +3,7 @@ import { useState } from "react"
 import { STRINGS_QUESTION_5_ANSWERS, STRINGS_QUESTION_5_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader"
 import Explanation from "../../../../components/answer/Explanation"
+import JustText from "../../../../components/utility/JustText"
 
 
 function JavaDataTypesStringsQuestion5({props}:{props:any}) {
@@ -66,6 +67,7 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
                         </>    
                     ) : (
                         <>
+                            <JustText props={{text: "Your answer: " + value}} />
                             <AnswerExplanationHeader props={{correct: false}} />
                             <Explanation props={STRINGS_QUESTION_5_EXPLANATIONS.INCORRECT_ANSWER} />
                             <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
