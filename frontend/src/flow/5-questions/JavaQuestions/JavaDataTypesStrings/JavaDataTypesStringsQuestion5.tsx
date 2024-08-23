@@ -45,6 +45,7 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
                     {correct ?
                         (
                         <InputAnswer props={{
+                            type: "template-literal",
                             value:value,
                             correct:true,
                             explanation:STRINGS_QUESTION_5_EXPLANATIONS.CORRECT_ANSWER,
@@ -53,6 +54,7 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
                     :
                         (
                         <InputAnswer props={{
+                            type: "template-literal",
                             value:value,
                             correct:false,
                             explanation:STRINGS_QUESTION_5_EXPLANATIONS.INCORRECT_ANSWER,

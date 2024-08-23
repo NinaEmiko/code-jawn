@@ -9,8 +9,12 @@ const InputAnswer = ({props}:{props:any}) => {
     }
     return (
         <>
-            <JustText props={{text: "Your answer: " + props.value}} />
             <AnswerExplanationHeader props={{correct: props.correct}} />
+            {props.type === "template-literal" &&
+                <div className="answer-text-template-literal">
+                    {props.value}
+                </div>
+            }
             <Explanation props={props.explanation} />
             <button className="input-btn" onClick={() => handleClickContinue()}>Continue</button>
         </>
