@@ -7,6 +7,8 @@ import Explanation from "../../../../components/answer/Explanation"
 import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral"
 import DividerJawn from "../../../../components/utility/DividerJawn"
 import TopDividerJawn from "../../../../components/utility/TopDividerJawn"
+import MultipleChoiceAnswer from "../../../../components/answer/MultipleChoiceAnswer"
+import AnswerBoolean from "../../../../components/answer/AnswerBoolean"
 
 
 function JavaDataTypesStringsQuestion1({props}:{props:any}) {
@@ -46,11 +48,11 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                         <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_1}} />
                     </div>
                     <div className="answer-jawn">
-                            
-                        <AnswerCodeBlock props={{
+
+                        <AnswerBoolean props={{
                             answerClicked:handleAnswer1Click,
-                            code: STRINGS_QUESTION_1_ANSWERS.ANSWER_1
-                            }} />
+                            text: STRINGS_QUESTION_1_ANSWERS.ANSWER_1
+                        }} />
 
                         <DividerJawn />
                         <AnswerCodeBlock props={{
@@ -72,19 +74,13 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                 </div>
             }
             {answer === 'A' &&
-                <div className="question-explanation-container">
-                <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_1_BOOLEANS.ANSWER_1}} />
-                <div className="answer-jawn">
-                    <AnswerCodeBlock props={{
-                            answerClicked:null,
-                            code: STRINGS_QUESTION_1_ANSWERS.ANSWER_1
-                            }} />
-                    </div>
-                    <Explanation props={STRINGS_QUESTION_1_EXPLANATIONS.ANSWER_1} />
-                    <button className="input-btn" onClick={() => retry()} >
-                        Continue
-                    </button>
-                </div>
+                <MultipleChoiceAnswer props={{
+                    type: "boolean",
+                    correct: STRINGS_QUESTION_1_BOOLEANS.ANSWER_1,
+                    answer: STRINGS_QUESTION_1_ANSWERS.ANSWER_1,
+                    explanation: STRINGS_QUESTION_1_EXPLANATIONS.ANSWER_1,
+                    endQuestion: retry
+                }} />
             }
             {answer === 'B' &&
                 <div className="question-explanation-container">
@@ -117,19 +113,13 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
                 </div>
             }
             {answer === 'D' &&
-                <div className="question-explanation-container">
-                <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_1_BOOLEANS.ANSWER_4}} />
-                <div className="answer-jawn">
-                        <AnswerTemplateLiteral props={{
-                            answerClicked:null,
-                            text: STRINGS_QUESTION_1_ANSWERS.ANSWER_4
-                            }} />
-                        </div>
-                        <Explanation props={STRINGS_QUESTION_1_EXPLANATIONS.ANSWER_4} />
-                        <button className="input-btn" onClick={() => retry()} >
-                            Continue
-                        </button>
-                </div>
+                <MultipleChoiceAnswer props={{
+                    type: "template-literal",
+                    correct: STRINGS_QUESTION_1_BOOLEANS.ANSWER_4,
+                    answer: STRINGS_QUESTION_1_ANSWERS.ANSWER_4,
+                    explanation: STRINGS_QUESTION_1_EXPLANATIONS.ANSWER_4,
+                    endQuestion: retry
+                }} />
             }
         </>
     )

@@ -67,6 +67,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
             }
             {answer === 'A' &&
                 <MultipleChoiceAnswer props={{
+                    type: "text",
                     correct:STRINGS_QUESTION_4_BOOLEANS.ANSWER_1,
                     answer:STRINGS_QUESTION_4_ANSWERS.ANSWER_1,
                     explanation:STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_1,
@@ -74,6 +75,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
             }
             {answer === 'B' &&
                 <MultipleChoiceAnswer props={{
+                    type: "text",
                     correct:STRINGS_QUESTION_4_BOOLEANS.ANSWER_2,
                     answer:STRINGS_QUESTION_4_ANSWERS.ANSWER_2,
                     explanation:STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_2,
@@ -81,6 +83,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
             }
             {answer === 'C' &&
                 <MultipleChoiceAnswer props={{
+                    type: "text",
                     correct:STRINGS_QUESTION_4_BOOLEANS.ANSWER_3,
                     answer:STRINGS_QUESTION_4_ANSWERS.ANSWER_3,
                     explanation:STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_3,
@@ -88,6 +91,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
             }
             {answer === 'D' &&
                 <MultipleChoiceAnswer props={{
+                    type: "text",
                     correct:STRINGS_QUESTION_4_BOOLEANS.ANSWER_4,
                     answer:STRINGS_QUESTION_4_ANSWERS.ANSWER_4,
                     explanation:STRINGS_QUESTION_4_EXPLANATIONS.ANSWER_4,

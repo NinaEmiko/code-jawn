@@ -5,6 +5,8 @@ import { STRINGS_QUESTION_2_ANSWERS, STRINGS_QUESTION_2_BOOLEANS, STRINGS_QUESTI
 import Explanation from "../../../../components/answer/Explanation"
 import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader"
 import DividerJawn from "../../../../components/utility/DividerJawn"
+import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral"
+import MultipleChoiceAnswer from "../../../../components/answer/MultipleChoiceAnswer"
 
 
 function JavaDataTypesStringsQuestion2({props}:{props:any}) {
@@ -44,9 +46,9 @@ function JavaDataTypesStringsQuestion2({props}:{props:any}) {
                     </div>
                     <div className="answer-jawn">
                             
-                        <AnswerCodeBlock props={{
+                        <AnswerTemplateLiteral props={{
                             answerClicked:handleAnswer1Click,
-                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_1
+                            text: STRINGS_QUESTION_2_ANSWERS.ANSWER_1
                             }} />
                             <DividerJawn />
                         <AnswerCodeBlock props={{
@@ -67,19 +69,13 @@ function JavaDataTypesStringsQuestion2({props}:{props:any}) {
                 </div>
             }
             {answer === 'A' &&
-                <div className="question-explanation-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_2_BOOLEANS.ANSWER_1}} />
-                <div className="answer-jawn">
-                    <AnswerCodeBlock props={{
-                            answerClicked:null,
-                            code: STRINGS_QUESTION_2_ANSWERS.ANSWER_1
-                            }} />
-                    </div>
-                    <Explanation props={STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_1} />
-                    <button className="input-btn" onClick={() => endQuestion()} >
-                        Continue
-                    </button>
-                </div>
+                <MultipleChoiceAnswer props={{
+                    type: "template-literal",
+                    correct: STRINGS_QUESTION_2_BOOLEANS.ANSWER_1,
+                    answer: STRINGS_QUESTION_2_ANSWERS.ANSWER_1,
+                    explanation: STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_1,
+                    endQuestion: endQuestion
+            }} />
             }
             {answer === 'B' &&
                 <div className="-question-explanation-container">

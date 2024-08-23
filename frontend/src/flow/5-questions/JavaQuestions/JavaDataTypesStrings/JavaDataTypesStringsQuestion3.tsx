@@ -7,6 +7,7 @@ import Explanation from "../../../../components/answer/Explanation"
 import AnswerText from "../../../../components/answer/AnswerText"
 import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral"
 import DividerJawn from "../../../../components/utility/DividerJawn"
+import MultipleChoiceAnswer from "../../../../components/answer/MultipleChoiceAnswer"
 
 
 function JavaDataTypesStringsQuestion3({props}:{props:any}) {
@@ -84,49 +85,31 @@ function JavaDataTypesStringsQuestion3({props}:{props:any}) {
                 </div>
             }
             {answer === 'B' &&
-                <div className="question-explanation-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_2}} />
-                    <div className="answer-jawn">
-                    <AnswerText props={{
-                            answerClicked:null,
-                            text: STRINGS_QUESTION_3_ANSWERS.ANSWER_2
-                            }} />
-                    </div>
-                    <Explanation props={STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_2} />
-                    <button className="input-btn" onClick={() => endQuestion()} >
-                        Continue
-                    </button>
-                </div>
+                <MultipleChoiceAnswer props={{
+                    type: "text",
+                    correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_2,
+                    answer: STRINGS_QUESTION_3_ANSWERS.ANSWER_2,
+                    explanation: STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_2,
+                    endQuestion: endQuestion
+                }} />
             }
             {answer === 'C' &&
-                <div className="question-explanation-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_3}} />
-                    <div className="answer-jawn">
-                    <AnswerTemplateLiteral props={{
-                            answerClicked:null,
-                            text: STRINGS_QUESTION_3_ANSWERS.ANSWER_3
-                            }} />
-                    </div>
-                    <Explanation props={STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_3} />
-                    <button className="input-btn" onClick={() => retry()} >
-                        Continue
-                    </button>
-                </div>
+                <MultipleChoiceAnswer props={{
+                    type: "template-literal",
+                    correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_3,
+                    answer: STRINGS_QUESTION_3_ANSWERS.ANSWER_3,
+                    explanation: STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_3,
+                    endQuestion: retry
+                }} />
             }
             {answer === 'D' &&
-                <div className="question-explanation-container">
-                    <AnswerExplanationHeader props={{correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_4}} />
-                    <div className="answer-jawn">
-                        <AnswerTemplateLiteral props={{
-                            answerClicked:null,
-                            text: STRINGS_QUESTION_3_ANSWERS.ANSWER_4
-                            }} />
-                        </div>
-                        <Explanation props={STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_4} />
-                        <button className="input-btn" onClick={() => retry()} >
-                            Continue
-                        </button>
-                </div>
+                <MultipleChoiceAnswer props={{
+                    type: "template-literal",
+                    correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_4,
+                    answer: STRINGS_QUESTION_3_ANSWERS.ANSWER_4,
+                    explanation: STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_4,
+                    endQuestion: retry
+                }} />
             }
         </>
     )
