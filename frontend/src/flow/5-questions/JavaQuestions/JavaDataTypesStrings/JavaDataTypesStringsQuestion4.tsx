@@ -1,46 +1,31 @@
 import Question from "../../../../components/question/Question"
 import { useState } from "react"
-import { STRINGS_QUESTION_4_ANSWERS, STRINGS_QUESTION_4_BOOLEANS, STRINGS_QUESTION_4_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import AnswerText from "../../../../components/answer/AnswerText"
 import DividerJawn from "../../../../components/utility/DividerJawn"
 import MultipleChoiceAnswer from "../../../../components/answer/MultipleChoiceAnswer"
-
+import { STRINGS_QUESTION_4_ANSWERS,
+    STRINGS_QUESTION_4_BOOLEANS,
+    STRINGS_QUESTION_4_EXPLANATIONS,
+    STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 
 function JavaDataTypesStringsQuestion4({props}:{props:any}) {
     const [answer, setAnswer] = useState('');
 
-    const handleAnswer1Click = () => {
-        setAnswer("A");
-    }
+    const handleAnswer1Click = () => { setAnswer("A"); }
+    const handleAnswer2Click = () => { setAnswer("B"); }
+    const handleAnswer3Click = () => { setAnswer("C"); }
+    const handleAnswer4Click = () => { setAnswer("D"); }
 
-    const handleAnswer2Click = () => {
-        setAnswer("B");
-    }
+    const endQuestion = () => { props.completeQuestion(true); }
 
-    const handleAnswer3Click = () => {
-        setAnswer("C");
-    }
-
-    const handleAnswer4Click = () => {
-        setAnswer("D");
-    }
-
-    const endQuestion = () => {
-        props.completeQuestion(true);
-    }
-
-    const retry = () => {
-        setAnswer('');
-    }
+    const retry = () => { setAnswer(''); }
 
     return (
         <>
         <div className="spacer-20" />
             {answer === '' &&
                 <div className="question-container">
-                    <div className="question-jawn">
                     <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_4}} />
-                    </div>
                     <div className="answer-jawn">
                             
                         <AnswerText props={{

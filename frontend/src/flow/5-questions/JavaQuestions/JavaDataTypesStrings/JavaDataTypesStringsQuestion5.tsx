@@ -1,8 +1,9 @@
 import { useState } from "react"
-import { STRINGS_QUESTION_5_ANSWERS, STRINGS_QUESTION_5_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import InputQuestion from "../../../../components/question/InputQuestion"
 import InputAnswer from "../../../../components/answer/InputAnswer"
-
+import { STRINGS_QUESTION_5_ANSWERS,
+    STRINGS_QUESTION_5_EXPLANATIONS,
+    STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 
 function JavaDataTypesStringsQuestion5({props}:{props:any}) {
     const [showAnswer, setShowAnswer] = useState(false);
@@ -15,16 +16,15 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
 
     const endQuestion = () => {
         if (correct){
-                props.completeQuestion(true);
-                props.updateLessonTracker();
+            props.completeQuestion(true);
+            props.updateLessonTracker();
 
-            } else {
-                setShowAnswer(false);
-            }
+        } else {
+            setShowAnswer(false);
+        }
     }
 
     const handleSubmit = () => {
-
         if (Object.values(STRINGS_QUESTION_5_ANSWERS).includes(value)){
                 setCorrect(true);
             }

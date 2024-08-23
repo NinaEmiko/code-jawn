@@ -1,3 +1,4 @@
+import AnswerCodeBlock from "./AnswerCodeBlock";
 import AnswerExplanationHeader from "./AnswerExplanationHeader";
 import AnswerText from "./AnswerTemplateLiteral";
 import Explanation from "./Explanation";
@@ -29,6 +30,12 @@ const MultipleChoiceAnswer = ({props}:{props:any}) => {
                 <div onClick={() => handleAnswerClick()} className="answer-text-boolean">
                     {props.answer}
                 </div>
+            }
+            {props.type === "code" &&
+                <AnswerCodeBlock props={{
+                    answerClicked:null,
+                    code: props.answer
+                    }} />
             }
         </div>
         <Explanation props={props.explanation} />
