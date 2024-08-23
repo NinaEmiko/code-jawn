@@ -18,10 +18,12 @@ function JavaLessons({props}:{props:any}) {
 
     const handleButtonClick = (lesson: string) => {
         props.handleRedirectJavaLessons(lesson);
+        props.handlePageTitle(lesson);
     }
 
     const handleBackClick = () => {
         props.handleRedirectHome("Select a Language");
+        props.handlePageTitle("Select a Language");
     }
 
     const handleShowSection = (section: string) => {
@@ -31,11 +33,8 @@ function JavaLessons({props}:{props:any}) {
   return (
     <>
         <div className="back-btn-container">
-                    <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
-                </div>
-        <HeaderDisplay>
-            <Header props={{text: "Java Lessons"}} />
-        </HeaderDisplay>
+            <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+        </div>
         <Display>
             <div className="spacer-20" />
             <div className="container-for-language-btn2">

@@ -1,8 +1,13 @@
+import AnswerCodeBlock from "./AnswerCodeBlock";
 import AnswerExplanationHeader from "./AnswerExplanationHeader";
 import AnswerText from "./AnswerTemplateLiteral";
 import Explanation from "./Explanation";
 
 const MultipleChoiceAnswer = ({props}:{props:any}) => {
+
+    const handleAnswerClick = () => {
+        props.answerClicked();
+    }
 
     const handleClickContinue = () => {
         props.endQuestion()
@@ -11,10 +16,27 @@ const MultipleChoiceAnswer = ({props}:{props:any}) => {
         <div className="question-explanation-container">
         <AnswerExplanationHeader props={{correct: props.correct}} />
         <div className="answer-jawn">
-        <AnswerText props={{
-                answerClicked:null,
-                text: props.answer
-                }} />
+            {props.type === "text" &&
+                <div onClick={() => handleAnswerClick()} className="answer-text">
+                    {props.answer}
+                </div>
+            }
+            {props.type === "template-literal" &&
+                <div onClick={() => handleAnswerClick()} className="answer-text-template-literal">
+                    {props.answer}
+                </div>
+            }
+            {props.type === "boolean" &&
+                <div onClick={() => handleAnswerClick()} className="answer-text-boolean">
+                    {props.answer}
+                </div>
+            }
+            {props.type === "code" &&
+                <AnswerCodeBlock props={{
+                    answerClicked:null,
+                    code: props.answer
+                    }} />
+            }
         </div>
         <Explanation props={props.explanation} />
         <button className="input-btn" onClick={() => handleClickContinue()} >

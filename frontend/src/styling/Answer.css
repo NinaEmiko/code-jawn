@@ -1,10 +1,15 @@
 .answer-text,
-.answer-text-template-literal{
+.answer-text-template-literal,
+.answer-text-boolean{
     background-color: transparent;
     padding: 20px;
     /* margin-bottom: 5%; */
     font-size: var(--sub-text);
     height: 16%;
+}
+
+.answer-text-boolean{
+    color:#F08C00;
 }
 
 .answer-text{

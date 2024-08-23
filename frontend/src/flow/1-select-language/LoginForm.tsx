@@ -1,19 +1,18 @@
 import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import Cookies from 'js-cookie';
-import Header from '../../components/Header';
-import HeaderDisplay from '../../components/HeaderDisplay';
 import JustText from '../../components/utility/JustText';
 import LoginDisplay from '../../components/LoginDisplay';
 
 
 interface LoginFormProps {
+  handlePageTitle: (title: string) => void;
   onLogin: (e: FormEvent, username: string, password: string) => void;
   onRegister: (e: FormEvent, username: string, password: string, email: string) => void;
   currentUser: {username: string, id: number, loggedIn: boolean};
   logout: () => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser, logout }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser, logout, handlePageTitle }) => {
   const [activeButton, setActiveButton] = useState('Sign In');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -24,8 +23,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   const registerFormRef = useRef<HTMLFormElement | null>(null);
 
   const handleTabClick = (button: string) => {
-    setActiveButton(button);
-    Cookies.set('LoginFormTab', button);
+    if (button === "Sign In") {
+      setActiveButton(button);
+      handlePageTitle("Welcome Back!");
+    } else if (button === "Sign Up") {
+      setActiveButton(button);
+      handlePageTitle("Welcome!");
+    }
   };
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -56,30 +60,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
     }
   };
 
-  useEffect(() => {
-    const storedTab = Cookies.get('LoginFormTab');
-    if (storedTab) {
-      setActiveButton(storedTab);
-    }
-  }, []);
-
   return (
     <>
-
-      <HeaderDisplay>
-          {activeButton ==="Sign In" ?
-            <Header props={{text: "Welcome Back"}} />
-            :
-            <Header props={{text: "Welcome"}} />
-          }
-          <Header props={{text: activeButton}} />
-          {/* <div className="code-jawn-icon-container">
-              <img className="code-jawn-icon"
-                  src={LolaIcon}
-                  alt="Code Jawn Icon" />
-          </div> */}
-      </HeaderDisplay>
-
       <LoginDisplay>
       <div className="spacer-20" />
         {activeButton === 'Sign In' && (

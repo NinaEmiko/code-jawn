@@ -18,7 +18,8 @@ function SelectJavaLessons({props}:{props:any}) {
               props={{
                 handleRedirectJavaLessons:handleRedirectJavaLessons,
                 handleRedirectHome:props.handleRedirectHome,
-                currentUser:props.currentUser
+                currentUser:props.currentUser,
+                handlePageTitle:props.handlePageTitle
               }} />
         }
         {activeTab === "Java Initializing Variables" &&

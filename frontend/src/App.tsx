@@ -26,23 +26,17 @@ import ProfileHeaderDisplay from "./components/ProfileHeaderDisplay";
 function App() {
   const [activeTab, setActiveTab] = useState("Select a Language");
   const [showProfile, setShowProfile] = useState(false);
+  const [pageTitle, setPageTitle] = useState("Welcome Back!");
   const [currentUser, setCurrentUser] = useState({
     username: '',
     id: 0,
     loggedIn: false,
   });
 
-  const handleClickProfile = () => {
-    setShowProfile(true);
-  }
-
-  const handleClickLearn = () => {
-    setShowProfile(false);
-  }
-
-  const handleRedirectHome = (component: string) => {
-    setActiveTab(component);
-  }
+  const handlePageTitle = (title: string) => { setPageTitle(title); }
+  const handleClickProfile = () => { setShowProfile(true); }
+  const handleClickLearn = () => { setShowProfile(false); }
+  const handleRedirectHome = (component: string) => { setActiveTab(component); }
 
   const logout = () => {
     setCurrentUser((prev) => ({
@@ -53,6 +47,7 @@ function App() {
     Cookies.set('storedId', "");
     Cookies.set('storedUsername', "");
     Cookies.set('authHeader', "");
+    setPageTitle("Welcome Back!");
   };
 
   const loginCall = async (e: FormEvent, username: string, password: string) => {
@@ -67,6 +62,7 @@ function App() {
           username: data.username,
           loggedIn: true,
         });
+    setPageTitle("Select a Language");
 }
 
   const registerCall = async (e: FormEvent, username: string, email: string, password: string) => {
@@ -81,6 +77,7 @@ function App() {
           username: data.username,
           loggedIn: true,
         });
+    setPageTitle("Select a Language");
   };
 
   useEffect(() => {
@@ -99,19 +96,23 @@ function App() {
 
   return (
     <Container>
+      <HeaderDisplay>
+        <Header props={{ text: pageTitle }} />
+      </HeaderDisplay>
+
       {!currentUser.loggedIn &&
-        <LoginForm onLogin={loginCall} onRegister={registerCall} currentUser={currentUser} logout={(logout)} />
+        <LoginForm onLogin={loginCall} onRegister={registerCall} currentUser={currentUser} logout={(logout)} handlePageTitle={(handlePageTitle)} />
       }
       {currentUser.loggedIn &&
       <>
           {activeTab === "Select a Language" &&
-            <SelectLanguage props={{handleRedirectHome:handleRedirectHome}} />
+            <SelectLanguage props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle}} />
           }
           {activeTab === "Java" &&
-            <JavaSections props={{handleRedirectHome:handleRedirectHome, currentUser:currentUser}} />
+            <JavaSections props={{handleRedirectHome:handleRedirectHome, currentUser:currentUser, handlePageTitle:handlePageTitle}} />
           }
           {activeTab === "JavaScript" &&
-            <JavaScriptSections props={{handleRedirectHome:handleRedirectHome}} />
+            <JavaScriptSections props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle}} />
           } 
 
           {showProfile && 
@@ -119,7 +120,6 @@ function App() {
               <ProfileHeaderDisplay>
                 <Header props={{text: "Profile"}} />
               </ProfileHeaderDisplay>
-
               <Profile props={{logout:logout}} />
             </>
           }

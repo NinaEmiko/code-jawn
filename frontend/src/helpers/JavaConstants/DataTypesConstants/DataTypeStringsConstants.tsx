@@ -14,10 +14,10 @@ export const STRINGS_QUESTION_1_ANSWERS = {
 }
 
 export const STRINGS_QUESTION_1_EXPLANATIONS = {
-    ANSWER_1: `UPDATE`,
-    ANSWER_2: `UPDATE`,
-    ANSWER_3: `UPDATE`,
-    ANSWER_4: `UPDATE`
+    ANSWER_1: `This is a boolean value. If it were surrounded by quotation marks, it would become a String value: "false".`,
+    ANSWER_2: `String values must be surrounded by quotation marks or backticks. 5 written in this way would be an int value.`,
+    ANSWER_3: `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`,
+    ANSWER_4: `String values must be surrounded by quotation marks or backticks.`
 }
 
 export const STRINGS_QUESTION_1_BOOLEANS = {
@@ -35,10 +35,10 @@ export const STRINGS_QUESTION_2_ANSWERS = {
 }
 
 export const STRINGS_QUESTION_2_EXPLANATIONS = {
-    ANSWER_1: `UPDATE`,
-    ANSWER_2: `UPDATE`,
-    ANSWER_3: `UPDATE`,
-    ANSWER_4: `UPDATE`
+    ANSWER_1: `String values must be surrounded by quotation marks or backticks, which means this value is not a String.`,
+    ANSWER_2: `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`,
+    ANSWER_3: `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`,
+    ANSWER_4: `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`
 }
 
 export const STRINGS_QUESTION_2_BOOLEANS = {
@@ -56,10 +56,10 @@ export const STRINGS_QUESTION_3_ANSWERS = {
 }
 
 export const STRINGS_QUESTION_3_EXPLANATIONS = {
-    ANSWER_1: `UPDATE`,
-    ANSWER_2: `UPDATE`,
-    ANSWER_3: `UPDATE`,
-    ANSWER_4: `UPDATE`
+    ANSWER_1: `While this is a valid String value, it is not the only valid String value.`,
+    ANSWER_2: `All three are valid String values.`,
+    ANSWER_3: `While this is a valid String value, it is not the only valid String value.`,
+    ANSWER_4: `While this is a valid String value, it is not the only valid String value.`
 }
 
 export const STRINGS_QUESTION_3_BOOLEANS = {
@@ -77,10 +77,10 @@ export const STRINGS_QUESTION_4_ANSWERS = {
 }
 
 export const STRINGS_QUESTION_4_EXPLANATIONS = {
-    ANSWER_1: `UPDATE`,
-    ANSWER_2: `UPDATE`,
-    ANSWER_3: `UPDATE`,
-    ANSWER_4: `UPDATE`
+    ANSWER_1: `This value alone is not a String value, but by surrounding it in quotation marks, it will become a String.`,
+    ANSWER_2: `There is something missing from making this into a String value.`,
+    ANSWER_3: `While an = sign can be used to assign a String value to a variable, it is not a requirement in order to have a String value.`,
+    ANSWER_4: `If a number is within quotation marks, it is a part of a String value and not an int value.`
 }
 
 export const STRINGS_QUESTION_4_BOOLEANS = {
