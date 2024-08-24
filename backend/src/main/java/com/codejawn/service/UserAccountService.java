@@ -1,6 +1,5 @@
 package com.codejawn.service;
 
-import com.codejawn.controller.UserAccountController;
 import com.codejawn.dto.AuthResponseDTO;
 import com.codejawn.model.*;
 import com.codejawn.repository.RoleRepository;
@@ -14,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.nio.CharBuffer;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -29,7 +27,6 @@ public class UserAccountService {
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
     private final LessonTrackerService lessonTrackerService;
-    private final JavaDataTypesLTService javaDataTypesLTService;
     private final Logger logger = Logger.getLogger(UserAccountService.class.getName());
 
     public UserAccount register(String userName, String email, String password) {
@@ -60,11 +57,10 @@ public class UserAccountService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtGenerator.generateToken(authentication);
 
-        UserAccount userAccount = new UserAccount();
-        Optional<UserAccount> optionalUserAccount = findByUsername(username);
-        if (optionalUserAccount.isPresent()){
-            userAccount = optionalUserAccount.get();
-        }
+        UserAccount userAccount = userAccountRepository.findByUsername(username)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
         AuthResponseDTO authResponseDTO = new AuthResponseDTO(token);
         authResponseDTO.setUserId(userAccount.getId());
         authResponseDTO.setUsername(userAccount.getUsername());
@@ -72,10 +68,6 @@ public class UserAccountService {
         authResponseDTO.setRoles(userAccount.getRoles());
         authResponseDTO.setLessonTracker(userAccount.getLessonTracker());
         return authResponseDTO;
-    }
-
-    public Optional<UserAccount> findByUsername(String username) {
-        return userAccountRepository.findByUsername(username);
     }
 
     public void updatePassword(Long id, String oldPassword, String newPassword) {

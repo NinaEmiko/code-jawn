@@ -68,6 +68,13 @@ public class UserAccountControllerTest {
         updateUsernameDTO = new UpdateUsernameDTO();
         updateUsernameDTO.setId(1L);
         updateUsernameDTO.setNewUsername("newUsername");
+
+        authResponseDTO = new AuthResponseDTO("token");
+        authResponseDTO.setUserId(1L);
+        authResponseDTO.setRoles(null);
+        authResponseDTO.setLessonTracker(null);
+        authResponseDTO.setEmail("email");
+        authResponseDTO.setUsername("username");
     }
 
     @Test
@@ -118,9 +125,6 @@ public class UserAccountControllerTest {
         doThrow(new RuntimeException()).when(userAccountService).updateEmail(anyLong(), anyString());
         ResponseEntity<?> response = userAccountController.updateEmail(updateEmailDTO);
         Assertions.assertEquals(response.getBody(), "FAILED");
-//        assertThrows(RuntimeException.class, () -> {
-//            userAccountService.updateEmail(1L, "newEmail");
-//        });
     }
 
     @Test
@@ -171,5 +175,16 @@ public class UserAccountControllerTest {
         ResponseEntity<?> response = userAccountController.register(registerDTO);
         verify(userAccountService, times(0)).register("username", "email", "password");
         assertEquals(response.getBody(), "Username is taken!");
+    }
+
+    @Test
+    void auth_response_dto_fields_should_match(){
+        Assertions.assertEquals(authResponseDTO.getUserId(), 1L);
+        Assertions.assertEquals(authResponseDTO.getUsername(), "username");
+        Assertions.assertEquals(authResponseDTO.getEmail(), "email");
+        Assertions.assertEquals(authResponseDTO.getTokenType(), "Bearer ");
+        Assertions.assertEquals(authResponseDTO.getAccessToken(), "token");
+        assertNull(authResponseDTO.getRoles());
+        assertNull(authResponseDTO.getLessonTracker());
     }
 }

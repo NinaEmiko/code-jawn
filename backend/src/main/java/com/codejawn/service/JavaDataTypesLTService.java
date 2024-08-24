@@ -21,22 +21,23 @@ public class JavaDataTypesLTService {
     }
 
     public JavaDataTypesLT getLT(long userId) {
+        UserAccount userAccount = userAccountRepository.findById(userId)
+            .orElseThrow(
+                    () -> new RuntimeException("User not found")
+            );
         try {
-            Optional<UserAccount> optionalUserAccount = userAccountRepository.findById(userId);
-            if (optionalUserAccount.isPresent()) {
-                UserAccount userAccount = optionalUserAccount.get();
-                return userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
-            }
+            return userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
         } catch (Exception e) {
             throw new RuntimeException();
         }
-        return null;
     }
 
     public String updateLT(long userId, String lesson) {
-        Optional<UserAccount> optionalUserAccount = userAccountRepository.findById(userId);
-        if (optionalUserAccount.isPresent()){
-            UserAccount userAccount = optionalUserAccount.get();
+        UserAccount userAccount = userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
+        try {
             JavaDataTypesLT javaDataTypesLT = userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
 
             switch (lesson) {
@@ -49,10 +50,8 @@ public class JavaDataTypesLTService {
 
             javaDataTypesLTRepository.save(javaDataTypesLT);
             return "SUCCESS";
+        } catch (Exception e) {
+            return "FAILED";
         }
-        return "FAILED";
-    }
-    public void deleteById(Long id) {
-        javaDataTypesLTRepository.deleteById(id);
     }
 }
