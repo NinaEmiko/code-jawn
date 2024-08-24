@@ -24,7 +24,7 @@ function JavaDataTypesInts({props}:{props:any}) {
 
   return (
     <>
-        <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+        <button className="back-btn-jawn" onClick={handleBackClick}>{"Back"}</button>
         <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:2}}/>
         <div className="parent-jawn">
             <div className="child-jawn">

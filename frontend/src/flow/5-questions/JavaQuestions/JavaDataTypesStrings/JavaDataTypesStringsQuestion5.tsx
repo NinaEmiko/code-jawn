@@ -33,7 +33,6 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
 
     return (
         <>
-            <div className="spacer-20" />
             {!showAnswer ? 
                 <InputQuestion props={{
                     question:STRINGS_QUESTIONS.STRING_QUESTION_5,

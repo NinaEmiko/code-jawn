@@ -33,10 +33,11 @@ const JavaDataTypesStringsPostLesson = ({props}:{props:any}) => {
     return (
 
         <>
-            <div className="spacer-20" />
             <div className="question-container">
                 <div className="question-jawn">
-                    <Question props={{text: "Good job!!"}} />
+                    <div className="lesson-congratulations">
+                    Good job!!
+                    </div>
                 </div>
                 <div className="answer-jawn-input">   
 
