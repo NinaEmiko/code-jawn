@@ -18,4 +18,7 @@ public class LessonTrackerService {
         lessonTracker.setJavaLT(javaLT);
         return lessonTrackerRepository.save(lessonTracker);
     }
+    public void deleteById(Long id) {
+        lessonTrackerRepository.deleteById(id);
+    }
 }

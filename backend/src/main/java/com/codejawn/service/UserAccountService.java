@@ -28,6 +28,7 @@ public class UserAccountService {
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
     private final LessonTrackerService lessonTrackerService;
+    private final JavaDataTypesLTService javaDataTypesLTService;
     private final Logger logger = Logger.getLogger(UserAccountService.class.getName());
 
     public UserAccount register(String userName, String email, String password) {
@@ -66,6 +67,7 @@ public class UserAccountService {
         AuthResponseDTO authResponseDTO = new AuthResponseDTO(token);
         authResponseDTO.setUserId(userAccount.getId());
         authResponseDTO.setUsername(userAccount.getUsername());
+        authResponseDTO.setEmail(userAccount.getEmail());
         authResponseDTO.setRoles(userAccount.getRoles());
         authResponseDTO.setLessonTracker(userAccount.getLessonTracker());
         return authResponseDTO;
@@ -81,7 +83,12 @@ public class UserAccountService {
         userAccountRepository.save(userAccount);
     }
 
-    public void deleteUser(Long id) {
-        userAccountRepository.deleteById(id);
+    public String deleteUser(Long id) {
+        try {
+            userAccountRepository.deleteById(id);
+            return "SUCCESS";
+        } catch (Exception e) {
+            return "FAILED";
+        }
     }
 }

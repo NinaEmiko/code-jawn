@@ -29,6 +29,7 @@ function App() {
   const [pageTitle, setPageTitle] = useState("Welcome Back!");
   const [currentUser, setCurrentUser] = useState({
     username: '',
+    email: '',
     id: 0,
     loggedIn: false,
   });
@@ -46,6 +47,7 @@ function App() {
     setAuthHeader(null);
     Cookies.set('storedId', "");
     Cookies.set('storedUsername', "");
+    Cookies.set("storedEmail", "")
     Cookies.set('authHeader', "");
     setPageTitle("Welcome Back!");
   };
@@ -55,11 +57,13 @@ function App() {
     const data = await login(username, password);
         Cookies.set('storedId', data.userId);
         Cookies.set('storedUsername', data.username);
+        Cookies.set('storedEmail', data.email);
         Cookies.set('authHeader', data.token);
         setAuthHeader(data.token);
         setCurrentUser({
           id: data.userId,
           username: data.username,
+          email: data.email,
           loggedIn: true,
         });
     setPageTitle("Select a Language");
@@ -70,11 +74,13 @@ function App() {
     const data = await register(username, email, password);
         Cookies.set('storedId', data.userId);
         Cookies.set('storedUsername', data.username);
+        Cookies.set('storedEmail', data.email);
         Cookies.set('authHeader', data.token);
         setAuthHeader(data.token);
         setCurrentUser({
           id: data.userId,
           username: data.username,
+          email: data.email,
           loggedIn: true,
         });
     setPageTitle("Select a Language");
@@ -84,11 +90,13 @@ function App() {
     const auth = Cookies.get('authHeader');
     const storedId = Cookies.get('storedId');
     const storedUsername = Cookies.get('storedUsername');
-    if (storedId && storedUsername && auth) {
+    const storedEmail = Cookies.get('storedEmail');
+    if (storedId && storedUsername && auth && storedEmail) {
       setAuthHeader(auth);
       setCurrentUser({
         id: Number(storedId),
         username: storedUsername,
+        email: storedEmail,
         loggedIn: true,
       });
     }
@@ -120,7 +128,7 @@ function App() {
               <ProfileHeaderDisplay>
                 <Header props={{text: "Profile"}} />
               </ProfileHeaderDisplay>
-              <Profile props={{logout:logout}} />
+              <Profile props={{logout:logout, currentUser:currentUser}} />
             </>
           }
           <AppBar props={{handleClickProfile:handleClickProfile, handleClickLearn:handleClickLearn}} />

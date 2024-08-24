@@ -52,4 +52,7 @@ public class JavaDataTypesLTService {
         }
         return "FAILED";
     }
+    public void deleteById(Long id) {
+        javaDataTypesLTRepository.deleteById(id);
+    }
 }

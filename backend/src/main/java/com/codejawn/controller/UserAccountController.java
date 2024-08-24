@@ -18,10 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Optional;
@@ -31,21 +28,14 @@ import java.util.logging.Logger;
 @RequestMapping("/api/auth")
 public class UserAccountController {
 
-    private AuthenticationManager authenticationManager;
     private UserAccountRepository userAccountRepository;
     private UserAccountService userAccountService;
-    private JWTGenerator jwtGenerator;
     private final Logger logger = Logger.getLogger(UserAccountController.class.getName());
 
-
     @Autowired
-    public UserAccountController(AuthenticationManager authenticationManager,
-                                 UserAccountRepository userAccountRepository,
-                                 JWTGenerator jwtGenerator,
+    public UserAccountController(UserAccountRepository userAccountRepository,
                                  UserAccountService userAccountService) {
-        this.authenticationManager = authenticationManager;
         this.userAccountRepository = userAccountRepository;
-        this.jwtGenerator = jwtGenerator;
         this.userAccountService = userAccountService;
     }
 
@@ -72,5 +62,17 @@ public class UserAccountController {
         UserAccount userAccount = userAccountService.register(userName, email, password);
 
         return new ResponseEntity<>(userAccount, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteAccount(@PathVariable @Valid long id){
+        logger.info("Inside deleteAccount controller method.");
+        String response;
+        try{
+            response = userAccountService.deleteUser(id);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("FAILED", HttpStatus.OK);
+        }
     }
 }

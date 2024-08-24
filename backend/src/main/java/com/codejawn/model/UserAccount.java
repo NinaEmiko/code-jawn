@@ -43,11 +43,11 @@ public class UserAccount {
     )
     @JsonManagedReference
     private List<Role> roles = new ArrayList<>();
-    @OneToOne
+    @OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name= "lesson_tracker_id")
     private LessonTracker lessonTracker;
 
     @Column
-    private boolean subscriptionActive;
+    private Boolean subscriptionActive;
 
 }
