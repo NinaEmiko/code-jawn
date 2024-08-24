@@ -14,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.nio.CharBuffer;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -77,10 +78,19 @@ public class UserAccountService {
         return userAccountRepository.findByUsername(username);
     }
 
-    public void updatePassword(Long id, String newPassword) {
-        UserAccount userAccount = userAccountRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-        userAccount.setPassword(passwordEncoder.encode(newPassword));
-        userAccountRepository.save(userAccount);
+    public void updatePassword(Long id, String oldPassword, String newPassword) {
+        logger.info("Inside updatePassword service method.");
+        UserAccount userAccount = userAccountRepository.findById(id)
+            .orElseThrow(
+                    () -> new RuntimeException("User not found")
+            );
+        try{
+            userAccount.setPassword(passwordEncoder.encode(newPassword));
+            userAccountRepository.save(userAccount);
+
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
     }
 
     public String deleteUser(Long id) {

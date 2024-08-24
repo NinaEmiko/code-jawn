@@ -3,25 +3,16 @@ package com.codejawn.controller;
 import com.codejawn.dto.AuthResponseDTO;
 import com.codejawn.dto.LoginDTO;
 import com.codejawn.dto.RegisterDTO;
-import com.codejawn.model.Role;
+import com.codejawn.dto.UpdatePasswordDTO;
 import com.codejawn.model.UserAccount;
-import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
-import com.codejawn.security.JWTGenerator;
 import com.codejawn.service.UserAccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.Optional;
 import java.util.logging.Logger;
 
 @RestController
@@ -64,6 +55,22 @@ public class UserAccountController {
         return new ResponseEntity<>(userAccount, HttpStatus.OK);
     }
 
+    @PutMapping("/update-password")
+    public ResponseEntity<?> updatePassword(@RequestBody @Valid UpdatePasswordDTO updatePasswordDTO) {
+        logger.info("Inside updatePassword controller method.");
+
+        Long id = updatePasswordDTO.getId();
+        String oldPassword = updatePasswordDTO.getOldPassword();
+        String newPassword = updatePasswordDTO.getNewPassword();
+
+        try{
+            userAccountService.updatePassword(id, oldPassword, newPassword);
+            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteAccount(@PathVariable @Valid long id){
         logger.info("Inside deleteAccount controller method.");
@@ -72,7 +79,7 @@ public class UserAccountController {
             response = userAccountService.deleteUser(id);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("FAILED", HttpStatus.OK);
+            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
         }
     }
 }

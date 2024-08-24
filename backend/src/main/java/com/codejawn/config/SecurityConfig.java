@@ -45,7 +45,8 @@ public class SecurityConfig {
                                         "/api/auth/register",
                                         "/api/java/datatypes/lessons/update",
                                         "/api/java/datatypes/lessons/get/{id}",
-                                        "/api/auth/delete/{id}")
+                                        "/api/auth/delete/{id}",
+                                        "/api/auth/update-password")
                                 .permitAll()
                                 .anyRequest().authenticated()
                 )
