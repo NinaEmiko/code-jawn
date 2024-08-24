@@ -93,6 +93,20 @@ public class UserAccountService {
         }
     }
 
+    public void updateEmail(Long id, String newEmail) {
+        UserAccount userAccount = userAccountRepository.findById(id)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
+        try{
+            userAccount.setEmail(newEmail);
+            userAccountRepository.save(userAccount);
+
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
+
     public String deleteUser(Long id) {
         try {
             userAccountRepository.deleteById(id);

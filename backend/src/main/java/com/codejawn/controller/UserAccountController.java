@@ -1,9 +1,6 @@
 package com.codejawn.controller;
 
-import com.codejawn.dto.AuthResponseDTO;
-import com.codejawn.dto.LoginDTO;
-import com.codejawn.dto.RegisterDTO;
-import com.codejawn.dto.UpdatePasswordDTO;
+import com.codejawn.dto.*;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.service.UserAccountService;
@@ -65,6 +62,21 @@ public class UserAccountController {
 
         try{
             userAccountService.updatePassword(id, oldPassword, newPassword);
+            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("/update-email")
+    public ResponseEntity<?> updateEmail(@RequestBody @Valid UpdateEmailDTO updateEmailDTO) {
+        logger.info("Inside updatePassword controller method.");
+
+        Long id = updateEmailDTO.getId();
+        String newEmail = updateEmailDTO.getNewEmail();
+
+        try{
+            userAccountService.updateEmail(id, newEmail);
             return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
