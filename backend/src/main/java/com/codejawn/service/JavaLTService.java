@@ -17,4 +17,7 @@ public class JavaLTService {
         javaLT.setJavaDataTypesLT(javaDataTypesLT);
         return javaLTRepository.save(javaLT);
     }
+    public void deleteById(Long id) {
+        javaLTRepository.deleteById(id);
+    }
 }

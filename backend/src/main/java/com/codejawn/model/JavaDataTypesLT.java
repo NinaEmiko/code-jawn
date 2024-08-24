@@ -12,6 +12,9 @@ public class JavaDataTypesLT {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @OneToOne
+    @JoinColumn(name = "java_lt_id")
+    private JavaLT javaLT;
     @Column(name= "is_complete")
     private boolean isComplete;
     @Column(name= "ints_lesson_is_complete")

@@ -1,10 +1,10 @@
 package com.codejawn.service;
 
-import com.codejawn.controller.UserAccountController;
 import com.codejawn.dto.AuthResponseDTO;
 import com.codejawn.model.*;
 import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.security.JWTGenerator;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -58,30 +58,70 @@ public class UserAccountService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtGenerator.generateToken(authentication);
 
-        UserAccount userAccount = new UserAccount();
-        Optional<UserAccount> optionalUserAccount = findByUsername(username);
-        if (optionalUserAccount.isPresent()){
-            userAccount = optionalUserAccount.get();
-        }
+        UserAccount userAccount = userAccountRepository.findByUsername(username)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
         AuthResponseDTO authResponseDTO = new AuthResponseDTO(token);
         authResponseDTO.setUserId(userAccount.getId());
         authResponseDTO.setUsername(userAccount.getUsername());
+        authResponseDTO.setEmail(userAccount.getEmail());
         authResponseDTO.setRoles(userAccount.getRoles());
         authResponseDTO.setLessonTracker(userAccount.getLessonTracker());
         return authResponseDTO;
     }
 
-    public Optional<UserAccount> findByUsername(String username) {
-        return userAccountRepository.findByUsername(username);
+    public void updatePassword(Long id, String oldPassword, String newPassword) {
+        logger.info("Inside updatePassword service method.");
+        UserAccount userAccount = userAccountRepository.findById(id)
+            .orElseThrow(
+                    () -> new RuntimeException("User not found")
+            );
+        try{
+            userAccount.setPassword(passwordEncoder.encode(newPassword));
+            userAccountRepository.save(userAccount);
+
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
     }
 
-    public void updatePassword(Long id, String newPassword) {
-        UserAccount userAccount = userAccountRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-        userAccount.setPassword(passwordEncoder.encode(newPassword));
-        userAccountRepository.save(userAccount);
+    public UpdateEmailResponse updateEmail(Long id, String newEmail) {
+        UserAccount userAccount = userAccountRepository.findById(id)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
+        try{
+            userAccount.setEmail(newEmail);
+            userAccountRepository.save(userAccount);
+            UpdateEmailResponse updateEmailResponse = new UpdateEmailResponse();
+            updateEmailResponse.setNewEmail(newEmail);
+            return updateEmailResponse;
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
     }
 
-    public void deleteUser(Long id) {
-        userAccountRepository.deleteById(id);
+    public void updateUsername(Long id, String newUsername) {
+        UserAccount userAccount = userAccountRepository.findById(id)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
+        try{
+            userAccount.setUsername(newUsername);
+            userAccountRepository.save(userAccount);
+
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
+
+    public String deleteUser(Long id) {
+        try {
+            userAccountRepository.deleteById(id);
+            return "SUCCESS";
+        } catch (Exception e) {
+            return "FAILED";
+        }
     }
 }

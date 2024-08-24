@@ -1,51 +1,30 @@
 package com.codejawn.controller;
 
-import com.codejawn.dto.AuthResponseDTO;
-import com.codejawn.dto.LoginDTO;
-import com.codejawn.dto.RegisterDTO;
-import com.codejawn.model.Role;
+import com.codejawn.dto.*;
 import com.codejawn.model.UserAccount;
-import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
-import com.codejawn.security.JWTGenerator;
+import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.service.UserAccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.Optional;
 import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api/auth")
 public class UserAccountController {
 
-    private AuthenticationManager authenticationManager;
     private UserAccountRepository userAccountRepository;
     private UserAccountService userAccountService;
-    private JWTGenerator jwtGenerator;
     private final Logger logger = Logger.getLogger(UserAccountController.class.getName());
 
-
     @Autowired
-    public UserAccountController(AuthenticationManager authenticationManager,
-                                 UserAccountRepository userAccountRepository,
-                                 JWTGenerator jwtGenerator,
+    public UserAccountController(UserAccountRepository userAccountRepository,
                                  UserAccountService userAccountService) {
-        this.authenticationManager = authenticationManager;
         this.userAccountRepository = userAccountRepository;
-        this.jwtGenerator = jwtGenerator;
         this.userAccountService = userAccountService;
     }
 
@@ -72,5 +51,63 @@ public class UserAccountController {
         UserAccount userAccount = userAccountService.register(userName, email, password);
 
         return new ResponseEntity<>(userAccount, HttpStatus.OK);
+    }
+
+    @PutMapping("/update-password")
+    public ResponseEntity<?> updatePassword(@RequestBody @Valid UpdatePasswordDTO updatePasswordDTO) {
+        logger.info("Inside updatePassword controller method.");
+
+        Long id = updatePasswordDTO.getId();
+        String oldPassword = updatePasswordDTO.getOldPassword();
+        String newPassword = updatePasswordDTO.getNewPassword();
+
+        try{
+            userAccountService.updatePassword(id, oldPassword, newPassword);
+            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("/update-email")
+    public ResponseEntity<?> updateEmail(@RequestBody @Valid UpdateEmailDTO updateEmailDTO) {
+        logger.info("Inside updateEmail controller method.");
+
+        Long id = updateEmailDTO.getId();
+        String newEmail = updateEmailDTO.getNewEmail();
+
+        try{
+            UpdateEmailResponse updateEmailResponse =  userAccountService.updateEmail(id, newEmail);
+            return new ResponseEntity<>(updateEmailResponse, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PutMapping("/update-username")
+    public ResponseEntity<?> updateUsername(@RequestBody @Valid UpdateUsernameDTO updateUsernameDTO) {
+        logger.info("Inside updateUsername controller method.");
+
+        Long id = updateUsernameDTO.getId();
+        String newEmail = updateUsernameDTO.getNewUsername();
+
+        try{
+            userAccountService.updateUsername(id, newEmail);
+            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteAccount(@PathVariable @Valid long id){
+        logger.info("Inside deleteAccount controller method.");
+        String response;
+        try{
+            response = userAccountService.deleteUser(id);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+        }
     }
 }

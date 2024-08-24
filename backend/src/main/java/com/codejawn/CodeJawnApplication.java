@@ -10,7 +10,5 @@ public class CodeJawnApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CodeJawnApplication.class, args);
-
 	}
-
 }

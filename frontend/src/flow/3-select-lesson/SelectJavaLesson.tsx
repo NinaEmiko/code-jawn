@@ -9,8 +9,6 @@ import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import LanguageLessonContainer from "../../components/lesson/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 import Display from "../../components/Display";
-import HeaderDisplay from "../../components/HeaderDisplay";
-import Header from "../../components/Header";
 
 function JavaLessons({props}:{props:any}) {
     const [showSection, setShowSection] = useState('');
