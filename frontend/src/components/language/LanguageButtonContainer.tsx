@@ -6,7 +6,7 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
 
     const handleButtonClick = (language: string) => {
         props.handleButtonClick(language);
-        props.handlePageTitle(language + " Lessons");
+        props.handlePageTitle(language);
     }
     const handleIcon = (language: string) => {
         switch (language){

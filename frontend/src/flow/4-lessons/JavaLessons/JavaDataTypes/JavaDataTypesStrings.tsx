@@ -5,7 +5,6 @@ import JavaDataTypesStringsQuestion3 from "../../../5-questions/JavaQuestions/Ja
 import JavaDataTypesStringsQuestion4 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion4";
 import ProgressTracker from "../../../../components/utility/ProgressTracker";
 import JavaDataTypesStringsQuestion5 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
-import HeaderDisplay from "../../../../components/HeaderDisplay";
 import Display from "../../../../components/Display";
 import JavaDataTypesStringsLecture from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture";
 import JavaDataTypesStringsPostLesson from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsPostLesson";
@@ -47,9 +46,11 @@ function JavaDataTypesStrings({props}:{props:any}) {
 
   return (
     <>
-        <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+        <button className="back-btn-jawn" onClick={handleBackClick}>{"Back"}</button>
         <Display>
+            <div className="spacer-20" />
             <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/>
+            <div className="spacer-5" />
             {lecturesCompleted === false &&
                 <JavaDataTypesStringsLecture props={{completeLecture:completeLecture}} />
             }

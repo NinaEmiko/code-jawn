@@ -12,7 +12,7 @@ function JavaScriptLessons({props}:{props:any}) {
 
     return (
         <Container>
-        <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+        <button className="back-btn-jawn" onClick={handleBackClick}>{"Back"}</button>
         <Display>
             <div className="parent-jawn">
                 <div className="child-jawn">

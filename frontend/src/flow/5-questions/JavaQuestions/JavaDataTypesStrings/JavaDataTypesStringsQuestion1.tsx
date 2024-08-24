@@ -24,7 +24,6 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
 
     return (
         <>
-        <div className="spacer-20" />
             {answer === '' &&
                 <div className="question-container">
                     <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_1}} />
