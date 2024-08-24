@@ -44,7 +44,11 @@ public class SecurityConfig {
                                 .requestMatchers("/api/auth/login",
                                         "/api/auth/register",
                                         "/api/java/datatypes/lessons/update",
-                                        "/api/java/datatypes/lessons/get/{id}")
+                                        "/api/java/datatypes/lessons/get/{id}",
+                                        "/api/auth/delete/{id}",
+                                        "/api/auth/update-password",
+                                        "/api/auth/update-email",
+                                        "/api/auth/update-username")
                                 .permitAll()
                                 .anyRequest().authenticated()
                 )

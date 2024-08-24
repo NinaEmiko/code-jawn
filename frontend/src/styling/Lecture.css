@@ -84,3 +84,34 @@
 .indicator.active {
     background-color: var(--accent-jawn);
 }
+
+.profile-table-jawn{
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-row-jawn{
+    display: table-row;
+    font-size: var(--sub-text);
+}
+
+.profile-cell-jawn{
+    display: table-cell;
+    border: none;
+    padding: 4px;
+    text-align: right;
+    width: 50%;
+    padding-right: 3%;
+    color: white;
+}
+
+.profile-cell-jawn-label{
+    display: table-cell;
+    border: none;
+    padding: 4px;
+    text-align: left;
+    width: 50%;
+    padding-left: 3%;
+    color: white;
+}

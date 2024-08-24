@@ -121,6 +121,20 @@
     color: red;
     font-size: var(--text);
 }
+.warning-btn{
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+    font-size: var(--text);
+    background-color: black;
+    padding: 3%;
+
+    border-radius: 20px;
+    width: 100%;
+    background-color: red;
+    font-weight: bold;
+    /* box-shadow: 0 0 20px black;  */
+}
 
 .back-btn-container{
     justify-content: center;

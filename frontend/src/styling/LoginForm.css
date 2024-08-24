@@ -12,3 +12,10 @@
 .link{
     text-decoration: underline;
 }
+
+.profile-link{
+    text-decoration: underline;
+    color: white;
+    font-size: var(--sub-text);
+    padding-left: 3%;
+}
