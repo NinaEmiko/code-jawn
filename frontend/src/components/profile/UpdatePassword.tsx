@@ -28,7 +28,9 @@ const updatePassword = ({props}:{props:any}) => {
 
     return (
         <div>
-            <div className="profile-link" onClick={() => handleClickBack()}>{"Back"}</div>
+            <div className="profile-back" onClick={() => handleClickBack()}>{"Back"}</div>
+            <br/>
+            <br/>
             <form 
             ref={newPasswordFormRef}
             onSubmit={onSubmitNewPassword}
@@ -51,6 +53,8 @@ const updatePassword = ({props}:{props:any}) => {
                 type="password"
                 className="form-control">
                 </input>
+                <br/>
+                <br/>
                 <br/>
                 <button className="input-btn" type="submit">Submit</button>
             </form>

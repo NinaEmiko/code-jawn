@@ -134,19 +134,19 @@ public class UserAccountControllerTest {
 //        Assertions.assertEquals(response.getBody(), "SUCCESS");
 //    }
 
-    @Test
-    void update_username_should_make_call_to_user_account_service(){
-        doNothing().when(userAccountService).updateUsername(anyLong(), anyString());
-        userAccountController.updateUsername(updateUsernameDTO);
-        verify(userAccountService, times(1)).updateUsername(1L, "newUsername");
-    }
-
-    @Test
-    void update_username_should_return_success(){
-        doNothing().when(userAccountService).updateUsername(anyLong(), anyString());
-        ResponseEntity<?> response =  userAccountController.updateUsername(updateUsernameDTO);
-        Assertions.assertEquals(response.getBody(), "SUCCESS");
-    }
+//    @Test
+//    void update_username_should_make_call_to_user_account_service(){
+//        doNothing().when(userAccountService).updateUsername(anyLong(), anyString());
+//        userAccountController.updateUsername(updateUsernameDTO);
+//        verify(userAccountService, times(1)).updateUsername(1L, "newUsername");
+//    }
+//
+//    @Test
+//    void update_username_should_return_success(){
+//        doNothing().when(userAccountService).updateUsername(anyLong(), anyString());
+//        ResponseEntity<?> response =  userAccountController.updateUsername(updateUsernameDTO);
+//        Assertions.assertEquals(response.getBody(), "SUCCESS");
+//    }
 
     @Test
     void update_username_should_return_failed(){

@@ -16,15 +16,18 @@ const DeleteAccount = ({props}:{props:any}) => {
     return (
         <div>
 
-            <div className="profile-link" onClick={() => handleClickBack()}>{"Back"}</div>
+            <div className="profile-back" onClick={() => handleClickBack()}>{"Back"}</div>
 
-            <div className="spacer-5"/>
+            <br/>
+            <br/>
 
             <div className="warning-txt">
                 WARNING: You are about to delete your account. This action cannot be undone. Do you wish to continue?
             </div>
 
-            <div className="spacer-5"/>
+            <br/>
+            <br/>
+            <br/>
 
             <div onClick={() => handleDeleteAccount()} className="warning-btn">
                 Delete Account
