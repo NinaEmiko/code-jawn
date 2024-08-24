@@ -1,6 +1,5 @@
 package com.codejawn.controller;
 
-import com.codejawn.dto.LoginDTO;
 import com.codejawn.dto.UpdateLTDTO;
 import com.codejawn.model.JavaDataTypesLT;
 import com.codejawn.service.JavaDataTypesLTService;
