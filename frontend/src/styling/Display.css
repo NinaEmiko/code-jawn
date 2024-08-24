@@ -68,6 +68,7 @@
     background-color: var(--sub-secondary-jawn);
     box-shadow: 0 0 20px black; 
     padding: 3%;
+    padding-left: 5%;
 }
 
 .bottom-header{
@@ -128,17 +129,18 @@
 }
 
 .back-btn-jawn{
-    background-color: transparent;
-    font-size: 250%;
+    background-color: var(--accent-jawn);
+    border-radius: 25px;
+    font-size: 225%;
     border: none;
     font-weight: bold;
-    padding-left: 10%;
-    height: 5%;
-    color: var(--accent-jawn);
+    color: black;
     z-index: 4;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
+    margin: 1%;
+    padding: 1%;
 }
 
 .spacer{

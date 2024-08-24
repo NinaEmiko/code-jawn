@@ -18,7 +18,6 @@ function JavaLessons({props}:{props:any}) {
 
     const handleButtonClick = (lesson: string) => {
         props.handleRedirectJavaLessons(lesson);
-        props.handlePageTitle(lesson);
     }
 
     const handleBackClick = () => {
@@ -33,7 +32,7 @@ function JavaLessons({props}:{props:any}) {
   return (
     <>
         <div className="back-btn-container">
-            <button className="back-btn-jawn" onClick={handleBackClick}>{"‹"}</button>
+            <button className="back-btn-jawn" onClick={handleBackClick}>{"Back"}</button>
         </div>
         <Display>
             <div className="spacer-20" />

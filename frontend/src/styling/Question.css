@@ -8,6 +8,16 @@
     padding-right: 5%;
 }
 
+.lesson-congratulations{
+    color: var(--off-white-jawn);
+    font-size: var(--text);
+    height: 15%;
+    padding-bottom: 15px;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
 .question-jawn{
     display: flex;
     height: 10%;
@@ -82,11 +92,12 @@
 
 .progress-container {
     width: 100%;
-    background-color: var(--primary-jawn);
+    background-color: var(--off-white-jawn);
     border-radius: 10px;
     overflow: hidden;
     height: 20px;
     position: relative;
+    border: solid black;
 }
 
 .progress-tracker {

@@ -16,7 +16,7 @@ const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
 
     return (
         <>
-        <div className="spacer-20" />
+        
         <div className="lecture-container" onClick={() => updateActiveIndex()}>
         
             {activeIndex === 0 ?
