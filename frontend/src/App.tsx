@@ -33,7 +33,12 @@ function App() {
     id: 0,
     loggedIn: false,
   });
-
+  const handleUpdateEmail = (newEmail: string) => {
+    setCurrentUser((prev) => ({
+      ...prev,
+      email: newEmail,
+    }));
+  }
   const handlePageTitle = (title: string) => { setPageTitle(title); }
   const handleClickProfile = () => { setShowProfile(true); }
   const handleClickLearn = () => { setShowProfile(false); }
@@ -102,6 +107,8 @@ function App() {
     }
   }, []);
 
+  console.log(currentUser.email);
+
   return (
     <Container>
       <HeaderDisplay>
@@ -128,7 +135,10 @@ function App() {
               <ProfileHeaderDisplay>
                 <Header props={{text: "Profile"}} />
               </ProfileHeaderDisplay>
-              <Profile props={{logout:logout, currentUser:currentUser}} />
+              <Profile props={{logout:logout,
+                currentUser:currentUser,
+                handleUpdateEmail:handleUpdateEmail
+                }} />
             </>
           }
           <AppBar props={{handleClickProfile:handleClickProfile, handleClickLearn:handleClickLearn}} />

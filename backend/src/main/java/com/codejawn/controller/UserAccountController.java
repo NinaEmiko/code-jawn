@@ -3,6 +3,7 @@ package com.codejawn.controller;
 import com.codejawn.dto.*;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.service.UserAccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,14 +71,14 @@ public class UserAccountController {
 
     @PutMapping("/update-email")
     public ResponseEntity<?> updateEmail(@RequestBody @Valid UpdateEmailDTO updateEmailDTO) {
-        logger.info("Inside updatePassword controller method.");
+        logger.info("Inside updateEmail controller method.");
 
         Long id = updateEmailDTO.getId();
         String newEmail = updateEmailDTO.getNewEmail();
 
         try{
-            userAccountService.updateEmail(id, newEmail);
-            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+            UpdateEmailResponse updateEmailResponse =  userAccountService.updateEmail(id, newEmail);
+            return new ResponseEntity<>(updateEmailResponse, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
         }

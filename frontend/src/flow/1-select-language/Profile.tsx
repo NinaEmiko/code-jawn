@@ -1,5 +1,8 @@
 import { useState } from "react";
 import DividerJawn from "../../components/utility/DividerJawn";
+import DeleteAccount from "../../components/profile/DeleteAccount";
+import UpdateEmail from "../../components/profile/UpdateEmail";
+import UpdatePassword from "../../components/profile/UpdatePassword";
 
 const Profile = ({props}:{props:any}) => {
     const [showUpdateEmail, setShowUpdateEmail] = useState(false);
@@ -7,7 +10,6 @@ const Profile = ({props}:{props:any}) => {
     const [showDeleteAccount, setShowDeleteAccount] = useState(false);
 
     const handleClickUpdateEmail = () => {
-        console.log("click")
         if (showUpdateEmail) {
             setShowUpdateEmail(false);
         } else {
@@ -112,60 +114,32 @@ const Profile = ({props}:{props:any}) => {
                     }
 
                     {showUpdatePassword && 
-                    
+                
                         <>
                             <div className="spacer-10"/>
-                            <div className="profile-link" onClick={() => handleBackClick()}>{"Back"}</div>
-                            <form className="form-jawn">
-                                <div className="text">Old Password</div>
-                                <br/>
-                                <input className="form-control">
-                                </input>
-                                <div className="text">New Password</div>
-                                <br/>
-                                <input className="form-control">
-                                </input>
-                                <br/>
-                                <button className="input-btn" type="submit">Submit</button>
-                            </form>
+                            <UpdatePassword props={{
+                                handleBackClick:handleBackClick
+                            }} />
                         </>
                     }
 
                     {showUpdateEmail && 
                         <>
-                        <div className="spacer-10"/>
-                            <div className="profile-link" onClick={() => handleBackClick()}>{"Back"}</div>
-
-                            <form className="form-jawn">
-                                <div className="text">New Email</div>
-                                <br/>
-                                <input className="form-control">
-                                </input>
-                                <br/>
-                                <button className="input-btn" type="submit">Submit</button>
-                                
-                            </form>
+                            <div className="spacer-10"/>
+                            <UpdateEmail props={{
+                                handleBackClick:handleBackClick,
+                                currentUser:props.currentUser,
+                                handleUpdateEmail:props.handleUpdateEmail
+                            }} />
                         </>
                     }
 
                     {showDeleteAccount &&
                         <>
-
                             <div className="spacer-10"/>
-
-                            <div className="profile-link" onClick={() => handleBackClick()}>{"Back"}</div>
-
-                            <div className="spacer-5"/>
-
-                            <div className="warning-txt">
-                                WARNING: You are about to delete your account. This action cannot be undone. Do you wish to continue?
-                            </div>
-
-                            <div className="spacer-5"/>
-
-                            <div className="warning-btn">
-                                Delete Account
-                            </div>
+                            <DeleteAccount props={{
+                                    handleBackClick:handleBackClick
+                            }} />
                         </>
                     }
                 </div>

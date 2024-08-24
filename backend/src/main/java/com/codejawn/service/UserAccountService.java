@@ -4,6 +4,7 @@ import com.codejawn.dto.AuthResponseDTO;
 import com.codejawn.model.*;
 import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.security.JWTGenerator;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -85,7 +86,7 @@ public class UserAccountService {
         }
     }
 
-    public void updateEmail(Long id, String newEmail) {
+    public UpdateEmailResponse updateEmail(Long id, String newEmail) {
         UserAccount userAccount = userAccountRepository.findById(id)
                 .orElseThrow(
                         () -> new RuntimeException("User not found")
@@ -93,7 +94,9 @@ public class UserAccountService {
         try{
             userAccount.setEmail(newEmail);
             userAccountRepository.save(userAccount);
-
+            UpdateEmailResponse updateEmailResponse = new UpdateEmailResponse();
+            updateEmailResponse.setNewEmail(newEmail);
+            return updateEmailResponse;
         } catch (Exception e) {
             throw new RuntimeException();
         }

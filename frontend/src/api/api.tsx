@@ -50,3 +50,53 @@ export const updateJavaDataTypesLT = async (userId: number, lesson: string) => {
       throw error;
     }
 };
+
+export const updateUsername = async (userId: number, newUsername: string) => {
+    try {
+        const response = await axios.put(`${ENDPOINTS.UPDATE_USERNAME}`, {
+            userId: userId,
+            newUsername: newUsername
+        });
+        return response.data;
+    } catch (error) {
+      console.error('Error updating username:', error);
+      throw error;
+    }
+};
+
+export const updateUserEmail = async (userId: number, newEmail: string) => {
+    try {
+        const response = await axios.put(`${ENDPOINTS.UPDATE_EMAIL}`, {
+            id: userId,
+            newEmail: newEmail
+        });
+        return response.data;
+    } catch (error) {
+      console.error('Error updating email:', error);
+      throw error;
+    }
+};
+
+export const updatePassword = async (userId: number, oldPassword: string, newPassword: string) => {
+    try {
+        const response = await axios.put(`${ENDPOINTS.UPDATE_PASSWORD}`, {
+            userId: userId,
+            oldPassword: oldPassword,
+            newPassword: newPassword
+        });
+        return response.data;
+    } catch (error) {
+      console.error('Error updating password:', error);
+      throw error;
+    }
+};
+
+export const deleteAccount = async (userId: number) => {
+    try {
+        const response = await axios.put(`${ENDPOINTS.DELETE_ACCOUNT}/${userId}`);
+        return response.data;
+    } catch (error) {
+      console.error('Error deleting account:', error);
+      throw error;
+    }
+};
