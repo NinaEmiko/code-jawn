@@ -112,7 +112,7 @@ const Profile = ({props}:{props:any}) => {
 
                     {showUpdatePassword && 
                         <>
-                            <div className="spacer-10"/>
+                            <div className="spacer-5"/>
                             <UpdatePassword props={{
                                 handleBackClick:handleBackClick,
                                 currentUser:props.currentUser
@@ -122,7 +122,7 @@ const Profile = ({props}:{props:any}) => {
 
                     {showUpdateEmail && 
                         <>
-                            <div className="spacer-10"/>
+                            <div className="spacer-5"/>
                             <UpdateEmail props={{
                                 handleBackClick:handleBackClick,
                                 currentUser:props.currentUser,

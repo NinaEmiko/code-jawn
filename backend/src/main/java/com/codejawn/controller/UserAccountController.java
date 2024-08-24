@@ -4,6 +4,7 @@ import com.codejawn.dto.*;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
+import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.service.UserAccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +72,8 @@ public class UserAccountController {
 
     @PutMapping("/update-email")
     public ResponseEntity<?> updateEmail(@RequestBody @Valid UpdateEmailDTO updateEmailDTO) {
-        logger.info("Inside updateEmail controller method.");
+        logger.info("Inside update email controller method.");
+        logger.info("Update email request: " + updateEmailDTO + ".");
 
         Long id = updateEmailDTO.getId();
         String newEmail = updateEmailDTO.getNewEmail();
@@ -86,14 +88,15 @@ public class UserAccountController {
 
     @PutMapping("/update-username")
     public ResponseEntity<?> updateUsername(@RequestBody @Valid UpdateUsernameDTO updateUsernameDTO) {
-        logger.info("Inside updateUsername controller method.");
+        logger.info("Inside update username controller method.");
+        logger.info("Update username request: " + updateUsernameDTO + ".");
 
         Long id = updateUsernameDTO.getId();
         String newEmail = updateUsernameDTO.getNewUsername();
 
         try{
-            userAccountService.updateUsername(id, newEmail);
-            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+            UpdateUsernameResponse updateUsernameResponse = userAccountService.updateUsername(id, newEmail);
+            return new ResponseEntity<>(updateUsernameResponse, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
         }

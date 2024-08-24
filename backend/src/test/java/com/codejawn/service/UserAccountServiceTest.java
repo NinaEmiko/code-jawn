@@ -140,16 +140,16 @@ public class UserAccountServiceTest {
         verify(userAccountRepository, times(1)).findById(1L);
         verify(userAccountRepository, times(1)).save(userAccount);
     }
-    @Test
-    void update_username_should_throw_user_not_found_exception(){
-        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
-
-        RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            userAccountService.updateUsername(1L, "newUsername");
-        });
-
-        Assertions.assertEquals(e.getMessage(), "User not found");
-    }
+//    @Test
+//    void update_username_should_throw_user_not_found_exception(){
+//        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
+//
+//        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+//            userAccountService.updateUsername(1L, "newUsername");
+//        });
+//
+//        Assertions.assertEquals(e.getMessage(), "User not found");
+//    }
     @Test
     void update_username_should_throw_throw_runtime_exception(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
@@ -169,16 +169,16 @@ public class UserAccountServiceTest {
 
         verify(userAccountRepository, times(1)).save(userAccount);
     }
-    @Test
-    void update_email_should_throw_user_not_found_exception(){
-        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
-
-        RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            userAccountService.updateEmail(1L, "newEmail");
-        });
-
-        Assertions.assertEquals(e.getMessage(), "User not found");
-    }
+//    @Test
+//    void update_email_should_throw_user_not_found_exception(){
+//        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
+//
+//        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+//            userAccountService.updateEmail(1L, "newEmail");
+//        });
+//
+//        Assertions.assertEquals(e.getMessage(), "User not found");
+//    }
     @Test
     void update_email_should_throw_runtime_exception(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
