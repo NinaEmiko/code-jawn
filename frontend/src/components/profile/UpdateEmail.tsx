@@ -27,8 +27,9 @@ const updateEmail = ({ props }: { props: any; }) => {
 
     return (
         <div>
-            <div className="profile-link" onClick={() => handleClickBack()}>{"Back"}</div>
-
+            <div className="profile-back" onClick={() => handleClickBack()}>{"Back"}</div>
+            <br/>
+            <br/>
             <form 
             ref={newEmailFormRef}
             onSubmit={onSubmitNewEmail}
@@ -41,6 +42,8 @@ const updateEmail = ({ props }: { props: any; }) => {
                 name="email"
                 className="form-control" >
                 </input>
+                <br/>
+                <br/>
                 <br/>
                 <button className="input-btn" type="submit">Submit</button>
             </form>
