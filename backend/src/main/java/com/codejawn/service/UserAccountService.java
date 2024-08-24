@@ -5,6 +5,7 @@ import com.codejawn.model.*;
 import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
+import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.security.JWTGenerator;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -87,32 +88,53 @@ public class UserAccountService {
     }
 
     public UpdateEmailResponse updateEmail(Long id, String newEmail) {
+        logger.info("Inside update email service method.");
+
+        logger.info("Retrieving user account with id " + id + ".");
         UserAccount userAccount = userAccountRepository.findById(id)
                 .orElseThrow(
-                        () -> new RuntimeException("User not found")
+                        () -> new RuntimeException("User not found.")
                 );
+
         try{
+            logger.info("Updating email for user account with id " + id + ".");
             userAccount.setEmail(newEmail);
+
+            logger.info("Saving user account with id " + id + " with updated email.");
             userAccountRepository.save(userAccount);
+
+            logger.info("Building response object.");
             UpdateEmailResponse updateEmailResponse = new UpdateEmailResponse();
             updateEmailResponse.setNewEmail(newEmail);
+
             return updateEmailResponse;
         } catch (Exception e) {
-            throw new RuntimeException();
+            throw new RuntimeException("Error occurred while updating email for user account with id " + id + ".");
         }
     }
 
-    public void updateUsername(Long id, String newUsername) {
+    public UpdateUsernameResponse updateUsername(Long id, String newUsername) {
+        logger.info("Inside update username service method.");
+
+        logger.info("Retrieving user account with id " + id + ".");
         UserAccount userAccount = userAccountRepository.findById(id)
                 .orElseThrow(
-                        () -> new RuntimeException("User not found")
+                        () -> new RuntimeException("User not found.")
                 );
         try{
+            logger.info("Updating username for user account with id " + id + ".");
             userAccount.setUsername(newUsername);
+
+            logger.info("Building response object.");
+            UpdateUsernameResponse updateUsernameResponse = new UpdateUsernameResponse();
+            updateUsernameResponse.setNewUsername(newUsername);
+
+            logger.info("Saving user account with id " + id + " with updated username.");
             userAccountRepository.save(userAccount);
 
+            return updateUsernameResponse;
         } catch (Exception e) {
-            throw new RuntimeException();
+            throw new RuntimeException("Error occurred while updating username for user account with id " + id + ".");
         }
     }
 
