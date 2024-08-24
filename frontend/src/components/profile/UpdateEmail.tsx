@@ -16,6 +16,7 @@ const updateEmail = ({ props }: { props: any; }) => {
         e.preventDefault();
     
         const data = await updateUserEmail(props.currentUser.id, newEmail);
+        Cookies.set('storedEmail', data.newEmail);
         props.handleUpdateEmail(data.newEmail);
         props.handleBackClick()
       };    
@@ -37,12 +38,11 @@ const updateEmail = ({ props }: { props: any; }) => {
                 <input 
                 onChange={onChangeHandler}
                 value={newEmail}
-                name="username"
+                name="email"
                 className="form-control" >
                 </input>
                 <br/>
                 <button className="input-btn" type="submit">Submit</button>
-                
             </form>
         </div>
     )

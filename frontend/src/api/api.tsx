@@ -54,7 +54,7 @@ export const updateJavaDataTypesLT = async (userId: number, lesson: string) => {
 export const updateUsername = async (userId: number, newUsername: string) => {
     try {
         const response = await axios.put(`${ENDPOINTS.UPDATE_USERNAME}`, {
-            userId: userId,
+            id: userId,
             newUsername: newUsername
         });
         return response.data;
@@ -77,10 +77,10 @@ export const updateUserEmail = async (userId: number, newEmail: string) => {
     }
 };
 
-export const updatePassword = async (userId: number, oldPassword: string, newPassword: string) => {
+export const updateUserPassword = async (userId: number, oldPassword: string, newPassword: string) => {
     try {
         const response = await axios.put(`${ENDPOINTS.UPDATE_PASSWORD}`, {
-            userId: userId,
+            id: userId,
             oldPassword: oldPassword,
             newPassword: newPassword
         });

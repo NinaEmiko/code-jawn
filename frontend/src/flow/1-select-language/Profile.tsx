@@ -20,14 +20,12 @@ const Profile = ({props}:{props:any}) => {
     }
 
     const handleBackClick = () => {
-        console.log("click")
         setShowUpdateEmail(false);
         setShowUpdatePassword(false);
         setShowDeleteAccount(false);
     }
 
     const handleClickUpdatePassword = () => {
-        console.log("click")
         if(showUpdatePassword) {
             setShowUpdatePassword(false);
         } else{
@@ -38,7 +36,6 @@ const Profile = ({props}:{props:any}) => {
     }
 
     const handleClickDeleteAccount = () => {
-        console.log("click")
         if(showUpdatePassword) {
             setShowDeleteAccount(false);
         } else{
@@ -114,11 +111,11 @@ const Profile = ({props}:{props:any}) => {
                     }
 
                     {showUpdatePassword && 
-                
                         <>
                             <div className="spacer-10"/>
                             <UpdatePassword props={{
-                                handleBackClick:handleBackClick
+                                handleBackClick:handleBackClick,
+                                currentUser:props.currentUser
                             }} />
                         </>
                     }

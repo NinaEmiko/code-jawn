@@ -107,8 +107,6 @@ function App() {
     }
   }, []);
 
-  console.log(currentUser.email);
-
   return (
     <Container>
       <HeaderDisplay>
