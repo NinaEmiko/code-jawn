@@ -107,6 +107,20 @@ public class UserAccountService {
         }
     }
 
+    public void updateUsername(Long id, String newUsername) {
+        UserAccount userAccount = userAccountRepository.findById(id)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
+        try{
+            userAccount.setUsername(newUsername);
+            userAccountRepository.save(userAccount);
+
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
+
     public String deleteUser(Long id) {
         try {
             userAccountRepository.deleteById(id);

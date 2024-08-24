@@ -83,6 +83,21 @@ public class UserAccountController {
         }
     }
 
+    @PutMapping("/update-username")
+    public ResponseEntity<?> updateUsername(@RequestBody @Valid UpdateUsernameDTO updateUsernameDTO) {
+        logger.info("Inside updateUsername controller method.");
+
+        Long id = updateUsernameDTO.getId();
+        String newEmail = updateUsernameDTO.getNewUsername();
+
+        try{
+            userAccountService.updateUsername(id, newEmail);
+            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteAccount(@PathVariable @Valid long id){
         logger.info("Inside deleteAccount controller method.");
