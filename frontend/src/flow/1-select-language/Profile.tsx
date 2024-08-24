@@ -135,7 +135,9 @@ const Profile = ({props}:{props:any}) => {
                         <>
                             <div className="spacer-10"/>
                             <DeleteAccount props={{
-                                    handleBackClick:handleBackClick
+                                    handleBackClick:handleBackClick,
+                                    currentUser:props.currentUser,
+                                    logout:props.logout
                             }} />
                         </>
                     }

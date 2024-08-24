@@ -135,7 +135,7 @@ function App() {
               </ProfileHeaderDisplay>
               <Profile props={{logout:logout,
                 currentUser:currentUser,
-                handleUpdateEmail:handleUpdateEmail
+                handleUpdateEmail:handleUpdateEmail,
                 }} />
             </>
           }

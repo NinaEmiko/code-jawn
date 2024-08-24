@@ -93,7 +93,7 @@ export const updateUserPassword = async (userId: number, oldPassword: string, ne
 
 export const deleteAccount = async (userId: number) => {
     try {
-        const response = await axios.put(`${ENDPOINTS.DELETE_ACCOUNT}/${userId}`);
+        const response = await axios.delete(`${ENDPOINTS.DELETE_ACCOUNT}/${userId}`);
         return response.data;
     } catch (error) {
       console.error('Error deleting account:', error);
