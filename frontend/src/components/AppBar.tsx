@@ -13,15 +13,15 @@ const AppBar = ({props}:{props:any}) => {
 
     return (
         <div className="app-bar">
-            <div className="profile-jawn" onClick={() => handleClickProfile()}>
-                <img className="profile-icon"
-                    src={ProfileIcon}
-                    alt="Profile icon" />
-            </div>
             <div className="learn-jawn" onClick={() => handleClickLearn()}>
                 <img className="learn-icon"
                 src={LearnIcon}
                 alt="Learn icon" />
+            </div>
+            <div className="profile-jawn" onClick={() => handleClickProfile()}>
+                <img className="profile-icon"
+                    src={ProfileIcon}
+                    alt="Profile icon" />
             </div>
         </div>
     )

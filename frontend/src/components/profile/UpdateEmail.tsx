@@ -29,7 +29,6 @@ const updateEmail = ({ props }: { props: any; }) => {
         <div>
             <div className="profile-back" onClick={() => handleClickBack()}>{"Back"}</div>
             <br/>
-            <br/>
             <form 
             ref={newEmailFormRef}
             onSubmit={onSubmitNewEmail}

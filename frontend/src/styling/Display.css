@@ -53,6 +53,8 @@
     position: absolute;
     background-color: transparent;
     pointer-events: none;
+    text-align: center;
+
 }
 
 .inner-top-display{
@@ -90,6 +92,7 @@
     width: 100%;
     top: 0;
     left: 0;
+    text-align: center;
     position: absolute;
     background-color: transparent;
 }
@@ -140,21 +143,38 @@
     justify-content: center;
     align-items: center;
     background-color: transparent;
+
 }
 
 .back-btn-jawn{
-    background-color: var(--accent-jawn);
-    border-radius: 25px;
-    font-size: 225%;
+    background-color: transparent;
+    height: 11%;
+    width: 16%;
     border: none;
-    font-weight: bold;
-    color: black;
     z-index: 4;
     position: absolute;
     top: 0;
-    right: 0;
-    margin: 1%;
-    padding: 1%;
+    left: 0;
+    padding: 15px;
+}
+
+.back-btn-container-profile{
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+
+}
+
+.back-btn-jawn-profile{
+    background-color: transparent;
+    height: 11%;
+    width: 16%;
+    border: none;
+    z-index: 6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
 }
 
 .spacer{
@@ -188,6 +208,6 @@
     left: 0; */
     font-size: var(--text);
     color: black;
-    padding: 2%;
+    text-align: center;
     background-color: var(--accent-jawn);
 }
