@@ -15,7 +15,7 @@
 
 .profile-back{
     text-decoration: underline;
-    color: white;
+    color: var(--accent-jawn);
     font-size: var(--sub-text);
 }
 

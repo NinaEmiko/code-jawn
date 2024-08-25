@@ -55,7 +55,6 @@ const updatePassword = ({props}:{props:any}) => {
                 </input>
                 <br/>
                 <br/>
-                <br/>
                 <button className="input-btn" type="submit">Submit</button>
             </form>
         </div>
