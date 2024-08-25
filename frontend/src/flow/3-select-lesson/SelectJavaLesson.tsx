@@ -9,6 +9,7 @@ import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import LanguageLessonContainer from "../../components/lesson/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 import Display from "../../components/Display";
+import BackButton from "../../assets/back-button-icon-accent.png"
 
 function JavaLessons({props}:{props:any}) {
     const [showSection, setShowSection] = useState('');
@@ -30,7 +31,9 @@ function JavaLessons({props}:{props:any}) {
   return (
     <>
         <div className="back-btn-container">
-            <button className="back-btn-jawn" onClick={handleBackClick}>{"Back"}</button>
+            <button onClick={handleBackClick}>
+                <img className="back-btn-jawn" src={BackButton}></img>
+                </button>
         </div>
         <Display>
             <div className="spacer-20" />

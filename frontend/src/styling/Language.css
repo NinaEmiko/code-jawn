@@ -9,9 +9,9 @@
     width: 100%;
 }
 
-.language-btn-container{
-    height: 75%;
-}
+/* .language-btn-container{
+    height: 100%;
+} */
 
 .container-for-language-btn,
 .container-for-language-btn2{
@@ -24,7 +24,7 @@
 }
 
 .container-for-language-btn{
-    height: 30%;
+    /* height: 30%; */
 }
 
 .code-jawn-icon-container{
@@ -101,14 +101,14 @@
     color: var(--accent-jawn);
 }
 
-.language-btn-link{
+/* .language-btn-link{
     color: black;
     text-align: center;
     font-size: var(--text);
     font-weight: bold;
-}
+} */
 
-.language-btn-link-container{
+/* .language-btn-link-container{
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -117,4 +117,8 @@
     border-bottom-right-radius: 25px;
     height: 25%;
     display: flex;
+} */
+.forward-button-icon{
+    height: 50%;
+    width: 50%;
 }
