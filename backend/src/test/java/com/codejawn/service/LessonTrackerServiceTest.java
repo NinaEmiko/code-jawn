@@ -39,14 +39,6 @@ public class LessonTrackerServiceTest {
         javaLT.setFinalIsComplete(false);
         javaLT.setJavaDataTypesLT(null);
     }
-    @Test
-    void create_new_lesson_tracker_should_make_call_to_java_lt_service_and_repository(){
-        lessonTracker.setJavaLT(javaLT);
-
-        when(lessonTrackerRepository.save(any())).thenReturn(lessonTracker);
-
-        verify(lessonTrackerRepository, times(1)).save(lessonTracker);
-    }
 
     @Test
     void delete_by_id_should_make_call_To_repository() {

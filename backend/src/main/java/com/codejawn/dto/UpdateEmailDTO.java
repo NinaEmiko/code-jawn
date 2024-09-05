@@ -2,10 +2,13 @@ package com.codejawn.dto;
 
 import jakarta.validation.constraints.Email;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class UpdateEmailDTO {
-    Long id;
+    private Long id;
     @Email
-    String newEmail;
+    private String newEmail;
 }

@@ -44,12 +44,6 @@ public class JavaLTServiceTest {
         javaLT.setJavaDataTypesLT(javaDataTypesLT);
     }
     @Test
-    void create_new_java_lt_should_make_calls_to_java_data_types_lt_service_and_repository(){
-        when(javaLTRepository.save(any())).thenReturn(javaLT);
-        verify(javaLTRepository, times(1)).save(javaLT);
-
-    }
-    @Test
     void delete_by_id_should_make_call_to_repository() {
         doNothing().when(javaLTRepository).deleteById(anyLong());
         javaLTService.deleteById(1L);

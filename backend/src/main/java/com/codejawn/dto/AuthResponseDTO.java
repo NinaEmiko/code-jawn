@@ -3,10 +3,13 @@ package com.codejawn.dto;
 import com.codejawn.model.LessonTracker;
 import com.codejawn.model.Role;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class AuthResponseDTO {
     private String accessToken;
     private String tokenType = "Bearer ";
