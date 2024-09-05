@@ -29,7 +29,6 @@ public class UserAccountService {
     private JWTGenerator jwtGenerator;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
-    private final LessonTrackerService lessonTrackerService;
     private final Logger logger = Logger.getLogger(UserAccountService.class.getName());
 
     @Transactional

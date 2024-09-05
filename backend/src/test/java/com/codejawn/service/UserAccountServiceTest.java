@@ -39,8 +39,6 @@ public class UserAccountServiceTest {
     @Mock
     RoleRepository roleRepository;
     @Mock
-    LessonTrackerService lessonTrackerService;
-    @Mock
     LessonTracker lessonTracker;
     @Mock
     UserAccount userAccount;
@@ -54,6 +52,10 @@ public class UserAccountServiceTest {
     JavaLT javaLT;
     @Mock
     JavaDataTypesLT javaDataTypesLT;
+    @Mock
+    AuthenticationManager authenticationManager;
+    @Mock
+    Authentication authentication;
 
     @BeforeEach
     void setup() {
@@ -95,43 +97,46 @@ public class UserAccountServiceTest {
 
         verify(userAccountRepository, times(1)).save(userAccount);
     }
-//    @Test
-//    void login_should_make_call_to_repository() {
-//        when(jwtGenerator.generateToken(any())).thenReturn("token");
-//        when(userAccountRepository.findByUsername(anyString())).thenReturn(Optional.ofNullable(userAccount));
-//
-//        userAccountService.login("username", "password");
-//
-//        verify(userAccountRepository, times(1)).findByUsername("username");
-//    }
+    @Test
+    void login_should_make_call_to_repository() {
+        when(authenticationManager.authenticate(any())).thenReturn(authentication);
+        when(jwtGenerator.generateToken(any())).thenReturn("token");
+        when(userAccountRepository.findByUsername(anyString())).thenReturn(Optional.ofNullable(userAccount));
 
-//    @Test
-//    void login_should_throw_runtime_exception() {
-//        when(jwtGenerator.generateToken(any())).thenReturn("token");
-//        when(userAccountRepository.findByUsername(anyString())).thenReturn(Optional.empty());
-//
-//        RuntimeException e = assertThrows(RuntimeException.class, () -> {
-//            userAccountService.login("username", "password");
-//        });
-//
-//        Assertions.assertEquals(e.getMessage(), "User not found");
-//    }
-//
-//    @Test
-//    void login_should_return_auth_response_dto() {
-//        when(jwtGenerator.generateToken(any())).thenReturn("token");
-//        when(userAccountRepository.findByUsername(anyString())).thenReturn(Optional.ofNullable(userAccount));
-//
-//        AuthResponseDTO responseDTO = userAccountService.login("username", "password");
-//
-//        Assertions.assertEquals(responseDTO.getUsername(), "username");
-//        Assertions.assertEquals(responseDTO.getUserId(), null);
-//        Assertions.assertEquals(responseDTO.getTokenType(), "Bearer ");
-//        Assertions.assertEquals(responseDTO.getAccessToken(), "token");
-//        Assertions.assertEquals(responseDTO.getEmail(), "email");
-//        Assertions.assertEquals(responseDTO.getRoles(), roles);
-//        Assertions.assertEquals(responseDTO.getLessonTracker(), lessonTracker);
-//    }
+        userAccountService.login("username", "password");
+
+        verify(userAccountRepository, times(1)).findByUsername("username");
+    }
+
+    @Test
+    void login_should_throw_runtime_exception() {
+        when(authenticationManager.authenticate(any())).thenReturn(authentication);
+        when(jwtGenerator.generateToken(any())).thenReturn("token");
+        when(userAccountRepository.findByUsername(anyString())).thenReturn(Optional.empty());
+
+        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+            userAccountService.login("username", "password");
+        });
+
+        Assertions.assertEquals(e.getMessage(), "User not found");
+    }
+
+    @Test
+    void login_should_return_auth_response_dto() {
+        when(authenticationManager.authenticate(any())).thenReturn(authentication);
+        when(jwtGenerator.generateToken(any())).thenReturn("token");
+        when(userAccountRepository.findByUsername(anyString())).thenReturn(Optional.ofNullable(userAccount));
+
+        AuthResponseDTO responseDTO = userAccountService.login("username", "password");
+
+        Assertions.assertEquals(responseDTO.getUsername(), "username");
+        Assertions.assertEquals(responseDTO.getUserId(), null);
+        Assertions.assertEquals(responseDTO.getTokenType(), "Bearer ");
+        Assertions.assertEquals(responseDTO.getAccessToken(), "token");
+        Assertions.assertEquals(responseDTO.getEmail(), "email");
+        Assertions.assertEquals(responseDTO.getRoles(), roles);
+        Assertions.assertEquals(responseDTO.getLessonTracker(), lessonTracker);
+    }
 
     @Test
     void update_username_should_make_2_calls_to_repository(){
