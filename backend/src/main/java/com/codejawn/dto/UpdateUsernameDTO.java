@@ -1,9 +1,12 @@
 package com.codejawn.dto;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class UpdateUsernameDTO {
-    Long id;
-    String newUsername;
+    private Long id;
+    private String newUsername;
 }

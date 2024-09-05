@@ -7,6 +7,7 @@ import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.security.JWTGenerator;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,13 +29,16 @@ public class UserAccountService {
     private JWTGenerator jwtGenerator;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
-    private final LessonTrackerService lessonTrackerService;
     private final Logger logger = Logger.getLogger(UserAccountService.class.getName());
 
+    @Transactional
     public UserAccount register(String userName, String email, String password) {
         logger.info("Inside register service method.");
-
-        LessonTracker lessonTracker = lessonTrackerService.createNewLessonTracker();
+        JavaDataTypesLT javaDataTypesLT = new JavaDataTypesLT();
+        JavaLT javaLT = new JavaLT();
+        javaLT.setJavaDataTypesLT(javaDataTypesLT);
+        LessonTracker lessonTracker = new LessonTracker();
+        lessonTracker.setJavaLT(javaLT);
 
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(userName);
