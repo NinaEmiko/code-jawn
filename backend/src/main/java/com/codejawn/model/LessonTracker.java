@@ -14,10 +14,7 @@ public class LessonTracker {
     private Long id;
     @Column(name= "is_complete")
     private boolean isComplete;
-    @OneToOne(mappedBy = "lessonTracker", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "java_lt_id")
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "java_lt_id", referencedColumnName = "id")
     private JavaLT javaLT;
-    @ManyToOne
-    @JoinColumn(name = "user_account_id")
-    private UserAccount userAccount;
 }

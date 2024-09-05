@@ -19,7 +19,7 @@ public class JavaDataTypesLTController {
     private final JavaDataTypesLTService javaDataTypesLTService;
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<?> getJavaDataTypesLT(@PathVariable @Valid long id){
+    public ResponseEntity<?> getJavaDataTypesLT(@PathVariable @Valid Long id){
         logger.info("Inside getJavaDataTypesLT controller method.");
         JavaDataTypesLT javaDataTypesLT = javaDataTypesLTService.getLT(id);
         return new ResponseEntity<>(javaDataTypesLT, HttpStatus.OK);
@@ -28,7 +28,7 @@ public class JavaDataTypesLTController {
     @PutMapping("/update")
     public ResponseEntity<String> updateJavaDataTypesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
         logger.info("Inside updateJavaDataTypesLT controller method.");
-        long userId = updateLTDTO.getUserId();
+        Long userId = updateLTDTO.getUserId();
         String lesson = updateLTDTO.getLesson();
         String response = javaDataTypesLTService.updateLT(userId, lesson);
         return new ResponseEntity<>(response, HttpStatus.OK);

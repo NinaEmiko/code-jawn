@@ -9,14 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class JavaLTService {
     private final JavaLTRepository javaLTRepository;
-    private final JavaDataTypesLTService javaDataTypesLTService;
 
-    public JavaLT createNewJavaLT() {
-        JavaLT javaLT = new JavaLT();
-        JavaDataTypesLT javaDataTypesLT = javaDataTypesLTService.createNewJavaDataTypesLT();
-        javaLT.setJavaDataTypesLT(javaDataTypesLT);
-        return javaLTRepository.save(javaLT);
-    }
     public void deleteById(Long id) {
         javaLTRepository.deleteById(id);
     }

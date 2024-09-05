@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class UpdateLTDTO {
-    private long userId;
+    private Long userId;
     private String lesson;
 }

@@ -33,6 +33,7 @@ function App() {
     id: 0,
     loggedIn: false,
   });
+
   const handleUpdateEmail = (newEmail: string) => {
     setCurrentUser((prev) => ({
       ...prev,
@@ -119,7 +120,7 @@ function App() {
       {currentUser.loggedIn &&
       <>
           {activeTab === "Select a Language" &&
-            <SelectLanguage props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle}} />
+            <SelectLanguage props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle, currentUser:currentUser}} />
           }
           {activeTab === "Java" &&
             <JavaSections props={{handleRedirectHome:handleRedirectHome, currentUser:currentUser, handlePageTitle:handlePageTitle}} />

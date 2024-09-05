@@ -43,8 +43,9 @@ public class UserAccount {
     )
     @JsonManagedReference
     private List<Role> roles = new ArrayList<>();
-    @OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name= "lesson_tracker_id")
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "lesson_tracker_id", referencedColumnName = "id")
     private LessonTracker lessonTracker;
 
     @Column

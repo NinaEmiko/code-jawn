@@ -45,6 +45,8 @@ function JavaDataTypesStrings({props}:{props:any}) {
         setQuestionsAnswered(questionsAnswered + 1);
     }
 
+    console.log()
+
   return (
     <>
         <div className="back-btn-container">
