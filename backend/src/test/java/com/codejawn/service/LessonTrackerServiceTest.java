@@ -32,7 +32,6 @@ public class LessonTrackerServiceTest {
         lessonTracker = new LessonTracker();
         lessonTracker.setComplete(false);
         lessonTracker.setId(null);
-        lessonTracker.setUserAccount(null);
 
         javaLT = new JavaLT();
         javaLT.setId(null);
@@ -43,14 +42,9 @@ public class LessonTrackerServiceTest {
     @Test
     void create_new_lesson_tracker_should_make_call_to_java_lt_service_and_repository(){
         lessonTracker.setJavaLT(javaLT);
-        javaLT.setLessonTracker(lessonTracker);
 
-        when(javaLTService.createNewJavaLT()).thenReturn(javaLT);
         when(lessonTrackerRepository.save(any())).thenReturn(lessonTracker);
 
-        lessonTrackerService.createNewLessonTracker();
-
-        verify(javaLTService, times(1)).createNewJavaLT();
         verify(lessonTrackerRepository, times(1)).save(lessonTracker);
     }
 

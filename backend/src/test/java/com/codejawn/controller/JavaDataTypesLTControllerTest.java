@@ -35,7 +35,6 @@ public class JavaDataTypesLTControllerTest {
         javaDataTypesLT.setQuizIsComplete(false);
         javaDataTypesLT.setBooleansLessonIsComplete(false);
         javaDataTypesLT.setIntsLessonIsComplete(false);
-        javaDataTypesLT.setJavaLT(null);
 
         updateLTDTO = new UpdateLTDTO();
         updateLTDTO.setUserId(1L);

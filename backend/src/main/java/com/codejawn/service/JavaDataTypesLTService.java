@@ -22,11 +22,7 @@ public class JavaDataTypesLTService {
             .orElseThrow(
                     () -> new RuntimeException("User not found")
             );
-        try {
-            return userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
-        } catch (Exception e) {
-            throw new RuntimeException();
-        }
+        return userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
     }
 
     public String updateLT(Long userId, String lesson) {

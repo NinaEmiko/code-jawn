@@ -68,7 +68,6 @@ public class UserAccountServiceTest {
         lessonTracker = new LessonTracker();
         lessonTracker.setId(1L);
         lessonTracker.setJavaLT(null);
-        lessonTracker.setUserAccount(userAccount);
         lessonTracker.setComplete(false);
 
 
@@ -83,7 +82,6 @@ public class UserAccountServiceTest {
 
     @Test
     void register_should_make_call_to_repository() {
-        when(lessonTrackerService.createNewLessonTracker()).thenReturn(lessonTracker);
         when(passwordEncoder.encode(any())).thenReturn("password");
         when(roleRepository.findByName(anyString())).thenReturn(Optional.ofNullable(role));
         when(userAccountRepository.save(any())).thenReturn(userAccount);
