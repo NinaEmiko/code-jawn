@@ -14,9 +14,9 @@ const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
 
     const handleSwipe = (deltaX: number) => {
         if (deltaX < -50) { // Swipe left
-            setActiveIndex(prevIndex => Math.min(prevIndex + 1, lectures.length - 1));
-        } else if (deltaX > 50) { // Swipe right
             setActiveIndex(prevIndex => Math.max(prevIndex - 1, 0));
+        } else if (deltaX > 50) { // Swipe right
+            setActiveIndex(prevIndex => Math.min(prevIndex + 1, lectures.length - 1));
         }
       };
     
