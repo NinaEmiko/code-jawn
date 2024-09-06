@@ -1,6 +1,9 @@
 import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock"
 import Question from "../../../../components/question/Question"
 import { useState } from "react"
+import useSound from "use-sound";
+import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
 import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral"
 import DividerJawn from "../../../../components/utility/DividerJawn"
 import MultipleChoiceAnswer from "../../../../components/answer/MultipleChoiceAnswer"
@@ -9,26 +12,27 @@ import { STRINGS_QUESTION_1_ANSWERS,
     STRINGS_QUESTION_1_BOOLEANS,
     STRINGS_QUESTION_1_EXPLANATIONS,
     STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
-import { playCorrectSound, playIncorrectSound } from "../../../../helpers/soundHelper"
 
 function JavaDataTypesStringsQuestion1({props}:{props:any}) {
     const [answer, setAnswer] = useState('');
+    const [playCorrectSoundEffect] = useSound(correctSoundEffect);
+    const [playIncorrectSoundEffect] = useSound(IncorrectSoundEffect);
 
     const handleAnswer1Click = () => {
         setAnswer("A"); 
-        playIncorrectSound();
+        playIncorrectSoundEffect();
     }
     const handleAnswer2Click = () => { 
         setAnswer("B"); 
-        playIncorrectSound();
+        playIncorrectSoundEffect();
     }
     const handleAnswer3Click = () => { 
         setAnswer("C"); 
-        playCorrectSound();
+        playCorrectSoundEffect();
     }
     const handleAnswer4Click = () => {
         setAnswer("D");
-        playIncorrectSound();
+        playIncorrectSoundEffect();
     }
 
     const endQuestion = () => { props.completeQuestion(true); }
