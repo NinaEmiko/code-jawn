@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useRef, useState } from "react"
 import { updateUserEmail } from "../../api/api";
 import Cookies from "js-cookie";
+import JustText from "../utility/JustText";
 
 const updateEmail = ({ props }: { props: any; }) => {
     const [newEmail, setNewEmail] = useState('');
@@ -26,22 +27,24 @@ const updateEmail = ({ props }: { props: any; }) => {
     }
 
     return (
-        <div>
+        <div className="update-jawn">
             <div className="profile-back" onClick={() => handleClickBack()}>{"Back"}</div>
             <br/>
+
             <form 
-            ref={newEmailFormRef}
-            onSubmit={onSubmitNewEmail}
-            className="form-jawn">
-                <div className="text">New Email</div>
-                <br/>
+                ref={newEmailFormRef}
+                onSubmit={onSubmitNewEmail}
+                className="form-jawn"
+            >   <div className="just-text-jawn">
+                    <JustText props={{text: "New Email"}} />
+                </div>
                 <input 
                 onChange={onChangeHandler}
                 value={newEmail}
                 name="email"
+                type="text"
                 className="form-control" >
                 </input>
-                <br/>
                 <br/>
                 <br/>
                 <button className="input-btn" type="submit">Submit</button>

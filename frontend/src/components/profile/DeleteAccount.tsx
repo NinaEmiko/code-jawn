@@ -14,7 +14,7 @@ const DeleteAccount = ({props}:{props:any}) => {
     }
 
     return (
-        <div>
+        <div className="update-jawn">
 
             <div className="profile-back" onClick={() => handleClickBack()}>{"Back"}</div>
 
