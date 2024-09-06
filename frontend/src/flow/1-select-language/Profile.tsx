@@ -100,7 +100,7 @@ const Profile = ({props}:{props:any}) => {
                             </div>
                             <br/>
                             <div>
-                                <button onClick={() => handleLogOut()} className="input-btn" >{"Sign Out"}</button>
+                                <button onClick={() => handleLogOut()} className="sign-out-btn" >{"Sign Out"}</button>
                             </div>
                             <div className="spacer-15"/>
                         </>

@@ -36,10 +36,11 @@
 }
 
 .child-jawn2{
-    width: 90%;
+    width: 100%;
     /* margin-top: 10%;     */
     overflow: auto;
     overflow-y: scroll;
+    background-color: transparent;
 }
 
 /* HEADER */
