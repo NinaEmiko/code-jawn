@@ -4,12 +4,16 @@ import InputAnswer from "../../../../components/answer/InputAnswer"
 import { STRINGS_QUESTION_5_ANSWERS,
     STRINGS_QUESTION_5_EXPLANATIONS,
     STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
-import { playCorrectSound, playIncorrectSound } from "../../../../helpers/soundHelper";
+import useSound from "use-sound";
+import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
 
 function JavaDataTypesStringsQuestion5({props}:{props:any}) {
     const [showAnswer, setShowAnswer] = useState(false);
     const [value, setValue] = useState(`17`);
     const [correct, setCorrect] = useState(false);
+    const [playCorrectSoundEffect] = useSound(correctSoundEffect);
+    const [playIncorrectSoundEffect] = useSound(IncorrectSoundEffect);
 
     const handleChange = (event: any) => {
         setValue(event.target.value);
@@ -28,9 +32,9 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
     const handleSubmit = () => {
         if (Object.values(STRINGS_QUESTION_5_ANSWERS).includes(value)){
                 setCorrect(true);
-                playCorrectSound();
+                playCorrectSoundEffect();
             } else {
-                playIncorrectSound();
+                playIncorrectSoundEffect();
             }
         setShowAnswer(true);
     }
