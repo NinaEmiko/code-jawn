@@ -26,6 +26,7 @@ import ProfileHeaderDisplay from "./components/ProfileHeaderDisplay";
 function App() {
   const [activeTab, setActiveTab] = useState("Select a Language");
   const [showProfile, setShowProfile] = useState(false);
+  const [showAppBar, setShowAppBar] = useState(true);
   const [pageTitle, setPageTitle] = useState("Welcome Back!");
   const [currentUser, setCurrentUser] = useState({
     username: '',
@@ -44,6 +45,9 @@ function App() {
   const handleClickProfile = () => { setShowProfile(true); }
   const handleClickLearn = () => { setShowProfile(false); }
   const handleRedirectHome = (component: string) => { setActiveTab(component); }
+  const handleShowAppBar = (show: boolean) => {
+    show === true ? setShowAppBar(true) : setShowAppBar(false);
+  }
 
   const logout = () => {
     setCurrentUser((prev) => ({
@@ -123,7 +127,7 @@ function App() {
             <SelectLanguage props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle, currentUser:currentUser}} />
           }
           {activeTab === "Java" &&
-            <JavaSections props={{handleRedirectHome:handleRedirectHome, currentUser:currentUser, handlePageTitle:handlePageTitle}} />
+            <JavaSections props={{handleRedirectHome:handleRedirectHome, currentUser:currentUser, handlePageTitle:handlePageTitle, handleShowAppBar:handleShowAppBar}} />
           }
           {activeTab === "JavaScript" &&
             <JavaScriptSections props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle}} />
@@ -140,7 +144,9 @@ function App() {
                 }} />
             </>
           }
-          <AppBar props={{handleClickProfile:handleClickProfile, handleClickLearn:handleClickLearn}} />
+          {showAppBar &&
+            <AppBar props={{handleClickProfile:handleClickProfile, handleClickLearn:handleClickLearn}} />
+          }
         </>
       }
     </Container>

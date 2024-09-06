@@ -10,6 +10,7 @@ function SelectDataTypeLesson({props}:{props:any}) {
     }
 
     const handleButtonClick = (lesson: string) => {
+        props.handleShowAppBar(false);
         props.handleButtonClick(lesson);
         props.handleUpdateHeader("Java Data Types", true)
     }

@@ -19,10 +19,12 @@ function JavaDataTypesStrings({props}:{props:any}) {
     const [restCallSuccessful, setRestCallSuccessful] = useState(false);
 
     const handleBackClick = () => {
+        props.handleShowAppBar(true);
         props.handleRedirectJavaLessons("Java Lessons");
     }
 
     const handleCompleteLesson = () => {
+        props.handleShowAppBar(true);
         props.handleRedirectJavaLessons("Java Lessons");
     }
 

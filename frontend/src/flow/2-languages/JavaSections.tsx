@@ -19,7 +19,8 @@ function SelectJavaLessons({props}:{props:any}) {
                 handleRedirectJavaLessons:handleRedirectJavaLessons,
                 handleRedirectHome:props.handleRedirectHome,
                 currentUser:props.currentUser,
-                handlePageTitle:props.handlePageTitle
+                handlePageTitle:props.handlePageTitle,
+                handleShowAppBar:props.handleShowAppBar
               }} />
         }
         {activeTab === "Java Initializing Variables" &&
@@ -34,7 +35,8 @@ function SelectJavaLessons({props}:{props:any}) {
               props={{
                 handleRedirectJavaLessons:handleRedirectJavaLessons,
                 handleRedirectHome:props.handleRedirectHome,
-                currentUser:props.currentUser
+                currentUser:props.currentUser,
+                handleShowAppBar:props.handleShowAppBar
               }} />
         }
         {activeTab === "Java Data Types ints" &&
