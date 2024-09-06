@@ -1,14 +1,37 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import JavaDataTypesStringsLecture1 from './JavaDataTypesStringsLecture1';
 import JavaDataTypesStringsLecture2 from './JavaDataTypesStringsLecture2';
 
 const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
-    const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [startX, setStartX] = useState<number | null>(null);
     const indicators = [0, 1];
+    const lectures = [
+        <JavaDataTypesStringsLecture1 key="1" />,
+        <JavaDataTypesStringsLecture2 key="2" />,
+    ];
 
-    const updateActiveIndex = () => {
-        setActiveIndex((activeIndex - 1 + indicators.length) % indicators.length);
-    };
+
+    const handleSwipe = (deltaX: number) => {
+        if (deltaX < -50) { // Swipe left
+            setActiveIndex(prevIndex => Math.min(prevIndex + 1, lectures.length - 1));
+        } else if (deltaX > 50) { // Swipe right
+            setActiveIndex(prevIndex => Math.max(prevIndex - 1, 0));
+        }
+      };
+    
+      const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        setStartX(e.touches[0].clientX);
+      };
+    
+      const onTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+        if (startX !== null) {
+          const endX = e.changedTouches[0].clientX;
+          const deltaX = startX - endX;
+          handleSwipe(deltaX);
+          setStartX(null);
+        }
+      };
 
     const handleClickContinue = () =>{
         props.completeLecture()
@@ -17,13 +40,14 @@ const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
     return (
         <>
         
-        <div className="lecture-container" onClick={() => updateActiveIndex()}>
-        
-            {activeIndex === 0 ?
-                <JavaDataTypesStringsLecture1 />
-            :   
-                <JavaDataTypesStringsLecture2 />
-            }
+        <div className="lecture-container" 
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+            >
+            
+            <div className="swipeable-pages" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+                {lectures}
+            </div>
             
             <div className="indicator-container">
                 {indicators.map((_, index) => (

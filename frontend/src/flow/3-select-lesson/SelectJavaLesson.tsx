@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SelectVariablesLesson from "./SelectJavaLesson/SelectVariablesLesson";
 import SelectLoopsLesson from "./SelectJavaLesson/SelectLoopsLesson";
 import SelectConditionalsLesson from "./SelectJavaLesson/SelectConditionalsLesson";
@@ -9,11 +9,24 @@ import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import LanguageLessonContainer from "../../components/lesson/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 import Display from "../../components/Display";
-import BackButton from "../../assets/back-button-icon-accent.png"
+import { getJavaDataTypesLT } from "../../api/api";
 
 function JavaLessons({props}:{props:any}) {
     const [showSection, setShowSection] = useState('');
+    const [lessonsCompleted, setLessonsCompleted] = useState(0)
 
+    const getJavaDataTypesLTCall = async () => {
+        let completed = 0;
+        const data = await getJavaDataTypesLT(props.currentUser.id);
+            if (data.stringsLessonIsComplete){
+                completed += 1;
+            };
+            setLessonsCompleted(completed);
+    }
+
+    useEffect(() => {
+        getJavaDataTypesLTCall();
+    })
 
     const handleButtonClick = (lesson: string) => {
         props.handleRedirectJavaLessons(lesson);
@@ -42,7 +55,7 @@ function JavaLessons({props}:{props:any}) {
                     <LanguageLessonContainer props={{
                         lesson: "Data Types",
                         handleShowSection:handleShowSection,
-                        lessonsCompleted: 0,
+                        lessonsCompleted: lessonsCompleted,
                         totalLessons: 1,
                         expanded: showSection === "Data Types",
                         iconAltText:"Data Types Icon"}} />
