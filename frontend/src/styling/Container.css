@@ -120,17 +120,3 @@ input{
   color: black;
   font-weight: bold;
 }
-
-.sign-out-btn {
-  font-size: var(--text);
-  border: none;
-  color: black;
-  border-radius: 20px;
-  padding: 3%;
-  background-color: var(--accent-jawn);
-  font-weight: bold;
-  box-shadow: 0 0 20px black; 
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
-}

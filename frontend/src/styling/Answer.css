@@ -54,15 +54,3 @@
     border-color: var(--accent-jawn);
     box-sizing: border-box;
 }
-
-.input-btn {
-    font-size: var(--text);
-    border: none;
-    color: black;
-    border-radius: 20px;
-    padding: 3%;
-    width: 100%;
-    background-color: var(--accent-jawn);
-    font-weight: bold;
-    box-shadow: 0 0 20px black; 
-}

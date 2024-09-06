@@ -14,6 +14,8 @@ import "./styling/Lesson.css"
 import "./styling/LoginForm.css"
 import "./styling/Question.css"
 import "./styling/Profile.css"
+import "./styling/Button.css"
+import "./styling/Spacer.css"
 import JavaScriptSections from "./flow/2-languages/JavaScriptSections";
 import JavaSections from "./flow/2-languages/JavaSections";
 import SelectLanguage from "./flow/1-select-language/SelectLanguage";
