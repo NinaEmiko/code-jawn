@@ -54,21 +54,17 @@ const Profile = ({props}:{props:any}) => {
         <div className="profile-jawn2">
             <div className="parent-jawn">
                 <div className="child-jawn2">
-                    <div className="spacer-20"/>
+                    <div className="spacer-15"/>
                     {!showUpdateEmail && !showUpdatePassword && !showDeleteAccount &&
                         <>
                             <div className="text2">
                                 Account
                             </div>
-                            <div className="profile-table-jawn">
-                                <div className="profile-row-jawn">
-                                    <div className="profile-cell-jawn-label">Username:</div>
-                                    <div className="profile-cell-jawn">{props.currentUser.username}</div>
-                                </div>
-                                <div className="profile-row-jawn">
-                                    <div className="profile-cell-jawn-label">Email:</div>
-                                    <div className="profile-cell-jawn">{props.currentUser.email}</div>
-                                </div>
+                            <div className="sub-text3">
+                                <div className="">{props.currentUser.username}</div>
+                            </div>
+                            <div className="sub-text3">
+                                <div className="">{props.currentUser.email}</div>
                             </div>
                             <br/>
                             <DividerJawn />

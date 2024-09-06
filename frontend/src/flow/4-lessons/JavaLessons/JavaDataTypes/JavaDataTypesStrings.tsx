@@ -57,9 +57,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
                 </button>
         </div>
         <Display>
-            <div className="spacer-20" />
-            <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/>
-            <div className="spacer-5" />
+            <div className="spacer-15" />
             {lecturesCompleted === false &&
                 <JavaDataTypesStringsLecture props={{completeLecture:completeLecture}} />
             }
@@ -86,6 +84,8 @@ function JavaDataTypesStrings({props}:{props:any}) {
                     }
                 </>
             }
+            <div className="spacer-5" />
+            <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/>
         </Display>
     </>
   )

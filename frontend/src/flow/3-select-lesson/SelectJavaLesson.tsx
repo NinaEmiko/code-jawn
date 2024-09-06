@@ -176,7 +176,7 @@ function JavaLessons({props}:{props:any}) {
                     }
                 </div>
             </div>
-            <div className="spacer-5" />
+            <div className="spacer-10" />
         </Display>
     </>
   )

@@ -10,7 +10,7 @@
 }
 
 .display-jawn {
-    height: 90%;
+    height: 100%;
 }
 
 .login-display-jawn {
@@ -45,7 +45,7 @@
 /* HEADER */
 
 .top-display{
-    height: 25%;
+    height: 20%;
     z-index: 2;
     width: 100%;
     top: 0;
@@ -90,7 +90,7 @@
 /* PROFILE HEADER */
 
 .profile-top-display{
-    height: 25%;
+    height: 20%;
     z-index: 5;
     width: 100%;
     top: 0;

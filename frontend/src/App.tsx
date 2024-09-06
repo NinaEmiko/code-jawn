@@ -119,18 +119,36 @@ function App() {
       </HeaderDisplay>
 
       {!currentUser.loggedIn &&
-        <LoginForm onLogin={loginCall} onRegister={registerCall} currentUser={currentUser} logout={(logout)} handlePageTitle={(handlePageTitle)} />
+        <LoginForm
+          onLogin={loginCall}
+          onRegister={registerCall}
+          currentUser={currentUser}
+          logout={(logout)}
+          handlePageTitle={(handlePageTitle)}
+        />
       }
       {currentUser.loggedIn &&
       <>
           {activeTab === "Select a Language" &&
-            <SelectLanguage props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle, currentUser:currentUser}} />
+            <SelectLanguage props={{
+              handleRedirectHome:handleRedirectHome,
+              handlePageTitle:handlePageTitle,
+              currentUser:currentUser
+            }} />
           }
           {activeTab === "Java" &&
-            <JavaSections props={{handleRedirectHome:handleRedirectHome, currentUser:currentUser, handlePageTitle:handlePageTitle, handleShowAppBar:handleShowAppBar}} />
+            <JavaSections props={{
+              handleRedirectHome:handleRedirectHome,
+              currentUser:currentUser,
+              handlePageTitle:handlePageTitle,
+              handleShowAppBar:handleShowAppBar
+            }} />
           }
           {activeTab === "JavaScript" &&
-            <JavaScriptSections props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle}} />
+            <JavaScriptSections props={{
+              handleRedirectHome:handleRedirectHome,
+              handlePageTitle:handlePageTitle
+            }} />
           } 
 
           {showProfile && 
@@ -138,14 +156,18 @@ function App() {
               <ProfileHeaderDisplay>
                 <Header props={{text: "Profile"}} />
               </ProfileHeaderDisplay>
-              <Profile props={{logout:logout,
+              <Profile props={{
+                logout:logout,
                 currentUser:currentUser,
                 handleUpdateEmail:handleUpdateEmail,
                 }} />
             </>
           }
           {showAppBar &&
-            <AppBar props={{handleClickProfile:handleClickProfile, handleClickLearn:handleClickLearn}} />
+            <AppBar props={{
+              handleClickProfile:handleClickProfile,
+              handleClickLearn:handleClickLearn
+            }} />
           }
         </>
       }
