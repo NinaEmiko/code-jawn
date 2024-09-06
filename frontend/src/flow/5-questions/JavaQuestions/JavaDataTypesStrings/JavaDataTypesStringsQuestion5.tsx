@@ -4,6 +4,7 @@ import InputAnswer from "../../../../components/answer/InputAnswer"
 import { STRINGS_QUESTION_5_ANSWERS,
     STRINGS_QUESTION_5_EXPLANATIONS,
     STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
+import { playCorrectSound, playIncorrectSound } from "../../../../helpers/soundHelper";
 
 function JavaDataTypesStringsQuestion5({props}:{props:any}) {
     const [showAnswer, setShowAnswer] = useState(false);
@@ -27,6 +28,9 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
     const handleSubmit = () => {
         if (Object.values(STRINGS_QUESTION_5_ANSWERS).includes(value)){
                 setCorrect(true);
+                playCorrectSound();
+            } else {
+                playIncorrectSound();
             }
         setShowAnswer(true);
     }

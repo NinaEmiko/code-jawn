@@ -8,14 +8,27 @@ import { STRINGS_QUESTION_2_ANSWERS,
     STRINGS_QUESTION_2_BOOLEANS,
     STRINGS_QUESTION_2_EXPLANATIONS,
     STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
+import { playCorrectSound, playIncorrectSound } from "../../../../helpers/soundHelper"
 
 function JavaDataTypesStringsQuestion2({props}:{props:any}) {
     const [answer, setAnswer] = useState('');
 
-    const handleAnswer1Click = () => { setAnswer("A"); }
-    const handleAnswer2Click = () => { setAnswer("B"); }
-    const handleAnswer3Click = () => { setAnswer("C"); }
-    const handleAnswer4Click = () => { setAnswer("D"); }
+    const handleAnswer1Click = () => {
+        setAnswer("A"); 
+        playCorrectSound();
+    }
+    const handleAnswer2Click = () => { 
+        setAnswer("B"); 
+        playIncorrectSound();
+    }
+    const handleAnswer3Click = () => { 
+        setAnswer("C"); 
+        playIncorrectSound();
+    }
+    const handleAnswer4Click = () => {
+        setAnswer("D");
+        playIncorrectSound();
+    }
 
     const endQuestion = () => { props.completeQuestion(true); }
 
