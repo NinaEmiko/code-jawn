@@ -1,11 +1,11 @@
 package com.codejawn.service;
 
 import com.codejawn.dto.AuthResponseDTO;
-import com.codejawn.model.LessonTracker;
-import com.codejawn.model.Role;
-import com.codejawn.model.UserAccount;
+import com.codejawn.model.*;
 import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.response.UpdateEmailResponse;
+import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.security.JWTGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -38,8 +39,6 @@ public class UserAccountServiceTest {
     @Mock
     RoleRepository roleRepository;
     @Mock
-    LessonTrackerService lessonTrackerService;
-    @Mock
     LessonTracker lessonTracker;
     @Mock
     UserAccount userAccount;
@@ -49,6 +48,10 @@ public class UserAccountServiceTest {
     UserAccountService userAccountService;
     @Mock
     List<Role> roles;
+    @Mock
+    JavaLT javaLT;
+    @Mock
+    JavaDataTypesLT javaDataTypesLT;
     @Mock
     AuthenticationManager authenticationManager;
     @Mock
@@ -65,10 +68,13 @@ public class UserAccountServiceTest {
         roles = new ArrayList<>();
         roles.add(role);
 
+        javaDataTypesLT = new JavaDataTypesLT();
+
+        javaLT = new JavaLT();
+        javaLT.setJavaDataTypesLT(javaDataTypesLT);
+
         lessonTracker = new LessonTracker();
-        lessonTracker.setId(1L);
-        lessonTracker.setJavaLT(null);
-        lessonTracker.setUserAccount(userAccount);
+        lessonTracker.setJavaLT(javaLT);
         lessonTracker.setComplete(false);
 
 
@@ -83,7 +89,6 @@ public class UserAccountServiceTest {
 
     @Test
     void register_should_make_call_to_repository() {
-        when(lessonTrackerService.createNewLessonTracker()).thenReturn(lessonTracker);
         when(passwordEncoder.encode(any())).thenReturn("password");
         when(roleRepository.findByName(anyString())).thenReturn(Optional.ofNullable(role));
         when(userAccountRepository.save(any())).thenReturn(userAccount);
@@ -94,6 +99,7 @@ public class UserAccountServiceTest {
     }
     @Test
     void login_should_make_call_to_repository() {
+        when(authenticationManager.authenticate(any())).thenReturn(authentication);
         when(jwtGenerator.generateToken(any())).thenReturn("token");
         when(userAccountRepository.findByUsername(anyString())).thenReturn(Optional.ofNullable(userAccount));
 
@@ -104,6 +110,7 @@ public class UserAccountServiceTest {
 
     @Test
     void login_should_throw_runtime_exception() {
+        when(authenticationManager.authenticate(any())).thenReturn(authentication);
         when(jwtGenerator.generateToken(any())).thenReturn("token");
         when(userAccountRepository.findByUsername(anyString())).thenReturn(Optional.empty());
 
@@ -116,6 +123,7 @@ public class UserAccountServiceTest {
 
     @Test
     void login_should_return_auth_response_dto() {
+        when(authenticationManager.authenticate(any())).thenReturn(authentication);
         when(jwtGenerator.generateToken(any())).thenReturn("token");
         when(userAccountRepository.findByUsername(anyString())).thenReturn(Optional.ofNullable(userAccount));
 
@@ -140,24 +148,35 @@ public class UserAccountServiceTest {
         verify(userAccountRepository, times(1)).findById(1L);
         verify(userAccountRepository, times(1)).save(userAccount);
     }
-//    @Test
-//    void update_username_should_throw_user_not_found_exception(){
-//        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
-//
-//        RuntimeException e = assertThrows(RuntimeException.class, () -> {
-//            userAccountService.updateUsername(1L, "newUsername");
-//        });
-//
-//        Assertions.assertEquals(e.getMessage(), "User not found");
-//    }
+
     @Test
-    void update_username_should_throw_throw_runtime_exception(){
+    void update_username_response_should_contain_new_username(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-        when(userAccountRepository.save(any())).thenThrow(new RuntimeException());
+        when(userAccountRepository.save(any())).thenReturn(userAccount);
+
+        UpdateUsernameResponse response = userAccountService.updateUsername(1L, "newUsername");
+
+        Assertions.assertEquals(response.getNewUsername(), "newUsername");
+    }
+    @Test
+    void update_username_should_throw_user_not_found_exception(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
             userAccountService.updateUsername(1L, "newUsername");
         });
+
+        Assertions.assertEquals(e.getMessage(), "User not found.");
+    }
+    @Test
+    void update_username_should_throw_throw_runtime_exception(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+            userAccountService.updateUsername(1L, "newUsername");
+        });
+
+        Assertions.assertEquals(e.getMessage(), "User not found.");
     }
 
     @Test
@@ -169,16 +188,27 @@ public class UserAccountServiceTest {
 
         verify(userAccountRepository, times(1)).save(userAccount);
     }
-//    @Test
-//    void update_email_should_throw_user_not_found_exception(){
-//        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
-//
-//        RuntimeException e = assertThrows(RuntimeException.class, () -> {
-//            userAccountService.updateEmail(1L, "newEmail");
-//        });
-//
-//        Assertions.assertEquals(e.getMessage(), "User not found");
-//    }
+
+    @Test
+    void update_email_response_should_contain_new_email(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        when(userAccountRepository.save(any())).thenReturn(userAccount);
+
+        UpdateEmailResponse response = userAccountService.updateEmail(1L, "newEmail");
+
+        Assertions.assertEquals(response.getNewEmail(), "newEmail");
+    }
+
+    @Test
+    void update_email_should_throw_user_not_found_exception(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+            userAccountService.updateEmail(1L, "newEmail");
+        });
+
+        Assertions.assertEquals(e.getMessage(), "User not found.");
+    }
     @Test
     void update_email_should_throw_runtime_exception(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));

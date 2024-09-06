@@ -103,7 +103,7 @@ public class UserAccountController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteAccount(@PathVariable @Valid long id){
+    public ResponseEntity<?> deleteAccount(@PathVariable @Valid Long id){
         logger.info("Inside deleteAccount controller method.");
         String response;
         try{

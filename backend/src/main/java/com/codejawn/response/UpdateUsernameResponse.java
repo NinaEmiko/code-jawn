@@ -1,8 +1,11 @@
 package com.codejawn.response;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class UpdateUsernameResponse {
-    String newUsername;
+    private String newUsername;
 }

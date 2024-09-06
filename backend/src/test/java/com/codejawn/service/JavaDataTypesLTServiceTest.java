@@ -22,6 +22,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class JavaDataTypesLTServiceTest {
+
     @Mock
     JavaDataTypesLTRepository javaDataTypesLTRepository;
     @Mock
@@ -36,23 +37,42 @@ public class JavaDataTypesLTServiceTest {
     JavaLT javaLT;
     @InjectMocks
     JavaDataTypesLTService javaDataTypesLTService;
+
     @BeforeEach
     void setup(){
         lessonTracker = new LessonTracker();
         javaLT = new JavaLT();
         javaDataTypesLT = new JavaDataTypesLT();
         userAccount = new UserAccount();
+        userAccount.setId(1L);
         userAccount.setLessonTracker(lessonTracker);
         lessonTracker.setJavaLT(javaLT);
         javaLT.setJavaDataTypesLT(javaDataTypesLT);
+    }
 
-    }
     @Test
-    void create_new_java_data_types_lt_should_make_call_to_repository() {
-        when(javaDataTypesLTRepository.save(any())).thenReturn(javaDataTypesLT);
-        javaDataTypesLTService.createNewJavaDataTypesLT();
-        verify(javaDataTypesLTRepository, times(1)).save(javaDataTypesLT);
+    void getLTShouldReturnCorrectJavaDatTypesLT(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        JavaDataTypesLT response = javaDataTypesLTService.getLT(1L);
+        Assertions.assertEquals(response, javaDataTypesLT);
     }
+
+    @Test
+    void getLTShouldMakeCallToUserAccountRepository(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        javaDataTypesLTService.getLT(1L);
+        verify(userAccountRepository, times(1)).findById(1L);
+    }
+
+    @Test
+    void getLTShouldThrowUserNotFoundError(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
+        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+            javaDataTypesLTService.getLT(2L);
+        });
+        Assertions.assertEquals(e.getMessage(), "User not found");
+    }
+
     @Test
     void update_lt_should_make_call_to_repositories(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
@@ -73,21 +93,21 @@ public class JavaDataTypesLTServiceTest {
         Assertions.assertEquals(e.getMessage(), "User not found");
     }
 
-//    @Test
-//    void update_lt_should_return_success(){
-//        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-//        when(javaDataTypesLTRepository.save(any())).thenReturn(userAccount);
-//        String response = javaDataTypesLTService.updateLT(1L, "Strings");
-//        Assertions.assertEquals(response, "SUCCESS");
-//    }
-//
-//    @Test
-//    void update_lt_should_return_failed(){
-//        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-//        when(javaDataTypesLTRepository.save(any())).thenThrow(new RuntimeException());
-//
-//        String response = javaDataTypesLTService.updateLT(1L, "ints");
-//
-//        Assertions.assertEquals(response, "FAILED");
-//    }
+    @Test
+    void update_lt_should_return_success(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        when(javaDataTypesLTRepository.save(any())).thenReturn(javaDataTypesLT);
+        String response = javaDataTypesLTService.updateLT(1L, "Strings");
+        Assertions.assertEquals(response, "SUCCESS");
+    }
+
+    @Test
+    void update_lt_should_return_failed(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        when(javaDataTypesLTRepository.save(any())).thenThrow(new RuntimeException());
+
+        String response = javaDataTypesLTService.updateLT(1L, "ints");
+
+        Assertions.assertEquals(response, "FAILED");
+    }
 }

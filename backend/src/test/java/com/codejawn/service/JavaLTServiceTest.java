@@ -40,19 +40,8 @@ public class JavaLTServiceTest {
         javaLT.setFinalIsComplete(false);
         javaLT.setComplete(false);
         javaLT.setId(null);
-        javaLT.setLessonTracker(null);
 
         javaLT.setJavaDataTypesLT(javaDataTypesLT);
-        javaDataTypesLT.setJavaLT(javaLT);
-    }
-    @Test
-    void create_new_java_lt_should_make_calls_to_java_data_types_lt_service_and_repository(){
-        when(javaDataTypesLTService.createNewJavaDataTypesLT()).thenReturn(javaDataTypesLT);
-        when(javaLTRepository.save(any())).thenReturn(javaLT);
-        javaLTService.createNewJavaLT();
-        verify(javaDataTypesLTService, times(1)).createNewJavaDataTypesLT();
-        verify(javaLTRepository, times(1)).save(javaLT);
-
     }
     @Test
     void delete_by_id_should_make_call_to_repository() {

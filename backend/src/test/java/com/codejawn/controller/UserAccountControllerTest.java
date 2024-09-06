@@ -3,6 +3,8 @@ package com.codejawn.controller;
 import com.codejawn.dto.*;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.response.UpdateEmailResponse;
+import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.service.UserAccountService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,6 +42,10 @@ public class UserAccountControllerTest {
     UpdateUsernameDTO updateUsernameDTO;
     @InjectMocks
     UserAccountController userAccountController;
+    @Mock
+    UpdateEmailResponse updateEmailResponse;
+    @Mock
+    UpdateUsernameResponse updateUsernameResponse;
     @BeforeEach
     void setup() {
         loginDTO = new LoginDTO();
@@ -61,9 +67,15 @@ public class UserAccountControllerTest {
         updatePasswordDTO.setNewPassword("newPassword");
         updatePasswordDTO.setOldPassword("oldPassword");
 
+        updateEmailResponse = new UpdateEmailResponse();
+        updateEmailResponse.setNewEmail("newEmail");
+
         updateEmailDTO = new UpdateEmailDTO();
         updateEmailDTO.setId(1L);
         updateEmailDTO.setNewEmail("newEmail");
+
+        updateUsernameResponse = new UpdateUsernameResponse();
+        updateUsernameResponse.setNewUsername("newUsername");
 
         updateUsernameDTO = new UpdateUsernameDTO();
         updateUsernameDTO.setId(1L);
@@ -113,12 +125,12 @@ public class UserAccountControllerTest {
         Assertions.assertEquals(response.getBody(), "FAILED");
     }
 
-//    @Test
-//    void update_email_should_make_call_to_user_account_service(){
-//        doNothing().when(userAccountService).updateEmail(anyLong(), anyString());
-//        userAccountController.updateEmail(updateEmailDTO);
-//        verify(userAccountService, times(1)).updateEmail(1L, "newEmail");
-//    }
+    @Test
+    void update_email_should_make_call_to_user_account_service(){
+        when(userAccountService.updateEmail(anyLong(), anyString())).thenReturn(updateEmailResponse);
+        userAccountController.updateEmail(updateEmailDTO);
+        verify(userAccountService, times(1)).updateEmail(1L, "newEmail");
+    }
 
     @Test
     void update_email_should_return_failed(){
@@ -127,26 +139,12 @@ public class UserAccountControllerTest {
         Assertions.assertEquals(response.getBody(), "FAILED");
     }
 
-//    @Test
-//    void update_email_should_return_success(){
-//        doNothing().when(userAccountService).updateEmail(anyLong(), anyString());
-//        ResponseEntity<?> response = userAccountController.updateEmail(updateEmailDTO);
-//        Assertions.assertEquals(response.getBody(), "SUCCESS");
-//    }
-
-//    @Test
-//    void update_username_should_make_call_to_user_account_service(){
-//        doNothing().when(userAccountService).updateUsername(anyLong(), anyString());
-//        userAccountController.updateUsername(updateUsernameDTO);
-//        verify(userAccountService, times(1)).updateUsername(1L, "newUsername");
-//    }
-//
-//    @Test
-//    void update_username_should_return_success(){
-//        doNothing().when(userAccountService).updateUsername(anyLong(), anyString());
-//        ResponseEntity<?> response =  userAccountController.updateUsername(updateUsernameDTO);
-//        Assertions.assertEquals(response.getBody(), "SUCCESS");
-//    }
+    @Test
+    void update_username_should_make_call_to_user_account_service(){
+        when(userAccountService.updateUsername(anyLong(), anyString())).thenReturn(updateUsernameResponse);
+        userAccountController.updateUsername(updateUsernameDTO);
+        verify(userAccountService, times(1)).updateUsername(1L, "newUsername");
+    }
 
     @Test
     void update_username_should_return_failed(){
