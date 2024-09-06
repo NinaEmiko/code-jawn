@@ -47,6 +47,13 @@
 
 .lecture-jawn{
     height: 85%;
+    /* flex: 0 0 100%; */
+    width: 100%;
+    box-sizing: border-box;
+    flex: 0 0 calc(100%);
+    width: calc(100% + 5%);
+    padding: 5%;
+
 }
 
 .lecture-container{
@@ -57,7 +64,17 @@
     justify-content: space-between;
     box-shadow: 0 0 20px black; 
     padding: 5%;
+
+    overflow: hidden;
+    width: 100%;
+    position: relative;
 }
+
+.swipeable-pages {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: 100%;
+  }
 
 .indicator-container {
     display: flex;
@@ -66,7 +83,11 @@
     align-items:  center;
     height: 10%;
     background-color: transparent;
-
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-bottom: 3%;
 }
 
 .indicator {
