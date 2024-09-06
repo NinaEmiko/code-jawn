@@ -1,0 +1,73 @@
+/* BUTTON STYLES */
+
+.input-btn, .sign-out-btn {
+    font-size: var(--text);
+    border: none;
+    color: black;
+    border-radius: 20px;
+    padding: 3%;
+    width: 100%;
+    background-color: var(--accent-jawn);
+    font-weight: bold;
+    box-shadow: 0 0 20px black; 
+}
+
+.sign-out-btn {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
+
+.back-btn-container{
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.back-btn-jawn, .back-btn-jawn-profile{
+    background-color: transparent;
+    height: 11%;
+    width: 16%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+}
+
+.back-btn-jawn{
+    z-index: 4;
+    text-decoration: underline;
+    color: black;
+    font-size: var(--sub-text);
+}
+
+.back-btn-container-profile{
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.back-btn-jawn-profile{
+    z-index: 6;
+}
+
+.header-btn{
+    font-size: var(--text);
+    color: black;
+    text-align: center;
+    background-color: var(--accent-jawn);
+}
+
+.warning-btn{
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+    font-size: var(--text);
+    background-color: black;
+    padding: 3%;
+    border-radius: 20px;
+    width: 100%;
+    background-color: red;
+    font-weight: bold;
+}
