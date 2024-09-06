@@ -60,7 +60,6 @@ const Profile = ({props}:{props:any}) => {
                             <div className="text2">
                                 Account
                             </div>
-                            <DividerJawn />
                             <div className="profile-table-jawn">
                                 <div className="profile-row-jawn">
                                     <div className="profile-cell-jawn-label">Username:</div>
@@ -71,11 +70,11 @@ const Profile = ({props}:{props:any}) => {
                                     <div className="profile-cell-jawn">{props.currentUser.email}</div>
                                 </div>
                             </div>
+                            <br/>
+                            <DividerJawn />
                             <div className="text2">
                                 Security
                             </div>
-                            <DividerJawn />
-                            <br/>
                             <div className="">
                                 <a onClick={() => handleClickUpdateEmail() } className="profile-link">Update Email</a>
                             </div>
@@ -85,15 +84,12 @@ const Profile = ({props}:{props:any}) => {
                             </div>
                             <br/>
                                 <a onClick={() => handleClickDeleteAccount() } className="profile-link">Delete Account</a>
-                            <div className="spacer-5"></div>
-                            <div>
-                                <button onClick={() => handleLogOut()} className="input-btn" >{"Sign Out"}</button>
-                            </div>
                             <br/>
+                            <br/>
+                            <DividerJawn />
                             <div className="text2">
                                 Other
                             </div>
-                            <DividerJawn />
                             <div className="sub-text3">
                                 Terms
                             </div>
@@ -105,6 +101,10 @@ const Profile = ({props}:{props:any}) => {
                             </div>
                             <div className="sub-text3">
                                 Support
+                            </div>
+                            <br/>
+                            <div>
+                                <button onClick={() => handleLogOut()} className="input-btn" >{"Sign Out"}</button>
                             </div>
                             <div className="spacer-15"/>
                         </>

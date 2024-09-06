@@ -94,20 +94,17 @@ public class UserAccountService {
     public UpdateEmailResponse updateEmail(Long id, String newEmail) {
         logger.info("Inside update email service method.");
 
-        logger.info("Retrieving user account with id " + id + ".");
         UserAccount userAccount = userAccountRepository.findById(id)
                 .orElseThrow(
                         () -> new RuntimeException("User not found.")
                 );
 
         try{
-            logger.info("Updating email for user account with id " + id + ".");
             userAccount.setEmail(newEmail);
 
             logger.info("Saving user account with id " + id + " with updated email.");
             userAccountRepository.save(userAccount);
 
-            logger.info("Building response object.");
             UpdateEmailResponse updateEmailResponse = new UpdateEmailResponse();
             updateEmailResponse.setNewEmail(newEmail);
 
@@ -120,16 +117,13 @@ public class UserAccountService {
     public UpdateUsernameResponse updateUsername(Long id, String newUsername) {
         logger.info("Inside update username service method.");
 
-        logger.info("Retrieving user account with id " + id + ".");
         UserAccount userAccount = userAccountRepository.findById(id)
                 .orElseThrow(
                         () -> new RuntimeException("User not found.")
                 );
         try{
-            logger.info("Updating username for user account with id " + id + ".");
             userAccount.setUsername(newUsername);
 
-            logger.info("Building response object.");
             UpdateUsernameResponse updateUsernameResponse = new UpdateUsernameResponse();
             updateUsernameResponse.setNewUsername(newUsername);
 
