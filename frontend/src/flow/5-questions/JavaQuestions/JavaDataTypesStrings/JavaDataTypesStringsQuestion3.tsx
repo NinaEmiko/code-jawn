@@ -9,27 +9,31 @@ import { STRINGS_QUESTIONS,
     STRINGS_QUESTION_3_ANSWERS,
     STRINGS_QUESTION_3_BOOLEANS,
     STRINGS_QUESTION_3_EXPLANATIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
-import { playCorrectSound, playIncorrectSound } from "../../../../helpers/soundHelper"
+import useSound from "use-sound";
+import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
 
 
 function JavaDataTypesStringsQuestion3({props}:{props:any}) {
     const [answer, setAnswer] = useState('');
+    const [playCorrectSoundEffect] = useSound(correctSoundEffect);
+    const [playIncorrectSoundEffect] = useSound(IncorrectSoundEffect);
 
     const handleAnswer1Click = () => {
         setAnswer("A"); 
-        playIncorrectSound();
+        playIncorrectSoundEffect();
     }
     const handleAnswer2Click = () => { 
         setAnswer("B"); 
-        playCorrectSound();
+        playCorrectSoundEffect();
     }
     const handleAnswer3Click = () => { 
         setAnswer("C"); 
-        playIncorrectSound();
+        playIncorrectSoundEffect();
     }
     const handleAnswer4Click = () => {
         setAnswer("D");
-        playIncorrectSound();
+        playIncorrectSoundEffect();
     }
 
     const endQuestion = () => { props.completeQuestion(true); }
