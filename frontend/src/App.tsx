@@ -14,6 +14,8 @@ import "./styling/Lesson.css"
 import "./styling/LoginForm.css"
 import "./styling/Question.css"
 import "./styling/Profile.css"
+import "./styling/Button.css"
+import "./styling/Spacer.css"
 import JavaScriptSections from "./flow/2-languages/JavaScriptSections";
 import JavaSections from "./flow/2-languages/JavaSections";
 import SelectLanguage from "./flow/1-select-language/SelectLanguage";
@@ -26,6 +28,7 @@ import ProfileHeaderDisplay from "./components/ProfileHeaderDisplay";
 function App() {
   const [activeTab, setActiveTab] = useState("Select a Language");
   const [showProfile, setShowProfile] = useState(false);
+  const [showAppBar, setShowAppBar] = useState(true);
   const [pageTitle, setPageTitle] = useState("Welcome Back!");
   const [currentUser, setCurrentUser] = useState({
     username: '',
@@ -44,6 +47,9 @@ function App() {
   const handleClickProfile = () => { setShowProfile(true); }
   const handleClickLearn = () => { setShowProfile(false); }
   const handleRedirectHome = (component: string) => { setActiveTab(component); }
+  const handleShowAppBar = (show: boolean) => {
+    show === true ? setShowAppBar(true) : setShowAppBar(false);
+  }
 
   const logout = () => {
     setCurrentUser((prev) => ({
@@ -115,18 +121,36 @@ function App() {
       </HeaderDisplay>
 
       {!currentUser.loggedIn &&
-        <LoginForm onLogin={loginCall} onRegister={registerCall} currentUser={currentUser} logout={(logout)} handlePageTitle={(handlePageTitle)} />
+        <LoginForm
+          onLogin={loginCall}
+          onRegister={registerCall}
+          currentUser={currentUser}
+          logout={(logout)}
+          handlePageTitle={(handlePageTitle)}
+        />
       }
       {currentUser.loggedIn &&
       <>
           {activeTab === "Select a Language" &&
-            <SelectLanguage props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle, currentUser:currentUser}} />
+            <SelectLanguage props={{
+              handleRedirectHome:handleRedirectHome,
+              handlePageTitle:handlePageTitle,
+              currentUser:currentUser
+            }} />
           }
           {activeTab === "Java" &&
-            <JavaSections props={{handleRedirectHome:handleRedirectHome, currentUser:currentUser, handlePageTitle:handlePageTitle}} />
+            <JavaSections props={{
+              handleRedirectHome:handleRedirectHome,
+              currentUser:currentUser,
+              handlePageTitle:handlePageTitle,
+              handleShowAppBar:handleShowAppBar
+            }} />
           }
           {activeTab === "JavaScript" &&
-            <JavaScriptSections props={{handleRedirectHome:handleRedirectHome, handlePageTitle:handlePageTitle}} />
+            <JavaScriptSections props={{
+              handleRedirectHome:handleRedirectHome,
+              handlePageTitle:handlePageTitle
+            }} />
           } 
 
           {showProfile && 
@@ -134,13 +158,19 @@ function App() {
               <ProfileHeaderDisplay>
                 <Header props={{text: "Profile"}} />
               </ProfileHeaderDisplay>
-              <Profile props={{logout:logout,
+              <Profile props={{
+                logout:logout,
                 currentUser:currentUser,
                 handleUpdateEmail:handleUpdateEmail,
                 }} />
             </>
           }
-          <AppBar props={{handleClickProfile:handleClickProfile, handleClickLearn:handleClickLearn}} />
+          {showAppBar &&
+            <AppBar props={{
+              handleClickProfile:handleClickProfile,
+              handleClickLearn:handleClickLearn
+            }} />
+          }
         </>
       }
     </Container>

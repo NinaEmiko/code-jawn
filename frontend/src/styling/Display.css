@@ -10,7 +10,7 @@
 }
 
 .display-jawn {
-    height: 90%;
+    height: 100%;
 }
 
 .login-display-jawn {
@@ -36,16 +36,17 @@
 }
 
 .child-jawn2{
-    width: 90%;
+    width: 100%;
     /* margin-top: 10%;     */
     overflow: auto;
     overflow-y: scroll;
+    background-color: transparent;
 }
 
 /* HEADER */
 
 .top-display{
-    height: 25%;
+    height: 20%;
     z-index: 2;
     width: 100%;
     top: 0;
@@ -90,7 +91,7 @@
 /* PROFILE HEADER */
 
 .profile-top-display{
-    height: 25%;
+    height: 20%;
     z-index: 5;
     width: 100%;
     top: 0;
@@ -126,95 +127,4 @@
     text-align: center;
     color: red;
     font-size: var(--text);
-}
-.warning-btn{
-    margin-top: 10px;
-    text-align: center;
-    color: black;
-    font-size: var(--text);
-    background-color: black;
-    padding: 3%;
-
-    border-radius: 20px;
-    width: 100%;
-    background-color: red;
-    font-weight: bold;
-    /* box-shadow: 0 0 20px black;  */
-}
-
-.back-btn-container{
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-
-}
-
-.back-btn-jawn{
-    background-color: transparent;
-    height: 11%;
-    width: 16%;
-    border: none;
-    z-index: 4;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 15px;
-
-    text-decoration: underline;
-    color: black;
-    font-size: var(--sub-text);
-}
-
-.back-btn-container-profile{
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-
-}
-
-.back-btn-jawn-profile{
-    background-color: transparent;
-    height: 11%;
-    width: 16%;
-    border: none;
-    z-index: 6;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 15px;
-}
-
-.spacer{
-    margin: 14%;
-}
-
-.spacer-5{
-    height: 5%;
-}
-
-.spacer-10{
-    height: 10%;
-}
-
-.spacer-15{
-    height: 15%;
-}
-
-.spacer-20{
-    height: 20%;
-}
-
-.spacer-25{
-    height: 25%;
-}
-
-.header-btn{
-    /* z-index: 4; */
-    /* position: absolute;
-    top: 0;
-    left: 0; */
-    font-size: var(--text);
-    color: black;
-    text-align: center;
-    background-color: var(--accent-jawn);
 }

@@ -4,19 +4,6 @@ const Header = ({props}:{props:any}) => {
         <>
             <div className="header-text">
                 {props.text}
-
-                {props.text === "Welcome Back!" &&
-                    <>
-                        <br/>
-                        Sign In
-                    </>
-                }
-                {props.text === "Welcome!" &&
-                    <>
-                        <br/>
-                        Sign Up
-                    </>
-                }
             </div>
         </>
     )

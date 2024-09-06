@@ -101,23 +101,6 @@
     color: var(--accent-jawn);
 }
 
-/* .language-btn-link{
-    color: black;
-    text-align: center;
-    font-size: var(--text);
-    font-weight: bold;
-} */
-
-/* .language-btn-link-container{
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background-color: var(--accent-jawn);
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    height: 25%;
-    display: flex;
-} */
 .forward-button-icon{
     height: 50%;
     width: 50%;
