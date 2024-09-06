@@ -50,8 +50,8 @@ function JavaDataTypesStrings({props}:{props:any}) {
   return (
     <>
         <div className="back-btn-container">
-            <button onClick={handleBackClick}>
-                <img className="back-btn-jawn" src={BackButton}></img>
+            <button className="back-btn-jawn" onClick={handleBackClick}>
+                Back
                 </button>
         </div>
         <Display>
