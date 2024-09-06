@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { updateUserPassword } from "../../api/api";
+import JustText from "../utility/JustText";
 
 const updatePassword = ({props}:{props:any}) => {
     const [newPassword, setNewPassword] = useState('');
@@ -27,7 +28,7 @@ const updatePassword = ({props}:{props:any}) => {
     }
 
     return (
-        <div>
+        <div className="update-jawn">
             <div className="profile-back" onClick={() => handleClickBack()}>{"Back"}</div>
             <br/>
             <br/>
@@ -35,8 +36,9 @@ const updatePassword = ({props}:{props:any}) => {
             ref={newPasswordFormRef}
             onSubmit={onSubmitNewPassword}
             className="form-jawn">
-                <div className="text">Old Password</div>
-                <br/>
+                <div className="just-text-jawn">
+                    <JustText props={{text: "Old Password"}} />
+                </div>
                 <input 
                 onChange={onChangeHandler}
                 value={oldPassword}
@@ -44,8 +46,9 @@ const updatePassword = ({props}:{props:any}) => {
                 type="password"
                 className="form-control">
                 </input>
-                <div className="text">New Password</div>
-                <br/>
+                <div className="just-text-jawn">
+                    <JustText props={{text: "New Password"}} />
+                </div>
                 <input 
                 onChange={onChangeHandler}
                 value={newPassword}
