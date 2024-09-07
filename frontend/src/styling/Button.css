@@ -22,6 +22,7 @@
     justify-content: center;
     align-items: center;
     background-color: transparent;
+    z-index: 6;
 }
 
 .back-btn-jawn, .back-btn-jawn-profile{
@@ -36,7 +37,7 @@
 }
 
 .back-btn-jawn{
-    z-index: 4;
+    z-index: 6;
     text-decoration: underline;
     color: black;
     font-size: var(--sub-text);
