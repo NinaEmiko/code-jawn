@@ -93,7 +93,6 @@ public class UserAccountService {
 
     public UpdateEmailResponse updateEmail(Long id, String newEmail) {
         logger.info("Inside update email service method.");
-
         UserAccount userAccount = userAccountRepository.findById(id)
                 .orElseThrow(
                         () -> new RuntimeException("User not found.")

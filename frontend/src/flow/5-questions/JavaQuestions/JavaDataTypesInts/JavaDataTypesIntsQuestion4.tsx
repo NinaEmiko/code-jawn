@@ -1,57 +1,72 @@
 
-import Question from "../../../../components/question/Question"
 import { useState } from "react"
-import Explanation from "../../../../components/answer/Explanation";
-import AnswerExplanationHeader from "../../../../components/answer/AnswerExplanationHeader";
 import { INTS_QUESTION_4_ANSWERS, INTS_QUESTIONS, INTS_QUESTION_4_EXPLANATIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypesIntsConstants";
+import useSound from "use-sound";
+import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
+import InputAnswer from "../../../../components/answer/InputAnswer";
+import InputQuestion from "../../../../components/question/InputQuestion";
 
 
 function JavaDataTypesIntsQuestion4({props}:{props:any}) {
     const [showAnswer, setShowAnswer] = useState(false);
     const [value, setValue] = useState('"17"');
+    const [correct, setCorrect] = useState(false);
+    const [playCorrectSoundEffect] = useSound(correctSoundEffect);
+    const [playIncorrectSoundEffect] = useSound(IncorrectSoundEffect);
+
 
     const handleChange = (event: any) => {
         setValue(event.target.value);
       };
 
     const endQuestion = () => {
-        value === INTS_QUESTION_4_ANSWERS.CORRECT_ANSWER ? props.completeQuestion(true) : props.completeQuestion(false);
-    }
+        if (correct){
+            props.completeQuestion(true);
+            props.updateLessonTracker();
+
+        } else {
+            setShowAnswer(false);
+        }    }
 
     const handleSubmit = () => {
-        setShowAnswer(true);
+        if (Object.values(INTS_QUESTION_4_ANSWERS).includes(value)){
+            setCorrect(true);
+            playCorrectSoundEffect();
+        } else {
+            playIncorrectSoundEffect();
+        }
+    setShowAnswer(true);
     }
 
     return (
         <>
             {!showAnswer ?
-                <div className="question-container">
-                    <div className="question-jawn">
-                        <Question props={{text: INTS_QUESTIONS.INT_QUESTION_4}} />
-                    </div>
-                    <div className="answer-jawn-input">   
-                        <input
-                            className="answer-input"
-                            value={value}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <button className="input-btn" onClick={() => handleSubmit()}>Submit</button>
-                </div>
-                :
+                <InputQuestion props={{
+                    question:INTS_QUESTIONS.INT_QUESTION_4,
+                    value:value,
+                    handleChange:handleChange,
+                    handleSubmit:handleSubmit}} />   
+            :
                 <>
-                    {value != INTS_QUESTION_4_ANSWERS.CORRECT_ANSWER ?
-                        <>
-                            <AnswerExplanationHeader props={{correct: false}} />
-                            <Explanation props={INTS_QUESTION_4_EXPLANATIONS.INCORRECT_ANSWER} />
-                            <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
-                        </>
+                    {correct ?
+                        (
+                        <InputAnswer props={{
+                            type: "template-literal",
+                            value:value,
+                            correct:true,
+                            explanation:INTS_QUESTION_4_EXPLANATIONS.CORRECT_ANSWER,
+                            endQuestion:endQuestion}} />
+                        )
                     :
-                        <>
-                            <AnswerExplanationHeader props={{correct: true}} />
-                            <Explanation props={INTS_QUESTION_4_EXPLANATIONS.CORRECT_ANSWER} />
-                            <button className="input-btn" onClick={() => endQuestion()}>Continue</button>
-                        </>    
+                        (
+                        <InputAnswer props={{
+                            type: "template-literal",
+                            value:value,
+                            correct:false,
+                            explanation:INTS_QUESTION_4_EXPLANATIONS.INCORRECT_ANSWER,
+                            endQuestion:endQuestion}} />
+                        )    
                     }
                 </>
             }

@@ -9,7 +9,6 @@ import Display from "../../../../components/Display";
 import JavaDataTypesStringsLecture from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture";
 import JavaDataTypesStringsPostLesson from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsPostLesson";
 import { updateJavaDataTypesLT } from "../../../../api/api";
-import BackButton from "../../../../assets/back-button-icon-accent.png"
 
 function JavaDataTypesStrings({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -53,8 +52,8 @@ function JavaDataTypesStrings({props}:{props:any}) {
     <>
         <div className="back-btn-container">
             <button className="back-btn-jawn" onClick={handleBackClick}>
-            ←
-                </button>
+                ←
+            </button>
         </div>
         <Display>
             <div className="spacer-15" />

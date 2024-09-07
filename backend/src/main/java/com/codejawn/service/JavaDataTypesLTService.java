@@ -44,6 +44,7 @@ public class JavaDataTypesLTService {
                     javaDataTypesLT.setStringsLessonIsComplete(true);
                     break;
                 case "ints":
+                    javaDataTypesLT.setIntsLessonIsComplete(true);
                     break;
             }
 

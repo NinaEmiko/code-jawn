@@ -41,8 +41,11 @@ function SelectJavaLessons({props}:{props:any}) {
         }
         {activeTab === "Java Data Types ints" &&
             <JavaDataTypesInts
-                props={{handleRedirectJavaLessons:handleRedirectJavaLessons,
-                handleRedirectHome:props.handleRedirectHome
+              props={{
+                handleRedirectJavaLessons:handleRedirectJavaLessons,
+                handleRedirectHome:props.handleRedirectHome,
+                currentUser:props.currentUser,
+                handleShowAppBar:props.handleShowAppBar
               }} />
         }
    </>

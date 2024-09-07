@@ -28,7 +28,7 @@
     display: table-row;
 }
 
-.cell-jawn, .cell-jawn-string {
+.cell-jawn, .cell-jawn-string, .cell-jawn-int {
     display: table-cell;
     border: none;
     padding: 8px;
@@ -38,6 +38,9 @@
 
 .cell-jawn-string {
     color: var(--string-jawn);
+}
+.cell-jawn-int {
+    color: #58e6ff;
 }
 
 .cell-header-jawn{
