@@ -31,6 +31,11 @@ const MultipleChoiceAnswer = ({props}:{props:any}) => {
                     {props.answer}
                 </div>
             }
+            {props.type === "int" &&
+                <div onClick={() => handleAnswerClick()} className="answer-text-int">
+                    {props.answer}
+                </div>
+            }
             {props.type === "code" &&
                 <AnswerCodeBlock props={{
                     answerClicked:null,
