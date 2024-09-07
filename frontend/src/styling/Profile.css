@@ -9,3 +9,24 @@
     top: 0;
     left: 0;
 }
+
+.terms-title{
+    font-size: var(--header-text);
+    padding-bottom: 4%;
+    color: var(--sub-secondary-jawn)
+}
+
+.terms-sub-title{
+    font-size: var(--text);
+    padding-bottom: 4%;
+    color: var(--sub-secondary-jawn)
+}
+
+.terms-text{
+    font-size: var(--sub-text);
+    padding-bottom: 3%;
+}
+
+.terms-section{
+    padding: 5%;
+}

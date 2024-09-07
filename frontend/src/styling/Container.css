@@ -6,11 +6,12 @@
   --secondary-jawn: #ff7100;
   --sub-secondary-jawn: #ff8c34;
   --accent-jawn: #12edd8;
+  --string-jawn: #859900;
 
   /* FONT SIZES  */
-  --header-text: 8vw;
-  --text: 6vw;
-  --sub-text: 5vw;
+  --header-text: 7vw;
+  --text: 5vw;
+  --sub-text: 4vw;
 }
 
 html, body, #root {
@@ -27,17 +28,9 @@ body{
   align-items: center;
 }
 
-@font-face {
-  font-family: 'FantaisieArtistique';
-  src: local('FantaisieArtistique'), url(../assets/fonts/FantaisieArtistique.ttf) format('truetype');}
-
-@font-face {
-  font-family: 'Alice';
-  src: local('Alice'), url(../assets/fonts/Alice\ in\ Wonderland.ttf) format('truetype');}
-
 *, *::before, *::after {
   box-sizing: border-box;
-  font-family: FantaisieArtistique;
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   color: var(--off-white-jawn);
 }
 
@@ -103,8 +96,6 @@ input{
 }
 
 .sub-text3{
-  /* float: right; */
-  /* margin-bottom: 5%; */
   font-size: var(--sub-text);
   color: white;
   padding-left: 3%;

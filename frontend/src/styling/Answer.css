@@ -3,7 +3,6 @@
 .answer-text-boolean{
     background-color: transparent;
     padding: 20px;
-    /* margin-bottom: 5%; */
     font-size: var(--sub-text);
     height: 16%;
 }
@@ -17,12 +16,10 @@
 }
 
 .answer-text-template-literal{
-    color: #859900;
+    color: var(--string-jawn);
 }
 
 .answer-jawn{
-    /* padding-top: 9%;
-    padding-bottom: 9%; */
     padding-bottom: 3%;
     height: 70%;
 }
