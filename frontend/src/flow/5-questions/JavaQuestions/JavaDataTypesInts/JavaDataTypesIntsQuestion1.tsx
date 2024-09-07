@@ -12,6 +12,7 @@ import useSound from "use-sound";
 import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
 import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
 import MultipleChoiceAnswer from "../../../../components/answer/MultipleChoiceAnswer"
+import AnswerInt from "../../../../components/answer/AnswerInt"
 
 function JavaDataTypesIntsQuestion1({props}:{props:any}) {
     const [answer, setAnswer] = useState('');
@@ -62,9 +63,9 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
                             code: INTS_QUESTION_1_ANSWERS.ANSWER_2
                             }} />
                         <DividerJawn />
-                        <AnswerCodeBlock props={{
+                        <AnswerInt props={{
                             answerClicked:handleAnswer3Click,
-                            code: INTS_QUESTION_1_ANSWERS.ANSWER_3
+                            text: INTS_QUESTION_1_ANSWERS.ANSWER_3
                             }} />
                         <DividerJawn />
                         <AnswerCodeBlock props={{
@@ -94,7 +95,7 @@ function JavaDataTypesIntsQuestion1({props}:{props:any}) {
             }
             {answer === 'C' &&
                 <MultipleChoiceAnswer props={{
-                    type: "code",
+                    type: "int",
                     correct: INTS_QUESTION_1_BOOLEANS.ANSWER_3,
                     answer: INTS_QUESTION_1_ANSWERS.ANSWER_3,
                     explanation: INTS_QUESTION_1_EXPLANATIONS.ANSWER_3,

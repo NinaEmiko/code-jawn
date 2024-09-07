@@ -1,6 +1,7 @@
 .answer-text,
 .answer-text-template-literal,
-.answer-text-boolean{
+.answer-text-boolean,
+.answer-text-int {
     background-color: transparent;
     padding: 20px;
     font-size: var(--sub-text);
@@ -9,6 +10,10 @@
 
 .answer-text-boolean{
     color:#F08C00;
+}
+
+.answer-text-int{
+    color:#58e6ff;
 }
 
 .answer-text{
