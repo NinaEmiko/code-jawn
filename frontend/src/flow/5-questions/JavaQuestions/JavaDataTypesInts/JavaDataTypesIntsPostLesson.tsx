@@ -1,10 +1,11 @@
-const JavaDataTypesStringsPostLesson = ({props}:{props:any}) => {
+const JavaDataTypesIntsPostLesson = ({props}:{props:any}) => {
 
     const handleClickContinue = () => {
         props.handleCompleteLesson()
     }
 
     return (
+
         <>
             <div className="question-container">
                 <div className="question-jawn">
@@ -19,7 +20,7 @@ const JavaDataTypesStringsPostLesson = ({props}:{props:any}) => {
             {props.restCallSuccessful &&
             <button className="input-btn" onClick={() => handleClickContinue()}>Continue</button>
             }
-            </>         
+        </>         
     )
 }
-export default JavaDataTypesStringsPostLesson;
+export default JavaDataTypesIntsPostLesson;

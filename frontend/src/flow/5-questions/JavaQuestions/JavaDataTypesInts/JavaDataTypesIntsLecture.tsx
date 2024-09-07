@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import JavaDataTypesStringsLecture1 from './JavaDataTypesStringsLecture1';
-import JavaDataTypesStringsLecture2 from './JavaDataTypesStringsLecture2';
+import JavaDataTypesIntsLecture1 from './JavaDataTypesIntsLecture1';
+import JavaDataTypesIntsLecture2 from './JavaDataTypesIntsLecture2';
 
-const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
+const JavaDataTypesIntsLecture = ({props}:{props:any}) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [startX, setStartX] = useState<number | null>(null);
     const indicators = [0, 1];
     const lectures = [
-        <JavaDataTypesStringsLecture1 key="1" />,
-        <JavaDataTypesStringsLecture2 key="2" />,
+        <JavaDataTypesIntsLecture1 key="1" />,
+        <JavaDataTypesIntsLecture2 key="2" />,
     ];
 
 
@@ -64,4 +64,4 @@ const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
         </>
     )
 }
-export default JavaDataTypesStringsLecture;
+export default JavaDataTypesIntsLecture;
