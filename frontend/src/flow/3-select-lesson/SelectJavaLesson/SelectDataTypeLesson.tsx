@@ -3,10 +3,12 @@ import { getJavaDataTypesLT } from "../../../api/api";
 
 function SelectDataTypeLesson({props}:{props:any}) {
     const [stringsComplete, setStringsComplete] = useState(false);
+    const [intsComplete, setIntsComplete] = useState(false);
 
     const getJavaDataTypesLTCall = async () => {
         const data = await getJavaDataTypesLT(props.currentUser.id);
             setStringsComplete(data.stringsLessonIsComplete);
+            setIntsComplete(data.intsLessonIsComplete);
     }
 
     const handleButtonClick = (lesson: string) => {
@@ -31,12 +33,18 @@ function SelectDataTypeLesson({props}:{props:any}) {
                     onClick={() => handleButtonClick("Java Data Types Strings")}>
                         Strings →
                 </button>
-            }       
-            <button className="lesson-btn"
-                // onClick={() => handleButtonClick("Java Data Types ints")}>
-                    onClick={() => null}>
-                    ints →
-            </button>
+            }   
+            {intsComplete ?
+                <button className="lesson-btn-complete"
+                    onClick={() => handleButtonClick("Java Data Types ints")}>
+                        ints →
+                </button>
+            :
+                <button className="lesson-btn"
+                    onClick={() => handleButtonClick("Java Data Types ints")}>
+                        ints →
+                </button>
+            }   
             <button className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Data Types booleans")} */}

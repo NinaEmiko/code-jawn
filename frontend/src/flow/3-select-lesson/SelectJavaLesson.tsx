@@ -45,8 +45,8 @@ function JavaLessons({props}:{props:any}) {
     <>
         <div className="back-btn-container">
             <button className="back-btn-jawn" onClick={handleBackClick}>
-            ←
-                </button>
+                ←
+            </button>
         </div>
         <Display>
             <div className="spacer-15" />
