@@ -53,7 +53,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
     <>
         <div className="back-btn-container">
             <button className="back-btn-jawn" onClick={handleBackClick}>
-                Back
+            ←
                 </button>
         </div>
         <Display>

@@ -33,7 +33,7 @@ const Profile = ({props}:{props:any}) => {
             {showBackBtn &&
                 <div className="back-btn-container">
                   <button className="back-btn-jawn" onClick={() => handleBackClick()} >
-                      Back
+                  ←
                   </button>
                 </div>
             }
@@ -120,7 +120,7 @@ const Profile = ({props}:{props:any}) => {
                         {activeComponent === "Terms and Conditions" &&
                             <>
                                 <TermsAndConditions props={{
-                                    
+
                                 }} />
                             </>
                         }
