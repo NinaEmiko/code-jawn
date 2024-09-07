@@ -29,7 +29,7 @@ const AnswerCodeBlock = ({props}:{props:any}) => {
     }
 
     return (
-        <div onClick={() => handleAnswerClick()} className="answer-text">
+        <div onClick={() => playCorrectSoundEffect()} className="answer-text">
             <SyntaxHighlighter language={"java"} style={customStyle} >
                 {props.code}
             </SyntaxHighlighter>
