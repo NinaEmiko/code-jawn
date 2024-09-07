@@ -9,15 +9,8 @@ const DeleteAccount = ({props}:{props:any}) => {
         console.log(data);
     }
 
-    const handleClickBack = () => {
-        props.handleBackClick()
-    }
-
     return (
         <div className="update-jawn">
-            <br/>
-            <br/>
-
             <div className="warning-txt">
                 WARNING: You are about to delete your account. This action cannot be undone. Do you wish to continue?
             </div>

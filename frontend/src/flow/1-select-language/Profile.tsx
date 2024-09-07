@@ -90,7 +90,6 @@ const Profile = ({props}:{props:any}) => {
 
                         {activeComponent === "Update Password" && 
                             <>
-                                <div className="spacer-5"/>
                                 <UpdatePassword props={{
                                     currentUser:props.currentUser
                                 }} />
@@ -99,7 +98,6 @@ const Profile = ({props}:{props:any}) => {
 
                         {activeComponent === "Update Email" && 
                             <>
-                                <div className="spacer-5"/>
                                 <UpdateEmail props={{
                                     currentUser:props.currentUser,
                                     handleUpdateEmail:props.handleUpdateEmail
@@ -109,7 +107,6 @@ const Profile = ({props}:{props:any}) => {
 
                         {activeComponent === "Delete Account" &&
                             <>
-                                <div className="spacer-10"/>
                                 <DeleteAccount props={{
                                         currentUser:props.currentUser,
                                         logout:props.logout
