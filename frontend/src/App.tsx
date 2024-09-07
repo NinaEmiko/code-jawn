@@ -155,9 +155,6 @@ function App() {
 
           {showProfile && 
             <>
-              <ProfileHeaderDisplay>
-                <Header props={{text: "Profile"}} />
-              </ProfileHeaderDisplay>
               <Profile props={{
                 logout:logout,
                 currentUser:currentUser,

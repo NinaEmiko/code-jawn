@@ -37,7 +37,7 @@ export const TERMS_AND_CONDITIONS = {
     CHANGES_TO_TERMS_TEXT: "We may modify these Terms from time to time. We will notify you of any material changes by posting the new Terms on the Service. Your continued use of the Service after such changes constitutes acceptance of the new Terms.",
     CONTACT_INFORMATION_TITLE: "13. Contact Information",
     CONTACT_INFORMATION_TEXT: "If you have any questions or concerns about these Terms, please contact us at:",
-    SUPPORT_EMAIL: "Email: [support email]",
+    SUPPORT_EMAIL: "Email: intheknow347@gmail.com",
     MISCELLANEOUS_TITLE: "14. Miscellaneous",
     MISCELLANEOUS_ENTIRE_AGREEMENT: "Entire Agreement: These Terms constitute the entire agreement between you and us regarding the Service.",
     MISCELLANEOUS_SEVERABILITY: "Severability: If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will remain in full force and effect.",

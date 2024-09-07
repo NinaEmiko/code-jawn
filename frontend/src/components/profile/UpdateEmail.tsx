@@ -22,13 +22,8 @@ const updateEmail = ({ props }: { props: any; }) => {
         props.handleBackClick()
       };    
 
-    const handleClickBack = () => {
-        props.handleBackClick()
-    }
-
     return (
         <div className="update-jawn">
-            <div className="profile-back" onClick={() => handleClickBack()}>{"Back"}</div>
             <br/>
 
             <form 

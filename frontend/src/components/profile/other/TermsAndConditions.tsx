@@ -8,7 +8,6 @@ const TermsAndConditions = ({ props }: { props: any; }) => {
 
     return (
         <div className="update-jawn">
-            <div className="profile-back" onClick={() => handleClickBack()}>{"Back"}</div>
             <br/>
             <div className="terms-section">
                 <div className="terms-title">
