@@ -1,8 +1,8 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { solarizedDarkAtom } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import useSound from "use-sound";
-import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
-import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
+import correctSoundEffect from "../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../public/sounds/incorrect-answer-sound-effect.mp3";
 
 const AnswerCodeBlock = ({props}:{props:any}) => {
     const [playCorrectSoundEffect] = useSound(correctSoundEffect);
