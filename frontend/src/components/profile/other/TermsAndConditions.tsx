@@ -2,13 +2,9 @@ import { TERMS_AND_CONDITIONS } from "../../../helpers/termsAndConditionsConstan
 
 const TermsAndConditions = ({ props }: { props: any; }) => {
 
-    const handleClickBack = () => {
-        props.handleBackClick()
-    }
-
     return (
         <div className="update-jawn">
-            <br/>
+            {/* <br/> */}
             <div className="terms-section">
                 <div className="terms-title">
                     {TERMS_AND_CONDITIONS.TITLE}

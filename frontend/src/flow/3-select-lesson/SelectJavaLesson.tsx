@@ -49,7 +49,7 @@ function JavaLessons({props}:{props:any}) {
                 </button>
         </div>
         <Display>
-            <div className="spacer-20" />
+            <div className="spacer-15" />
             <div className="container-for-language-btn2">
                 <div className="language-btn-container2" onClick={() => handleShowSection("Data Types")}>
                     <LanguageLessonContainer props={{

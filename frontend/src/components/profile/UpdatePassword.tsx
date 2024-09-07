@@ -25,8 +25,6 @@ const updatePassword = ({props}:{props:any}) => {
 
     return (
         <div className="update-jawn">
-            <br/>
-            <br/>
             <form 
             ref={newPasswordFormRef}
             onSubmit={onSubmitNewPassword}

@@ -24,8 +24,6 @@ const updateEmail = ({ props }: { props: any; }) => {
 
     return (
         <div className="update-jawn">
-            <br/>
-
             <form 
                 ref={newEmailFormRef}
                 onSubmit={onSubmitNewEmail}
