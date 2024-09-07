@@ -17,7 +17,7 @@ const JavaDataTypesIntsLecture1 = () => {
                         <div className="cell-jawn-int">5</div>
                     </div>
                     <div className="row-jawn">
-                        <div className="cell-jawn-int">five</div>
+                        <div className="cell-jawn">five</div>
                         <div className="cell-jawn-int">112</div>
                     </div>
                     <div className="row-jawn">
