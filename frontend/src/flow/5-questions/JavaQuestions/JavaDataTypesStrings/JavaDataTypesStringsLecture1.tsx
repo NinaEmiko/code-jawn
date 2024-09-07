@@ -14,16 +14,16 @@ const JavaDataTypesStringsLecture1 = () => {
                         <div className="cell-header-jawn">String</div>
                     </div>
                     <div className="row-jawn">
-                        <div className="cell-jawn">Hello World</div>
-                        <div className="cell-jawn">"Hello World!"</div>
+                        <div className="cell-jawn-string">Hello World</div>
+                        <div className="cell-jawn-string">"Hello World!"</div>
                     </div>
                     <div className="row-jawn">
                         <div className="cell-jawn"></div>
-                        <div className="cell-jawn">'Hello World!'</div>
+                        <div className="cell-jawn-string">'Hello World!'</div>
                     </div>
                     <div className="row-jawn">
                         <div className="cell-jawn"></div>
-                        <div className="cell-jawn">`Hello World!`</div>
+                        <div className="cell-jawn-string">`Hello World!`</div>
                     </div>
                 </div>
             </div>
