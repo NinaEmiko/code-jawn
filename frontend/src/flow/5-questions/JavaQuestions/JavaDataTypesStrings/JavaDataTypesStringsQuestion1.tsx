@@ -1,9 +1,6 @@
 import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock"
 import Question from "../../../../components/question/Question"
 import { useState } from "react"
-import useSound from "use-sound";
-import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
-import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
 import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral"
 import DividerJawn from "../../../../components/utility/DividerJawn"
 import MultipleChoiceAnswer from "../../../../components/answer/MultipleChoiceAnswer"
@@ -12,6 +9,9 @@ import { STRINGS_QUESTION_1_ANSWERS,
     STRINGS_QUESTION_1_BOOLEANS,
     STRINGS_QUESTION_1_EXPLANATIONS,
     STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
+import useSound from "use-sound";
+import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
 
 function JavaDataTypesStringsQuestion1({props}:{props:any}) {
     const [answer, setAnswer] = useState('');
