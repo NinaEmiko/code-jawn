@@ -7,17 +7,17 @@ export const INTS_QUESTIONS = {
 }
 
 export const INTS_QUESTION_1_ANSWERS = {
-    ANSWER_1: `"five"`,
+    ANSWER_1: `five`,
     ANSWER_2: `"5"`,
     ANSWER_3: `5`,
     ANSWER_4: `"five"`
 }
 
 export const INTS_QUESTION_1_EXPLANATIONS = {
-    ANSWER_1: `UPDATE`,
-    ANSWER_2: `UPDATE`,
-    ANSWER_3: `UPDATE`,
-    ANSWER_4: `UPDATE`
+    ANSWER_1: `ints must be represented by their numeric value(0, 1, 17).`,
+    ANSWER_2: `ints cannot be surrounded by quotation marks. Once they are, they become String values.`,
+    ANSWER_3: `5 is a valid in value! It is a whole numeric value.`,
+    ANSWER_4: `ints must be represented by their numeric value(0, 1, 17). They also cannot be surrounded by quotation marks.`
 }
 
 export const INTS_QUESTION_1_BOOLEANS = {
