@@ -39,7 +39,7 @@ function SelectMethodsLesson({props}:{props:any}) {
             <button className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Methods Overloading") */}
-                    Overloading Methods
+                    Overloading
             </button>
         </div>
     )

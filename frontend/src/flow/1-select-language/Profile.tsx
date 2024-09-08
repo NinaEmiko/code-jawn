@@ -6,6 +6,8 @@ import UpdatePassword from "../../components/profile/UpdatePassword";
 import TermsAndConditions from "../../components/profile/other/TermsAndConditions";
 import ProfileHeaderDisplay from "../../components/ProfileHeaderDisplay";
 import Header from "../../components/Header";
+import Support from "../../components/profile/other/Support";
+import Acknowledgments from "../../components/profile/other/Acknowledgments";
 
 const Profile = ({props}:{props:any}) => {
     const [activeComponent, setActiveComponent] = useState("");
@@ -66,19 +68,24 @@ const Profile = ({props}:{props:any}) => {
                                     <a onClick={() => handleUpdateActiveComponent("Update Password") } className="profile-link">Update Password</a>
                                 </div>
                                 <br/>
+                                <div className="">
                                     <a onClick={() => handleUpdateActiveComponent("Delete Account") } className="profile-link">Delete Account</a>
-                                <br/>
+                                </div>
                                 <br/>
                                 <DividerJawn />
                                 <div className="text2">
                                     Other
                                 </div>
+                                <div className="">
                                 <a onClick={() => handleUpdateActiveComponent("Terms and Conditions") } className="profile-link">Terms and Conditions</a>
-                                <div className="sub-text3">
-                                    Acknowledgments
                                 </div>
-                                <div className="sub-text3">
-                                    Support
+                                <br/>
+                                <div className="">
+                                <a onClick={() => handleUpdateActiveComponent("Acknowledgments") } className="profile-link">Acknowledgments</a>
+                                </div>
+                                <br/>
+                                <div className="">
+                                <a onClick={() => handleUpdateActiveComponent("Support") } className="profile-link">Support</a>
                                 </div>
                                 <br/>
                                 <div>
@@ -117,6 +124,22 @@ const Profile = ({props}:{props:any}) => {
                         {activeComponent === "Terms and Conditions" &&
                             <>
                                 <TermsAndConditions props={{
+
+                                }} />
+                            </>
+                        }
+
+                        {activeComponent === "Support" &&
+                            <>
+                                <Support props={{
+
+                                }} />
+                            </>
+                        }
+
+                        {activeComponent === "Acknowledgments" &&
+                            <>
+                                <Acknowledgments props={{
 
                                 }} />
                             </>
