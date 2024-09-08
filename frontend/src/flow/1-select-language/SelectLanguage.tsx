@@ -2,6 +2,7 @@ import LanguageButtonContainer from "../../components/language/LanguageButtonCon
 import Display from "../../components/Display"
 import HeaderDisplay from "../../components/HeaderDisplay"
 import Header from "../../components/Header"
+import { LANGUAGE_DESCRIPTIONS } from "../../helpers/languageDescriptionsHelper"
 
 function SelectLesson({props}:{props:any}) {
 
@@ -18,6 +19,7 @@ function SelectLesson({props}:{props:any}) {
                     language: "Java",
                     lessonsCompleted: 0,
                     totalLessons: 1,
+                    description: LANGUAGE_DESCRIPTIONS.JAVA,
                     handleButtonClick:handleButtonClick,
                     handlePageTitle:props.handlePageTitle}} />
             <LanguageButtonContainer props={{
@@ -25,8 +27,10 @@ function SelectLesson({props}:{props:any}) {
                 language: "JavaScript",
                 lessonsCompleted: 1,
                 totalLessons: 1,
+                description: LANGUAGE_DESCRIPTIONS.JAVASCRIPT,
                 handleButtonClick:null,
                 handlePageTitle:null}} />
+          <div className="spacer-10" />
         </Display>
       </>
     )
