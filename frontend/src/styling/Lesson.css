@@ -12,31 +12,43 @@
     align-items: center;
     text-align: center;
     padding-right: 10px;
+    padding-bottom: 4%;
 }
 
 .lesson-btn{
     margin: 5px;
     font-size: var(--text);
-    color: var(--accent-jawn);
+    background-color: var(--accent-jawn);
+    color: black;
     padding: 5px;
-    background: transparent;
     width: 100%;
     border: transparent;
     text-align: right;
     font-weight: bold;
+    box-shadow: 0 0 20px black; 
+    width: 66%;
+    margin-left: 33%;
+    border-radius: 15px;
+    padding: 2%;
 }
 
 .lesson-btn-complete{
+    background-color: var(--sub-secondary-jawn);
     margin: 5px;
     font-size: var(--text);
-    color: rgb(185, 185, 185);
+    color: black;
     padding: 5px;
-    background: transparent;
     width: 100%;
     border: transparent;
     text-align: right;
     font-weight: bold;
+    box-shadow: 0 0 20px black; 
+    width: 66%;
+    margin-left: 33%;
+    border-radius: 15px;
+    padding: 2%;
 }
+
 .lesson-section-jawn{
     color: var(--off-white-jawn);
     height: 20%;
