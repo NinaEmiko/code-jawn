@@ -9,9 +9,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import React from 'react';
 
 export default function TabTwoScreen() {
-  const [email, setEmail] = React.useState('')
-  const [username, setUsername] = React.useState('')
-  const [password, setPassword] = React.useState('')
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -21,28 +19,7 @@ export default function TabTwoScreen() {
           style={styles.reactLogo}
         />
       }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Register</ThemedText>
-      </ThemedView>
-      <ThemedText style={styles.text} >Email</ThemedText>
-      <TextInput
-        style={styles.textInput}
-        value={email}
-        onChangeText={setEmail}
-      />
-      <ThemedText style={styles.text} >Username</ThemedText>
-      <TextInput
-        style={styles.textInput}
-        value={username}
-        onChangeText={setUsername}
-      />
-      <ThemedText style={styles.text} >Password</ThemedText>
-      <TextInput
-        style={styles.textInput}
-        value={password}
-        onChangeText={setPassword}
-      />
-      <Button title="Submit" />
+      
     </ParallaxScrollView>
   );
 }
