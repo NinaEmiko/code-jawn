@@ -1,11 +1,15 @@
-import { Image, StyleSheet, Platform, TextInput, Button } from 'react-native';
+import { StyleSheet, Image, Platform, TextInput, Button } from 'react-native';
 
+import { Collapsible } from '@/components/Collapsible';
+import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 import React from 'react';
 
-export default function HomeScreen() {
+export default function TabTwoScreen() {
+  const [email, setEmail] = React.useState('')
   const [username, setUsername] = React.useState('')
   const [password, setPassword] = React.useState('')
   return (
@@ -18,8 +22,14 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Login</ThemedText>
+        <ThemedText type="title">Register</ThemedText>
       </ThemedView>
+      <ThemedText style={styles.text} >Email</ThemedText>
+      <TextInput
+        style={styles.textInput}
+        value={email}
+        onChangeText={setEmail}
+      />
       <ThemedText style={styles.text} >Username</ThemedText>
       <TextInput
         style={styles.textInput}
@@ -38,15 +48,16 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  headerImage: {
+    color: '#808080',
+    bottom: -90,
+    left: -35,
+    position: 'absolute',
+  },
   titleContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
     gap: 8,
     marginBottom: 25,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
   },
   reactLogo: {
     height: 178,
