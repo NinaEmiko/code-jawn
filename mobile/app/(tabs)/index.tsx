@@ -3,11 +3,12 @@ import { Image, StyleSheet, TextInput, Button, Pressable, Text } from 'react-nat
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function HomeScreen() {
   const [tab, setTab] = React.useState('Login')
   const [onLogin, setOnLogin] = React.useState(true)
+  const [focus, setFocus] = useState<string | null>(null);
   const [email, setEmail] = React.useState('')
   const [username, setUsername] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -24,6 +25,14 @@ export default function HomeScreen() {
   const handlePress = () => {
 
   }
+
+  const handleFocus = (input: string) => {
+    setFocus(input);
+  };
+
+  const handleBlur = () => {
+    setFocus(null);
+  };
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -33,28 +42,33 @@ export default function HomeScreen() {
           style={styles.reactLogo}
         />
       }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">{tab}</ThemedText>
-      </ThemedView>
+      <Text style={styles.titleText}>{tab}</Text>
 
       {tab === 'Register' &&
         <><ThemedText style={styles.text}>Email</ThemedText><TextInput
-            style={styles.textInput}
+            style={[styles.textInput, focus === 'Email' ? styles.inputFocused : styles.inputUnfocused]}
+            onFocus={() => handleFocus('Email')}
+            onBlur={handleBlur}
             value={email}
             onChangeText={setEmail} /></>
       }
 
       <ThemedText style={styles.text} >Username</ThemedText>
       <TextInput
-        style={styles.textInput}
+        style={[styles.textInput, focus === 'Username' ? styles.inputFocused : styles.inputUnfocused]}
+        onFocus={() => handleFocus('Username')}
+        onBlur={handleBlur}
         value={username}
         onChangeText={setUsername}
       />
       <ThemedText style={styles.text} >Password</ThemedText>
       <TextInput
-        style={styles.textInput}
+        style={[styles.textInput, focus === 'Password' ? styles.inputFocused : styles.inputUnfocused]}
+        onFocus={() => handleFocus('Password')}
+        onBlur={handleBlur}
         value={password}
         onChangeText={setPassword}
+        secureTextEntry={true}
       />
 
       <Pressable
@@ -102,12 +116,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   textInput: {
-    height: 50,
-    borderWidth: 1,
-    borderRadius: 25,
+    height: 40,
+    borderBottomWidth: 1,
+    // borderRadius: 25,
+    fontSize: 25,
+    color: "#ff7100",
+    borderColor: "grey",
   },
   text: {
-    color: "#ff7100",
+    color: "white",
     fontSize: 25,
   },
   button: {
@@ -116,7 +133,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     height: 50,
     borderWidth: 1,
-    borderRadius: 25,
+    borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -128,5 +145,17 @@ const styles = StyleSheet.create({
   },
   tabButton: {
     // bottom: 0
-  }
+  },
+  inputFocused: {
+    borderColor: '#ff7100',
+  },
+  inputUnfocused: {
+    borderColor: 'gray',
+  },
+  titleText: {
+    color: "#ff7100",
+    fontSize: 30,
+    fontWeight: "bold",
+    marginBottom: 25,
+  },
 });
