@@ -1,11 +1,12 @@
 import { StyleSheet, Image, Platform, Text, Button, View, Pressable } from 'react-native';
 
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { LANGUAGES } from '@/constants/SelectLanguageConstants';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Link } from 'expo-router';
 
 export default function FeedScreen({ props }: { props: any; }) {
+  const JAWN = '/javaLessons'
 
   const handlePress = () => {
     props.setIsLoggedIn(false)
@@ -21,21 +22,19 @@ export default function FeedScreen({ props }: { props: any; }) {
         style={styles.reactLogo}
       />
     }>
-          <Text style={styles.titleText}>Select a Language</Text>
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>Java</Text>
-            <Text style={styles.text}>
-              Java is a high-level, object-oriented programming language. 
-              It's widely used for building robust, secure, and scalable applications, from web and mobile apps to enterprise and embedded systems.
-              </Text>
-              <Link style={styles.lessonButton} href="/javaLessons">Go to Java lessons</Link>
-          </View>
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>JavaScript</Text>
-            <Text style={styles.text}>
-            JavaScript is a versatile, high-level programming language primarily used for adding interactive and dynamic features to websites.</Text>
-              {/* <Link href="/">Go to JavaScript lessons</Link> */}
-          </View>
+      <Text style={styles.titleText}>Select a Language</Text>
+        {LANGUAGES.map((item, index) => {
+          const path = `${item.route}`;
+return (
+          <View key={index} style={styles.card}>
+          <Text style={styles.cardTitle}>{item.language}</Text>
+          <Text style={styles.text}>
+              {item.description}
+            </Text>
+            <Link style={styles.lessonButton} href={path}>Go to {item.language} lessons</Link>
+        </View>
+)
+})}
           <Pressable
             style={({ pressed }) => [
               styles.button,
@@ -76,7 +75,6 @@ const styles = StyleSheet.create({
   cardTitle: {
     color: "#ff7100",
     fontSize: 30,
-    // fontWeight: "bold",
     marginBottom: 10,
     marginLeft: 15,
     marginTop: 15,
@@ -86,15 +84,10 @@ const styles = StyleSheet.create({
     color: "#ff7100",
     fontSize: 30,
     fontWeight: "bold",
-    // marginBottom: 25,
-    // marginLeft: 25,
     fontFamily: "Menlo",
   },
   card: {
     backgroundColor: "#626262",
-    // marginLeft: 20,
-    // width: 390,
-    // height: 300,
     borderRadius: 15,
   },
   text: {

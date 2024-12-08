@@ -1,8 +1,9 @@
 import { StyleSheet, Image, Platform, Text, Button, View, Pressable } from 'react-native';
 
-import { lessons, lessonDescriptions } from '@/constants/JavaLessonsConstants';
+import { LESSONS } from '@/constants/JavaLessonsConstants';
 import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { Collapsible } from '@/components/Collapsible';
 
 export default function JavaLessonsScreen({ props }: { props: any; }) {
 
@@ -21,14 +22,19 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
       />
     }>
 
-        {lessons.map((item, index) => (
+        {LESSONS.map((item, index) => (
           <View key={index} style={styles.card}>
-          <Text style={styles.cardTitle}>{item}</Text>
-          <Text style={styles.text}>
-              {lessonDescriptions[index]}
-            </Text>
-            {/* <Link href="/">Go to Java lessons</Link> */}
+            <Collapsible title={item.LESSON} >
+
+              {item.SUB_LESSON.map((item, index) =>(
+                <Text style={styles.text}>
+                  {item}
+                </Text>
+
+              ))}
+            </Collapsible>
         </View>
+        
         ))}
       </ParallaxScrollView>
   );
