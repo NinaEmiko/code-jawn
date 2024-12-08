@@ -27,7 +27,7 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
             <Collapsible title={item.LESSON} >
 
               {item.SUB_LESSON.map((item, index) =>(
-                <Text style={styles.text}>
+                <Text key={index} style={styles.text}>
                   {item}
                 </Text>
 

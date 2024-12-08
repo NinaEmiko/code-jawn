@@ -1,4 +1,4 @@
-import { StyleSheet, Image, Platform, Text, Button } from 'react-native';
+import { StyleSheet, Image, Platform, Text, Button, Pressable, View } from 'react-native';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import React from 'react';
@@ -15,7 +15,31 @@ export default function SettingsScreen() {
         />
       }>
 
-        <Text style={styles.titleText}>Settings</Text>
+        <Text style={styles.titleText}>Account</Text>
+        <Text style={styles.text}>AccountName</Text>
+        <Text style={styles.text}>AccountEmail</Text>
+        <View style={styles.divider} />
+
+        <Text style={styles.titleText}>Security</Text>
+        <Text style={styles.text}>Update Email</Text>
+        <Text style={styles.text}>Update Password</Text>
+        <Text style={styles.text}>Delete Account</Text>
+        <View style={styles.divider} />
+        
+        <Text style={styles.titleText}>Other</Text>
+        <Text style={styles.text}>Terms and Conditions</Text>
+        <Text style={styles.text}>Acknowledgments</Text>
+        <Text style={styles.text}>Support</Text>
+
+        <Pressable
+            style={({ pressed }) => [
+              styles.button,
+              pressed && styles.pressed,
+            ]}
+            onPress={() => null}
+          >
+            <Text style={styles.buttonText}>Sign Out</Text>
+          </Pressable>
       
     </ParallaxScrollView>
   );
@@ -46,13 +70,33 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   text: {
-    color: "#ff7100",
-    fontSize: 25,
+    color: "white",
+    fontSize: 15,
   },
   titleText: {
     color: "#ff7100",
     fontSize: 30,
-    fontWeight: "bold",
-    marginBottom: 25,
+  },
+  button: {
+    marginTop: 35,
+    backgroundColor: "#12edd8",
+    fontSize: 25,
+    height: 50,
+    borderWidth: 1,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  pressed: {
+    opacity: 0.7,
+  },
+  buttonText: {
+    fontSize: 25,
+    fontFamily: "Menlo",
+  },
+  divider: {
+    height: 1,
+    backgroundColor: 'gray',
+    marginVertical: 5,
   },
 });
