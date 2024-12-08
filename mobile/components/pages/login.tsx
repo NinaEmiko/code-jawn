@@ -124,10 +124,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: "#ff7100",
     borderColor: "grey",
+    fontFamily: "Menlo",
   },
   text: {
     color: "white",
     fontSize: 25,
+    fontFamily: "Menlo",
   },
   button: {
     marginTop: 35,
@@ -144,6 +146,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 25,
+    fontFamily: "Menlo",
   },
   tabButton: {
     // bottom: 0
@@ -159,5 +162,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 25,
+    fontFamily: "Menlo",
   },
 });

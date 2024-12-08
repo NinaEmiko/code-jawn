@@ -1,11 +1,10 @@
 import { StyleSheet, Image, Platform, Text, Button, View, Pressable } from 'react-native';
 
+import { lessons, lessonDescriptions } from '@/constants/JavaLessonsConstants';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { Link } from 'expo-router';
 
-export default function FeedScreen({ props }: { props: any; }) {
+export default function JavaLessonsScreen({ props }: { props: any; }) {
 
   const handlePress = () => {
     props.setIsLoggedIn(false)
@@ -21,30 +20,16 @@ export default function FeedScreen({ props }: { props: any; }) {
         style={styles.reactLogo}
       />
     }>
-          <Text style={styles.titleText}>Select a Language</Text>
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>Java</Text>
-            <Text style={styles.text}>
-              Java is a high-level, object-oriented programming language. 
-              It's widely used for building robust, secure, and scalable applications, from web and mobile apps to enterprise and embedded systems.
-              </Text>
-              <Link style={styles.lessonButton} href="/javaLessons">Go to Java lessons</Link>
-          </View>
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>JavaScript</Text>
-            <Text style={styles.text}>
-            JavaScript is a versatile, high-level programming language primarily used for adding interactive and dynamic features to websites.</Text>
-              {/* <Link href="/">Go to JavaScript lessons</Link> */}
-          </View>
-          <Pressable
-            style={({ pressed }) => [
-              styles.button,
-              pressed && styles.pressed,
-            ]}
-            onPress={() => handlePress()}
-          >
-            <Text style={styles.buttonText}>Log Out</Text>
-          </Pressable>
+
+        {lessons.map((item, index) => (
+          <View key={index} style={styles.card}>
+          <Text style={styles.cardTitle}>{item}</Text>
+          <Text style={styles.text}>
+              {lessonDescriptions[index]}
+            </Text>
+            {/* <Link href="/">Go to Java lessons</Link> */}
+        </View>
+        ))}
       </ParallaxScrollView>
   );
 }
@@ -121,12 +106,4 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: "Menlo",
   },
-  lessonButton: {
-    fontFamily: "Menlo",
-    color: "#0000EE",
-    textDecorationLine: "underline",
-    textAlign: "right",
-    marginBottom: 15,
-    marginRight: 15,
-  }
 });
