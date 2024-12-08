@@ -2,10 +2,10 @@ import { Image, StyleSheet, TextInput, Button, Pressable, Text } from 'react-nat
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import React, { useState } from 'react';
+import { Link } from 'expo-router';
 
-export default function HomeScreen() {
+export default function LoginScreen({ props }: { props: any; }) {
   const [tab, setTab] = React.useState('Login')
   const [onLogin, setOnLogin] = React.useState(true)
   const [focus, setFocus] = useState<string | null>(null);
@@ -20,10 +20,11 @@ export default function HomeScreen() {
     } else {
       setTab("Login")
     }
+    // setFocus(null);
   }
 
   const handlePress = () => {
-
+    props.setIsLoggedIn(true)
   }
 
   const handleFocus = (input: string) => {
@@ -38,7 +39,7 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/WP1.jpeg')}
           style={styles.reactLogo}
         />
       }>
@@ -79,6 +80,7 @@ export default function HomeScreen() {
         onPress={() => handlePress()}
       >
         <Text style={styles.buttonText}>Submit</Text>
+        {/* <Link style={styles.buttonText} href="/home">Submit</Link> */}
       </Pressable>
 
       {onLogin ?
@@ -109,8 +111,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
+    height: 250,
+    width: 430,
     bottom: 0,
     left: 0,
     position: 'absolute',

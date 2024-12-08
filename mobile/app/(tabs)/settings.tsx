@@ -1,24 +1,21 @@
-import { StyleSheet, Image, Platform, TextInput, Button } from 'react-native';
+import { StyleSheet, Image, Platform, Text, Button } from 'react-native';
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import React from 'react';
 
-export default function TabTwoScreen() {
+export default function SettingsScreen() {
 
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/WP1.jpeg')}
           style={styles.reactLogo}
         />
       }>
+
+        <Text style={styles.titleText}>Settings</Text>
       
     </ParallaxScrollView>
   );
@@ -37,8 +34,8 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
+    height: 250,
+    width: 430,
     bottom: 0,
     left: 0,
     position: 'absolute',
@@ -51,5 +48,11 @@ const styles = StyleSheet.create({
   text: {
     color: "#ff7100",
     fontSize: 25,
-  }
+  },
+  titleText: {
+    color: "#ff7100",
+    fontSize: 30,
+    fontWeight: "bold",
+    marginBottom: 25,
+  },
 });
