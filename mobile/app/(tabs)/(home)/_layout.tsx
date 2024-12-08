@@ -14,6 +14,13 @@ export default function RootLayout() {
         headerBackTitle: 'Back',
       }}
       />
+      <Stack.Screen 
+      name="lessons/java/dataTypes/strings" 
+      options={{
+        title: 'Strings',
+        headerBackTitle: 'Back',
+      }}
+      />
     </Stack>
   );
 }

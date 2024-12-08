@@ -88,14 +88,36 @@ const OPERATORS_LESSONS = [
     '='
 ]
 
+const DATA_TYPES_ROUTES = [
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+    '/(tabs)/(home)/lessons/java/dataTypes/strings',
+]
+
 export const LESSONS = [
-    {LESSON: "Data Types", SUB_LESSON: DATA_TYPES_LESSONS},
-    {LESSON: "Variables", SUB_LESSON: VARIABLES_LESSONS},
-    {LESSON: "For Loops", SUB_LESSON: FOR_LOOPS_LESSONS},
-    {LESSON: "Conditionals", SUB_LESSON: CONDITIONALS_LESSONS},
-    {LESSON: "Arrays", SUB_LESSON: ARRAYS_LESSONS},
-    {LESSON: "Collections", SUB_LESSON: COLLECTIONS_LESSONS},
-    {LESSON: "Methods", SUB_LESSON: METHODS_LESSONS},
-    {LESSON: "Operators", SUB_LESSON: OPERATORS_LESSONS},
+    {LESSON: "Data Types", SUB_LESSON: DATA_TYPES_LESSONS, ROUTES: DATA_TYPES_ROUTES},
+    {LESSON: "Variables", SUB_LESSON: VARIABLES_LESSONS, ROUTES: DATA_TYPES_ROUTES},
+    {LESSON: "For Loops", SUB_LESSON: FOR_LOOPS_LESSONS, ROUTES: DATA_TYPES_ROUTES},
+    {LESSON: "Conditionals", SUB_LESSON: CONDITIONALS_LESSONS, ROUTES: DATA_TYPES_ROUTES},
+    {LESSON: "Arrays", SUB_LESSON: ARRAYS_LESSONS, ROUTES: DATA_TYPES_ROUTES},
+    {LESSON: "Collections", SUB_LESSON: COLLECTIONS_LESSONS, ROUTES: DATA_TYPES_ROUTES},
+    {LESSON: "Methods", SUB_LESSON: METHODS_LESSONS, ROUTES: DATA_TYPES_ROUTES},
+    {LESSON: "Operators", SUB_LESSON: OPERATORS_LESSONS, ROUTES: DATA_TYPES_ROUTES},
 ]
     

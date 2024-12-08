@@ -4,9 +4,8 @@ import { LESSONS } from '@/constants/JavaLessonsConstants';
 import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
-import { Link } from 'expo-router';
 
-export default function JavaLessonsScreen({ props }: { props: any; }) {
+export default function JavaDataTypesStrings({ props }: { props: any; }) {
 
   const handlePress = () => {
     props.setIsLoggedIn(false)
@@ -23,21 +22,9 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
         />
       }>
 
-        {LESSONS.map((item, index) => {
-          const path = `${item.ROUTES[index]}`;
-          return (
-          <View key={index} style={styles.card}>
-            <Collapsible title={item.LESSON} >
+        <Text style={styles.buttonText}>Strings and Things</Text>
+        
 
-              {item.SUB_LESSON.map((item, index) =>{
-                return (
-                  <Link key={index} style={styles.text} href={path}>{item}</Link>
-                )
-              })}
-            </Collapsible>
-        </View>
-          )
-        })}
       </ParallaxScrollView>
   );
 }
@@ -106,8 +93,8 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   buttonText: {
+    fontSize: 25,
     fontFamily: "Menlo",
     color: "white",
-    marginLeft: 20,
   },
 });
