@@ -29,6 +29,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="(home)"
         options={{
+          // href: null, //Removes the tab on the tab bar, can tweak to hide bar on ccertain screens when not tired.
           title: 'Home',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}

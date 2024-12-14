@@ -3,6 +3,7 @@ import { Stack } from 'expo-router';
 export default function RootLayout() {
   return (
     <Stack>
+      
       <Stack.Screen 
       name="index" 
       options={{ headerShown: false }}
@@ -18,7 +19,7 @@ export default function RootLayout() {
       name="lessons/java/dataTypes/strings" 
       options={{
         title: 'Strings',
-        headerBackTitle: 'Back',
+        headerBackTitle: 'Exit',
       }}
       />
     </Stack>

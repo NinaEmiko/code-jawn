@@ -1,11 +1,14 @@
-import { Image, StyleSheet, TextInput, Button, Pressable, Text } from 'react-native';
+import { Image, StyleSheet, TextInput, Button, Pressable, Text, View, ImageBackground } from 'react-native';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import React, { useState } from 'react';
 import { Link } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
+import GetStartedScreen from './getStarted';
 
 export default function LoginScreen({ props }: { props: any; }) {
+  const [getStarted, setGetStarted] = React.useState(true);
   const [tab, setTab] = React.useState('Login')
   const [onLogin, setOnLogin] = React.useState(true)
   const [focus, setFocus] = useState<string | null>(null);
@@ -35,6 +38,12 @@ export default function LoginScreen({ props }: { props: any; }) {
     setFocus(null);
   };
   return (
+    <>
+    {getStarted ?
+    <GetStartedScreen props={{setGetStarted:setGetStarted}} />
+    :
+
+
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
@@ -96,10 +105,37 @@ export default function LoginScreen({ props }: { props: any; }) {
       }
 
     </ParallaxScrollView>
+    }
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  getStartedButtonText: {
+    color: "white",
+    fontSize: 25,
+    fontFamily: "Menlo",
+    bottom: 0,
+  },
+  getStartedButton: {
+    // color: "white",
+  },
+  gradientOverlay: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 700,
+  },
+  getStartedContainer: {
+    fontSize: 20,
+    color: "white",
+  },
+  backgroundImage: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
