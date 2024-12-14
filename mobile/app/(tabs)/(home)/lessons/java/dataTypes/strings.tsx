@@ -17,13 +17,12 @@ export default function JavaDataTypesStrings({ props }: { props: any; }) {
 
   return (
     <>
-        <View style={styles.lessonCard}>
-          <Text style={styles.text}>
+    <View style={styles.lessonContainer}>
+    <Text style={styles.text}>
               {STRINGS_LESSONS[0].EXPLANATION}
             </Text>
-            {/* <Link style={styles.lessonButton} href=''>Go to lessons</Link> */}
-        </View>
-        <View style={styles.lessonCard2}>
+      </View>
+      <View style={styles.buttonContainer}>
         <Pressable
             style={({ pressed }) => [
               styles.button,
@@ -35,29 +34,26 @@ export default function JavaDataTypesStrings({ props }: { props: any; }) {
           </Pressable>
           </View>
       </>
-        
 
   );
 }
 
 const styles = StyleSheet.create({
-  lessonCard: {
-    backgroundColor: "#626262",
-    height: screenHeight * 0.33,
-    justifyContent: "center",
-    textAlign: "center",
-    paddingLeft: 20,
-    paddingRight: 20,
+  lessonContainer: {
+    backgroundColor: "#151718",
+    height: screenHeight * .70,
   },
-  lessonCard2: {
-    height: screenHeight * 0.50,
-    paddingLeft: 10,
-    paddingRight: 10,
+  buttonContainer: {
+    height: screenHeight * 0.30,
+    paddingLeft: 30,
+    paddingRight: 30,
+    backgroundColor: "#151718",
   },
   text: {
     fontFamily: "Menlo",
-    color: "black",
+    color: "white",
     fontSize: 20,
+    padding: 20,
   },
   button: {
     backgroundColor: "#12edd8",
@@ -67,7 +63,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    bottom: 0,
   },
   pressed: {
     opacity: 0.7,

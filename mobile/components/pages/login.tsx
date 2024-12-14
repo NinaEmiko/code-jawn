@@ -1,10 +1,7 @@
-import { Image, StyleSheet, TextInput, Button, Pressable, Text, View, ImageBackground } from 'react-native';
+import { Image, StyleSheet, TextInput, Button, Pressable, Text } from 'react-native';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
 import React, { useState } from 'react';
-import { Link } from 'expo-router';
-import { LinearGradient } from 'expo-linear-gradient';
 import GetStartedScreen from './getStarted';
 
 export default function LoginScreen({ props }: { props: any; }) {
@@ -48,30 +45,33 @@ export default function LoginScreen({ props }: { props: any; }) {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/WP1.jpeg')}
+          source={require('@/assets/images/HomeScreen2.png')}
           style={styles.reactLogo}
         />
       }>
       <Text style={styles.titleText}>{tab}</Text>
 
       {tab === 'Register' &&
-        <><ThemedText style={styles.text}>Email</ThemedText><TextInput
+        <>
+          <TextInput
             style={[styles.textInput, focus === 'Email' ? styles.inputFocused : styles.inputUnfocused]}
             onFocus={() => handleFocus('Email')}
             onBlur={handleBlur}
             value={email}
-            onChangeText={setEmail} /></>
+            onChangeText={setEmail} 
+            placeholder='Email'
+          />
+        </>
       }
 
-      <ThemedText style={styles.text} >Username</ThemedText>
       <TextInput
         style={[styles.textInput, focus === 'Username' ? styles.inputFocused : styles.inputUnfocused]}
         onFocus={() => handleFocus('Username')}
         onBlur={handleBlur}
         value={username}
         onChangeText={setUsername}
+        placeholder='Username'
       />
-      <ThemedText style={styles.text} >Password</ThemedText>
       <TextInput
         style={[styles.textInput, focus === 'Password' ? styles.inputFocused : styles.inputUnfocused]}
         onFocus={() => handleFocus('Password')}
@@ -79,6 +79,7 @@ export default function LoginScreen({ props }: { props: any; }) {
         value={password}
         onChangeText={setPassword}
         secureTextEntry={true}
+        placeholder='Password'
       />
 
       <Pressable
@@ -111,41 +112,6 @@ export default function LoginScreen({ props }: { props: any; }) {
 }
 
 const styles = StyleSheet.create({
-  getStartedButtonText: {
-    color: "white",
-    fontSize: 25,
-    fontFamily: "Menlo",
-    bottom: 0,
-  },
-  getStartedButton: {
-    // color: "white",
-  },
-  gradientOverlay: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    height: 700,
-  },
-  getStartedContainer: {
-    fontSize: 20,
-    color: "white",
-  },
-  backgroundImage: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    marginBottom: 25,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
   reactLogo: {
     height: 250,
     width: 430,
@@ -161,6 +127,7 @@ const styles = StyleSheet.create({
     color: "#ff7100",
     borderColor: "grey",
     fontFamily: "Menlo",
+    marginBottom: 15,
   },
   text: {
     color: "white",
@@ -168,7 +135,6 @@ const styles = StyleSheet.create({
     fontFamily: "Menlo",
   },
   button: {
-    marginTop: 35,
     backgroundColor: "#12edd8",
     fontSize: 25,
     height: 50,
@@ -183,9 +149,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 25,
     fontFamily: "Menlo",
-  },
-  tabButton: {
-    // bottom: 0
   },
   inputFocused: {
     borderColor: '#ff7100',

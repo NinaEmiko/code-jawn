@@ -1,6 +1,7 @@
-import { StyleSheet, Pressable, Text, ImageBackground, View } from 'react-native';
+import { StyleSheet, ImageBackground, Text } from 'react-native';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
+import GlowingButton from '../GlowingButton';
 
 export default function GetStartedScreen({ props }:{ props: any}) {
 
@@ -14,6 +15,9 @@ export default function GetStartedScreen({ props }:{ props: any}) {
             source={require('../../assets/images/HomeScreen.png')}
             style={styles.backgroundImage}
             resizeMode="cover">
+                <Text style={styles.title}>
+                    Code Jawn
+                </Text>
             <LinearGradient
                 colors={[
                     'rgba(0, 0, 0, 0)',
@@ -25,37 +29,14 @@ export default function GetStartedScreen({ props }:{ props: any}) {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 0, y: 1 }}           
                 style={styles.gradientOverlay}/>
-            <View style={styles.buttonContainer}>
-                <Pressable
-                    style={({ pressed }) => [
-                    styles.getStartedButton,
-                    pressed && styles.pressed,
-                    ]}
-                    onPress={() => handlePress()}>
-                    <Text style={styles.getStartedButtonText}>Get Started</Text>
-                </Pressable>
-            </View>
+
+        <GlowingButton props={{buttonColor: "#12edd8", buttonPress:handlePress, buttonText: "Get Started"}} />
       </ImageBackground>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-    buttonContainer: {
-        position: 'absolute',
-        bottom: 200,
-        width: '100%',
-        alignItems: 'center',
-    },
-    getStartedButtonText: {
-        color: "white",
-        fontSize: 25,
-        fontFamily: "Menlo",
-        bottom: 0,
-    },
-    getStartedButton: {
-        // color: "white",
-    },
     gradientOverlay: {
         position: 'absolute',
         left: 0,
@@ -65,15 +46,16 @@ const styles = StyleSheet.create({
     },
     backgroundImage: {
         flex: 1,
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
     },
-    text: {
-        color: "white",
-        fontSize: 25,
-        fontFamily: "Menlo",
-    },
-    pressed: {
-        opacity: 0.7,
-    },
+    title: {
+        color: "#ff7100",
+        fontWeight: "bold",
+        fontSize: 50,
+        paddingTop: 100,
+        textShadowColor: 'black',
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 5
+    }
 });

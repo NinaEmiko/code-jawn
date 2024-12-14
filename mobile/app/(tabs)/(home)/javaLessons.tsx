@@ -5,6 +5,7 @@ import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
 import { Link } from 'expo-router';
+import ProgressCircle from '@/components/ProgressCircle';
 
 export default function JavaLessonsScreen({ props }: { props: any; }) {
 
@@ -22,8 +23,8 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
           style={styles.reactLogo}
         />
       }>
-
-        {LESSONS.map((item, index) => {
+<>
+        {/* {LESSONS.map((item, index) => {
           const path = `${item.ROUTES[index]}`;
           return (
           <View key={index} style={styles.card}>
@@ -37,12 +38,42 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
             </Collapsible>
         </View>
           )
+        })} */}
+                {LESSONS.map((item, index) => {
+          const path = `${item.ROUTES[index]}`;
+          return (
+          <View key={index}>
+            <Collapsible title={item.LESSON} >
+
+            <View style={styles.container}>
+              {item.SUB_LESSON.map((item, index) =>{
+                return (
+                  <Link key={index} style={styles.card} href={path}>
+                  <View>
+                    <Text style={styles.text}>{item}</Text>
+                  <ProgressCircle props={{percentage:30}} />
+                  </View>
+                  </Link>
+                )
+              })}
+              </View>
+            </Collapsible>
+        </View>
+          )
         })}
+        
+        </>
       </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    width: "100%",
+  },
   headerImage: {
     color: '#808080',
     bottom: -90,
@@ -81,16 +112,21 @@ const styles = StyleSheet.create({
     fontFamily: "Menlo",
   },
   card: {
-    backgroundColor: "#626262",
-    borderRadius: 15,
+    width: '48%',
+    marginBottom: 10,
+    backgroundColor: "#333333",
+    borderRadius: 30,
   },
   text: {
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 15,
     fontFamily: "Menlo",
-    color: "white",
+    color: "#12edd8",
     fontSize: 20,
+    textAlign: "center",
+    paddingTop: 15,
+    fontWeight: "bold",
   },
   button: {
     marginTop: 35,

@@ -8,6 +8,11 @@ export const LANGUAGES = [
     {   language: "JavaScript",
         route: "/javaLessons",
         description: 'JavaScript is a versatile, high-level programming language primarily used for adding interactive and dynamic features to websites.',
+    },
+    {
+        language: "Python",
+        route: "/javaLessons",
+        description: 'Python is a high-level, interpreted programming language known for its readability and simplicity, making it ideal for beginners and experienced developers alike. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming, and is widely used in fields like web development, data science, artificial intelligence, and automation.',
+    
     }
-
 ]
