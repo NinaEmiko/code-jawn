@@ -49,9 +49,9 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
               {item.SUB_LESSON.map((item, index) =>{
                 return (
                   <Link key={index} style={styles.card} href={path}>
-                  <View>
+                  <View style={styles.progress}>
                     <Text style={styles.text}>{item}</Text>
-                  <ProgressCircle props={{percentage:30}} />
+                  <ProgressCircle props={{percentage:30, style: {width: 160, height: 160}}} />
                   </View>
                   </Link>
                 )
@@ -68,6 +68,9 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
 }
 
 const styles = StyleSheet.create({
+  progress: {
+    alignItems: "center",
+  },
   container: {
     flexDirection: 'row',
     flexWrap: 'wrap',

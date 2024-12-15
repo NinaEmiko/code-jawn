@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import Svg, { Circle, Text as SvgText } from 'react-native-svg';
 
 const ProgressCircle = ({ props }: { props: any }) => {
-  const radius = 60;
+  const radius = props.size || 60;
   const circumference = 2 * Math.PI * radius;
   const [currentPercentage, setCurrentPercentage] = useState(0);
   const strokeDashoffset = circumference - (currentPercentage / 100) * circumference;
@@ -29,16 +29,16 @@ const ProgressCircle = ({ props }: { props: any }) => {
   }, [props.percentage]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, props.style]}>
       <Svg
-        width={6 * radius}
-        height={3 * radius}
-        viewBox={`-15 -30 ${3 * radius} ${3 * radius}`}
+        width={props.style?.width || 6 * radius}
+        height={props.style?.height ||3 * radius}
+        viewBox={`0 0 ${2 * radius + 40} ${2 * radius + 40}`}
       >
         {/* Background Circle */}
         <Circle
-          cx={radius}
-          cy={radius}
+          cx={radius + 20}
+          cy={radius + 20}
           r={radius}
           stroke="grey" // Background color of the circle
           strokeWidth="5"
@@ -47,8 +47,8 @@ const ProgressCircle = ({ props }: { props: any }) => {
         
         {/* Progress Circle */}
         <Circle
-          cx={radius}
-          cy={radius}
+          cx={radius + 20}
+          cy={radius + 20}
           r={radius}
           stroke="#ff7100" // Progress color
           strokeWidth="5"
@@ -56,16 +56,16 @@ const ProgressCircle = ({ props }: { props: any }) => {
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
-          transform={`rotate(${rotation} ${radius} ${radius})`}
+          transform={`rotate(${rotation} ${radius + 20} ${radius + 20})`}
         />
         
         {/* Percentage Text */}
         <SvgText
-          x="17%"
-          y="34%"
-          textAnchor="middle"
-          alignmentBaseline="middle"
-          fontSize="18"
+          x="50%" // Position text at 50% of the circle's width
+          y="50%" // Position text at 50% of the circle's height
+          textAnchor="middle" // Center text horizontally
+          alignmentBaseline="middle" // Center text vertically
+          fontSize={radius / 3} // Adjust font size relative to radius
           fontWeight="bold"
           fill="#12edd8"
         >

@@ -60,9 +60,9 @@ export default function FeedScreen({ props }: { props: any; }) {
           </TouchableOpacity>
         ))}
       </ScrollView>
-
-      <ProgressCircle props={{percentage:activeProgress}} />
-
+      <View style={styles.progress}>
+        <ProgressCircle props={{percentage:activeProgress, style:{width: 200, height: 200}}} />
+      </View>
       <View style={styles.card}>
         <Text style={styles.text}>
           {activeDescription}
@@ -88,6 +88,9 @@ export default function FeedScreen({ props }: { props: any; }) {
 }
 
 const styles = StyleSheet.create({
+  progress: {
+    alignItems: "center"
+  },
   scrollContainer: {
     flexDirection: 'row',
   },
