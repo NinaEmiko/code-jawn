@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: STYLES.FONT,
-    fontSize: 20,
+    fontSize: STYLES.FONT_SIZE_SUB_TEXT,
     paddingTop: 20,
     paddingLeft: 60,
     paddingRight: 40,

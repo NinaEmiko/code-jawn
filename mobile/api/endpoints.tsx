@@ -1,3 +1,4 @@
+// const BASE_URL = process.env.BASE_URL;
 const BASE_URL = '';
 
 export const ENDPOINTS = {

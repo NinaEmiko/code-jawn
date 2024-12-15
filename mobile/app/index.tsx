@@ -1,10 +1,12 @@
 import { Image, StyleSheet, TextInput, Button, Pressable, Text } from 'react-native';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView2';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GetStartedScreen from './getStarted';
-import { Link } from 'expo-router';
+import { router } from 'expo-router';
 import { STYLES } from '@/assets/styles';
+import { login } from '@/api/apiService';
+import { useUser } from '@/context/UserContext';
 
 export default function LoginScreen() {
     const [getStarted, setGetStarted] = React.useState(true);
@@ -14,6 +16,7 @@ export default function LoginScreen() {
     const [email, setEmail] = React.useState('')
     const [username, setUsername] = React.useState('')
     const [password, setPassword] = React.useState('')
+    const { setCurrentUser, currentUser } = useUser();
 
     const handleTab = () => {
         setOnLogin(!onLogin)
@@ -31,6 +34,36 @@ export default function LoginScreen() {
     const handleBlur = () => {
         setFocus(null);
     };
+
+    const handleNavigation = async () => {
+        // const data = await login(username, password);
+
+        const data = {
+            id: 1,
+            username: "Lola",
+            email: "Lola@email.com"
+        }
+
+        try {
+        setCurrentUser(data);
+        console.log('set current user: ');
+        router.push("/(tabs)/(home)");
+        } catch (error) {
+            console.log('error: ' + error);
+        }
+        // Cookies.set('storedId', data.userId);
+        // Cookies.set('storedUsername', data.username);
+        // Cookies.set('storedEmail', data.email);
+        // Cookies.set('authHeader', data.token);
+        // setAuthHeader(data.token);
+    }
+
+    useEffect(() => {
+        console.log('User data updated:', currentUser);
+        if (currentUser) {
+            router.push("/(tabs)/(home)");
+        }
+    }, [currentUser])
 
     return (
         <>
@@ -84,10 +117,9 @@ export default function LoginScreen() {
                         styles.button,
                         pressed && styles.pressed,
                         ]}
-                        onPress={null}
+                        onPress={() => handleNavigation()}
                     >
-                        {/* <Text style={styles.buttonText}>Submit</Text> */}
-                        <Link style={styles.buttonText} href="/(tabs)/(home)">Submit</Link>
+                        <Text style={styles.buttonText}>Submit</Text>
                     </Pressable>
 
                     {onLogin ?

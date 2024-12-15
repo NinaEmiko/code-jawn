@@ -100,19 +100,10 @@ export default function JavaDataTypesStrings() {
 }
 
 const styles = StyleSheet.create({
-  stringText: {
-    color: STYLES.DARK_GREY,
-    fontFamily: STYLES.FONT,
-    fontSize: 20,
-    paddingTop: 20,
-    paddingLeft: 60,
-    paddingRight: 40,
-    textAlign: 'center',
-  },
   stringTitle: {
     color: STYLES.ORANGE,
     fontFamily: STYLES.FONT,
-    fontSize: 25,
+    fontSize: STYLES.FONT_SIZE_TITLE,
     paddingTop: 20,
     paddingLeft: 60,
     paddingRight: 40,

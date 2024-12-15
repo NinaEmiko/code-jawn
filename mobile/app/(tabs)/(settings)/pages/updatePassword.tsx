@@ -67,7 +67,6 @@ export default function UpdatePasswordScreen({ props }:{ props: any}) {
         onPress={() => handlePress()}
       >
         <Text style={styles.buttonText}>Submit</Text>
-        {/* <Link style={styles.buttonText} href="/home">Submit</Link> */}
       </Pressable>
     </ParallaxScrollView>
   );

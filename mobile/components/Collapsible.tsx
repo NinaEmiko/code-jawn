@@ -37,14 +37,15 @@ const styles = StyleSheet.create({
   heading: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: 10,
   },
   content: {
     marginTop: 6,
     marginLeft: 24,
   },
   listItem: {
-    fontSize: 25,
-    color: STYLES.ORANGE
+    fontSize: STYLES.FONT_SIZE_TITLE,
+    color: STYLES.ORANGE,
+    paddingTop: 5,
   }
 });

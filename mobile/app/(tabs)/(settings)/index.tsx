@@ -1,10 +1,16 @@
 import { STYLES } from "@/assets/styles";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { userData } from "@/mocking/userData";
-import { Link } from "expo-router";
+import { useUser } from "@/context/UserContext";
+import { Link, router } from "expo-router";
+import { useSearchParams } from "expo-router/build/hooks";
 import { View, Pressable, Image, Text, StyleSheet } from "react-native";
 
 export default function SettingsScreen() {
+  const {currentUser} = useUser();
+
+  const handleNavigation = () => {
+    router.push('/');
+}
 
   return (
     <ParallaxScrollView
@@ -17,8 +23,8 @@ export default function SettingsScreen() {
       }>
 
         <Text style={styles.titleText}>Account</Text>
-        <Text style={styles.text}>{userData.name}</Text>
-        <Text style={styles.text}>{userData.email}</Text>
+        <Text style={styles.text}>{currentUser.username}</Text>
+        <Text style={styles.text}>{currentUser.email}</Text>
         <View style={styles.divider} />
 
         <Text style={styles.titleText}>Security</Text>
@@ -38,9 +44,9 @@ export default function SettingsScreen() {
               pressed && styles.pressed,
               
             ]}
-            onPress={null}
+            onPress={() => handleNavigation()}
           >
-            <Link href="/" style={[styles.buttonText]}>Sign Out</Link>
+            <Text style={styles.buttonText}>Log Out</Text>
           </Pressable>
       
     </ParallaxScrollView>

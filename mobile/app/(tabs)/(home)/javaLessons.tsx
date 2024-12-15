@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: STYLES.FONT,
     color: "white",
-    fontSize: 20,
+    fontSize: STYLES.FONT_SIZE_SUB_TEXT,
     fontWeight: "bold",
   },
   pressed: {

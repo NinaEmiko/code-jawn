@@ -1,14 +1,18 @@
-import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity, Pressable } from 'react-native';
 
 import React from 'react';
 import { LANGUAGES } from '@/constants/SelectLanguageConstants';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import ProgressCircle from '@/components/ProgressCircle';
 import { userData } from '@/mocking/userData';
 import { STYLES } from '@/assets/styles';
+import { useSearchParams } from 'expo-router/build/hooks';
+import { useUser } from '@/context/UserContext';
 
 export default function HomeScreen() {
+    const { currentUser } = useUser();
+
     const [activeLanguage, setActiveLanguage] = React.useState(LANGUAGES[0].language);
     const [activeDescription, setActiveDescription] = React.useState(LANGUAGES[0].description);
     const [activeRoute, setActiveRoute] = React.useState(LANGUAGES[0].route);
@@ -28,6 +32,10 @@ export default function HomeScreen() {
         setActiveProgress(userData.pythonProgress)
       }
     }
+
+    const handleNavigation = () => {
+      router.push(activeRoute);
+  }
 
     return (
       
@@ -67,19 +75,15 @@ export default function HomeScreen() {
         </Text>
       </View>
 
-      <View style={styles.button}>
-        <Link style={styles.buttonText} href={activeRoute}>{activeLanguage} Lessons</Link>
-      </View>
-
-          {/* <Pressable
-            style={({ pressed }) => [
-              styles.button,
-              pressed && styles.pressed,
-            ]}
-            onPress={() => handlePress()}
-          >
-            <Text style={styles.buttonText}>Log Out</Text>
-          </Pressable> */}
+      <Pressable
+        style={({ pressed }) => [
+          styles.button,
+          pressed && styles.pressed,
+        ]}
+        onPress={() => handleNavigation()}
+      >
+        <Text style={styles.buttonText}>{activeLanguage} Lessons</Text>
+      </Pressable>
       </ParallaxScrollView>
   );
 }
