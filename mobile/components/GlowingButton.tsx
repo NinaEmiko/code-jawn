@@ -1,5 +1,6 @@
 import { StyleSheet, Animated, TouchableOpacity } from 'react-native';
 import React, { useEffect, useRef } from 'react';
+import { STYLES } from '@/assets/styles';
 
 export default function GetStartedScreen({ props }:{ props: any}) {
 
@@ -79,11 +80,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     getStartedButtonText: {
-        fontSize: 25,
-        fontFamily: "Menlo",
+        fontSize: STYLES.FONT_SIZE_BUTTON,
+        fontFamily: STYLES.FONT,
         bottom: 0,
         fontWeight: 'bold',
-        textShadowColor: '#12edd8',
+        textShadowColor: STYLES.BLUE,
         textShadowOffset: { width: 0, height: 0 },
         textShadowRadius: 15,
     },

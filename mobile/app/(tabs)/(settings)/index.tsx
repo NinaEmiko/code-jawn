@@ -1,3 +1,4 @@
+import { STYLES } from "@/assets/styles";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { userData } from "@/mocking/userData";
 import { Link } from "expo-router";
@@ -49,7 +50,7 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
     linkText: {
         color: "white",
-        fontSize: 20,
+        fontSize: STYLES.FONT_SIZE_SUB_TEXT,
         textDecorationLine: "underline",
     },
   headerImage: {
@@ -77,16 +78,15 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontSize: 20,
+    fontSize: STYLES.FONT_SIZE_SUB_TEXT,
   },
   titleText: {
-    color: "#ff7100",
-    fontSize: 30,
+    color: STYLES.ORANGE,
+    fontSize: STYLES.FONT_SIZE_TITLE,
   },
   button: {
     marginTop: 35,
-    backgroundColor: "#12edd8",
-    fontSize: 25,
+    backgroundColor: STYLES.BLUE,
     height: 50,
     borderWidth: 1,
     borderRadius: 10,
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   buttonText: {
-    fontSize: 25,
-    fontFamily: "Menlo",
+    fontSize: STYLES.FONT_SIZE_BUTTON,
+    fontFamily: STYLES.FONT,
   },
   divider: {
     height: 1,

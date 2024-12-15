@@ -6,38 +6,39 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Link } from 'expo-router';
 import ProgressCircle from '@/components/ProgressCircle';
 import { userData } from '@/mocking/userData';
+import { STYLES } from '@/assets/styles';
 
 export default function HomeScreen() {
-  const [activeLanguage, setActiveLanguage] = React.useState(LANGUAGES[0].language);
-  const [activeDescription, setActiveDescription] = React.useState(LANGUAGES[0].description);
-  const [activeRoute, setActiveRoute] = React.useState(LANGUAGES[0].route);
-  const [selectedButton, setSelectedButton] = React.useState(0);
-  const [activeProgress, setActiveProgress] = React.useState(userData.javaProgress);
+    const [activeLanguage, setActiveLanguage] = React.useState(LANGUAGES[0].language);
+    const [activeDescription, setActiveDescription] = React.useState(LANGUAGES[0].description);
+    const [activeRoute, setActiveRoute] = React.useState(LANGUAGES[0].route);
+    const [selectedButton, setSelectedButton] = React.useState(0);
+    const [activeProgress, setActiveProgress] = React.useState(userData.javaProgress);
 
-  const handleLanguagePress = (language: string, description: string, route: string, selectedButton: number) => {
-    setActiveLanguage(language)
-    setActiveDescription(description)
-    setActiveRoute(route)
-    setSelectedButton(selectedButton)
-    if (language === "Java"){
-      setActiveProgress(userData.javaProgress)
-    } else if (language == "JavaScript"){
-      setActiveProgress(userData.javaScriptProgress)
-    } else if (language == "Python") {
-      setActiveProgress(userData.pythonProgress)
+    const handleLanguagePress = (language: string, description: string, route: string, selectedButton: number) => {
+      setActiveLanguage(language)
+      setActiveDescription(description)
+      setActiveRoute(route)
+      setSelectedButton(selectedButton)
+      if (language === "Java"){
+        setActiveProgress(userData.javaProgress)
+      } else if (language == "JavaScript"){
+        setActiveProgress(userData.javaScriptProgress)
+      } else if (language == "Python") {
+        setActiveProgress(userData.pythonProgress)
+      }
     }
-  }
 
-  return (
+    return (
       
-    <ParallaxScrollView
-    headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-    headerImage={
-      <Image
-        source={require('@/assets/images/HomeScreen3.png')}
-        style={styles.reactLogo}
-      />
-    }>
+        <ParallaxScrollView
+          headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+          headerImage={
+            <Image
+              source={require('@/assets/images/HomeScreen3.png')}
+              style={styles.pageImage}
+            />
+        }>
 
       <ScrollView horizontal contentContainerStyle={styles.scrollContainer}>
         {LANGUAGES.map((button, index) => (
@@ -46,7 +47,7 @@ export default function HomeScreen() {
           style={[
             styles.languageButton,
             {
-              backgroundColor: selectedButton === index ? '#ff7100' : '#333333',
+              backgroundColor: selectedButton === index ? STYLES.ORANGE : STYLES.DARK_GREY,
             },
           ]}
           onPress={() => handleLanguagePress(button.language, button.description, button.route, index)}>
@@ -69,7 +70,6 @@ export default function HomeScreen() {
       <View style={styles.button}>
         <Link style={styles.buttonText} href={activeRoute}>{activeLanguage} Lessons</Link>
       </View>
-
 
           {/* <Pressable
             style={({ pressed }) => [
@@ -97,34 +97,15 @@ const styles = StyleSheet.create({
     left: -35,
     position: 'absolute',
   },
-  reactLogo: {
+  pageImage: {
     height: 250,
     width: 430,
     bottom: 0,
     left: 0,
     position: 'absolute',
   },
-  textInput: {
-    height: 50,
-    borderWidth: 1,
-    borderRadius: 25,
-  },
-  cardTitle: {
-    color: "#ff7100",
-    fontSize: 30,
-    marginBottom: 10,
-    marginLeft: 15,
-    marginTop: 15,
-    fontFamily: "Menlo",
-  },
-  titleText: {
-    color: "#ff7100",
-    fontSize: 30,
-    fontWeight: "bold",
-    fontFamily: "Menlo",
-  },
   card: {
-    backgroundColor: "#333333",
+    backgroundColor: STYLES.DARK_GREY,
     borderRadius: 15,
   },
   text: {
@@ -132,12 +113,11 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginBottom: 15,
     marginTop: 15,
-    fontFamily: "Menlo",
+    fontFamily: STYLES.FONT,
     color: "white",
   },
   button: {
-    backgroundColor: "#12edd8",
-    fontSize: 25,
+    backgroundColor: STYLES.BLUE,
     height: 50,
     borderWidth: 1,
     borderRadius: 10,
@@ -145,8 +125,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   languageButton: {
-    backgroundColor: "#ff7100",
-    fontSize: 25,
+    backgroundColor: STYLES.FONT,
     height: 50,
     borderWidth: 1,
     borderRadius: 10,
@@ -159,19 +138,11 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   buttonText: {
-    fontSize: 25,
-    fontFamily: "Menlo",
+    fontSize: STYLES.FONT_SIZE_BUTTON,
+    fontFamily: STYLES.FONT,
   },
   languageButtonText: {
-    fontSize: 25,
-    fontFamily: "Menlo",
+    fontSize: STYLES.FONT_SIZE_BUTTON,
+    fontFamily: STYLES.FONT,
   },
-  lessonButton: {
-    fontFamily: "Menlo",
-    color: "#0000EE",
-    textDecorationLine: "underline",
-    textAlign: "right",
-    marginBottom: 15,
-    marginRight: 15,
-  }
 });

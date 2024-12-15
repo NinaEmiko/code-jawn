@@ -2,6 +2,7 @@ import { StyleSheet, ImageBackground, Text } from 'react-native';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import GlowingButton from '@/components/GlowingButton';
+import { STYLES } from '../assets/styles';
 
 export default function GetStartedScreen({ props }:{ props: any}) {
 
@@ -29,9 +30,8 @@ export default function GetStartedScreen({ props }:{ props: any}) {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 0, y: 1 }}           
                 style={styles.gradientOverlay}/>
-
-        <GlowingButton props={{buttonColor: "#12edd8", buttonPress:handlePress, buttonText: "Get Started"}} />
-      </ImageBackground>
+            <GlowingButton props={{buttonColor: STYLES.BLUE, buttonPress:handlePress, buttonText: "Get Started"}} />
+        </ImageBackground>
     </>
   );
 }
@@ -46,16 +46,16 @@ const styles = StyleSheet.create({
     },
     backgroundImage: {
         flex: 1,
-        // justifyContent: 'center',
         alignItems: 'center',
     },
     title: {
-        color: "#ff7100",
+        color: STYLES.ORANGE,
         fontWeight: "bold",
         fontSize: 50,
+        fontFamily: STYLES.FONT,
         paddingTop: 100,
         textShadowColor: 'black',
-        textShadowOffset: { width: 1, height: 1 },
+        textShadowOffset: { width: 10, height: 1 },
         textShadowRadius: 5
     }
 });

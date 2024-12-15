@@ -2,14 +2,14 @@ import { StyleSheet, Image, Platform, Text, Button, View, Pressable, Dimensions,
 
 import React, { useEffect } from 'react';
 import { STRINGS_LESSONS } from '@/constants/Java/DataTypes/StringsConstants';
-import Table from '@/components/Table';
 import GlowingButton from '@/components/GlowingButton';
 import ProgressCircle from '@/components/ProgressCircle';
 import TypingDisplayText from '@/components/TypingDisplayText';
+import { STYLES } from '@/assets/styles';
 
 const screenHeight = Dimensions.get('window').height;
 
-export default function JavaDataTypesStrings({ props }: { props: any; }) {
+export default function JavaDataTypesStrings() {
   const [buttonText, setButtonText] = React.useState('Next');
   const [tab, setTab] = React.useState(0);
 
@@ -49,7 +49,7 @@ export default function JavaDataTypesStrings({ props }: { props: any; }) {
               <Text style={styles.stringTitle}>
                 String
               </Text>
-              <TypingDisplayText text={"\"Hello World!\""} textColor="#859900" />
+              <TypingDisplayText text={"\"Hello World!\""} textColor={STYLES.STRINGS}/>
             </>
           }
           {tab === 2 &&
@@ -57,7 +57,7 @@ export default function JavaDataTypesStrings({ props }: { props: any; }) {
               <Text style={styles.stringTitle}>
                 String
               </Text>
-              <TypingDisplayText text={"\'Hello World!\'"} textColor="#859900" />
+              <TypingDisplayText text={"\'Hello World!\'"} textColor={STYLES.STRINGS} />
             </>
           }
           {tab === 3 &&
@@ -65,7 +65,7 @@ export default function JavaDataTypesStrings({ props }: { props: any; }) {
               <Text style={styles.stringTitle}>
                 String
               </Text>
-              <TypingDisplayText text={"\`Hello World!\`"} textColor="#859900" />
+              <TypingDisplayText text={"\`Hello World!\`"} textColor={STYLES.STRINGS} />
             </>
           }
 
@@ -74,7 +74,7 @@ export default function JavaDataTypesStrings({ props }: { props: any; }) {
               <Text style={styles.stringTitle}>
                 Not a String
               </Text>
-              <TypingDisplayText text={"Hello World!"} textColor="#859900" />
+              <TypingDisplayText text={"Hello World!"} textColor={STYLES.STRINGS} />
             </>
           }
 
@@ -83,7 +83,7 @@ export default function JavaDataTypesStrings({ props }: { props: any; }) {
               <Text style={styles.stringTitle}>
                 Not a String
               </Text>
-              <TypingDisplayText text={"\"Hello World!\'"} textColor="#859900" />
+              <TypingDisplayText text={"\"Hello World!\'"} textColor={STYLES.STRINGS} />
             </>
           }
 
@@ -91,7 +91,7 @@ export default function JavaDataTypesStrings({ props }: { props: any; }) {
         </View>
       </View>
       <View style={styles.buttonContainer}>
-        <GlowingButton props={{buttonColor: "#12edd8", buttonPress:handlePress, buttonText: buttonText}} />
+        <GlowingButton props={{buttonColor: STYLES.BLUE, buttonPress:handlePress, buttonText: buttonText}} />
       </View>
 
     </>
@@ -101,8 +101,8 @@ export default function JavaDataTypesStrings({ props }: { props: any; }) {
 
 const styles = StyleSheet.create({
   stringText: {
-    color:"#859900",
-    fontFamily: "Menlo",
+    color: STYLES.DARK_GREY,
+    fontFamily: STYLES.FONT,
     fontSize: 20,
     paddingTop: 20,
     paddingLeft: 60,
@@ -110,8 +110,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   stringTitle: {
-    color:"#ff7100",
-    fontFamily: "Menlo",
+    color: STYLES.ORANGE,
+    fontFamily: STYLES.FONT,
     fontSize: 25,
     paddingTop: 20,
     paddingLeft: 60,
@@ -132,7 +132,8 @@ const styles = StyleSheet.create({
     height: "10%",
     marginLeft: "auto",
   },
-  lessonCard: {    height: screenHeight * .40,
+  lessonCard: {    
+    height: screenHeight * .40,
     marginTop: 25,
     borderRadius: 10,    
     flex: 1,
@@ -147,29 +148,16 @@ const styles = StyleSheet.create({
     height: screenHeight * 0.45,
     backgroundColor: "#151718",
   },
-  text: {
-    fontFamily: "Menlo",
-    color: "white",
-    fontSize: 20,
-    paddingTop: 20,
-    paddingLeft: 60,
-    paddingRight: 40,
-    textAlign: 'center',
-  },
   button: {
-    backgroundColor: "#12edd8",
-    fontSize: 25,
+    backgroundColor: STYLES.BLUE,
     height: 50,
     borderWidth: 1,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  pressed: {
-    opacity: 0.7,
-  },
   buttonText: {
-    fontSize: 25,
-    fontFamily: "Menlo",
+    fontSize: STYLES.FONT_SIZE_BUTTON,
+    fontFamily: STYLES.FONT,
   },
 });

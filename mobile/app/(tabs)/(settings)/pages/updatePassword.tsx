@@ -1,6 +1,7 @@
 import { StyleSheet, Text, Image, Pressable, TextInput } from 'react-native';
 import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { STYLES } from '@/assets/styles';
 
 export default function UpdatePasswordScreen({ props }:{ props: any}) {
   const [oldPassword, setOldPassword] = React.useState('')
@@ -26,7 +27,7 @@ export default function UpdatePasswordScreen({ props }:{ props: any}) {
       headerImage={
         <Image
           source={require('@/assets/images/WP1.jpeg')}
-          style={styles.reactLogo}
+          style={styles.pageImage}
         />
       }>
 
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
       gap: 8,
       marginBottom: 25,
     },
-    reactLogo: {
+    pageImage: {
       height: 250,
       width: 430,
       bottom: 0,
@@ -96,11 +97,11 @@ const styles = StyleSheet.create({
       fontSize: 15,
     },
     titleText: {
-      color: "#ff7100",
+      color: STYLES.ORANGE,
       fontSize: 30,
     },
     subTitleText: {
-      color: "#ff7100",
+      color: STYLES.ORANGE,
       fontSize: 20,
     },
     textInput: {
@@ -108,19 +109,19 @@ const styles = StyleSheet.create({
       borderBottomWidth: 1,
       // borderRadius: 25,
       fontSize: 25,
-      color: "#ff7100",
+      color: STYLES.ORANGE,
       borderColor: "grey",
-      fontFamily: "Menlo",
+      fontFamily: STYLES.FONT,
       marginBottom: 15,
     },
     inputFocused: {
-      borderColor: '#ff7100',
+      borderColor: STYLES.ORANGE,
     },
     inputUnfocused: {
       borderColor: 'gray',
     },
     button: {
-      backgroundColor: "#12edd8",
+      backgroundColor: STYLES.BLUE,
       fontSize: 25,
       height: 50,
       borderWidth: 1,
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
       fontSize: 25,
-      fontFamily: "Menlo",
+      fontFamily: STYLES.FONT,
     },
   });
   

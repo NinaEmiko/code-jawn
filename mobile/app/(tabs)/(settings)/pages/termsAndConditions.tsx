@@ -2,6 +2,7 @@ import { StyleSheet, Text, Image } from 'react-native';
 import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { TERMS_AND_CONDITIONS } from '@/constants/TermsAndConditions';
+import { STYLES } from '@/assets/styles';
 
 export default function TermsAndConditionsScreen({ props }:{ props: any}) {
 
@@ -15,7 +16,7 @@ export default function TermsAndConditionsScreen({ props }:{ props: any}) {
       headerImage={
         <Image
           source={require('@/assets/images/WP1.jpeg')}
-          style={styles.reactLogo}
+          style={styles.pageImage}
         />
       }>
 
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
       gap: 8,
       marginBottom: 25,
     },
-    reactLogo: {
+    pageImage: {
       height: 250,
       width: 430,
       bottom: 0,
@@ -88,15 +89,16 @@ const styles = StyleSheet.create({
     },
     text: {
       color: "white",
-      fontSize: 15,
+      fontSize: STYLES.FONT_SIZE_SUB_TEXT,
     },
     titleText: {
-      color: "#ff7100",
-      fontSize: 30,
+      color: STYLES.ORANGE,
+      fontSize: STYLES.FONT_SIZE_TITLE,
+      fontWeight: "bold",
     },
     subTitleText: {
-      color: "#ff7100",
-      fontSize: 20,
+      color: STYLES.ORANGE,
+      fontSize: STYLES.FONT_SIZE_TEXT,
     },
   });
   

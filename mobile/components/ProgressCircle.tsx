@@ -1,3 +1,4 @@
+import { STYLES } from '@/assets/styles';
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Svg, { Circle, Text as SvgText } from 'react-native-svg';
@@ -50,7 +51,7 @@ const ProgressCircle = ({ props }: { props: any }) => {
           cx={radius + 20}
           cy={radius + 20}
           r={radius}
-          stroke="#ff7100" // Progress color
+          stroke={STYLES.ORANGE} // Progress color
           strokeWidth="5"
           fill="none"
           strokeDasharray={circumference}
@@ -61,13 +62,13 @@ const ProgressCircle = ({ props }: { props: any }) => {
         
         {/* Percentage Text */}
         <SvgText
-          x="50%" // Position text at 50% of the circle's width
-          y="50%" // Position text at 50% of the circle's height
-          textAnchor="middle" // Center text horizontally
-          alignmentBaseline="middle" // Center text vertically
+          x="50%"
+          y="50%"
+          textAnchor="middle"
+          alignmentBaseline="middle"
           fontSize={radius / 3} // Adjust font size relative to radius
           fontWeight="bold"
-          fill="#12edd8"
+          fill={STYLES.BLUE}
         >
           {`${currentPercentage}%`}
         </SvgText>

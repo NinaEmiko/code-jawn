@@ -1,3 +1,4 @@
+import { STYLES } from '@/assets/styles';
 import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   text: {
-    fontFamily: "Menlo",
+    fontFamily: STYLES.FONT,
     fontSize: 20,
     paddingTop: 20,
     paddingLeft: 60,

@@ -7,12 +7,9 @@ import { Collapsible } from '@/components/Collapsible';
 import { Link } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import { javaProgress } from '@/mocking/userData';
+import { STYLES } from '@/assets/styles';
 
-export default function JavaLessonsScreen({ props }: { props: any; }) {
-
-  const handlePress = () => {
-    props.setIsLoggedIn(false)
-  }
+export default function JavaLessonsScreen() {
 
   return (
       
@@ -36,7 +33,7 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
                 return (
                   <Link key={index} style={styles.card} href={path}>
                   <View style={styles.progress}>
-                    <MaterialIcons name="laptop" size={60} color="#ff7100" style={styles.icon} />
+                    <MaterialIcons name="laptop" size={60} color={STYLES.ORANGE} style={styles.icon} />
                     <Text style={styles.text}>{item}</Text>
                      {javaProgress[index] ?
                       <Text style={[styles.subText, {color: "green"}]}>Completed!</Text>
@@ -83,12 +80,12 @@ const styles = StyleSheet.create({
   card: {
     width: '48%',
     marginBottom: 10,
-    backgroundColor: "#333333",
+    backgroundColor: STYLES.DARK_GREY,
     borderRadius: 25,
     padding: 15,
   },
   text: {
-    fontFamily: "Menlo",
+    fontFamily: STYLES.FONT,
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
@@ -97,7 +94,7 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   subText: {
-    fontFamily: "Menlo",
+    fontFamily: STYLES.FONT,
     fontSize: 15,
   },
   icon: {
