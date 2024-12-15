@@ -12,6 +12,7 @@ const TypingDisplayText: React.FC<LetterByLetterProps> = ({ text, delay = 100, t
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   useEffect(() => {
+    const speed = 30;
     if (!text) return;
 
     const intervalId = setInterval(() => {
@@ -21,7 +22,7 @@ const TypingDisplayText: React.FC<LetterByLetterProps> = ({ text, delay = 100, t
       } else {
         clearInterval(intervalId)
       }
-    }, delay);
+    }, speed);
 
     return () => clearInterval(intervalId);
   }, [text, currentIndex, delay]);

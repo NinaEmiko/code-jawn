@@ -6,6 +6,8 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
 import { Link } from 'expo-router';
 import ProgressCircle from '@/components/ProgressCircle';
+import { MaterialIcons } from '@expo/vector-icons';
+import { javaProgress } from '@/mocking/userData';
 
 export default function JavaLessonsScreen({ props }: { props: any; }) {
 
@@ -23,23 +25,8 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
           style={styles.reactLogo}
         />
       }>
-<>
-        {/* {LESSONS.map((item, index) => {
-          const path = `${item.ROUTES[index]}`;
-          return (
-          <View key={index} style={styles.card}>
-            <Collapsible title={item.LESSON} >
-
-              {item.SUB_LESSON.map((item, index) =>{
-                return (
-                  <Link key={index} style={styles.text} href={path}>{item}</Link>
-                )
-              })}
-            </Collapsible>
-        </View>
-          )
-        })} */}
-                {LESSONS.map((item, index) => {
+      <>
+        {LESSONS.map((item, index) => {
           const path = `${item.ROUTES[index]}`;
           return (
           <View key={index}>
@@ -50,8 +37,13 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
                 return (
                   <Link key={index} style={styles.card} href={path}>
                   <View style={styles.progress}>
+                    <MaterialIcons name="laptop" size={60} color="#ff7100" style={styles.icon} />
                     <Text style={styles.text}>{item}</Text>
-                  <ProgressCircle props={{percentage:30, style: {width: 160, height: 160}}} />
+                     {javaProgress[index] ?
+                      <Text style={[styles.subText, {color: "green"}]}>Completed!</Text>
+                    :
+                      <Text style={[styles.subText, {color: "white"}]}>Not Started</Text>
+                    }
                   </View>
                   </Link>
                 )
@@ -69,7 +61,6 @@ export default function JavaLessonsScreen({ props }: { props: any; }) {
 
 const styles = StyleSheet.create({
   progress: {
-    alignItems: "center",
   },
   container: {
     flexDirection: 'row',
@@ -83,11 +74,6 @@ const styles = StyleSheet.create({
     left: -35,
     position: 'absolute',
   },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 25,
-  },
   reactLogo: {
     height: 250,
     width: 430,
@@ -95,58 +81,26 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
-  textInput: {
-    height: 50,
-    borderWidth: 1,
-    borderRadius: 25,
-  },
-  cardTitle: {
-    color: "#ff7100",
-    fontSize: 30,
-    marginBottom: 10,
-    marginLeft: 15,
-    marginTop: 15,
-    fontFamily: "Menlo",
-  },
-  titleText: {
-    color: "#ff7100",
-    fontSize: 30,
-    fontWeight: "bold",
-    fontFamily: "Menlo",
-  },
   card: {
     width: '48%',
     marginBottom: 10,
     backgroundColor: "#333333",
-    borderRadius: 30,
+    borderRadius: 25,
+    padding: 15,
   },
   text: {
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 15,
     fontFamily: "Menlo",
-    color: "#12edd8",
+    color: "white",
     fontSize: 20,
-    textAlign: "center",
-    paddingTop: 15,
     fontWeight: "bold",
-  },
-  button: {
-    marginTop: 35,
-    backgroundColor: "#12edd8",
-    fontSize: 25,
-    height: 50,
-    borderWidth: 1,
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   pressed: {
     opacity: 0.7,
   },
-  buttonText: {
+  subText: {
     fontFamily: "Menlo",
-    color: "white",
-    marginLeft: 20,
+    fontSize: 15,
+  },
+  icon: {
   },
 });
