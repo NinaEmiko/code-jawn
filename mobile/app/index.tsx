@@ -86,7 +86,7 @@ export default function LoginScreen() {
         onPress={null}
       >
         {/* <Text style={styles.buttonText}>Submit</Text> */}
-        <Link style={styles.buttonText} href="/(tabs)">Submit</Link>
+        <Link style={styles.buttonText} href="/(tabs)/(home)">Submit</Link>
       </Pressable>
 
       {onLogin ?

@@ -39,7 +39,7 @@ export default function SettingsScreen() {
             ]}
             onPress={null}
           >
-            <Link href={"/login"} style={[styles.buttonText, styles.button,]}>Sign Out</Link>
+            <Link href="/" style={[styles.buttonText]}>Sign Out</Link>
           </Pressable>
       
     </ParallaxScrollView>
