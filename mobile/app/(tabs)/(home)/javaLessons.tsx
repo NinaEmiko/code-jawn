@@ -5,6 +5,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
 import { useUser } from '@/context/UserContext';
 import { Lessons } from '@/components/Lessons';
+import { TemporaryLessons } from '@/components/TemporaryLessons';
 
 export default function JavaLessonsScreen() {
   const { currentUser } = useUser();
@@ -52,7 +53,7 @@ export default function JavaLessonsScreen() {
       />
     }>
       <>
-    {currentUser.javaLessonsProgress.map((lesson, index) => {
+    {/* {currentUser.javaLessonsProgress.map((lesson, index) => {
 
       return Object.entries(lesson).map(([key, jawnObject], jawnIndex) => {
 
@@ -67,8 +68,37 @@ export default function JavaLessonsScreen() {
           </Collapsible>
         );
       });
-    })}
+    })} */}
 
+          <Collapsible title="Data Types">
+            {/* <Lessons
+              props={{
+                lesson: currentUser.lessonTracker.javaLT.javaDataTypesLT,
+                path: paths[0].path
+              }}
+            /> */}
+            <TemporaryLessons
+              props={{
+                lesson: "ints",
+                completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.intsLessonIsComplete,
+                path: paths[0].path
+              }}
+            />
+            <TemporaryLessons
+              props={{
+                lesson: "Strings",
+                completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.stringsLessonIsComplete,
+                path: paths[0].path
+              }}
+            />
+                        <TemporaryLessons
+              props={{
+                lesson: "booleans",
+                completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.booleansLessonIsComplete,
+                path: paths[0].path
+              }}
+            />
+          </Collapsible>
 
       </>
     </ParallaxScrollView>

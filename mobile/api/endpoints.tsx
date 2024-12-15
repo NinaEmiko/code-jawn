@@ -1,5 +1,5 @@
 // const BASE_URL = process.env.BASE_URL;
-const BASE_URL = '';
+const BASE_URL = 'http://localhost:8080';
 
 export const ENDPOINTS = {
     LOGIN: `${BASE_URL}/api/auth/login`,

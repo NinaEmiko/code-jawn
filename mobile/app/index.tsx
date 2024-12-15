@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import GetStartedScreen from './getStarted';
 import { router } from 'expo-router';
 import { STYLES } from '@/assets/styles';
-import { login } from '@/api/apiService';
+import { login, register } from '@/api/apiService';
 import { useUser } from '@/context/UserContext';
 
 export default function LoginScreen() {
@@ -16,7 +16,7 @@ export default function LoginScreen() {
         email: "Lola@email.com",
         password: "password",
         javaProgress: 65,
-        javaLessonsProgress: [
+        lessonTracker: [
             {"Data Types": {
                 'Strings': true,
                 'ints': false,
@@ -131,8 +131,8 @@ export default function LoginScreen() {
     };
 
     const handleLogin = async () => {
-        // const data = await login(username, password);
-
+        const data = await login(username, password);
+        console.log('data:' + data);
         try {
             setCurrentUser(data);
             router.push("/(tabs)/(home)");
@@ -141,8 +141,8 @@ export default function LoginScreen() {
         }
     }
 
-    const handleRegister = () => {
-        // const data = await register(username, email, password);
+    const handleRegister = async () => {
+        const data = await register(username, email, password);
 
         try {
             setCurrentUser(data);

@@ -7,6 +7,7 @@ import { router } from 'expo-router';
 import ProgressCircle from '@/components/ProgressCircle';
 import { STYLES } from '@/assets/styles';
 import { useUser } from '@/context/UserContext';
+import { javaProgressCalculator } from '@/helpers/progressCalculator';
 
 export default function HomeScreen() {
     const { currentUser } = useUser();
@@ -23,7 +24,7 @@ export default function HomeScreen() {
       setActiveRoute(route)
       setSelectedButton(selectedButton)
       if (language === "Java"){
-        setActiveProgress(currentUser.javaProgress)
+        setActiveProgress(Math.round(javaProgressCalculator(currentUser.lessonTracker.javaLT)))
       } else if (language == "JavaScript"){
         setActiveProgress(currentUser.javaScriptProgress)
       } else if (language == "Python") {
