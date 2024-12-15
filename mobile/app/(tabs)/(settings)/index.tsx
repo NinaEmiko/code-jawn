@@ -1,7 +1,7 @@
-import { StyleSheet, Image, Platform, Text, Button, Pressable, View } from 'react-native';
-
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import React from 'react';
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { userData } from "@/mocking/userData";
+import { Link } from "expo-router";
+import { View, Pressable, Image, Text, StyleSheet } from "react-native";
 
 export default function SettingsScreen() {
 
@@ -16,20 +16,20 @@ export default function SettingsScreen() {
       }>
 
         <Text style={styles.titleText}>Account</Text>
-        <Text style={styles.text}>AccountName</Text>
-        <Text style={styles.text}>AccountEmail</Text>
+        <Text style={styles.text}>{userData.name}</Text>
+        <Text style={styles.text}>{userData.email}</Text>
         <View style={styles.divider} />
 
         <Text style={styles.titleText}>Security</Text>
-        <Text style={styles.text}>Update Email</Text>
-        <Text style={styles.text}>Update Password</Text>
-        <Text style={styles.text}>Delete Account</Text>
+        <Link href="/updateEmail" style={styles.linkText}>Update Email</Link>
+        <Link href="/updatePassword" style={styles.linkText}>Update Password</Link>
+        <Link href="/deleteAccount" style={styles.linkText}>Delete Account</Link>
         <View style={styles.divider} />
         
         <Text style={styles.titleText}>Other</Text>
-        <Text style={styles.text}>Terms and Conditions</Text>
-        <Text style={styles.text}>Acknowledgments</Text>
-        <Text style={styles.text}>Support</Text>
+        <Link href="/termsAndConditions" style={styles.linkText}>Terms and Conditions</Link>
+        <Link href="/acknowledgments" style={styles.linkText}>Acknowledgments</Link>
+        <Link href="/support" style={styles.linkText}>Support</Link>
 
         <Pressable
             style={({ pressed }) => [
@@ -46,6 +46,11 @@ export default function SettingsScreen() {
 }
 
 const styles = StyleSheet.create({
+    linkText: {
+        color: "white",
+        fontSize: 20,
+        textDecorationLine: "underline",
+    },
   headerImage: {
     color: '#808080',
     bottom: -90,
@@ -71,7 +76,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontSize: 15,
+    fontSize: 20,
   },
   titleText: {
     color: "#ff7100",

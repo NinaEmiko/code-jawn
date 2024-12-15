@@ -12,7 +12,7 @@ export const LANGUAGES = [
     {
         language: "Python",
         route: "/javaLessons",
-        description: 'Python is a high-level, interpreted programming language known for its readability and simplicity, making it ideal for beginners and experienced developers alike. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming, and is widely used in fields like web development, data science, artificial intelligence, and automation.',
+        description: 'Python is a high-level, interpreted programming language known for its readability and simplicity. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming, and is used in fields like web development, data science, AI, and automation.',
     
     }
 ]
