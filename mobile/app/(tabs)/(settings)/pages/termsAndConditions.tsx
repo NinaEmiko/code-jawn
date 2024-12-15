@@ -1,6 +1,6 @@
 import { StyleSheet, Text, Image } from 'react-native';
 import React from 'react';
-import ParallaxScrollView from '../../../components/ParallaxScrollView';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { TERMS_AND_CONDITIONS } from '@/constants/TermsAndConditions';
 
 export default function TermsAndConditionsScreen({ props }:{ props: any}) {

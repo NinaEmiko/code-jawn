@@ -1,6 +1,6 @@
 import { StyleSheet, Text, Image, TextInput, Pressable } from 'react-native';
 import React from 'react';
-import ParallaxScrollView from '../../../components/ParallaxScrollView';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 
 export default function UpdateEmailScreen({ props }:{ props: any}) {
     const [email, setEmail] = React.useState('')

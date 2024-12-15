@@ -21,24 +21,25 @@ export default function SettingsScreen() {
         <View style={styles.divider} />
 
         <Text style={styles.titleText}>Security</Text>
-        <Link href="/updateEmail" style={styles.linkText}>Update Email</Link>
-        <Link href="/updatePassword" style={styles.linkText}>Update Password</Link>
-        <Link href="/deleteAccount" style={styles.linkText}>Delete Account</Link>
+        <Link href="/pages/updateEmail" style={styles.linkText}>Update Email</Link>
+        <Link href="/pages/updatePassword" style={styles.linkText}>Update Password</Link>
+        <Link href="/pages/deleteAccount" style={styles.linkText}>Delete Account</Link>
         <View style={styles.divider} />
         
         <Text style={styles.titleText}>Other</Text>
-        <Link href="/termsAndConditions" style={styles.linkText}>Terms and Conditions</Link>
-        <Link href="/acknowledgments" style={styles.linkText}>Acknowledgments</Link>
-        <Link href="/support" style={styles.linkText}>Support</Link>
+        <Link href="/pages/termsAndConditions" style={styles.linkText}>Terms and Conditions</Link>
+        <Link href="/pages/acknowledgments" style={styles.linkText}>Acknowledgments</Link>
+        <Link href="/pages/support" style={styles.linkText}>Support</Link>
 
         <Pressable
             style={({ pressed }) => [
               styles.button,
               pressed && styles.pressed,
+              
             ]}
-            onPress={() => null}
+            onPress={null}
           >
-            <Text style={styles.buttonText}>Sign Out</Text>
+            <Link href={"/login"} style={[styles.buttonText, styles.button,]}>Sign Out</Link>
           </Pressable>
       
     </ParallaxScrollView>

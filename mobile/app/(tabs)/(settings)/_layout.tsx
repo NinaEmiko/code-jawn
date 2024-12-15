@@ -3,50 +3,52 @@ import { Stack } from 'expo-router';
 export default function RootLayout() {
   return (
     <Stack>
-      
-      <Stack.Screen 
+            <Stack.Screen 
       name="index" 
-      options={{ headerShown: false }}
-      />
-      <Stack.Screen 
-      name="termsAndConditions" 
       options={{
-        title: 'Terms and Conditions',
+        title: 'Settings',
         headerBackTitle: 'Back',
       }}
       />
-      <Stack.Screen 
-      name="acknowledgments" 
+            <Stack.Screen 
+      name="pages/acknowledgments" 
       options={{
         title: 'Acknowledgments',
         headerBackTitle: 'Back',
       }}
       />
             <Stack.Screen 
-      name="support" 
-      options={{
-        title: 'Support',
-        headerBackTitle: 'Back',
-      }}
-      />
-                  <Stack.Screen 
-      name="deleteAccount" 
+      name="pages/deleteAccount" 
       options={{
         title: 'Delete Account',
         headerBackTitle: 'Back',
       }}
       />
                   <Stack.Screen 
-      name="updatePassword" 
+      name="pages/support" 
       options={{
-        title: 'Update Password',
+        title: 'Support',
         headerBackTitle: 'Back',
       }}
       />
                   <Stack.Screen 
-      name="updateEmail" 
+      name="pages/termsAndConditions" 
+      options={{
+        title: 'Terms and Conditions',
+        headerBackTitle: 'Back',
+      }}
+      />
+                  <Stack.Screen 
+      name="pages/updateEmail" 
       options={{
         title: 'Update Email',
+        headerBackTitle: 'Back',
+      }}
+      />
+                  <Stack.Screen 
+      name="pages/updatePassword" 
+      options={{
+        title: 'Update Password',
         headerBackTitle: 'Back',
       }}
       />

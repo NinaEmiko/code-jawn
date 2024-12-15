@@ -1,7 +1,7 @@
 import { StyleSheet, ImageBackground, Text } from 'react-native';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import GlowingButton from '../GlowingButton';
+import GlowingButton from '@/components/GlowingButton';
 
 export default function GetStartedScreen({ props }:{ props: any}) {
 
@@ -12,7 +12,7 @@ export default function GetStartedScreen({ props }:{ props: any}) {
   return(
     <>
         <ImageBackground 
-            source={require('../../assets/images/HomeScreen.png')}
+            source={require('../assets/images/HomeScreen.png')}
             style={styles.backgroundImage}
             resizeMode="cover">
                 <Text style={styles.title}>

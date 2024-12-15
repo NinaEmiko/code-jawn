@@ -1,8 +1,8 @@
 import { StyleSheet, Text, Image } from 'react-native';
 import React from 'react';
-import ParallaxScrollView from '../../../components/ParallaxScrollView';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 
-export default function DeleteAccountScreen({ props }:{ props: any}) {
+export default function SupportScreen({ props }:{ props: any}) {
 
     const handlePress = () => {
         props.setGetStarted(false)
@@ -18,9 +18,9 @@ export default function DeleteAccountScreen({ props }:{ props: any}) {
         />
       }>
 
-        <Text style={styles.titleText}>Delete Account</Text>
-        <Text style={styles.subTitleText}></Text>
-        <Text style={styles.subTitleText}></Text>
+        <Text style={styles.titleText}>Support</Text>
+        <Text style={styles.subTitleText}>FAQ</Text>
+        <Text style={styles.subTitleText}>Contact Us</Text>
     </ParallaxScrollView>
   );
 }

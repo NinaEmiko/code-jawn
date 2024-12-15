@@ -1,8 +1,8 @@
 import { StyleSheet, Text, Image } from 'react-native';
 import React from 'react';
-import ParallaxScrollView from '../../../components/ParallaxScrollView';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 
-export default function SupportScreen({ props }:{ props: any}) {
+export default function AcknowledgmentsScreen({ props }:{ props: any}) {
 
     const handlePress = () => {
         props.setGetStarted(false)
@@ -18,9 +18,9 @@ export default function SupportScreen({ props }:{ props: any}) {
         />
       }>
 
-        <Text style={styles.titleText}>Support</Text>
-        <Text style={styles.subTitleText}>FAQ</Text>
-        <Text style={styles.subTitleText}>Contact Us</Text>
+        <Text style={styles.titleText}>Acknowledments</Text>
+        <Text style={styles.subTitleText}>Special thanks to</Text>
+        <Text style={styles.subTitleText}></Text>
     </ParallaxScrollView>
   );
 }

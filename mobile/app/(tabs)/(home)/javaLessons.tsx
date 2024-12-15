@@ -5,7 +5,6 @@ import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
 import { Link } from 'expo-router';
-import ProgressCircle from '@/components/ProgressCircle';
 import { MaterialIcons } from '@expo/vector-icons';
 import { javaProgress } from '@/mocking/userData';
 

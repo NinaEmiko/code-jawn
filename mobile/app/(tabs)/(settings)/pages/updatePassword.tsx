@@ -1,6 +1,6 @@
 import { StyleSheet, Text, Image, Pressable, TextInput } from 'react-native';
 import React from 'react';
-import ParallaxScrollView from '../../../components/ParallaxScrollView';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 
 export default function UpdatePasswordScreen({ props }:{ props: any}) {
   const [oldPassword, setOldPassword] = React.useState('')
