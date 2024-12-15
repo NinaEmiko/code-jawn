@@ -1,11 +1,9 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// Create the context
 const UserContext = createContext<any>(null);
 
-// Create a custom provider
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const [currentUser, setCurrentUser] = useState<any>(null); // Initialize with null or empty object
+  const [currentUser, setCurrentUser] = useState<any>(null);
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
@@ -14,7 +12,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-// Custom hook to use the user context
 export const useUser = () => {
   const context = useContext(UserContext);
   if (!context) {

@@ -2,13 +2,24 @@ import { StyleSheet, Text, Image, TextInput, Pressable } from 'react-native';
 import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { STYLES } from '@/assets/styles';
+import { useUser } from '@/context/UserContext';
+import { updateUserEmail } from '@/api/apiService';
 
-export default function UpdateEmailScreen({ props }:{ props: any}) {
+export default function UpdateEmailScreen() {
+  const {currentUser, setCurrentUser} = useUser(); 
     const [email, setEmail] = React.useState('')
     const [focus, setFocus] = React.useState<string | null>(null);
 
-    const handlePress = () => {
-        // props.setGetStarted(false)
+    const handlePress = async (newEmail: string) => {
+      try {
+        const data = await updateUserEmail(currentUser.id, newEmail);
+        setCurrentUser({
+          ...currentUser,
+          email: newEmail,
+        });
+      } catch (error) {
+        console.log("error while updating email: ", error)
+      }
     }
 
     const handleFocus = (input: string) => {
@@ -44,7 +55,7 @@ export default function UpdateEmailScreen({ props }:{ props: any}) {
           styles.button,
           pressed && styles.pressed,
         ]}
-        onPress={() => handlePress()}
+        onPress={() => handlePress(email)}
       >
         <Text style={styles.buttonText}>Submit</Text>
       </Pressable>

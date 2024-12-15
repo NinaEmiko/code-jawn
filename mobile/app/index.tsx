@@ -9,6 +9,101 @@ import { login } from '@/api/apiService';
 import { useUser } from '@/context/UserContext';
 
 export default function LoginScreen() {
+
+    const data = {
+        id: 1,
+        username: "Lola",
+        email: "Lola@email.com",
+        password: "password",
+        javaProgress: 65,
+        javaLessonsProgress: [
+            {"Data Types": {
+                'Strings': true,
+                'ints': false,
+                'booleans': false,
+                'Longs': false,
+                'floats': false,
+                'doubles': false,
+                'shorts': false,
+                'bytes': false,
+                'chars': false,
+                'Comments': false,
+            }},
+            {"Variables": {
+                'Initializing Variables': false,
+                'Naming Variables': false,
+                'Assigning Values': false,
+                'Updating Values': false,
+                'Constants': false
+            }},
+            {"For Loops": {
+                'For Loops Syntax': false,
+                'For Loops Condition': false,
+                'For Loops Increment/Decrement': false,
+                'Nested For Loops': false,
+                'While Loops Syntax': false,
+                'While Loops Condition': false,
+                'Do While Loops Syntax': false,
+                'For Each Syntax': false,
+            }},
+            {"Conditionals": {
+                'If': false,
+                'Else': false,
+                'Elseif': false,
+                'Multiple Ifs': false,
+                'Multiple Elseifs': false,
+                'If/Else Nesting': false,
+                'Ternary': false,
+                'Switch Syntax': false,
+                'Switch Expressions': false,
+                'Switch Cases': false,
+                'Break Statement': false,
+                'Continue Statement': false,
+            }},
+            {"Arrays": {
+                'Initializing Arrays': false,
+                'Assigning Values': false,
+                'Array Indexs': false,
+                'Updating Values': false,
+                'Length Method': false,
+                'Looping Through An Aray': false,
+            }},
+            {"Collections": {
+
+            }},
+            {"Method": {
+                'Method Signatures': false,
+                'Return Types': false,
+                'Parameters': false,
+                'Return Statement': false,
+                'Scope': false,
+                'Naming Methods': false,
+                'Overloading': false,
+            }},
+            {"Operators": {
+                '&&': false,
+                '||': false,
+                '!': false,
+                '+': false,
+                '-': false,
+                '/': false,
+                '*': false,
+                '%': false,
+                '++': false,
+                '--': false,
+                '<': false,
+                '>': false,
+                '==': false,
+                '<=': false,
+                '<=': false,
+                '!=': false,
+                '=': false,
+            }},
+        ],
+        javaScriptProgress: 35,
+        pythonProgress: 40,
+    }
+
     const [getStarted, setGetStarted] = React.useState(true);
     const [tab, setTab] = React.useState('Login')
     const [onLogin, setOnLogin] = React.useState(true)
@@ -35,27 +130,34 @@ export default function LoginScreen() {
         setFocus(null);
     };
 
-    const handleNavigation = async () => {
+    const handleLogin = async () => {
         // const data = await login(username, password);
 
-        const data = {
-            id: 1,
-            username: "Lola",
-            email: "Lola@email.com"
+        try {
+            setCurrentUser(data);
+            router.push("/(tabs)/(home)");
+        } catch (error) {
+            console.log('error while loggin in: ' + error);
         }
+    }
+
+    const handleRegister = () => {
+        // const data = await register(username, email, password);
 
         try {
-        setCurrentUser(data);
-        console.log('set current user: ');
-        router.push("/(tabs)/(home)");
+            setCurrentUser(data);
+            router.push("/(tabs)/(home)");
         } catch (error) {
-            console.log('error: ' + error);
+            console.log('error while registering user: ' + error);
         }
-        // Cookies.set('storedId', data.userId);
-        // Cookies.set('storedUsername', data.username);
-        // Cookies.set('storedEmail', data.email);
-        // Cookies.set('authHeader', data.token);
-        // setAuthHeader(data.token);
+    }
+
+    const handleNavigation = async () => {
+        if (tab === "Login" ){
+            handleLogin();
+        } else if (tab === "Register") {
+            handleRegister();
+        }
     }
 
     useEffect(() => {

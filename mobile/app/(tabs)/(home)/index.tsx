@@ -3,11 +3,9 @@ import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity, Pressable 
 import React from 'react';
 import { LANGUAGES } from '@/constants/SelectLanguageConstants';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { Link, router } from 'expo-router';
+import { router } from 'expo-router';
 import ProgressCircle from '@/components/ProgressCircle';
-import { userData } from '@/mocking/userData';
 import { STYLES } from '@/assets/styles';
-import { useSearchParams } from 'expo-router/build/hooks';
 import { useUser } from '@/context/UserContext';
 
 export default function HomeScreen() {
@@ -17,7 +15,7 @@ export default function HomeScreen() {
     const [activeDescription, setActiveDescription] = React.useState(LANGUAGES[0].description);
     const [activeRoute, setActiveRoute] = React.useState(LANGUAGES[0].route);
     const [selectedButton, setSelectedButton] = React.useState(0);
-    const [activeProgress, setActiveProgress] = React.useState(userData.javaProgress);
+    const [activeProgress, setActiveProgress] = React.useState(currentUser.javaProgress);
 
     const handleLanguagePress = (language: string, description: string, route: string, selectedButton: number) => {
       setActiveLanguage(language)
@@ -25,11 +23,11 @@ export default function HomeScreen() {
       setActiveRoute(route)
       setSelectedButton(selectedButton)
       if (language === "Java"){
-        setActiveProgress(userData.javaProgress)
+        setActiveProgress(currentUser.javaProgress)
       } else if (language == "JavaScript"){
-        setActiveProgress(userData.javaScriptProgress)
+        setActiveProgress(currentUser.javaScriptProgress)
       } else if (language == "Python") {
-        setActiveProgress(userData.pythonProgress)
+        setActiveProgress(currentUser.pythonProgress)
       }
     }
 

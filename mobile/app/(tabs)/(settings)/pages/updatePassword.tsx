@@ -2,15 +2,54 @@ import { StyleSheet, Text, Image, Pressable, TextInput } from 'react-native';
 import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { STYLES } from '@/assets/styles';
+import { useUser } from '@/context/UserContext';
+import { updateUserPassword } from '@/api/apiService';
+import { validCharacters } from '@/helpers/validCharacters';
 
-export default function UpdatePasswordScreen({ props }:{ props: any}) {
+export default function UpdatePasswordScreen() {
+  const {currentUser, setCurrentUser} = useUser(); 
+
   const [oldPassword, setOldPassword] = React.useState('')
   const [newPassword, setNewPassword] = React.useState('')
   const [confirmNewPassword, setConfirmNewPassword] = React.useState('')
   const [focus, setFocus] = React.useState<string | null>(null);
 
-  const handlePress = () => {
-      // props.setGetStarted(false)
+  const invalidCharacterCheck = () => {
+    const charList = newPassword.split("")
+    const isValid = charList.every(char => validCharacters.includes(char));
+    return isValid;
+  }
+
+  const handlePress = async () => {
+    if (oldPassword != currentUser.password) {
+      console.log("current password incorrect")
+    } else if (newPassword != confirmNewPassword) {
+      console.log("new passwords do not match")
+    } else if (newPassword.length < 8 || newPassword.length > 16) {
+      console.log("passwords must be between 8-16 character")
+    } else if (!invalidCharacterCheck()) {
+      console.log("password contains invalid characters")
+    } else if (!/[A-Z]/.test(newPassword)){
+      console.log("password must contain a capital letter")
+    } else if (!/[a-z]/.test(newPassword)){
+      console.log("password must contain a lower case letter")
+    } else if (!/\d/.test(newPassword)) {
+      console.log("password must contain at least one letter")
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(newPassword)) {
+      console.log("password must contain at least one special character (ie: !, @, #, $, %, &)")
+    } else if (newPassword === currentUser.username){
+      console.log("passwords cannot match usernames")
+    } else {
+      try {
+        const data = await updateUserPassword(currentUser.id, oldPassword, newPassword);
+        setCurrentUser({
+          ...currentUser,
+          password: newPassword,
+        });
+      } catch (error) {
+        console.log("error while updating password: ", error)
+      }
+    }
   }
 
   const handleFocus = (input: string) => {
@@ -31,7 +70,7 @@ export default function UpdatePasswordScreen({ props }:{ props: any}) {
         />
       }>
 
-<TextInput
+        <TextInput
             style={[styles.textInput, focus === 'oldPassword' ? styles.inputFocused : styles.inputUnfocused]}
             onFocus={() => handleFocus('oldPassword')}
             onBlur={handleBlur}
@@ -40,7 +79,7 @@ export default function UpdatePasswordScreen({ props }:{ props: any}) {
             placeholder='Old Password'
           />
 
-<TextInput
+        <TextInput
             style={[styles.textInput, focus === 'newPassword' ? styles.inputFocused : styles.inputUnfocused]}
             onFocus={() => handleFocus('newPassword')}
             onBlur={handleBlur}
@@ -49,7 +88,7 @@ export default function UpdatePasswordScreen({ props }:{ props: any}) {
             placeholder='New Password'
           />
 
-<TextInput
+        <TextInput
             style={[styles.textInput, focus === 'confirmNewPassword' ? styles.inputFocused : styles.inputUnfocused]}
             onFocus={() => handleFocus('confirmNewPassword')}
             onBlur={handleBlur}
@@ -79,11 +118,6 @@ const styles = StyleSheet.create({
       left: -35,
       position: 'absolute',
     },
-    titleContainer: {
-      flexDirection: 'row',
-      gap: 8,
-      marginBottom: 25,
-    },
     pageImage: {
       height: 250,
       width: 430,
@@ -91,22 +125,9 @@ const styles = StyleSheet.create({
       left: 0,
       position: 'absolute',
     },
-    text: {
-      color: "white",
-      fontSize: 15,
-    },
-    titleText: {
-      color: STYLES.ORANGE,
-      fontSize: 30,
-    },
-    subTitleText: {
-      color: STYLES.ORANGE,
-      fontSize: 20,
-    },
     textInput: {
       height: 40,
       borderBottomWidth: 1,
-      // borderRadius: 25,
       fontSize: 25,
       color: STYLES.ORANGE,
       borderColor: "grey",
