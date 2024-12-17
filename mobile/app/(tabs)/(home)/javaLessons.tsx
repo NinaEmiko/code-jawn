@@ -5,44 +5,63 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
 import { useUser } from '@/context/UserContext';
 import { Lessons } from '@/components/Lessons';
-import { TemporaryLessons } from '@/components/TemporaryLessons';
 
 export default function JavaLessonsScreen() {
   const { currentUser } = useUser();
-  const paths = [
+
+  const dataTypesLessons = [
     {
-      name: "Data Types",
+      name: "ints",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.intsLessonIsComplete,
       path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
     },
     {
-      name: "Variables",
+      name: "Strings",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.stringsLessonIsComplete,
       path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
     },
     {
-      name: "For Loops",
+      name: "booleans",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.booleansLessonIsComplete,
       path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
     },
     {
-      name: "Conditionals",
+      name: "Longs",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.longsLessonIsComplete,
       path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
     },
     {
-      name: "Arrays",
+      name: "floats",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.floatsLessonIsComplete,
       path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
     },
     {
-      name: "Collections",
+      name: "doubles",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.doublesLessonIsComplete,
       path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
     },
     {
-      name: "Methods",
+      name: "shorts",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.shortsLessonIsComplete,
       path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
     },
     {
-      name: "Operators",
+      name: "bytes",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.bytesLessonIsComplete,
+      path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
+    },
+    {
+      name: "chars",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.charsLessonIsComplete,
+      path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
+    },
+    {
+      name: "Comments",
+      completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.commentsLessonIsComplete,
       path: '/(tabs)/(home)/lessons/java/dataTypes/strings'
     }
   ]
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -53,53 +72,9 @@ export default function JavaLessonsScreen() {
       />
     }>
       <>
-    {/* {currentUser.javaLessonsProgress.map((lesson, index) => {
-
-      return Object.entries(lesson).map(([key, jawnObject], jawnIndex) => {
-
-        return (
-          <Collapsible key={`${index}-${jawnIndex}`} title={key}>
-            <Lessons
-              props={{
-                lesson: jawnObject,
-                path: paths[index].path
-              }}
-            />
-          </Collapsible>
-        );
-      });
-    })} */}
-
-          <Collapsible title="Data Types">
-            {/* <Lessons
-              props={{
-                lesson: currentUser.lessonTracker.javaLT.javaDataTypesLT,
-                path: paths[0].path
-              }}
-            /> */}
-            <TemporaryLessons
-              props={{
-                lesson: "ints",
-                completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.intsLessonIsComplete,
-                path: paths[0].path
-              }}
-            />
-            <TemporaryLessons
-              props={{
-                lesson: "Strings",
-                completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.stringsLessonIsComplete,
-                path: paths[0].path
-              }}
-            />
-                        <TemporaryLessons
-              props={{
-                lesson: "booleans",
-                completed: currentUser.lessonTracker.javaLT.javaDataTypesLT.booleansLessonIsComplete,
-                path: paths[0].path
-              }}
-            />
-          </Collapsible>
-
+        <Collapsible title="Data Types">
+          <Lessons props={{lesson: dataTypesLessons}} />
+        </Collapsible>
       </>
     </ParallaxScrollView>
   );

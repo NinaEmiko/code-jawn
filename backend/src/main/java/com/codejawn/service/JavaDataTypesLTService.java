@@ -1,14 +1,12 @@
 package com.codejawn.service;
 
-import com.codejawn.model.JavaDataTypesLT;
+import com.codejawn.model.java.JavaDataTypesLT;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.JavaDataTypesLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Slf4j
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package com.codejawn.model;
+package com.codejawn.model.java;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -20,7 +20,20 @@ public class JavaDataTypesLT {
     private boolean stringsLessonIsComplete;
     @Column(name= "booleans_lesson_is_complete")
     private boolean booleansLessonIsComplete;
+    @Column(name= "longs_lesson_is_complete")
+    private boolean longsLessonIsComplete;
+    @Column(name= "floats_lesson_is_complete")
+    private boolean floatsLessonIsComplete;
+    @Column(name= "doubles_lesson_is_complete")
+    private boolean doublesLessonIsComplete;
+    @Column(name= "shorts_lesson_is_complete")
+    private boolean shortsLessonIsComplete;
+    @Column(name= "bytes_lesson_is_complete")
+    private boolean bytesLessonIsComplete;
+    @Column(name= "chars_lesson_is_complete")
+    private boolean charsLessonIsComplete;
+    @Column(name= "comments_lesson_is_complete")
+    private boolean commentsLessonIsComplete;
     @Column(name= "quiz_is_complete")
     private boolean quizIsComplete;
-
 }
