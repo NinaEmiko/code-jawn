@@ -1,57 +1,52 @@
 import { STYLES } from '@/assets/styles';
 import { MaterialIcons } from '@expo/vector-icons';
-import { Link } from 'expo-router';
-import { StyleSheet, View, Text } from 'react-native';
+import { router } from 'expo-router';
+import { StyleSheet, View, Text, Pressable } from 'react-native';
 
 export function Lessons({ props }:{ props: any}) {
 
+    const handleNavigation = () => {
+        router.push(props.path);
+    }
 
-  return (
-        <View style={styles.cardContainer}>
-            {props.lesson.map((item, index) => (
-              <View key={index} style={styles.cardWrapper}>
-                <Link style={styles.card} href={item.path}>
-                  <View style={styles.progress}>
+    return (
+        <View style={styles.cardWrapper}>
+            <Pressable style={styles.card} onPress={() => handleNavigation()}>
+                <View style={styles.progress}>
                     <MaterialIcons
-                      name="laptop"
-                      size={60}
-                      color={STYLES.ORANGE}
-                      style={styles.icon}
+                        name="laptop"
+                        size={60}
+                        color={STYLES.ORANGE}
+                        style={styles.icon}
                     />
-                    <Text style={styles.text}>{item.name}</Text>
-                    {item.completed ? (
-                      <Text style={[styles.subText, { color: "green" }]}>Completed!</Text>
+                    <Text style={styles.text}>{props.lesson}</Text>
+                    {props.isComplete ? (
+                        <Text style={[styles.subText, { color: "green" }]}>Completed!</Text>
                     ) : (
-                      <Text style={[styles.subText, { color: "white" }]}>Not Started</Text>
+                        <Text style={[styles.subText, { color: "white" }]}>Not Started</Text>
                     )}
-                  </View>
-                </Link>
-              </View>
-            ))}
-          </View>
-  );
+                </View>
+            </Pressable>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-      progress: {
-    
-      },
-      cardContainer: {
+    cardContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
-        width: '100%',
       },
       cardWrapper: {
         width: '48%',
-        marginBottom: 15,
+        marginBottom: 10,
       },
       card: {
         backgroundColor: STYLES.DARK_GREY,
         borderRadius: 25,
         padding: 15,
-        alignItems: 'center',
         justifyContent: 'center',
+        alignItems: 'center',
       },
       text: {
         fontFamily: STYLES.FONT,
@@ -63,7 +58,10 @@ const styles = StyleSheet.create({
         fontFamily: STYLES.FONT,
         fontSize: 15,
       },
+      progress: {
+
+      },
       icon: {
-        marginBottom: 10,
+
       },
 });

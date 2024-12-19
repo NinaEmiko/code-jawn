@@ -31,9 +31,13 @@ public class JavaOperatorsLT {
     @Column(name= "modulus_lesson_is_complete")
     private boolean modulusLessonIsComplete;
     @Column(name= "increment_lesson_is_complete")
+    private boolean incrementLessonIsComplete;
+    @Column(name= "decrement_lesson_is_complete")
     private boolean decrementLessonIsComplete;
     @Column(name= "less_than_lesson_is_complete")
     private boolean lessThanLessonIsComplete;
+    @Column(name= "greater_than_lesson_is_complete")
+    private boolean greaterThanLessonIsComplete;
     @Column(name= "double_equals_lesson_is_complete")
     private boolean doubleEqualsLessonIsComplete;
     @Column(name= "less_than_equal_to_lesson_is_complete")
