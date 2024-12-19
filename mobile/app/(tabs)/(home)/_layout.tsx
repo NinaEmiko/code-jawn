@@ -9,8 +9,22 @@ export default function RootLayout() {
         title: 'Java Lessons',
         headerBackTitle: 'Back',
       }}
-      />
-      <Stack.Screen 
+    />
+    <Stack.Screen 
+      name="javaScriptLessons" 
+      options={{
+        title: 'JavaScript Lessons',
+        headerBackTitle: 'Back',
+      }}
+    />
+    <Stack.Screen 
+      name="pythonLessons" 
+      options={{
+        title: 'Python Lessons',
+        headerBackTitle: 'Back',
+      }}
+    />
+    <Stack.Screen 
       name="lessons/java/dataTypes/strings" 
       options={{
         title: 'Strings',

@@ -6,12 +6,12 @@ export const LANGUAGES = [
                     'It\'s widely used for building robust, secure, and scalable applications, from web and mobile apps to enterprise and embedded systems.',
     },
     {   language: "JavaScript",
-        route: "/javaLessons",
+        route: "/javaScriptLessons",
         description: 'JavaScript is a versatile, high-level programming language primarily used for adding interactive and dynamic features to websites.',
     },
     {
         language: "Python",
-        route: "/javaLessons",
+        route: "/pythonLessons",
         description: 'Python is a high-level, interpreted programming language known for its readability and simplicity. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming, and is used in fields like web development, data science, AI, and automation.',
     
     }
