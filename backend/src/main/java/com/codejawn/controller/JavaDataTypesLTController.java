@@ -34,4 +34,12 @@ public class JavaDataTypesLTController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @PostMapping("/reset")
+    public ResponseEntity<String> resetJavaDataTylesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
+        logger.info("Inside resetJavaDataTylesLT controller method.");
+        Long userId = updateLTDTO.getUserId();
+        String lesson = updateLTDTO.getLesson();
+        String response = javaDataTypesLTService.resetLT(userId, lesson);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

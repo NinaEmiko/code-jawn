@@ -31,6 +31,10 @@ export default function RootLayout() {
         headerBackTitle: 'Exit',
       }}
       />
+    <Stack.Screen 
+      name="quizzes/java/dataTypes/strings" 
+      options={{ headerShown: false }}
+      />
     </Stack>
   );
 }

@@ -23,19 +23,37 @@ public class JavaDataTypesLTService {
         return userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
     }
 
-    public String updateLT(Long userId, String lesson) {
-        log.info("parameters: " + userId + " " + lesson);
+    public String resetLT(Long userId, String lesson) {
+        log.info("Inside resetLT");
         UserAccount userAccount = userAccountRepository.findById(userId)
                 .orElseThrow(
                         () -> new RuntimeException("User not found")
                 );
-        log.info("user account: " + userAccount);
-
         try {
-            log.info("user account JDTLT: " + userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT());
-
             JavaDataTypesLT javaDataTypesLT = userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
+            switch (lesson) {
+                case "Strings":
+                    log.info("Strings and things");
+                    javaDataTypesLT.setStringsLessonIsComplete(false);
+                    break;
+                case "ints":
+                    javaDataTypesLT.setIntsLessonIsComplete(false);
+                    break;
+            }
+            javaDataTypesLTRepository.save(javaDataTypesLT);
+            return "SUCCESS";
+        } catch (Exception e) {
+            return "FAILED";
+        }
+    }
 
+    public String updateLT(Long userId, String lesson) {
+        UserAccount userAccount = userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
+        try {
+            JavaDataTypesLT javaDataTypesLT = userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
             switch (lesson) {
                 case "Strings":
                     log.info("Strings and things");
@@ -45,7 +63,6 @@ public class JavaDataTypesLTService {
                     javaDataTypesLT.setIntsLessonIsComplete(true);
                     break;
             }
-
             javaDataTypesLTRepository.save(javaDataTypesLT);
             return "SUCCESS";
         } catch (Exception e) {

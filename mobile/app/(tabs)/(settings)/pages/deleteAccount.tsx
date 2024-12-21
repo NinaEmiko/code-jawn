@@ -49,8 +49,8 @@ export default function DeleteAccountScreen({ props }:{ props: any}) {
         </Pressable>
 
         <Text style={styles.subTitleText}></Text>
-
-        <Modal
+      
+      <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}

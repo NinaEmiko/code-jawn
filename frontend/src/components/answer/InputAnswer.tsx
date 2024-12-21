@@ -1,4 +1,3 @@
-import JustText from "../utility/JustText";
 import AnswerExplanationHeader from "./AnswerExplanationHeader";
 import Explanation from "./Explanation";
 

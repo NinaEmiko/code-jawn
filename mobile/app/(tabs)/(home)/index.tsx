@@ -1,6 +1,6 @@
 import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity, Pressable } from 'react-native';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LANGUAGES } from '@/constants/SelectLanguageConstants';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { router } from 'expo-router';
@@ -16,7 +16,7 @@ export default function HomeScreen() {
     const [activeDescription, setActiveDescription] = React.useState(LANGUAGES[0].description);
     const [activeRoute, setActiveRoute] = React.useState(LANGUAGES[0].route);
     const [selectedButton, setSelectedButton] = React.useState(0);
-    const [activeProgress, setActiveProgress] = React.useState(currentUser.javaProgress);
+    const [activeProgress, setActiveProgress] = React.useState(Math.round(javaProgressCalculator(currentUser.lessonTracker.javaLT)));
 
     const handleLanguagePress = (language: string, description: string, route: string, selectedButton: number) => {
       setActiveLanguage(language)

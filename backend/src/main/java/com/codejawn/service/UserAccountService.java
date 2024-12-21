@@ -69,7 +69,6 @@ public class UserAccountService {
                 .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));
 
         userAccount.setRoles(Collections.singletonList(role));
-
         return userAccountRepository.save(userAccount);
     }
 

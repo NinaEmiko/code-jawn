@@ -1,6 +1,6 @@
 import { StyleSheet, Image, View } from 'react-native';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
 import { useUser } from '@/context/UserContext';
@@ -92,6 +92,11 @@ export default function JavaLessonsScreen() {
       {"=": [currentUser.lessonTracker.javaLT.javaOperatorsLT.equalsLessonIsComplete, JAVA_PATHS['Operators']['=']]},
     ],
   }
+
+  useEffect(() => {
+    
+  })
+  
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}

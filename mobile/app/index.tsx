@@ -37,7 +37,7 @@ export default function LoginScreen() {
 
     const handleLogin = async () => {
         const data = await login(username, password);
-        console.log('data:' + data);
+        console.log('login data:' + data);
         try {
             setCurrentUser(data);
             router.push("/(tabs)/(home)");

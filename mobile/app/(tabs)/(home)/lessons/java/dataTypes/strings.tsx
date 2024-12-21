@@ -1,11 +1,12 @@
-import { StyleSheet, Image, Platform, Text, Button, View, Pressable, Dimensions, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, ImageBackground } from 'react-native';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { STRINGS_LESSONS } from '@/constants/Java/DataTypes/StringsConstants';
 import GlowingButton from '@/components/GlowingButton';
 import ProgressCircle from '@/components/ProgressCircle';
 import TypingDisplayText from '@/components/TypingDisplayText';
 import { STYLES } from '@/assets/styles';
+import { router } from 'expo-router';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -14,24 +15,21 @@ export default function JavaDataTypesStrings() {
   const [tab, setTab] = React.useState(0);
 
   const handlePress = () => {
-    setTab(tab + 1)
-    
+    if (tab <= 2) {
+      setTab(tab + 1)
+    } else if (tab == 3) {
+      setTab(tab + 1)
+      setButtonText('Begin')
+    } else {
+      router.push('/(tabs)/(home)/quizzes/java/dataTypes/strings');
+    }
   }
-
-  useEffect(() => {
-    if (tab === 5) {
-      setButtonText("Begin")
-     } 
-   if (tab === 6) {
-    
-   } 
-  }, [tab])
 
   return (
     <>
       <View style={styles.lessonContainer}>
         <View style={styles.banner}>
-          <ProgressCircle props={{percentage:10, style: {width: 80, height: 80} }} />
+          <ProgressCircle props={{percentage:0, style: {width: 80, height: 80} }} />
           </View>
         <View style={styles.lessonCard}>
           <ImageBackground 
@@ -40,50 +38,38 @@ export default function JavaDataTypesStrings() {
           >
 
           {tab === 0 &&
-            <>
-              <TypingDisplayText text={STRINGS_LESSONS[0].EXPLANATION} textColor="white" />
-            </>
+              <TypingDisplayText text={STRINGS_LESSONS.EXPLANATION_1} textColor="white" />
           }
           {tab === 1 &&
             <>
               <Text style={styles.stringTitle}>
-                String
+                Strings
               </Text>
               <TypingDisplayText text={"\"Hello World!\""} textColor={STYLES.STRINGS}/>
+              <TypingDisplayText text={"\'Hello World!\'"} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={"\`Hello World!\`"} textColor={STYLES.STRINGS} />
             </>
           }
           {tab === 2 &&
             <>
               <Text style={styles.stringTitle}>
-                String
+                Not Strings
               </Text>
-              <TypingDisplayText text={"\'Hello World!\'"} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={"Hello World!"} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={"\"Hello World!\'"} textColor={STYLES.STRINGS} />
             </>
           }
           {tab === 3 &&
+            <TypingDisplayText text={STRINGS_LESSONS.EXPLANATION_2} textColor="white" />
+          }
+          {tab === 4 &&
             <>
               <Text style={styles.stringTitle}>
                 String
               </Text>
-              <TypingDisplayText text={"\`Hello World!\`"} textColor={STYLES.STRINGS} />
-            </>
-          }
-
-          {tab === 4 &&
-            <>
-              <Text style={styles.stringTitle}>
-                Not a String
-              </Text>
-              <TypingDisplayText text={"Hello World!"} textColor={STYLES.STRINGS} />
-            </>
-          }
-
-          {tab === 5 &&
-            <>
-              <Text style={styles.stringTitle}>
-                Not a String
-              </Text>
-              <TypingDisplayText text={"\"Hello World!\'"} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={'\"Lola\"'} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={"\"Lola@email.com\""} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={"\"Therapist\""} textColor={STYLES.STRINGS} />
             </>
           }
 

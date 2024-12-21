@@ -45,6 +45,7 @@ public class SecurityConfig {
                                         "/api/auth/register",
                                         "/api/java/datatypes/lessons/update",
                                         "/api/java/datatypes/lessons/get/{id}",
+                                        "/api/java/datatypes/lessons/reset",
                                         "/api/auth/delete/{id}",
                                         "/api/auth/update-password",
                                         "/api/auth/update-email",

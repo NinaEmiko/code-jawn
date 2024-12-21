@@ -1,6 +1,7 @@
 export const STYLES = {
     ORANGE: "#ff7100",
     BLUE: "#12edd8",
+    INTS: "#79B8FF",
     DARK_GREY: "#333333",
     STRINGS: "#859900",
     FONT: "Menlo",
