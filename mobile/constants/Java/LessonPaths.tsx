@@ -1,4 +1,4 @@
-export const JAVA_PATHS = {
+export const JAVA_LESSONS_PATHS = {
     "Data Types": {
         "ints": "/(tabs)/(home)/lessons/java/dataTypes/strings",
         "Strings": "/(tabs)/(home)/lessons/java/dataTypes/strings",

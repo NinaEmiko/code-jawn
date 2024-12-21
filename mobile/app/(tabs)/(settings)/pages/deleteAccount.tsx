@@ -5,7 +5,7 @@ import { STYLES } from '@/assets/styles';
 import { useUser } from '@/context/UserContext';
 import { deleteAccount } from '@/api/apiService';
 
-export default function DeleteAccountScreen({ props }:{ props: any}) {
+export default function DeleteAccountScreen() {
   const {currentUser, setCurrentUser} = useUser(); 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -37,15 +37,14 @@ export default function DeleteAccountScreen({ props }:{ props: any}) {
       }>
 
         <Text style={styles.titleText}>Delete Account</Text>
-        <Pressable style={({ pressed }) => [
-                        styles.button,
-                        pressed && styles.pressed,
-                        ]}
-                        onPress={() => handlePress()}
-                    >
-                        <Text style={styles.buttonText}>Delete Account</Text>
-
-
+        <Pressable 
+          style={({ pressed }) => [
+            styles.button,
+            pressed && styles.pressed,
+            ]}
+            onPress={() => handlePress()}
+        >
+          <Text style={styles.buttonText}>Delete Account</Text>
         </Pressable>
 
         <Text style={styles.subTitleText}></Text>

@@ -49,7 +49,6 @@ export default function UpdateEmailScreen() {
             placeholder='New Email'
           />
 
-
         <Pressable
         style={({ pressed }) => [
           styles.button,

@@ -10,11 +10,6 @@ import { STYLES } from '@/assets/styles';
 export default function PythonLessonsScreen() {
   const { currentUser } = useUser();
 
-//   const lessons = {
-//     "Data Types": [
-//       {"ints": [currentUser.lessonTracker.javaLT.javaDataTypesLT.intsLessonIsComplete, JAVA_PATHS['Data Types'].ints]},
-//     ],
-//   }
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -25,25 +20,7 @@ export default function PythonLessonsScreen() {
       />
     }>
       <Text style={styles.languageButtonText}>
-      Coming Soon
-        {/* {Object.entries(lessons).map(([lessonName, subLessonObject]) => (
-          <Collapsible key={lessonName} title={lessonName}>
-            <View style={styles.cardContainer}>
-              {Object.entries(subLessonObject).map(([key, value]) => (
-                Object.entries(value).map(([subLesson, isCompleteAndPath]) => (
-                    <Lessons 
-                      key={subLesson}
-                      props={{
-                        lesson: subLesson,
-                        isComplete: isCompleteAndPath[0],
-                        path: isCompleteAndPath[1]
-                      }}
-                    />
-                ))
-              ))}
-            </View>
-          </Collapsible>
-        ))} */}
+        Coming Soon
       </Text>
     </ParallaxScrollView>
   );

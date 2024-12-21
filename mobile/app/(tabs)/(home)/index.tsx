@@ -1,6 +1,6 @@
 import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity, Pressable } from 'react-native';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { LANGUAGES } from '@/constants/SelectLanguageConstants';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { router } from 'expo-router';

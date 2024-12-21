@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View, Dimensions, ImageBackground } from 'react-native';
 
 import React from 'react';
-import { STRINGS_LESSONS } from '@/constants/Java/DataTypes/StringsConstants';
+import { STRINGS_EXAMPLES, STRINGS_LESSONS } from '@/constants/Java/DataTypes/StringsConstants';
 import GlowingButton from '@/components/GlowingButton';
 import ProgressCircle from '@/components/ProgressCircle';
 import TypingDisplayText from '@/components/TypingDisplayText';
 import { STYLES } from '@/assets/styles';
-import { router } from 'expo-router';
+import { RelativePathString, router } from 'expo-router';
+import { JAVA_QUIZ_PATHS } from '@/constants/Java/QuizPaths';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -21,7 +22,7 @@ export default function JavaDataTypesStrings() {
       setTab(tab + 1)
       setButtonText('Begin')
     } else {
-      router.push('/(tabs)/(home)/quizzes/java/dataTypes/strings');
+      router.push(JAVA_QUIZ_PATHS['Data Types'].Strings as RelativePathString);
     }
   }
 
@@ -45,9 +46,9 @@ export default function JavaDataTypesStrings() {
               <Text style={styles.stringTitle}>
                 Strings
               </Text>
-              <TypingDisplayText text={"\"Hello World!\""} textColor={STYLES.STRINGS}/>
-              <TypingDisplayText text={"\'Hello World!\'"} textColor={STYLES.STRINGS} />
-              <TypingDisplayText text={"\`Hello World!\`"} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_1} textColor={STYLES.STRINGS}/>
+              <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_2} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_3} textColor={STYLES.STRINGS} />
             </>
           }
           {tab === 2 &&
@@ -55,8 +56,8 @@ export default function JavaDataTypesStrings() {
               <Text style={styles.stringTitle}>
                 Not Strings
               </Text>
-              <TypingDisplayText text={"Hello World!"} textColor={STYLES.STRINGS} />
-              <TypingDisplayText text={"\"Hello World!\'"} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={STRINGS_EXAMPLES.NOT_STRING_EXAMPLE_1} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={STRINGS_EXAMPLES.NOT_STRING_EXAMPLE_2} textColor={STYLES.STRINGS} />
             </>
           }
           {tab === 3 &&
@@ -67,9 +68,9 @@ export default function JavaDataTypesStrings() {
               <Text style={styles.stringTitle}>
                 String
               </Text>
-              <TypingDisplayText text={'\"Lola\"'} textColor={STYLES.STRINGS} />
-              <TypingDisplayText text={"\"Lola@email.com\""} textColor={STYLES.STRINGS} />
-              <TypingDisplayText text={"\"Therapist\""} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_4} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_5} textColor={STYLES.STRINGS} />
+              <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_6} textColor={STYLES.STRINGS} />
             </>
           }
 
@@ -79,9 +80,7 @@ export default function JavaDataTypesStrings() {
       <View style={styles.buttonContainer}>
         <GlowingButton props={{buttonColor: STYLES.BLUE, buttonPress:handlePress, buttonText: buttonText}} />
       </View>
-
     </>
-
   );
 }
 

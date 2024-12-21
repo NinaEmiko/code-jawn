@@ -62,7 +62,6 @@ export default function JavaDataTypesStringsQuiz() {
                     source={require('@/assets/images/ComputerScreenOrange.png')}
                     style={styles.image}
                 >
-
                     {questionNumber === 0 &&
                         <TypingDisplayText text={STRINGS_QUIZ.STRING_QUESTION_1} textColor="white" />
                     }
@@ -79,9 +78,8 @@ export default function JavaDataTypesStringsQuiz() {
                         <TypingDisplayText text={STRINGS_QUIZ.STRING_QUESTION_5} textColor="white" />
                     }
                     {questionNumber === 5 &&
-                        <TypingDisplayText text={"Good job!"} textColor="white" />
+                        <TypingDisplayText text={STRINGS_QUIZ.GOOD_JOB} textColor="white" />
                     }
-
                 </ImageBackground>
             </View>
         </View>
@@ -260,13 +258,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: STYLES.FONT_SIZE_BUTTON,
     fontFamily: STYLES.FONT,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: 'gray',
-    marginVertical: 5,
-    marginLeft: 15,
-    marginRight: 15
   },
   pressed: {
     opacity: 0.7,

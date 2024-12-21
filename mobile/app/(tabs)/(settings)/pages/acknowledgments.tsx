@@ -3,11 +3,7 @@ import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { STYLES } from '@/assets/styles';
 
-export default function AcknowledgmentsScreen({ props }:{ props: any}) {
-
-    const handlePress = () => {
-        props.setGetStarted(false)
-    }
+export default function AcknowledgmentsScreen() {
 
   return(
     <ParallaxScrollView
@@ -18,7 +14,6 @@ export default function AcknowledgmentsScreen({ props }:{ props: any}) {
           style={styles.pageImage}
         />
       }>
-
         <Text style={styles.titleText}>Acknowledments</Text>
         <Text style={styles.subTitleText}>Special thanks to</Text>
         <Text style={styles.subTitleText}></Text>

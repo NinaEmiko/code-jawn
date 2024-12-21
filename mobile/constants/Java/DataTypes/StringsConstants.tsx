@@ -8,7 +8,19 @@ export const STRINGS_QUIZ = {
     STRING_QUESTION_2: `Select value that is not of type String.`,
     STRING_QUESTION_3: `Select value that is not of type String.`,
     STRING_QUESTION_4: `What is missing from this to make it a String value: Lola works at 5.`,
-    STRING_QUESTION_5: `Update this value to make it into a string:`
+    STRING_QUESTION_5: `Update this value to make it into a string:`,
+    GOOD_JOB: 'Good job!'
+}
+
+export const STRINGS_EXAMPLES = {
+    STRING_EXAMPLE_1: "\"Hello World!\"",
+    STRING_EXAMPLE_2: "\'Hello World!\'",
+    STRING_EXAMPLE_3: "\`Hello World!\`",
+    NOT_STRING_EXAMPLE_1: "Hello World!",
+    NOT_STRING_EXAMPLE_2: "\"Hello World!\'",
+    STRING_EXAMPLE_4: '\"Lola\"',
+    STRING_EXAMPLE_5: "\"Lola@email.com\"",
+    STRING_EXAMPLE_6: "\"Therapist\"",
 }
 
 export const STRINGS_EXPLANATIONS = {

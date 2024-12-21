@@ -4,11 +4,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { TERMS_AND_CONDITIONS } from '@/constants/TermsAndConditions';
 import { STYLES } from '@/assets/styles';
 
-export default function TermsAndConditionsScreen({ props }:{ props: any}) {
-
-    const handlePress = () => {
-        props.setGetStarted(false)
-    }
+export default function TermsAndConditionsScreen() {
 
   return(
     <ParallaxScrollView

@@ -3,11 +3,7 @@ import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { STYLES } from '@/assets/styles';
 
-export default function SupportScreen({ props }:{ props: any}) {
-
-    const handlePress = () => {
-        props.setGetStarted(false)
-    }
+export default function SupportScreen() {
 
   return(
     <ParallaxScrollView
@@ -18,7 +14,6 @@ export default function SupportScreen({ props }:{ props: any}) {
           style={styles.pageImage}
         />
       }>
-
         <Text style={styles.titleText}>Support</Text>
         <Text style={styles.subTitleText}>FAQ</Text>
         <Text style={styles.subTitleText}>Contact Us</Text>

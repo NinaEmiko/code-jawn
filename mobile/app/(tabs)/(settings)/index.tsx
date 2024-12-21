@@ -2,7 +2,6 @@ import { STYLES } from "@/assets/styles";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { useUser } from "@/context/UserContext";
 import { Link, router } from "expo-router";
-import { useSearchParams } from "expo-router/build/hooks";
 import { View, Pressable, Image, Text, StyleSheet } from "react-native";
 
 export default function SettingsScreen() {
