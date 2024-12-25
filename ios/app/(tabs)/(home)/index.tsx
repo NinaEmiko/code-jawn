@@ -3,7 +3,7 @@ import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity, Pressable 
 import React, { useEffect } from 'react';
 import { LANGUAGES } from '@/constants/SelectLanguageConstants';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { router } from 'expo-router';
+import { RelativePathString, router } from 'expo-router';
 import ProgressCircle from '@/components/ProgressCircle';
 import { STYLES } from '@/assets/styles';
 import { useUser } from '@/context/UserContext';
@@ -49,7 +49,7 @@ export default function HomeScreen() {
       
 
     const handleNavigation = () => {
-      router.push(activeRoute);
+      router.push(activeRoute as RelativePathString);
   }
 
     return (
