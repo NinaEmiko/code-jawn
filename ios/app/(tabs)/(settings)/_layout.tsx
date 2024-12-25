@@ -5,10 +5,7 @@ export default function RootLayout() {
     <Stack>
             <Stack.Screen 
       name="index" 
-      options={{
-        title: 'Settings',
-        headerBackTitle: 'Back',
-      }}
+      options={{ headerShown: false }}
       />
             <Stack.Screen 
       name="pages/acknowledgments" 

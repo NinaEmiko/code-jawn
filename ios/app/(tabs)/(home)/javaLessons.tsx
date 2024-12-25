@@ -44,7 +44,7 @@ export default function JavaLessonsScreen({props}:{props: any}) {
     }>
       <>
         {Object.entries(lessons).map(([lessonName, subLessonObject]) => (
-          <Collapsible key={lessonName} title={lessonName}>
+          <Collapsible key={lessonName} title={lessonName} openComponent='Data Types'>
             <View style={styles.cardContainer}>
               {Object.entries(subLessonObject).map(([key, value]) => (
                 Object.entries(value).map(([subLesson, isCompleteAndPath]) => {
