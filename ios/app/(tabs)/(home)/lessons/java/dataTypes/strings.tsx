@@ -6,12 +6,10 @@ import GlowingButton from '@/components/GlowingButton';
 import ProgressCircle from '@/components/ProgressCircle';
 import TypingDisplayText from '@/components/TypingDisplayText';
 import { STYLES } from '@/assets/styles';
-import { RelativePathString, router } from 'expo-router';
-import { JAVA_QUIZ_PATHS } from '@/constants/Java/QuizPaths';
 
 const screenHeight = Dimensions.get('window').height;
 
-export default function JavaDataTypesStrings() {
+export default function JavaDataTypesStrings({props}:{props: any}) {
   const [buttonText, setButtonText] = React.useState('Next');
   const [tab, setTab] = React.useState(0);
 
@@ -22,12 +20,13 @@ export default function JavaDataTypesStrings() {
       setTab(tab + 1)
       setButtonText('Begin')
     } else {
-      router.push(JAVA_QUIZ_PATHS['Data Types'].Strings as RelativePathString);
+      props.handleUpdateComponent("Strings Quiz")
     }
   }
 
   return (
     <>
+    <View style={styles.headerReplacement} />
       <View style={styles.lessonContainer}>
         <View style={styles.banner}>
           <ProgressCircle props={{percentage:0, style: {width: 80, height: 80} }} />
@@ -136,4 +135,7 @@ const styles = StyleSheet.create({
     fontSize: STYLES.FONT_SIZE_BUTTON,
     fontFamily: STYLES.FONT,
   },
+  headerReplacement: {
+    height: screenHeight * .10,
+},
 });

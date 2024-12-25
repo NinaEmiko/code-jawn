@@ -6,7 +6,7 @@ import { StyleSheet, View, Text, Pressable } from 'react-native';
 export function Lessons({ props }:{ props: any}) {
 
     const handleNavigation = () => {
-        router.push(props.path);
+        props.handleUpdateComponent(props.path);
     }
 
     return (

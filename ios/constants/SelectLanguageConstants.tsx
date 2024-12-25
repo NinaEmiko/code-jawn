@@ -1,7 +1,7 @@
 export const LANGUAGES = [
     {
         language: "Java",
-        route: "/javaLessons",
+        route: "/javaLessonsNavigator",
         description: 'Java is a high-level, object-oriented programming language.' + 
                     'It\'s widely used for building robust, secure, and scalable applications, from web and mobile apps to enterprise and embedded systems.',
     },

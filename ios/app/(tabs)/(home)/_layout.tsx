@@ -10,6 +10,13 @@ export default function RootLayout() {
         headerBackTitle: 'Back',
       }}
     />
+        <Stack.Screen 
+      name="javaLessonsNavigator" 
+      options={{
+        title: 'Java Lessons',
+        headerBackTitle: 'Back',
+      }}
+    />
     <Stack.Screen 
       name="javaScriptLessons" 
       options={{
@@ -24,7 +31,7 @@ export default function RootLayout() {
         headerBackTitle: 'Back',
       }}
     />
-    <Stack.Screen 
+    {/* <Stack.Screen 
       name="lessons/java/dataTypes/strings" 
       options={{
         title: 'Strings',
@@ -34,7 +41,7 @@ export default function RootLayout() {
     <Stack.Screen 
       name="quizzes/java/dataTypes/strings" 
       options={{ headerShown: false }}
-      />
+      /> */}
     </Stack>
   );
 }

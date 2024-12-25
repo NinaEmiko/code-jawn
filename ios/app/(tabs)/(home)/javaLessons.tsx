@@ -5,11 +5,11 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
 import { useUser } from '@/context/UserContext';
 import { Lessons } from '@/components/Lessons';
-import { getDefaultLessonTracker, LessonTracker } from '@/types/LessonTracker';
+import { getDefaultLessonTracker } from '@/types/LessonTracker';
 import { getJavaLessons } from '@/helpers/getJavaLessonsHelper';
 import { getLessonTracker } from '@/api/apiService';
 
-export default function JavaLessonsScreen() {
+export default function JavaLessonsScreen({props}:{props: any}) {
   const { currentUser } = useUser();
   const [lessons, setLessons] = React.useState(getJavaLessons(getDefaultLessonTracker()));
   const [lessonTrackerSet, setLessonTrackerSet] = React.useState(false);
@@ -22,6 +22,12 @@ export default function JavaLessonsScreen() {
       setLessonTrackerSet(true);
     }
   }
+
+  const handleUpdateComponent = (component: string) => {
+    props.handleUpdateComponent(component)
+  }
+
+
 
   useEffect(()=> {
     if (!lessonTrackerSet){
@@ -49,7 +55,8 @@ export default function JavaLessonsScreen() {
                       props={{
                         lesson: subLesson,
                         isComplete: isCompleteAndPath[0],
-                        path: isCompleteAndPath[1]
+                        path: isCompleteAndPath[1],
+                        handleUpdateComponent: handleUpdateComponent
                       }}
                     />
                 ))

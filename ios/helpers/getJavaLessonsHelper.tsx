@@ -4,32 +4,32 @@ import { LessonTracker } from "@/types/LessonTracker"
 export const getJavaLessons = (lessonTracker: LessonTracker) => {
     return {
       "Data Types": [
-        {"ints": [lessonTracker.javaLT.javaDataTypesLT.intsLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].ints]},
-        {"Strings": [lessonTracker.javaLT.javaDataTypesLT.stringsLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].Strings]},
-        {"booleans": [lessonTracker.javaLT.javaDataTypesLT.booleansLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].booleans]},
-        {"Longs": [lessonTracker.javaLT.javaDataTypesLT.longsLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].Longs]},
-        {"floats": [lessonTracker.javaLT.javaDataTypesLT.floatsLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].floats]},
-        {"doubles": [lessonTracker.javaLT.javaDataTypesLT.doublesLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].doubles]},
-        {"shorts": [lessonTracker.javaLT.javaDataTypesLT.shortsLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].shorts]},
-        {"bytes": [lessonTracker.javaLT.javaDataTypesLT.bytesLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].bytes]},
-        {"chars": [lessonTracker.javaLT.javaDataTypesLT.charsLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].chars]},
-        {"Comments": [lessonTracker.javaLT.javaDataTypesLT.commentsLessonIsComplete, JAVA_LESSONS_PATHS['Data Types'].Comments]}
+        {"ints": [lessonTracker.javaLT.javaDataTypesLT.intsLessonIsComplete, "Strings Lesson"]},
+        {"Strings": [lessonTracker.javaLT.javaDataTypesLT.stringsLessonIsComplete, "Strings Lesson"]},
+        {"booleans": [lessonTracker.javaLT.javaDataTypesLT.booleansLessonIsComplete, "Strings Lesson"]},
+        {"Longs": [lessonTracker.javaLT.javaDataTypesLT.longsLessonIsComplete, "Strings Lesson"]},
+        {"floats": [lessonTracker.javaLT.javaDataTypesLT.floatsLessonIsComplete, "Strings Lesson"]},
+        {"doubles": [lessonTracker.javaLT.javaDataTypesLT.doublesLessonIsComplete, "Strings Lesson"]},
+        {"shorts": [lessonTracker.javaLT.javaDataTypesLT.shortsLessonIsComplete, "Strings Lesson"]},
+        {"bytes": [lessonTracker.javaLT.javaDataTypesLT.bytesLessonIsComplete, "Strings Lesson"]},
+        {"chars": [lessonTracker.javaLT.javaDataTypesLT.charsLessonIsComplete, "Strings Lesson"]},
+        {"Comments": [lessonTracker.javaLT.javaDataTypesLT.commentsLessonIsComplete, "Strings Lesson"]}
       ],
       "Variables": [
-        {"Initializing Variables": [lessonTracker.javaLT.javaVariablesLT.initializingVariablesLessonIsComplete, JAVA_LESSONS_PATHS['Variables']['Initializing Variables']]},
-        {"Naming Variables": [lessonTracker.javaLT.javaVariablesLT.namingVariablesLessonIsComplete, JAVA_LESSONS_PATHS['Variables']['Naming Variables']]},
-        {"Assigning Values": [lessonTracker.javaLT.javaVariablesLT.assigningValuesLessonIsComplete, JAVA_LESSONS_PATHS['Variables']['Assigning Values']]},
-        {"Updating Values": [lessonTracker.javaLT.javaVariablesLT.updatingValuesLessonIsComplete, JAVA_LESSONS_PATHS['Variables']['Updating Values']]},
-        {"Constants": [lessonTracker.javaLT.javaVariablesLT.constantsLessonIsComplete, JAVA_LESSONS_PATHS['Variables'].Constants]}
+        {"Initializing Variables": [lessonTracker.javaLT.javaVariablesLT.initializingVariablesLessonIsComplete, "Strings Lesson"]},
+        {"Naming Variables": [lessonTracker.javaLT.javaVariablesLT.namingVariablesLessonIsComplete, "Strings Lesson"]},
+        {"Assigning Values": [lessonTracker.javaLT.javaVariablesLT.assigningValuesLessonIsComplete, "Strings Lesson"]},
+        {"Updating Values": [lessonTracker.javaLT.javaVariablesLT.updatingValuesLessonIsComplete, "Strings Lesson"]},
+        {"Constants": [lessonTracker.javaLT.javaVariablesLT.constantsLessonIsComplete, "Strings Lesson"]}
       ],
       "For Loops": [
-        {"For Loops Syntax": [lessonTracker.javaLT.javaForLoopsLT.forLoopsSyntaxLessonIsComplete, JAVA_LESSONS_PATHS['For Loops']['For Loops Syntax']]},
-        {"For Loops Condition": [lessonTracker.javaLT.javaForLoopsLT.forLoopsConditionLessonIsComplete, JAVA_LESSONS_PATHS['For Loops']['For Loops Condition']]},
-        {"Increment/Decrement": [lessonTracker.javaLT.javaForLoopsLT.forLoopsIncrementDecrementLessonIsComplete, JAVA_LESSONS_PATHS['For Loops']['Increment/Decrement']]},
-        {"Nested For Loops": [lessonTracker.javaLT.javaForLoopsLT.nestedForLoopsLessonIsComplete, JAVA_LESSONS_PATHS['For Loops']['Nested For Loops']]},
-        {"While Loops Syntax": [lessonTracker.javaLT.javaForLoopsLT.whileLoopsSyntaxLessonIsComplete, JAVA_LESSONS_PATHS['For Loops']['While Loops Syntax']]},
-        {"While Loops Condition": [lessonTracker.javaLT.javaForLoopsLT.whileLoopsConditionLessonIsComplete, JAVA_LESSONS_PATHS['For Loops']['While Loops Condition']]},
-        {"For Each Syntax": [lessonTracker.javaLT.javaForLoopsLT.forEachSyntaxLessonIsComplete, JAVA_LESSONS_PATHS['For Loops']['For Each Syntax']]},
+        {"For Loops Syntax": [lessonTracker.javaLT.javaForLoopsLT.forLoopsSyntaxLessonIsComplete, "Strings Lesson"]},
+        {"For Loops Condition": [lessonTracker.javaLT.javaForLoopsLT.forLoopsConditionLessonIsComplete, "Strings Lesson"]},
+        {"Increment/Decrement": [lessonTracker.javaLT.javaForLoopsLT.forLoopsIncrementDecrementLessonIsComplete, "Strings Lesson"]},
+        {"Nested For Loops": [lessonTracker.javaLT.javaForLoopsLT.nestedForLoopsLessonIsComplete, "Strings Lesson"]},
+        {"While Loops Syntax": [lessonTracker.javaLT.javaForLoopsLT.whileLoopsSyntaxLessonIsComplete, "Strings Lesson"]},
+        {"While Loops Condition": [lessonTracker.javaLT.javaForLoopsLT.whileLoopsConditionLessonIsComplete, "Strings Lesson"]},
+        {"For Each Syntax": [lessonTracker.javaLT.javaForLoopsLT.forEachSyntaxLessonIsComplete, "Strings Lesson"]},
       ],
       "Conditionals": [
         {"If": [lessonTracker.javaLT.javaConditionalsLT.ifLessonIsComplete, JAVA_LESSONS_PATHS['Conditionals'].If]},

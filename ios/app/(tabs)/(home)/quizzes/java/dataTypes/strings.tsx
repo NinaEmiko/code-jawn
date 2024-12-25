@@ -5,16 +5,15 @@ import { STRINGS_EXPLANATIONS, STRINGS_QUIZ } from '@/constants/Java/DataTypes/S
 import ProgressCircle from '@/components/ProgressCircle';
 import TypingDisplayText from '@/components/TypingDisplayText';
 import { STYLES } from '@/assets/styles';
-import { router } from 'expo-router';
 import MultipleChoice from '@/components/MultipleChoice';
 import InputAnswer from '@/components/InputAnswer';
 import CustomModal from '@/components/CustomModal';
-import { getJavaDataTypesLT, updateJavaDataTypesLT } from '@/api/apiService';
+import { updateJavaDataTypesLT } from '@/api/apiService';
 import { useUser } from '@/context/UserContext';
 
 const screenHeight = Dimensions.get('window').height;
 
-export default function JavaDataTypesStringsQuiz() {
+export default function JavaDataTypesStringsQuiz({props}:{props: any}) {
     const { currentUser, updateJavaLessonTracker } = useUser();
     const [questionNumber, setQuestionNumber] = React.useState(0);
     const [progress, setProgress] = React.useState(0);
@@ -44,7 +43,7 @@ export default function JavaDataTypesStringsQuiz() {
 
   const handleCompleteQuiz = async () => {
     const data = await updateJavaDataTypesLT(currentUser.userId, "Strings");
-    router.replace('/(tabs)/(home)/javaLessons');
+    props.handleUpdateComponent("Java Lessons")
   }
 
   return (
@@ -180,6 +179,9 @@ export default function JavaDataTypesStringsQuiz() {
 }
 
 const styles = StyleSheet.create({
+    headerReplacement: {
+        height: screenHeight * .10,
+    },
     answerString: {
         color: STYLES.STRINGS,
         fontFamily: STYLES.FONT,
@@ -203,9 +205,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingTop: 10,
         paddingBottom: 10,
-    },
-    headerReplacement: {
-        height: screenHeight * .10,
     },
     answerText: {
     color: "white",
