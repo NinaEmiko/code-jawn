@@ -13,6 +13,7 @@ export default function JavaLessonsScreen({props}:{props: any}) {
   const { currentUser } = useUser();
   const [lessons, setLessons] = React.useState(getJavaLessons(getDefaultLessonTracker()));
   const [lessonTrackerSet, setLessonTrackerSet] = React.useState(false);
+  const [openComponent, setOpenComponent] = React.useState("");
 
   const getLessonTrackerCall = async (id: any) =>{
 
@@ -24,7 +25,7 @@ export default function JavaLessonsScreen({props}:{props: any}) {
   }
 
   const handleUpdateComponent = (component: string) => {
-    props.handleUpdateComponent(component)
+    props.handleUpdateComponent(component, "")
   }
 
   useEffect(()=> {
@@ -44,7 +45,7 @@ export default function JavaLessonsScreen({props}:{props: any}) {
     }>
       <>
         {Object.entries(lessons).map(([lessonName, subLessonObject]) => (
-          <Collapsible key={lessonName} title={lessonName} openComponent='Data Types'>
+          <Collapsible key={lessonName} title={lessonName} openComponent={props.openComponent}>
             <View style={styles.cardContainer}>
               {Object.entries(subLessonObject).map(([key, value]) => (
                 Object.entries(value).map(([subLesson, isCompleteAndPath]) => {

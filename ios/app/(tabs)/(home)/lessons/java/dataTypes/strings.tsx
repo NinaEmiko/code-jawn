@@ -20,7 +20,7 @@ export default function JavaDataTypesStrings({props}:{props: any}) {
       setTab(tab + 1)
       setButtonText('Begin')
     } else {
-      props.handleUpdateComponent("Strings Quiz")
+      props.handleUpdateComponent("Strings Quiz", "")
     }
   }
 

@@ -6,10 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function JavaLessonsNavigator() {
     const [componentToShow, setComponentToShow] = React.useState("Java Lessons");
+    const [openComponent, setOpenComponent] = React.useState("");
     const navigation = useNavigation();
 
-    const handleUpdateComponent = (component: string) => {
-        setComponentToShow(component);
+    const handleUpdateComponent = (componentToShowParam: string, openComponentParam: string) => {
+        setOpenComponent(openComponentParam)
+        setComponentToShow(componentToShowParam);
     }
 
     useEffect(() => {
@@ -31,7 +33,7 @@ export default function JavaLessonsNavigator() {
     return (
         <>
             {componentToShow === "Java Lessons" &&
-                <JavaLessonsScreen props={{handleUpdateComponent:handleUpdateComponent}} />
+                <JavaLessonsScreen props={{handleUpdateComponent:handleUpdateComponent, openComponent:openComponent}} />
             }
             {componentToShow === "Strings Lesson" &&
                 <JavaDataTypesStrings props={{handleUpdateComponent:handleUpdateComponent}} />
