@@ -46,7 +46,7 @@ export default function JavaDataTypesStringsQuiz() {
     const data = await updateJavaDataTypesLT(currentUser.userId, "Strings");
     const jawn = await getJavaDataTypesLT(currentUser.userId);
     updateJavaLessonTracker(jawn);
-    router.push('/(tabs)/(home)');
+    router.replace('/(tabs)/(home)/javaLessons');
   }
 
   return (

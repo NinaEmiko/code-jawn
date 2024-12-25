@@ -9,5 +9,6 @@ export const ENDPOINTS = {
     UPDATE_USERNAME: `${BASE_URL}/api/auth/update-username`,
     UPDATE_EMAIL: `${BASE_URL}/api/auth/update-email`,
     UPDATE_PASSWORD: `${BASE_URL}/api/auth/update-password`,
-    DELETE_ACCOUNT: `${BASE_URL}/api/auth/delete`
+    DELETE_ACCOUNT: `${BASE_URL}/api/auth/delete`,
+    GET_LESSON_TRACKER: `${BASE_URL}/api/lessons/get`
   }

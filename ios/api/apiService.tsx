@@ -38,6 +38,16 @@ export const getJavaDataTypesLT = async (userId: number) => {
     }
 };
 
+export const getLessonTracker = async (userId: number) => {
+    try {
+        const response = await axios.get(`${ENDPOINTS.GET_LESSON_TRACKER}/${userId}`);
+        return response.data;
+    } catch (error) {
+      console.error('Error retrieving lesson tracker for user with id: ' + userId + ": ", error);
+      throw error;
+    }
+};
+
 export const updateJavaDataTypesLT = async (userId: number, lesson: string) => {
     try {
         const response = await axios.put(`${ENDPOINTS.UPDATE_JAVA_DATA_TYPES_LT}`, {

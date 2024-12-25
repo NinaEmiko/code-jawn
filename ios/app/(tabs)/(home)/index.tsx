@@ -1,6 +1,6 @@
 import { StyleSheet, Image, Text, View, ScrollView, TouchableOpacity, Pressable } from 'react-native';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LANGUAGES } from '@/constants/SelectLanguageConstants';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { router } from 'expo-router';
@@ -8,10 +8,13 @@ import ProgressCircle from '@/components/ProgressCircle';
 import { STYLES } from '@/assets/styles';
 import { useUser } from '@/context/UserContext';
 import { javaProgressCalculator } from '@/helpers/progressCalculator';
+import { getDefaultLessonTracker, LessonTracker } from '@/types/LessonTracker';
+import { getLessonTracker } from '@/api/apiService';
 
 export default function HomeScreen() {
     const { currentUser } = useUser();
-
+    
+    const [lessonTracker, setLessonTracker] = React.useState<LessonTracker>(getDefaultLessonTracker());
     const [activeLanguage, setActiveLanguage] = React.useState(LANGUAGES[0].language);
     const [activeDescription, setActiveDescription] = React.useState(LANGUAGES[0].description);
     const [activeRoute, setActiveRoute] = React.useState(LANGUAGES[0].route);
@@ -31,6 +34,19 @@ export default function HomeScreen() {
         setActiveProgress(currentUser.pythonProgress)
       }
     }
+
+      const getLessonTrackerCall = async (id: any) =>{
+    
+          const data = await getLessonTracker(id);
+          if (data != null) {
+            setLessonTracker(data);
+          }
+      }
+    
+      useEffect(()=> {
+        getLessonTrackerCall(currentUser.userId)
+      })
+      
 
     const handleNavigation = () => {
       router.push(activeRoute);
