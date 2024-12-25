@@ -43,6 +43,7 @@ public class SecurityConfig {
                         authorizeRequests
                                 .requestMatchers("/api/auth/login",
                                         "/api/auth/register",
+                                        "/api/lessons/get/{id}",
                                         "/api/java/datatypes/lessons/update",
                                         "/api/java/datatypes/lessons/get/{id}",
                                         "/api/java/datatypes/lessons/reset",
