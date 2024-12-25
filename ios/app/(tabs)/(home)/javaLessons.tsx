@@ -11,20 +11,22 @@ import { getLessonTracker } from '@/api/apiService';
 
 export default function JavaLessonsScreen() {
   const { currentUser } = useUser();
-  const [lessonTracker, setLessonTracker] = React.useState<LessonTracker>(getDefaultLessonTracker());
-  const [lessons, setLessons] = React.useState({});
+  const [lessons, setLessons] = React.useState(getJavaLessons(getDefaultLessonTracker()));
+  const [lessonTrackerSet, setLessonTrackerSet] = React.useState(false);
 
   const getLessonTrackerCall = async (id: any) =>{
 
-      const data = await getLessonTracker(id);
-      if (data != null) {
-        setLessonTracker(data);
-        setLessons(getJavaLessons(lessonTracker))
-      }
+    const data = await getLessonTracker(id);
+    if (data != null) {
+      setLessons(getJavaLessons(data))
+      setLessonTrackerSet(true);
+    }
   }
 
   useEffect(()=> {
-    getLessonTrackerCall(currentUser.userId)
+    if (!lessonTrackerSet){
+      getLessonTrackerCall(currentUser.userId)
+    }
   })
   
   return (

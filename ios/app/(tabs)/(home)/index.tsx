@@ -13,7 +13,7 @@ import { getLessonTracker } from '@/api/apiService';
 
 export default function HomeScreen() {
     const { currentUser } = useUser();
-    
+    // const [lessonTrackerSet, setLessonTrackerSet] = React.useState(false);
     const [lessonTracker, setLessonTracker] = React.useState<LessonTracker>(getDefaultLessonTracker());
     const [activeLanguage, setActiveLanguage] = React.useState(LANGUAGES[0].language);
     const [activeDescription, setActiveDescription] = React.useState(LANGUAGES[0].description);
@@ -44,7 +44,7 @@ export default function HomeScreen() {
       }
     
       useEffect(()=> {
-        getLessonTrackerCall(currentUser.userId)
+        // getLessonTrackerCall(currentUser.userId)
       })
       
 
