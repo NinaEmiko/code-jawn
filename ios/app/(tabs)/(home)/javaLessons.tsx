@@ -27,8 +27,6 @@ export default function JavaLessonsScreen({props}:{props: any}) {
     props.handleUpdateComponent(component)
   }
 
-
-
   useEffect(()=> {
     if (!lessonTrackerSet){
       getLessonTrackerCall(currentUser.userId)

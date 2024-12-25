@@ -14,7 +14,7 @@ import { useUser } from '@/context/UserContext';
 const screenHeight = Dimensions.get('window').height;
 
 export default function JavaDataTypesStringsQuiz({props}:{props: any}) {
-    const { currentUser, updateJavaLessonTracker } = useUser();
+    const { currentUser } = useUser();
     const [questionNumber, setQuestionNumber] = React.useState(0);
     const [progress, setProgress] = React.useState(0);
     const [modalVisible, setModalVisible] = React.useState(false);
