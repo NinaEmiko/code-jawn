@@ -1,5 +1,5 @@
 import { StyleSheet, ImageBackground, Text } from 'react-native';
-import React from 'react';
+import React, { FC } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import GlowingButton from '@/components/GlowingButton';
 import { STYLES } from '../assets/styles';
@@ -8,7 +8,7 @@ interface GetStartedScreenProps {
     setGetStarted: (getStarted: boolean) => void,
 }
 
-const GetStartedScreen: React.FC<GetStartedScreenProps> =({ setGetStarted }) => {
+const GetStartedScreen: FC<GetStartedScreenProps> =({ setGetStarted }) => {
 
     const handlePress = () => {
         setGetStarted(false)
@@ -20,7 +20,7 @@ const GetStartedScreen: React.FC<GetStartedScreenProps> =({ setGetStarted }) => 
                 source={require('../assets/images/HomeScreen.png')}
                 style={styles.backgroundImage}
                 resizeMode="cover">
-                    
+
                 <Text style={styles.title}>
                     Code Jawn
                 </Text>

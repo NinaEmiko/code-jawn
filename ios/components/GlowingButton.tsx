@@ -1,5 +1,5 @@
 import { StyleSheet, Animated, TouchableOpacity } from 'react-native';
-import React, { useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { STYLES } from '@/assets/styles';
 
 interface GlowingButtonProps {
@@ -8,7 +8,7 @@ interface GlowingButtonProps {
     buttonPress: () => void,
 }
 
-const GlowingButton: React.FC<GlowingButtonProps> = ({ buttonText, buttonColor, buttonPress }) => {
+const GlowingButton: FC<GlowingButtonProps> = ({ buttonText, buttonColor, buttonPress }) => {
     const shadowRadius = useRef(new Animated.Value(10)).current;
     const shadowOpacity = useRef(new Animated.Value(1)).current;
 
@@ -64,8 +64,12 @@ const GlowingButton: React.FC<GlowingButtonProps> = ({ buttonText, buttonColor, 
                         {
                             textShadowRadius: shadowRadius,
                             opacity: shadowOpacity,
+                            textShadowColor: buttonColor,
+                            color: buttonColor,
+                            fontSize: STYLES.FONT_SIZE_TEXT,
+                            fontFamily: STYLES.FONT,
+                            fontWeight: "bold",
                         },
-                        {textShadowColor: buttonColor, color: buttonColor}
                     ]}
                 >
                     {buttonText}

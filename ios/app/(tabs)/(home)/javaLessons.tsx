@@ -1,9 +1,9 @@
 import { StyleSheet, Image, View } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
 import { useUser } from '@/context/UserContext';
-import { Lessons } from '@/components/Lessons';
+import Lessons from '@/components/Lessons';
 import { getDefaultLessonTracker } from '@/types/LessonTracker';
 import { getJavaLessons } from '@/helpers/getJavaLessonsHelper';
 import { getLessonTracker } from '@/api/apiService';
@@ -13,7 +13,7 @@ interface JavaLessonsProps {
     openComponent: string,
 }
 
-const JavaLessonsScreen: React.FC<JavaLessonsProps> = ({ handleUpdateComponentProp, openComponent }) => {
+const JavaLessonsScreen: FC<JavaLessonsProps> = ({ handleUpdateComponentProp, openComponent }) => {
     const { currentUser } = useUser();
     const [lessons, setLessons] = useState(getJavaLessons(getDefaultLessonTracker())); //No Type
     const [lessonTrackerSet, setLessonTrackerSet] = useState<boolean>(false);
@@ -55,12 +55,10 @@ const JavaLessonsScreen: React.FC<JavaLessonsProps> = ({ handleUpdateComponentPr
                                     return (
                                         <Lessons
                                             key={subLesson}
-                                            props={{
-                                                lesson: subLesson,
-                                                isComplete,
-                                                path,
-                                                handleUpdateComponent: handleUpdateComponent
-                                            }}
+                                            lesson={subLesson}
+                                            isComplete={isComplete}
+                                            path={path}
+                                            handleUpdateComponent={handleUpdateComponent}
                                         />
                                     );
                                 })

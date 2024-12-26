@@ -1,5 +1,5 @@
 import { StyleSheet, Text, Modal, View, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { FC } from 'react';
 import { STYLES } from '@/assets/styles';
 
 interface QuizModalProps {
@@ -8,7 +8,7 @@ interface QuizModalProps {
     text: string,
 }
 
-const QuizModal: React.FC<QuizModalProps> = ({ setModalVisible, modalVisible, text }) => {
+const QuizModal: FC<QuizModalProps> = ({ setModalVisible, modalVisible, text }) => {
 
     const handleConfirm = () => {
         setModalVisible(false);

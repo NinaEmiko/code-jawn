@@ -1,5 +1,5 @@
 import { StyleSheet, Text, Modal, View, TouchableOpacity, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { STYLES } from '@/assets/styles';
 import { validCharacters } from '@/helpers/validCharacters';
 import { updateUserPassword } from '@/api/apiService';
@@ -11,7 +11,7 @@ interface UpdatePasswordModalProps {
     visible: boolean,
 }
 
-const UpdatePasswordModal: React.FC<UpdatePasswordModalProps> =({ handleToggleModal, username, visible }) => {
+const UpdatePasswordModal: FC<UpdatePasswordModalProps> =({ handleToggleModal, username, visible }) => {
     const { currentUser } = useUser();
     const [focus, setFocus] = useState<string>("");
     const [oldPassword, setOldPassword] = useState<string>('')

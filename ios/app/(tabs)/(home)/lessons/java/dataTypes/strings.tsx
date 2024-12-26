@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Dimensions, ImageBackground } from 'react-native';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { STRINGS_EXAMPLES, STRINGS_LESSONS } from '@/constants/Java/DataTypes/StringsConstants';
 import GlowingButton from '@/components/GlowingButton';
 import ProgressCircle from '@/components/ProgressCircle';
@@ -12,7 +12,7 @@ interface JavaDataTypesStringsLessonProps {
     handleUpdateComponentProp: (component: string, openComponent: string) => void,
 }
 
-const JavaDataTypesStringsLesson: React.FC<JavaDataTypesStringsLessonProps> = ({ handleUpdateComponentProp }) => {
+const JavaDataTypesStringsLesson: FC<JavaDataTypesStringsLessonProps> = ({ handleUpdateComponentProp }) => {
     const [buttonText, setButtonText] = useState<string>('Next');
     const [tab, setTab] = useState<number>(0);
 

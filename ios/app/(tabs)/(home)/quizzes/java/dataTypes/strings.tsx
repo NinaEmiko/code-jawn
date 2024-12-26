@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Dimensions, ImageBackground, Pressable } from 'react-native';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { STRINGS_EXPLANATIONS, STRINGS_QUIZ } from '@/constants/Java/DataTypes/StringsConstants';
 import ProgressCircle from '@/components/ProgressCircle';
 import TypingDisplayText from '@/components/TypingDisplayText';
@@ -16,7 +16,7 @@ interface JavaDataTypesStringsQuizProps {
     handleUpdateComponentProp: (component: string, openComponent: string) => void,
 }
 
-const JavaDataTypesStringsQuiz: React.FC<JavaDataTypesStringsQuizProps> = ({ handleUpdateComponentProp }) => {
+const JavaDataTypesStringsQuiz: FC<JavaDataTypesStringsQuizProps> = ({ handleUpdateComponentProp }) => {
     const { currentUser } = useUser();
     const [questionNumber, setQuestionNumber] = useState<number>(0);
     const [progress, setProgress] = useState<number>(0);
@@ -85,78 +85,78 @@ const JavaDataTypesStringsQuiz: React.FC<JavaDataTypesStringsQuizProps> = ({ han
             </View>
 
             {questionNumber === 0 &&
-                <MultipleChoice props={{
-                    choices: 4,
-                    answer1: "false",
-                    answer1Styles: styles.answerBoolean,
-                    answer2: "5",
-                    answer2Styles: styles.answerInt,
-                    answer3: "\"This is a String.\"",
-                    answer3Styles: styles.answerString,
-                    answer4: "This is a String.",
-                    answer4Styles: styles.answerText,
-                    handleSelect: handleSelect,
-                    correctAnswer: 3
-                }} />
+                <MultipleChoice
+                    choices={4}
+                    answer1={"false"}
+                    answer1Styles={styles.answerBoolean}
+                    answer2={"5"}
+                    answer2Styles={styles.answerInt}
+                    answer3={"\"This is a String.\""}
+                    answer3Styles={styles.answerString}
+                    answer4={"This is a String."}
+                    answer4Styles={styles.answerText}
+                    handleSelectProp={handleSelect}
+                    correctAnswer={3}
+                />
             }
             {questionNumber === 1 &&
-                <MultipleChoice props={{
-                    choices: 4,
-                    answer1: `five`,
-                    answer1Styles: styles.answerText,
-                    answer2: `"5"`,
-                    answer2Styles: styles.answerString,
-                    answer3: `"5.5"`,
-                    answer3Styles: styles.answerString,
-                    answer4: `"five"`,
-                    answer4Styles: styles.answerString,
-                    handleSelect: handleSelect,
-                    correctAnswer: 1
-                }} />
+                <MultipleChoice
+                    choices={4}
+                    answer1={`five`}
+                    answer1Styles={styles.answerText}
+                    answer2={`"5"`}
+                    answer2Styles={styles.answerString}
+                    answer3={`"5.5"`}
+                    answer3Styles={styles.answerString}
+                    answer4={`"five"`}
+                    answer4Styles={styles.answerString}
+                    handleSelectProp={handleSelect}
+                    correctAnswer={1}
+                />
             }
             {questionNumber === 2 &&
-                <MultipleChoice props={{
-                    choices: 4,
-                    answer1: `"This is my house."`,
-                    answer1Styles: styles.answerString,
-                    answer2: `They are all of type String.`,
-                    answer2Styles: styles.answerText,
-                    answer3: `'This is my house.'`,
-                    answer3Styles: styles.answerString,
-                    answer4: `\`This is my house.\``,
-                    answer4Styles: styles.answerString,
-                    handleSelect: handleSelect,
-                    correctAnswer: 2
-                }} />
+                <MultipleChoice
+                    choices={4}
+                    answer1={`"This is my house."`}
+                    answer1Styles={styles.answerString}
+                    answer2={`They are all of type String.`}
+                    answer2Styles={styles.answerText}
+                    answer3={`'This is my house.'`}
+                    answer3Styles={styles.answerString}
+                    answer4={`\`This is my house.\``}
+                    answer4Styles={styles.answerString}
+                    handleSelectProp={handleSelect}
+                    correctAnswer={2}
+                />
             }
             {questionNumber === 3 &&
-                <MultipleChoice props={{
-                    choices: 4,
-                    answer1: `It is missing quotation marks.`,
-                    answer1Styles: styles.answerText,
-                    answer2: `There is nothing missing.`,
-                    answer2Styles: styles.answerText,
-                    answer3: `It is missing an = sign.`,
-                    answer3Styles: styles.answerText,
-                    answer4: `It contains a 5 and that is an int value.`,
-                    answer4Styles: styles.answerText,
-                    handleSelect: handleSelect,
-                    correctAnswer: 1
-                }} />
+                <MultipleChoice
+                    choices={4}
+                    answer1={`It is missing quotation marks.`}
+                    answer1Styles={styles.answerText}
+                    answer2={`There is nothing missing.`}
+                    answer2Styles={styles.answerText}
+                    answer3={`It is missing an = sign.`}
+                    answer3Styles={styles.answerText}
+                    answer4={`It contains a 5 and that is an int value.`}
+                    answer4Styles={styles.answerText}
+                    handleSelectProp={handleSelect}
+                    correctAnswer={1}
+                />
             }
             {questionNumber === 4 &&
-                <InputAnswer props={{
-                    acceptableAnswers: [
+                <InputAnswer
+                    placeHolder={"17"}
+                    answerProp={"17"}
+                    handleSelect={handleSelect} 
+                    acceptableAnswers={[
                         `“17”`,
                         `‘17’`,
                         `\`17\``,
                         `'17'`,
                         `"17"`
-                    ],
-                    placeHolder: "17",
-                    answer: "17",
-                    handleSelect: handleSelect,
-                }} />
+                    ]}                
+                />
             }
 
             {questionNumber === 5 &&

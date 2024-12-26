@@ -1,27 +1,33 @@
 import { StyleSheet, Text, Pressable, TextInput, View, Dimensions } from 'react-native';
-
-import React from 'react';
+import React, { FC } from 'react';
 import { STYLES } from '@/assets/styles';
 
 const screenHeight = Dimensions.get('window').height;
 
-export default function InputAnswer({ props }:{ props: any}) {
-    const [focus, setFocus] = React.useState<string | null>(null);
-    const [answer, setAnswer] = React.useState<any | null>(props.answer);
+interface InputAnswerProps {
+    answerProp: string,
+    acceptableAnswers: string[],
+    handleSelect: (corrent: boolean, index: number) => void,
+    placeHolder: string,
+}
+
+const InputAnswer: FC<InputAnswerProps> = ({ answerProp, acceptableAnswers, handleSelect, placeHolder }) => {
+    const [focus, setFocus] = React.useState<string>("");
+    const [answer, setAnswer] = React.useState<string>(answerProp);
 
     const handleFocus = (input: string) => {
         setFocus(input);
     };
 
     const handleBlur = () => {
-        setFocus(null);
+        setFocus("");
     };
 
     const handleSubmit = () => {
-        if (props.acceptableAnswers.includes(answer)) {
-            props.handleSelect(true, 1)
+        if (acceptableAnswers.includes(answer)) {
+            handleSelect(true, 1)
         } else {
-            props.handleSelect(false, 2)
+            handleSelect(false, 2)
         }
     }
 
@@ -33,7 +39,7 @@ export default function InputAnswer({ props }:{ props: any}) {
             onBlur={handleBlur}
             value={answer}
             onChangeText={setAnswer}
-            placeholder={props.placeHolder}
+            placeholder={placeHolder}
         />
 
         <Pressable
@@ -48,20 +54,22 @@ export default function InputAnswer({ props }:{ props: any}) {
   );
 }
 
+export default InputAnswer;
+
 const styles = StyleSheet.create({
     buttonContainer: {
         height: screenHeight * 0.45,
         backgroundColor: "#151718",
       },
-  divider: {
-    height: 1,
-    backgroundColor: 'gray',
-    marginVertical: 5,
-    marginLeft: 15,
-    marginRight: 15
-  },
-  inputFocused: {
-    borderColor: STYLES.ORANGE,
+    divider: {
+        height: 1,
+        backgroundColor: 'gray',
+        marginVertical: 5,
+        marginLeft: 15,
+        marginRight: 15
+    },
+    inputFocused: {
+        borderColor: STYLES.ORANGE,
     },
     inputUnfocused: {
         borderColor: 'gray',
