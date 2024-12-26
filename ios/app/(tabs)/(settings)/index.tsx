@@ -84,18 +84,18 @@ export default function SettingsScreen() {
           <Text style={styles.buttonText}>Log Out</Text>
         </Pressable>
 
-        <UpdatePasswordModal props={{
-          visible: updatePasswordModalVisible,
-          handleToggleModal: handleToggleUpdatePasswordModal,
-          username: username,
-          currentUser: currentUser
-        }}/>
+        <UpdatePasswordModal 
+            visible={updatePasswordModalVisible}
+            handleToggleModal={handleToggleUpdatePasswordModal}
+            username={username}
+            currentUser={currentUser}
+        />
 
         <UpdateEmailModal 
-          visible={updateEmailModalVisible}
-          handleToggleModal={handleToggleUpdateEmailModal}
-          currentUser={currentUser}
-          updateEmail={setEmail}
+            visible={updateEmailModalVisible}
+            handleToggleModal={handleToggleUpdateEmailModal}
+            currentUser={currentUser}
+            updateEmail={setEmail}
         />
 
         <DeleteAccountModal props={{
