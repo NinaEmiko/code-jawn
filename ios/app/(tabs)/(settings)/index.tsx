@@ -87,7 +87,8 @@ export default function SettingsScreen() {
         <UpdatePasswordModal props={{
           visible: updatePasswordModalVisible,
           handleToggleModal: handleToggleUpdatePasswordModal,
-          username: username
+          username: username,
+          currentUser: currentUser
         }}/>
 
         <UpdateEmailModal props={{

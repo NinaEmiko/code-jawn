@@ -18,17 +18,19 @@ export default function CustomModal({ props }:{ props: any}) {
 
       const handleCloseModal = () => {
         setShowError(false);
+        setNewEmail("")
         props.handleToggleModal()
       }
 
     const handleConfirm = async () => {
         if (props.currentUser){
             const data = await updateUserEmail(props.currentUser.userId, newEmail);
-            if (data.email != null) {
+            console.log(data.newEmail)
+            if (data.newEmail != null) {
                 setShowError(false);
                 setNewEmail("")
-                console.log(data.email)
-                props.updateEmail(data.email);
+                console.log(data.newEmail)
+                props.updateEmail(data.newEmail);
                 props.handleToggleModal()
             } else {
                 setShowError(true);

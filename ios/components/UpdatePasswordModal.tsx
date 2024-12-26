@@ -1,5 +1,5 @@
 import { StyleSheet, Text, Modal, View, TouchableOpacity, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import { STYLES } from '@/assets/styles';
 import { validCharacters } from '@/helpers/validCharacters';
 import { updateUserPassword } from '@/api/apiService';
@@ -60,6 +60,7 @@ const invalidCharacterCheck = () => {
     } else {
       if (props.currentUser) {
         const data = await updateUserPassword(props.currentUser.userId, oldPassword, newPassword);
+        console.log("Password updated.")
         setOldPassword("")
         setNewPassword("")
         setConfirmNewPassword("")
@@ -67,7 +68,7 @@ const invalidCharacterCheck = () => {
         setShowError(false);
         props.handleToggleModal()
       } else {
-        //
+        console.log("Password not updated.")
       }
     }
   }
@@ -88,6 +89,7 @@ const invalidCharacterCheck = () => {
                   value={oldPassword}
                   onChangeText={setOldPassword} 
                   placeholder='Old Password'
+                  secureTextEntry={true}
                 />
               <TextInput
                   style={[styles.textInput, focus === 'newPassword' ? styles.inputFocused : styles.inputUnfocused]}
@@ -96,6 +98,7 @@ const invalidCharacterCheck = () => {
                   value={newPassword}
                   onChangeText={setNewPassword} 
                   placeholder='New Password'
+                  secureTextEntry={true}
                 />
               <TextInput
                   style={[styles.textInput, focus === 'confirmNewPassword' ? styles.inputFocused : styles.inputUnfocused]}
@@ -104,6 +107,7 @@ const invalidCharacterCheck = () => {
                   value={confirmNewPassword}
                   onChangeText={setConfirmNewPassword} 
                   placeholder='Confirm New Password'
+                  secureTextEntry={true}
                 />
               {showError &&
                 <Text style={styles.errorText}>{errorText}</Text>
