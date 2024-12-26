@@ -1,11 +1,10 @@
 import { Image, StyleSheet, TextInput, Button, Pressable, Text } from 'react-native';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView2';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import GetStartedScreen from './getStarted';
-import { router } from 'expo-router';
 import { STYLES } from '@/assets/styles';
-import { login, register } from '@/api/apiService';
+import { loginApiCall, register } from '@/api/apiService';
 import { useUser } from '@/context/UserContext';
 
 export default function LoginScreen() {
@@ -16,7 +15,7 @@ export default function LoginScreen() {
     const [email, setEmail] = React.useState('')
     const [username, setUsername] = React.useState('')
     const [password, setPassword] = React.useState('')
-    const { setCurrentUser, currentUser } = useUser();
+    const { login } = useUser();
 
     const handleTab = () => {
         setOnLogin(!onLogin)
@@ -36,11 +35,15 @@ export default function LoginScreen() {
     };
 
     const handleLogin = async () => {
-        const data = await login(username, password);
+        const data = await loginApiCall(username, password);
         console.log('login data:' + data);
         try {
-            setCurrentUser(data);
-            router.push("/(tabs)/(home)");
+            const userData = {
+                username: data.username,
+                email: data.email,
+                userId: data.userId
+            }
+            login(userData)
         } catch (error) {
             console.log('error while loggin in: ' + error);
         }
@@ -50,8 +53,7 @@ export default function LoginScreen() {
         const data = await register(username, email, password);
 
         try {
-            setCurrentUser(data);
-            router.push("/(tabs)/(home)");
+            login(data)
         } catch (error) {
             console.log('error while registering user: ' + error);
         }
@@ -64,13 +66,6 @@ export default function LoginScreen() {
             handleRegister();
         }
     }
-
-    useEffect(() => {
-        console.log('User data updated:', currentUser);
-        if (currentUser) {
-            router.push("/(tabs)/(home)");
-        }
-    }, [currentUser])
 
     return (
         <>

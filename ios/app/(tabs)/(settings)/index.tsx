@@ -3,12 +3,14 @@ import { STYLES } from "@/assets/styles";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { useUser } from "@/context/UserContext";
 import { validCharacters } from "@/helpers/validCharacters";
+import { CommonActions, useNavigation } from "@react-navigation/native";
 import { Link, router } from "expo-router";
 import React, { useEffect } from "react";
 import { View, Pressable, Image, Text, StyleSheet, Modal, TouchableOpacity, TextInput } from "react-native";
 
 export default function SettingsScreen() {
-  const { currentUser } = useUser();
+  const navigation = useNavigation();
+  const { logout, currentUser } = useUser();
   const [showError, setShowError] = React.useState(false);
   const [errorText, setErrorText] = React.useState("");
   const [oldPassword, setOldPassword] = React.useState('')
@@ -48,34 +50,36 @@ export default function SettingsScreen() {
   }
 
   const handleUpdateEmailModalConfirm = async () => {
-    const data = await updateUserEmail(currentUser.userId, newEmail);
-    if (data.email != null) {
-      setEmail(data.email);
-      setUpdateEmailModalVisible(false)
-    } else {
-      setShowError(true);
+    if (currentUser){
+      const data = await updateUserEmail(currentUser.userId, newEmail);
+      if (data.email != null) {
+        setEmail(data.email);
+        setUpdateEmailModalVisible(false)
+      } else {
+        setShowError(true);
+      }
     }
   }
 
   const handleConfirmDelete = async () => {
-    try {
+    if (currentUser) {
       const data = await deleteAccount(currentUser.userId);
-    } catch (error) {
-      console.log("error while deleting account: ", error)
+      setDeleteModalVisible(false);
     }
-    setDeleteModalVisible(false);
   };
 
-  const handleNavigation = () => {
-    router.push('/');
+  const handleNavigation = async () => {
+      await logout()
   }
 
   const getUserAccountCall = async () => {
-    const data = await getUserAccount(currentUser.userId);
-    if(data != null){
-      setUsername(data.username)
-      setEmail(data.email)
-    }
+    if (currentUser) {
+      const data = await getUserAccount(currentUser.userId);
+      if(data != null){
+        setUsername(data.username)
+        setEmail(data.email)
+      }
+  }
   }
 
   const handleFocus = (input: string) => {
@@ -115,14 +119,14 @@ export default function SettingsScreen() {
       setErrorText("Passwords cannot match usernames.")
       setShowError(true);
     } else {
-      try {
+      if (currentUser) {
         const data = await updateUserPassword(currentUser.userId, oldPassword, newPassword);
         setUpdatePasswordModalVisible(false)
         setOldPassword("")
         setNewPassword("")
         setConfirmNewPassword("")
-      } catch (error) {
-        console.log("error while updating password: ", error)
+      } else {
+        //
       }
     }
   }
@@ -339,21 +343,16 @@ const styles = StyleSheet.create({
     width: '40%',
     alignItems: 'center',
   },
-    linkText: {
-        color: "white",
-        fontSize: STYLES.FONT_SIZE_SUB_TEXT,
-        textDecorationLine: "underline",
-    },
+  linkText: {
+      color: "white",
+      fontSize: STYLES.FONT_SIZE_SUB_TEXT,
+      textDecorationLine: "underline",
+  },
   headerImage: {
     color: '#808080',
     bottom: -90,
     left: -35,
     position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 25,
   },
   reactLogo: {
     height: 250,

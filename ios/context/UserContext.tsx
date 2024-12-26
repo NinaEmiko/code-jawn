@@ -1,40 +1,19 @@
-import { useFocusEffect } from 'expo-router';
-import React, { createContext, useState, useContext } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export const UserContext = createContext<any>(null);
+interface User {
+  userId: number;
+  username: string;
+  email: string;
+}
 
-export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const [currentUser, setCurrentUser] = useState<any>(null);
+interface UserContextType {
+  currentUser: User | null;
+  isAuthenticated: boolean;
+  login: (userData: User) => void;
+  logout: () => void;
+}
 
-  useFocusEffect(
-    React.useCallback(() => {
-      console.log('Screen is focused');
-    }, [])
-  );
-
-  const updateJavaLessonTracker = (javaLessonTracker: any) => {
-    console.log("Inside updateJavaLessonTracker")
-    setCurrentUser((prevUser: any) => ({
-      ...prevUser,
-      lessonTracker: {
-        ...prevUser.lessonTracker,
-        javaLT: {
-          ...prevUser.lessonTracker.javaLT,
-          javaDataTypesLT: {
-            ...prevUser.lessonTracker.javaLT.javaDataTypesLT,
-            ...javaLessonTracker,
-          },
-        },
-      },
-    }));
-  };
-
-  return (
-    <UserContext.Provider value={{ currentUser, setCurrentUser, updateJavaLessonTracker }}>
-      {children}
-    </UserContext.Provider>
-  );
-};
+const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const useUser = () => {
   const context = useContext(UserContext);
@@ -42,4 +21,28 @@ export const useUser = () => {
     throw new Error('useUser must be used within a UserProvider');
   }
   return context;
+};
+
+export const UserProvider = ({ children }: { children: ReactNode }) => {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
+  const login = async (userData: User) => {
+    setCurrentUser(userData);
+    setIsAuthenticated(true);
+  };
+
+  const logout = async () => {
+    console.log("Logging out...");
+  
+    setCurrentUser(null);
+    setIsAuthenticated(false);
+  };
+
+
+  return (
+    <UserContext.Provider value={{ currentUser, isAuthenticated, login, logout }}>
+      {children}
+    </UserContext.Provider>
+  );
 };

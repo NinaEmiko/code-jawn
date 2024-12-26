@@ -7,11 +7,20 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { useUser } from '@/context/UserContext';
+import LoginScreen from '../login';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { isAuthenticated } = useUser();
 
   return (
+    <>
+    {isAuthenticated === false &&
+
+      <LoginScreen />
+    }
+    {isAuthenticated === true &&
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
@@ -42,5 +51,7 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+      }
+      </>
   );
 }

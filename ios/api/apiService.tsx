@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ENDPOINTS } from './endpoints'
 
-export const login = async (username: string, password: string) => {
+export const loginApiCall = async (username: string, password: string) => {
     try {
         const response = await axios.post(`${ENDPOINTS.LOGIN}`, {
             username: username,

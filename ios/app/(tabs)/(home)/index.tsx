@@ -13,13 +13,13 @@ import { getLessonTracker } from '@/api/apiService';
 
 export default function HomeScreen() {
     const { currentUser } = useUser();
-    // const [lessonTrackerSet, setLessonTrackerSet] = React.useState(false);
+    const [lessonTrackerSet, setLessonTrackerSet] = React.useState(false);
     const [lessonTracker, setLessonTracker] = React.useState<LessonTracker>(getDefaultLessonTracker());
     const [activeLanguage, setActiveLanguage] = React.useState(LANGUAGES[0].language);
     const [activeDescription, setActiveDescription] = React.useState(LANGUAGES[0].description);
     const [activeRoute, setActiveRoute] = React.useState(LANGUAGES[0].route);
     const [selectedButton, setSelectedButton] = React.useState(0);
-    const [activeProgress, setActiveProgress] = React.useState(Math.round(javaProgressCalculator(currentUser.lessonTracker.javaLT)));
+    const [activeProgress, setActiveProgress] = React.useState(Math.round(javaProgressCalculator(getDefaultLessonTracker().javaLT)));
 
     const handleLanguagePress = (language: string, description: string, route: string, selectedButton: number) => {
       setActiveLanguage(language)
@@ -27,30 +27,34 @@ export default function HomeScreen() {
       setActiveRoute(route)
       setSelectedButton(selectedButton)
       if (language === "Java"){
-        setActiveProgress(Math.round(javaProgressCalculator(currentUser.lessonTracker.javaLT)))
+        setActiveProgress(Math.round(javaProgressCalculator(lessonTracker.javaLT)))
       } else if (language == "JavaScript"){
-        setActiveProgress(currentUser.javaScriptProgress)
+        setActiveProgress(0)
       } else if (language == "Python") {
-        setActiveProgress(currentUser.pythonProgress)
+        setActiveProgress(0)
       }
     }
 
-      const getLessonTrackerCall = async (id: any) =>{
+  const getLessonTrackerCall = async (id: any) =>{
+    const data = await getLessonTracker(id);
+    if (data != null) {
+      setLessonTracker(data);
+    }
+  }
     
-          const data = await getLessonTracker(id);
-          if (data != null) {
-            setLessonTracker(data);
-          }
-      }
-    
-      useEffect(()=> {
-        // getLessonTrackerCall(currentUser.userId)
-      })
+  useEffect(()=> {
+    if (!lessonTrackerSet && currentUser){
+      getLessonTrackerCall(currentUser.userId)
+      setLessonTrackerSet(true);
+    }
+  })
+  
       
 
     const handleNavigation = () => {
       router.push(activeRoute as RelativePathString);
   }
+  
 
     return (
       

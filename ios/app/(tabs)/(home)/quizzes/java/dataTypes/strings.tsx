@@ -42,8 +42,10 @@ export default function JavaDataTypesStringsQuiz({props}:{props: any}) {
   }
 
   const handleCompleteQuiz = async () => {
-    const data = await updateJavaDataTypesLT(currentUser.userId, "Strings");
-    props.handleUpdateComponent("Java Lessons", "Data Types")
+    if (currentUser){
+        const data = await updateJavaDataTypesLT(currentUser.userId, "Strings");
+        props.handleUpdateComponent("Java Lessons", "Data Types")
+    }
   }
 
   return (

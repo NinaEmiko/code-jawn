@@ -17,7 +17,7 @@ export default function JavaLessonsScreen({props}:{props: any}) {
 
   const getLessonTrackerCall = async (id: any) =>{
 
-    const data = await getLessonTracker(id);
+  const data = await getLessonTracker(id);
     if (data != null) {
       setLessons(getJavaLessons(data))
       setLessonTrackerSet(true);
@@ -29,7 +29,7 @@ export default function JavaLessonsScreen({props}:{props: any}) {
   }
 
   useEffect(()=> {
-    if (!lessonTrackerSet){
+    if (!lessonTrackerSet && currentUser){
       getLessonTrackerCall(currentUser.userId)
     }
   })
