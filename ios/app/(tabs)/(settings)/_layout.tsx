@@ -14,13 +14,6 @@ export default function RootLayout() {
         headerBackTitle: 'Back',
       }}
       />
-            <Stack.Screen 
-      name="pages/deleteAccount" 
-      options={{
-        title: 'Delete Account',
-        headerBackTitle: 'Back',
-      }}
-      />
                   <Stack.Screen 
       name="pages/support" 
       options={{
@@ -32,20 +25,6 @@ export default function RootLayout() {
       name="pages/termsAndConditions" 
       options={{
         title: 'Terms and Conditions',
-        headerBackTitle: 'Back',
-      }}
-      />
-                  <Stack.Screen 
-      name="pages/updateEmail" 
-      options={{
-        title: 'Update Email',
-        headerBackTitle: 'Back',
-      }}
-      />
-                  <Stack.Screen 
-      name="pages/updatePassword" 
-      options={{
-        title: 'Update Password',
         headerBackTitle: 'Back',
       }}
       />
