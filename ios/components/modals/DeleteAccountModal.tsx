@@ -2,15 +2,15 @@ import { StyleSheet, Text, Modal, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { STYLES } from '@/assets/styles';
 import { deleteAccount } from '@/api/apiService';
-import { User } from '@/context/UserContext';
+import { useUser } from '@/context/UserContext';
 
 interface DeleteAccountModalProps {
     handleToggleModal: () => void,
-    currentUser: User | null,
     visible: boolean,
 }
 
-const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ handleToggleModal, currentUser, visible }) => {
+const DeleteAccountModal: React.FC<DeleteAccountModalProps> = ({ handleToggleModal, visible }) => {
+    const { currentUser } = useUser();
 
     const handleConfirmDelete = async () => {
         if (currentUser) {

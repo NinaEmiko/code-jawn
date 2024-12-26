@@ -88,20 +88,17 @@ export default function SettingsScreen() {
                 visible={updatePasswordModalVisible}
                 handleToggleModal={handleToggleUpdatePasswordModal}
                 username={username}
-                currentUser={currentUser}
             />
 
             <UpdateEmailModal 
                 visible={updateEmailModalVisible}
                 handleToggleModal={handleToggleUpdateEmailModal}
-                currentUser={currentUser}
                 updateEmail={setEmail}
             />
 
             <DeleteAccountModal 
                 visible={deleteModalVisible}
                 handleToggleModal={handleToggleDeleteModal}
-                currentUser={currentUser}
             />
         </ParallaxScrollView>
     );

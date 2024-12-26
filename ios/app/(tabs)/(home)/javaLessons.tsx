@@ -19,12 +19,11 @@ const JavaLessonsScreen: React.FC<JavaLessonsProps> = ({ handleUpdateComponentPr
     const [lessonTrackerSet, setLessonTrackerSet] = React.useState(false);
 
     const getLessonTrackerCall = async (id: any) =>{
-
-    const data = await getLessonTracker(id);
-        if (data != null) {
-            setLessons(getJavaLessons(data))
-            setLessonTrackerSet(true);
-        }
+        const data = await getLessonTracker(id);
+            if (data != null) {
+                setLessons(getJavaLessons(data))
+                setLessonTrackerSet(true);
+            }
     }
 
     const handleUpdateComponent = (component: string) => {

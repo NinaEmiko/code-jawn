@@ -2,16 +2,16 @@ import { StyleSheet, Text, Modal, View, TouchableOpacity, TextInput } from 'reac
 import React from 'react';
 import { STYLES } from '@/assets/styles';
 import { updateUserEmail } from '@/api/apiService';
-import { User } from '@/context/UserContext';
+import { useUser } from '@/context/UserContext';
 
 interface UpdateEmailModalProps {
     handleToggleModal: () => void,
-    currentUser: User | null,
     updateEmail: (newEmail: string) => void,
     visible: boolean,
 }
 
-const UpdateEmailModal: React.FC<UpdateEmailModalProps> = ({ handleToggleModal, currentUser, updateEmail, visible }) => {
+const UpdateEmailModal: React.FC<UpdateEmailModalProps> = ({ handleToggleModal, updateEmail, visible }) => {
+    const { currentUser } = useUser();
     const [focus, setFocus] = React.useState<string>("");
     const [newEmail, setNewEmail] = React.useState<string>("")
     const [showError, setShowError] = React.useState<boolean>(false);

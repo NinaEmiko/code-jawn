@@ -3,16 +3,16 @@ import React from 'react';
 import { STYLES } from '@/assets/styles';
 import { validCharacters } from '@/helpers/validCharacters';
 import { updateUserPassword } from '@/api/apiService';
-import { User } from '@/context/UserContext';
+import { useUser } from '@/context/UserContext';
 
 interface UpdatePasswordModalProps {
     handleToggleModal: () => void,
-    currentUser: User | null,
     username: string,
     visible: boolean,
 }
 
-const UpdatePasswordModal: React.FC<UpdatePasswordModalProps> =({ handleToggleModal, currentUser, username, visible }) => {
+const UpdatePasswordModal: React.FC<UpdatePasswordModalProps> =({ handleToggleModal, username, visible }) => {
+    const { currentUser } = useUser();
     const [focus, setFocus] = React.useState<string>("");
     const [oldPassword, setOldPassword] = React.useState<string>('')
     const [newPassword, setNewPassword] = React.useState<string>('')
