@@ -218,5 +218,5 @@ const styles = StyleSheet.create({
         fontSize: STYLES.FONT_SIZE_BUTTON,
         fontFamily: STYLES.FONT,
     },
-  });
+});
   

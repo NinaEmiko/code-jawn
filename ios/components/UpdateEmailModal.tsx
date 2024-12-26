@@ -11,7 +11,7 @@ interface UpdateEmailModalProps {
     visible: boolean,
 }
 
-const UpdateEmailModal: React.FC<UpdateEmailModalProps> = ({ handleToggleModal, currentUser, updateEmail, visible}) => {
+const UpdateEmailModal: React.FC<UpdateEmailModalProps> = ({ handleToggleModal, currentUser, updateEmail, visible }) => {
     const [focus, setFocus] = React.useState<string>("");
     const [newEmail, setNewEmail] = React.useState<string>("")
     const [showError, setShowError] = React.useState<boolean>(false);
@@ -157,5 +157,5 @@ const styles = StyleSheet.create({
         fontSize: STYLES.FONT_SIZE_BUTTON,
         fontFamily: STYLES.FONT,
     },
-  });
+});
   
