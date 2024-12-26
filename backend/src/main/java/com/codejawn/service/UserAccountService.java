@@ -1,6 +1,7 @@
 package com.codejawn.service;
 
 import com.codejawn.dto.AuthResponseDTO;
+import com.codejawn.dto.UserAccountResponseDTO;
 import com.codejawn.model.*;
 import com.codejawn.model.java.*;
 import com.codejawn.repository.RoleRepository;
@@ -30,6 +31,19 @@ public class UserAccountService {
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
     private final Logger logger = Logger.getLogger(UserAccountService.class.getName());
+
+    public UserAccountResponseDTO getUserAccount(Long id){
+        logger.info("Inside getUserAccount service method.");
+        UserAccount userAccount =  userAccountRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));
+
+        UserAccountResponseDTO userAccountResponseDTO = new UserAccountResponseDTO();
+        userAccountResponseDTO.setUserId(id);
+        userAccountResponseDTO.setUsername(userAccount.getUsername());
+        userAccountResponseDTO.setEmail(userAccount.getEmail());
+
+        return userAccountResponseDTO;
+    }
 
     @Transactional
     public UserAccount register(String userName, String email, String password) {

@@ -29,6 +29,13 @@ public class UserAccountController {
         this.userAccountService = userAccountService;
     }
 
+    @GetMapping("/get/{id}")
+    public ResponseEntity<UserAccountResponseDTO> getUserAccount(@PathVariable @Valid Long id){
+        logger.info("Inside getUserAccount controller method.");
+        UserAccountResponseDTO userAccountResponseDTO = userAccountService.getUserAccount(id);
+        return new ResponseEntity<>(userAccountResponseDTO, HttpStatus.OK);
+    }
+
     @PostMapping("/login")
     public ResponseEntity<AuthResponseDTO> login(@RequestBody @Valid LoginDTO loginDTO){
         logger.info("Inside login controller method.");

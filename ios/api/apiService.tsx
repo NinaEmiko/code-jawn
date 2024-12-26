@@ -110,3 +110,13 @@ export const deleteAccount = async (userId: number) => {
       throw error;
     }
 };
+
+export const getUserAccount = async (userId: number) => {
+    try {
+        const response = await axios.get(`${ENDPOINTS.GET_USER_ACCOUNT}/${userId}`);
+        return response.data;
+    } catch (error) {
+      console.error('Error deleting account:', error);
+      throw error;
+    }
+};
