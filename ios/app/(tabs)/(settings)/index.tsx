@@ -40,6 +40,9 @@ export default function SettingsScreen() {
   }
 
   const handleUpdatePasswordModalCancel = () => {
+    setOldPassword("")
+    setNewPassword("")
+    setConfirmNewPassword("")
     setUpdatePasswordModalVisible(false)
     setShowError(false);
   }
@@ -115,6 +118,9 @@ export default function SettingsScreen() {
       try {
         const data = await updateUserPassword(currentUser.userId, oldPassword, newPassword);
         setUpdatePasswordModalVisible(false)
+        setOldPassword("")
+        setNewPassword("")
+        setConfirmNewPassword("")
       } catch (error) {
         console.log("error while updating password: ", error)
       }
@@ -141,15 +147,9 @@ export default function SettingsScreen() {
         <View style={styles.divider} />
 
         <Text style={styles.titleText}>Security</Text>
-        <Pressable onPress={() => handleUpdatePassword()}>
-            <Text style={styles.linkText}>Update Password</Text>
-        </Pressable>
-        <Pressable onPress={() => handleUpdateEmail()}>
-            <Text style={styles.linkText}>Update Email</Text>
-        </Pressable>
-        <Pressable onPress={() => handleDeleteModal()}>
-            <Text style={styles.linkText}>Delete Account</Text>
-        </Pressable>
+        <Text style={styles.linkText} onPress={() => handleUpdateEmail()}>Update Email</Text>
+        <Text style={styles.linkText} onPress={() => handleUpdatePassword()}>Update Password</Text>
+        <Text style={styles.linkText} onPress={() => handleDeleteModal()}>Delete Account</Text>
         <View style={styles.divider} />
         
         <Text style={styles.titleText}>Other</Text>
@@ -158,17 +158,17 @@ export default function SettingsScreen() {
         <Link href="/pages/support" style={styles.linkText}>Support</Link>
 
         <Pressable
-            style={({ pressed }) => [
-              styles.button,
-              pressed && styles.pressed,
-              
-            ]}
-            onPress={() => handleNavigation()}
-          >
-            <Text style={styles.buttonText}>Log Out</Text>
-          </Pressable>
+          style={({ pressed }) => [
+            styles.button,
+            pressed && styles.pressed,
+            
+          ]}
+          onPress={() => handleNavigation()}
+        >
+          <Text style={styles.buttonText}>Log Out</Text>
+        </Pressable>
 
-          <Modal
+        <Modal
           animationType="slide"
           transparent={true}
           visible={updatePasswordModalVisible}
@@ -177,7 +177,6 @@ export default function SettingsScreen() {
           <View style={styles.modalBackground}>
             <View style={styles.modalContainer}>
               <Text style={styles.titleText}>Update Password</Text>
-              <Text style={styles.deleteButtonText}>Old Password</Text>
               <TextInput
                   style={[styles.textInput, focus === 'oldPassword' ? styles.inputFocused : styles.inputUnfocused]}
                   onFocus={() => handleFocus('oldPassword')}
@@ -186,7 +185,6 @@ export default function SettingsScreen() {
                   onChangeText={setOldPassword} 
                   placeholder='Old Password'
                 />
-              <Text style={styles.deleteButtonText}>New Password</Text>
               <TextInput
                   style={[styles.textInput, focus === 'newPassword' ? styles.inputFocused : styles.inputUnfocused]}
                   onFocus={() => handleFocus('newPassword')}
@@ -195,7 +193,6 @@ export default function SettingsScreen() {
                   onChangeText={setNewPassword} 
                   placeholder='New Password'
                 />
-              <Text style={styles.deleteButtonText}>Confirm New Password</Text>
               <TextInput
                   style={[styles.textInput, focus === 'confirmNewPassword' ? styles.inputFocused : styles.inputUnfocused]}
                   onFocus={() => handleFocus('confirmNewPassword')}
@@ -208,7 +205,7 @@ export default function SettingsScreen() {
                 <Text style={styles.errorText}>{errorText}</Text>
               }
               <View style={styles.modalButtons}>
-                <TouchableOpacity onPress={handleUpdatePasswordModalConfirm} style={styles.confirmButton}>
+                <TouchableOpacity onPress={handleUpdatePasswordModalConfirm} style={styles.submitButton}>
                   <Text style={styles.deleteButtonText}>Submit</Text>
                 </TouchableOpacity>
   
@@ -242,7 +239,7 @@ export default function SettingsScreen() {
               <Text style={styles.deleteButtonText}>Currently unable to update email.</Text>
               }
               <View style={styles.modalButtons}>
-                <TouchableOpacity onPress={handleUpdateEmailModalConfirm} style={styles.confirmButton}>
+                <TouchableOpacity onPress={handleUpdateEmailModalConfirm} style={styles.submitButton}>
                   <Text style={styles.deleteButtonText}>Submit</Text>
                 </TouchableOpacity>
   
@@ -310,20 +307,30 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark background
   },
   modalContainer: {
-    backgroundColor: 'white',
+    backgroundColor: STYLES.DARK_GREY,
     padding: 20,
     borderRadius: 10,
     width: '80%',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: STYLES.ORANGE
   },
   modalText: {
     fontSize: 18,
     marginBottom: 20,
+    color: 'white',
   },
   modalButtons: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
+  },
+  submitButton: {
+    backgroundColor: STYLES.ORANGE,
+    padding: 10,
+    borderRadius: 5,
+    width: '40%',
+    alignItems: 'center',
   },
   confirmButton: {
     backgroundColor: 'red',
