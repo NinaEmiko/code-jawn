@@ -48,9 +48,11 @@ export default function HomeScreen() {
       setLessonTrackerSet(true);
     }
   })
-  
       
-
+  useEffect(()=> {
+    setActiveProgress(Math.round(javaProgressCalculator(lessonTracker.javaLT)))
+  }, [lessonTracker, setLessonTracker])
+      
     const handleNavigation = () => {
       router.push(activeRoute as RelativePathString);
   }
@@ -85,9 +87,11 @@ export default function HomeScreen() {
           </TouchableOpacity>
         ))}
       </ScrollView>
-      <View style={styles.progress}>
-        <ProgressCircle props={{percentage:activeProgress, style:{width: 200, height: 200}}} />
-      </View>
+
+        <View style={styles.progress}>
+          <ProgressCircle props={{percentage:activeProgress, style:{width: 200, height: 200}}} />
+        </View> 
+
       <View style={styles.card}>
         <Text style={styles.text}>
           {activeDescription}
