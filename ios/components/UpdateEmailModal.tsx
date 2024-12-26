@@ -2,106 +2,114 @@ import { StyleSheet, Text, Modal, View, TouchableOpacity, TextInput } from 'reac
 import React from 'react';
 import { STYLES } from '@/assets/styles';
 import { updateUserEmail } from '@/api/apiService';
+import { User } from '@/context/UserContext';
 
-export default function CustomModal({ props }:{ props: any}) {
-    const [focus, setFocus] = React.useState<string | null>(null);
-    const [newEmail, setNewEmail] = React.useState("")
-    const [showError, setShowError] = React.useState(false);
+interface UpdateEmailModalProps {
+    handleToggleModal: () => void,
+    currentUser: User | null,
+    updateEmail: (newEmail: string) => void,
+    visible: boolean,
+}
+
+const UpdateEmailModal: React.FC<UpdateEmailModalProps> = ({ handleToggleModal, currentUser, updateEmail, visible}) => {
+    const [focus, setFocus] = React.useState<string>("");
+    const [newEmail, setNewEmail] = React.useState<string>("")
+    const [showError, setShowError] = React.useState<boolean>(false);
 
     const handleFocus = (input: string) => {
         setFocus(input);
-      };
+    };
     
-      const handleBlur = () => {
-        setFocus(null);
-      };
+    const handleBlur = () => {
+        setFocus("");
+    };
 
-      const handleCloseModal = () => {
+    const handleCloseModal = () => {
         setShowError(false);
         setNewEmail("")
-        props.handleToggleModal()
-      }
+        handleToggleModal()
+    }
 
     const handleConfirm = async () => {
-        if (props.currentUser){
-            const data = await updateUserEmail(props.currentUser.userId, newEmail);
-            console.log(data.newEmail)
+        if (currentUser) {
+            const data = await updateUserEmail(currentUser.userId, newEmail);
             if (data.newEmail != null) {
-                setShowError(false);
-                setNewEmail("")
                 console.log(data.newEmail)
-                props.updateEmail(data.newEmail);
-                props.handleToggleModal()
+                updateEmail(data.newEmail);
+                handleCloseModal()
             } else {
                 setShowError(true);
             }
         }
     }
 
-  return(
-
+    return(
         <Modal
           animationType="slide"
           transparent={true}
-          visible={props.visible}
+          visible={visible}
         >
-          <View style={styles.modalBackground}>
-            <View style={styles.modalContainer}>
-              <Text style={styles.titleText}>Update Email</Text>
+            <View style={styles.modalBackground}>
+                <View style={styles.modalContainer}>
+                    <Text style={styles.titleText}>Update Email</Text>
 
-              <TextInput
-                  style={[styles.textInput, focus === 'Email' ? styles.inputFocused : styles.inputUnfocused]}
-                  onFocus={() => handleFocus('Email')}
-                  onBlur={handleBlur}
-                  value={newEmail}
-                  onChangeText={setNewEmail} 
-                  placeholder='New Email'
-                />
-              {showError &&
-              <Text style={styles.errorText}>Currently unable to update email.</Text>
-              }
-              <View style={styles.modalButtons}>
-                <TouchableOpacity onPress={handleConfirm} style={styles.submitButton}>
-                  <Text style={styles.deleteButtonText}>Submit</Text>
-                </TouchableOpacity>
+                    <TextInput
+                        style={[styles.textInput, focus === 'Email' ? styles.inputFocused : styles.inputUnfocused]}
+                        onFocus={() => handleFocus('Email')}
+                        onBlur={handleBlur}
+                        value={newEmail}
+                        onChangeText={setNewEmail} 
+                        placeholder='New Email'
+                        />
+
+                    {showError &&
+                        <Text style={styles.errorText}>Currently unable to update email.</Text>
+                    }
+
+                    <View style={styles.modalButtons}>
+                        <TouchableOpacity onPress={handleConfirm} style={styles.submitButton}>
+                            <Text style={styles.deleteButtonText}>Submit</Text>
+                        </TouchableOpacity>
   
-                <TouchableOpacity onPress={handleCloseModal} style={styles.cancelButton}>
-                  <Text style={styles.deleteButtonText}>Cancel</Text>
-                </TouchableOpacity>
-              </View>
+                        <TouchableOpacity onPress={handleCloseModal} style={styles.cancelButton}>
+                            <Text style={styles.deleteButtonText}>Cancel</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
             </View>
-          </View>
         </Modal>
-  );
+    );
 }
 
+export default UpdateEmailModal;
+
 const styles = StyleSheet.create({
-        inputFocused: {
+    inputFocused: {
         borderColor: STYLES.ORANGE,
-      },
-      inputUnfocused: {
+    },
+    inputUnfocused: {
         borderColor: 'gray',
-      },
-      deleteButtonText: {
+    },
+    deleteButtonText: {
         color: 'black',
         fontWeight: "bold",
-        fontSize: 16,
+        fontSize: STYLES.FONT_SIZE_SUB_TEXT,
         fontFamily: STYLES.FONT,
-      },
-      cancelButton: {
+    },
+    cancelButton: {
         backgroundColor: STYLES.BLUE,
         padding: 10,
         borderRadius: 5,
         width: '40%',
         alignItems: 'center',
-      },
-      modalBackground: {
+    },
+    modalBackground: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark background
-      },
-      modalContainer: {
+    },
+    modalContainer: {
         backgroundColor: STYLES.DARK_GREY,
         padding: 20,
         borderRadius: 10,
@@ -109,45 +117,45 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 1,
         borderColor: STYLES.ORANGE
-      },
-      modalButtons: {
+    },
+    modalButtons: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         width: '100%',
-      },
-      submitButton: {
+    },
+    submitButton: {
         backgroundColor: STYLES.ORANGE,
         padding: 10,
         borderRadius: 5,
         width: '40%',
         alignItems: 'center',
-      },
-      textInput: {
+    },
+    textInput: {
         height: 40,
         borderBottomWidth: 1,
-        fontSize: 25,
+        fontSize: STYLES.TEXT_INPUT_FONT_SIZE,
         color: STYLES.ORANGE,
         borderColor: "grey",
         fontFamily: STYLES.FONT,
         marginBottom: 15,
         width: "100%",
-      },
-      text: {
+    },
+    text: {
         color: "white",
         fontSize: STYLES.FONT_SIZE_SUB_TEXT,
-      },
-      errorText: {
+    },
+    errorText: {
         color: "red",
         fontSize: STYLES.FONT_SIZE_SUB_TEXT,
         marginBottom: 10,
-      },
-      titleText: {
+    },
+    titleText: {
         color: STYLES.ORANGE,
         fontSize: STYLES.FONT_SIZE_TITLE,
-      },
-      buttonText: {
+    },
+    buttonText: {
         fontSize: STYLES.FONT_SIZE_BUTTON,
         fontFamily: STYLES.FONT,
-      },
+    },
   });
   

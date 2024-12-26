@@ -91,12 +91,12 @@ export default function SettingsScreen() {
           currentUser: currentUser
         }}/>
 
-        <UpdateEmailModal props={{
-          visible: updateEmailModalVisible,
-          handleToggleModal: handleToggleUpdateEmailModal,
-          currentUser: currentUser,
-          updateEmail: setEmail
-        }}/>
+        <UpdateEmailModal 
+          visible={updateEmailModalVisible}
+          handleToggleModal={handleToggleUpdateEmailModal}
+          currentUser={currentUser}
+          updateEmail={setEmail}
+        />
 
         <DeleteAccountModal props={{
           visible: deleteModalVisible,
