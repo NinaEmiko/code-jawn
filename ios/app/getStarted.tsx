@@ -20,9 +20,11 @@ const GetStartedScreen: React.FC<GetStartedScreenProps> =({ setGetStarted }) => 
                 source={require('../assets/images/HomeScreen.png')}
                 style={styles.backgroundImage}
                 resizeMode="cover">
-                    <Text style={styles.title}>
-                        Code Jawn
-                    </Text>
+                    
+                <Text style={styles.title}>
+                    Code Jawn
+                </Text>
+
                 <LinearGradient
                     colors={[
                         'rgba(0, 0, 0, 0)',
@@ -34,7 +36,12 @@ const GetStartedScreen: React.FC<GetStartedScreenProps> =({ setGetStarted }) => 
                     start={{ x: 0, y: 0 }}
                     end={{ x: 0, y: 1 }}           
                     style={styles.gradientOverlay}/>
-                <GlowingButton props={{buttonColor: STYLES.BLUE, buttonPress:handlePress, buttonText: "Get Started"}} />
+
+                <GlowingButton 
+                    buttonColor={STYLES.BLUE}
+                    buttonPress={handlePress}
+                    buttonText={"Get Started"}
+                />
             </ImageBackground>
         </>
     );

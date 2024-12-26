@@ -13,7 +13,6 @@ export default function JavaLessonsScreen({props}:{props: any}) {
   const { currentUser } = useUser();
   const [lessons, setLessons] = React.useState(getJavaLessons(getDefaultLessonTracker()));
   const [lessonTrackerSet, setLessonTrackerSet] = React.useState(false);
-  const [openComponent, setOpenComponent] = React.useState("");
 
   const getLessonTrackerCall = async (id: any) =>{
 
