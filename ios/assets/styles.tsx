@@ -10,4 +10,5 @@ export const STYLES = {
     FONT_SIZE_BUTTON: 25,
     FONT_SIZE_TEXT: 25,
     FONT_SIZE_SUB_TEXT: 20,
+    FONT_SIZE_CODE_JAWN: 50,
 }
