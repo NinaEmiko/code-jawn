@@ -1,9 +1,9 @@
 import { getUserAccount } from "@/api/apiService";
 import { STYLES } from "@/assets/styles";
-import DeleteAccountModal from "@/components/DeleteAccountModal";
+import DeleteAccountModal from "@/components/modals/DeleteAccountModal";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import UpdateEmailModal from "@/components/UpdateEmailModal";
-import UpdatePasswordModal from "@/components/UpdatePasswordModal";
+import UpdateEmailModal from "@/components/modals/UpdateEmailModal";
+import UpdatePasswordModal from "@/components/modals/UpdatePasswordModal";
 import { useUser } from "@/context/UserContext";
 import { Link } from "expo-router";
 import React, { useEffect } from "react";

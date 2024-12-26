@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View, Dimensions, ImageBackground, Pressable } from 'react-native';
-
 import React from 'react';
 import { STRINGS_EXPLANATIONS, STRINGS_QUIZ } from '@/constants/Java/DataTypes/StringsConstants';
 import ProgressCircle from '@/components/ProgressCircle';
@@ -7,7 +6,7 @@ import TypingDisplayText from '@/components/TypingDisplayText';
 import { STYLES } from '@/assets/styles';
 import MultipleChoice from '@/components/MultipleChoice';
 import InputAnswer from '@/components/InputAnswer';
-import CustomModal from '@/components/CustomModal';
+import QuizModal from '@/components/modals/QuizModal';
 import { updateJavaDataTypesLT } from '@/api/apiService';
 import { useUser } from '@/context/UserContext';
 
@@ -171,11 +170,11 @@ export default function JavaDataTypesStringsQuiz({props}:{props: any}) {
             </View>
         }
 
-        <CustomModal props={{
-            text: modalText,
-            modalVisible: modalVisible,
-            setModalVisible: handleModalClose
-        }} />
+        <QuizModal
+            text={modalText}
+            modalVisible={modalVisible}
+            setModalVisible={handleModalClose}
+        />
     </>
   );
 }
