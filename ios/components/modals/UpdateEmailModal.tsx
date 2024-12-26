@@ -1,5 +1,5 @@
 import { StyleSheet, Text, Modal, View, TouchableOpacity, TextInput } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { STYLES } from '@/assets/styles';
 import { updateUserEmail } from '@/api/apiService';
 import { useUser } from '@/context/UserContext';
@@ -12,9 +12,9 @@ interface UpdateEmailModalProps {
 
 const UpdateEmailModal: React.FC<UpdateEmailModalProps> = ({ handleToggleModal, updateEmail, visible }) => {
     const { currentUser } = useUser();
-    const [focus, setFocus] = React.useState<string>("");
-    const [newEmail, setNewEmail] = React.useState<string>("")
-    const [showError, setShowError] = React.useState<boolean>(false);
+    const [focus, setFocus] = useState<string>("");
+    const [newEmail, setNewEmail] = useState<string>("")
+    const [showError, setShowError] = useState<boolean>(false);
 
     const handleFocus = (input: string) => {
         setFocus(input);

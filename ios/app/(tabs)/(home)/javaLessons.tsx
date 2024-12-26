@@ -1,5 +1,5 @@
 import { StyleSheet, Image, View } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { Collapsible } from '@/components/Collapsible';
 import { useUser } from '@/context/UserContext';
@@ -15,8 +15,8 @@ interface JavaLessonsProps {
 
 const JavaLessonsScreen: React.FC<JavaLessonsProps> = ({ handleUpdateComponentProp, openComponent }) => {
     const { currentUser } = useUser();
-    const [lessons, setLessons] = React.useState(getJavaLessons(getDefaultLessonTracker()));
-    const [lessonTrackerSet, setLessonTrackerSet] = React.useState(false);
+    const [lessons, setLessons] = useState(getJavaLessons(getDefaultLessonTracker())); //No Type
+    const [lessonTrackerSet, setLessonTrackerSet] = useState<boolean>(false);
 
     const getLessonTrackerCall = async (id: any) =>{
         const data = await getLessonTracker(id);

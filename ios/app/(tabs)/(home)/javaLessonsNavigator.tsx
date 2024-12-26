@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import JavaLessonsScreen from './javaLessons';
 import JavaDataTypesStrings from './lessons/java/dataTypes/strings';
 import JavaDataTypesStringsQuiz from './quizzes/java/dataTypes/strings';
 import { useNavigation } from '@react-navigation/native';
 
 export default function JavaLessonsNavigator() {
-    const [componentToShow, setComponentToShow] = React.useState("Java Lessons");
-    const [openComponent, setOpenComponent] = React.useState("");
+    const [componentToShow, setComponentToShow] = useState<string>("Java Lessons");
+    const [openComponent, setOpenComponent] = useState<string>("");
     const navigation = useNavigation();
 
     const handleUpdateComponent = (componentToShowParam: string, openComponentParam: string) => {
@@ -33,13 +33,20 @@ export default function JavaLessonsNavigator() {
     return (
         <>
             {componentToShow === "Java Lessons" &&
-                <JavaLessonsScreen props={{handleUpdateComponent:handleUpdateComponent, openComponent:openComponent}} />
+                <JavaLessonsScreen
+                    handleUpdateComponentProp={handleUpdateComponent}
+                    openComponent={openComponent}
+                />
             }
             {componentToShow === "Strings Lesson" &&
-                <JavaDataTypesStrings props={{handleUpdateComponent:handleUpdateComponent}} />
+                <JavaDataTypesStrings
+                    handleUpdateComponentProp={handleUpdateComponent}
+                />
             }
             {componentToShow === "Strings Quiz" &&
-                <JavaDataTypesStringsQuiz props={{handleUpdateComponent:handleUpdateComponent}} />
+                <JavaDataTypesStringsQuiz
+                    handleUpdateComponentProp={handleUpdateComponent}
+                />
             }
         </>
     );

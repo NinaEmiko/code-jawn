@@ -9,8 +9,8 @@ export const loginApiCall = async (username: string, password: string) => {
         });
         return response.data;
     } catch (error) {
-      console.error('Error logging in:', error);
-      throw error;
+        console.error('Error logging in:', error);
+        throw error;
     }
 };
 
@@ -23,8 +23,8 @@ export const register = async (username: string, email: string, password: string
         });
         return response.data;
     } catch (error) {
-      console.error('Error registering user:', error);
-      throw error;
+        console.error('Error registering user:', error);
+        throw error;
     }
 };
 
@@ -33,8 +33,8 @@ export const getJavaDataTypesLT = async (userId: number) => {
         const response = await axios.get(`${ENDPOINTS.GET_JAVA_DATA_TYPES_LT}/${userId}`);
         return response.data;
     } catch (error) {
-      console.error('Error retrieving javaDataTypesLT:', error);
-      throw error;
+        console.error('Error retrieving javaDataTypesLT:', error);
+        throw error;
     }
 };
 
@@ -43,8 +43,8 @@ export const getLessonTracker = async (userId: number) => {
         const response = await axios.get(`${ENDPOINTS.GET_LESSON_TRACKER}/${userId}`);
         return response.data;
     } catch (error) {
-      console.error('Error retrieving lesson tracker for user with id: ' + userId + ": ", error);
-      throw error;
+        console.error('Error retrieving lesson tracker for user with id: ' + userId + ": ", error);
+        throw error;
     }
 };
 
@@ -56,8 +56,8 @@ export const updateJavaDataTypesLT = async (userId: number, lesson: string) => {
         });
         return response.data;
     } catch (error) {
-      console.error('Error updating javaDataTypesLT:', error);
-      throw error;
+        console.error('Error updating javaDataTypesLT:', error);
+        throw error;
     }
 };
 
@@ -69,8 +69,8 @@ export const updateUsername = async (userId: number, newUsername: string) => {
         });
         return response.data;
     } catch (error) {
-      console.error('Error updating username:', error);
-      throw error;
+        console.error('Error updating username:', error);
+        throw error;
     }
 };
 
@@ -82,8 +82,8 @@ export const updateUserEmail = async (userId: number, newEmail: string) => {
         });
         return response.data;
     } catch (error) {
-      console.error('Error updating email:', error);
-      throw error;
+        console.error('Error updating email:', error);
+        throw error;
     }
 };
 
@@ -96,8 +96,8 @@ export const updateUserPassword = async (userId: number, oldPassword: string, ne
         });
         return response.data;
     } catch (error) {
-      console.error('Error updating password:', error);
-      throw error;
+        console.error('Error updating password:', error);
+        throw error;
     }
 };
 
@@ -106,8 +106,8 @@ export const deleteAccount = async (userId: number) => {
         const response = await axios.delete(`${ENDPOINTS.DELETE_ACCOUNT}/${userId}`);
         return response.data;
     } catch (error) {
-      console.error('Error deleting account:', error);
-      throw error;
+        console.error('Error deleting account:', error);
+        throw error;
     }
 };
 
@@ -116,7 +116,7 @@ export const getUserAccount = async (userId: number) => {
         const response = await axios.get(`${ENDPOINTS.GET_USER_ACCOUNT}/${userId}`);
         return response.data;
     } catch (error) {
-      console.error('Error deleting account:', error);
-      throw error;
+        console.error('Error deleting account:', error);
+        throw error;
     }
 };

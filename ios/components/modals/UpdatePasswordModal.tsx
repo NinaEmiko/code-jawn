@@ -1,5 +1,5 @@
 import { StyleSheet, Text, Modal, View, TouchableOpacity, TextInput } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { STYLES } from '@/assets/styles';
 import { validCharacters } from '@/helpers/validCharacters';
 import { updateUserPassword } from '@/api/apiService';
@@ -13,12 +13,12 @@ interface UpdatePasswordModalProps {
 
 const UpdatePasswordModal: React.FC<UpdatePasswordModalProps> =({ handleToggleModal, username, visible }) => {
     const { currentUser } = useUser();
-    const [focus, setFocus] = React.useState<string>("");
-    const [oldPassword, setOldPassword] = React.useState<string>('')
-    const [newPassword, setNewPassword] = React.useState<string>('')
-    const [confirmNewPassword, setConfirmNewPassword] = React.useState<string>('')
-    const [showError, setShowError] = React.useState<boolean>(false);
-    const [errorText, setErrorText] = React.useState<string>("");
+    const [focus, setFocus] = useState<string>("");
+    const [oldPassword, setOldPassword] = useState<string>('')
+    const [newPassword, setNewPassword] = useState<string>('')
+    const [confirmNewPassword, setConfirmNewPassword] = useState<string>('')
+    const [showError, setShowError] = useState<boolean>(false);
+    const [errorText, setErrorText] = useState<string>("");
 
     const handleFocus = (input: string) => {
         setFocus(input);

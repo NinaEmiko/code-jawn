@@ -8,13 +8,13 @@ import { loginApiCall, register } from '@/api/apiService';
 import { useUser } from '@/context/UserContext';
 
 export default function LoginScreen() {
-    const [getStarted, setGetStarted] = React.useState(true);
-    const [tab, setTab] = React.useState('Login')
-    const [onLogin, setOnLogin] = React.useState(true)
+    const [getStarted, setGetStarted] = useState<boolean>(true);
+    const [tab, setTab] = useState<string>('Login')
+    const [onLogin, setOnLogin] = useState<boolean>(true)
     const [focus, setFocus] = useState<string | null>(null);
-    const [email, setEmail] = React.useState('')
-    const [username, setUsername] = React.useState('')
-    const [password, setPassword] = React.useState('')
+    const [email, setEmail] = useState<string>('')
+    const [username, setUsername] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
     const { login } = useUser();
 
     const handleTab = () => {
