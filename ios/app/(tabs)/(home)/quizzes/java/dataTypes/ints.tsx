@@ -12,11 +12,11 @@ import { useUser } from '@/context/UserContext';
 
 const screenHeight = Dimensions.get('window').height;
 
-interface JavaDataTypesStringsQuizProps {
+interface JavaDataTypesIntsQuizProps {
     handleUpdateComponentProp: (component: string, openComponent: string) => void,
 }
 
-const JavaDataTypesStringsQuiz: FC<JavaDataTypesStringsQuizProps> = ({ handleUpdateComponentProp }) => {
+const JavaDataTypesIntsQuiz: FC<JavaDataTypesIntsQuizProps> = ({ handleUpdateComponentProp }) => {
     const { currentUser } = useUser();
     const [questionNumber, setQuestionNumber] = useState<number>(0);
     const [progress, setProgress] = useState<number>(0);
@@ -181,7 +181,7 @@ const JavaDataTypesStringsQuiz: FC<JavaDataTypesStringsQuizProps> = ({ handleUpd
     );
 }
 
-export default JavaDataTypesStringsQuiz;
+export default JavaDataTypesIntsQuiz;
 
 const styles = StyleSheet.create({
     headerReplacement: {

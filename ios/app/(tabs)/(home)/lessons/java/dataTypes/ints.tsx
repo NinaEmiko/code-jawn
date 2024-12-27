@@ -1,18 +1,18 @@
 import { StyleSheet, Text, View, Dimensions, ImageBackground } from 'react-native';
 import React, { FC, useState } from 'react';
-import { STRINGS_EXAMPLES, STRINGS_LESSONS } from '@/constants/Java/DataTypes/StringsConstants';
 import GlowingButton from '@/components/GlowingButton';
 import ProgressCircle from '@/components/ProgressCircle';
 import TypingDisplayText from '@/components/TypingDisplayText';
 import { STYLES } from '@/assets/styles';
+import { INTS_EXAMPLES, INTS_LESSONS } from '@/constants/Java/DataTypes/IntsConstants';
 
 const screenHeight = Dimensions.get('window').height;
 
-interface JavaDataTypesStringsLessonProps {
+interface JavaDataTypesIntsLessonProps {
     handleUpdateComponentProp: (component: string, openComponent: string) => void,
 }
 
-const JavaDataTypesStringsLesson: FC<JavaDataTypesStringsLessonProps> = ({ handleUpdateComponentProp }) => {
+const JavaDataTypesIntsLesson: FC<JavaDataTypesIntsLessonProps> = ({ handleUpdateComponentProp }) => {
     const [buttonText, setButtonText] = useState<string>('Next');
     const [tab, setTab] = useState<number>(0);
 
@@ -23,7 +23,7 @@ const JavaDataTypesStringsLesson: FC<JavaDataTypesStringsLessonProps> = ({ handl
             setTab(tab + 1)
             setButtonText('Begin')
         } else {
-            handleUpdateComponentProp("Strings Quiz", "")
+            handleUpdateComponentProp("Ints Quiz", "")
         }
     }
 
@@ -41,40 +41,39 @@ const JavaDataTypesStringsLesson: FC<JavaDataTypesStringsLessonProps> = ({ handl
                     >
 
                         {tab === 0 &&
-                            <TypingDisplayText text={STRINGS_LESSONS.EXPLANATION_1} textColor="white" />
+                            <TypingDisplayText text={INTS_LESSONS.EXPLANATION_1} textColor="white" />
                         }
 
                         {tab === 1 &&
                             <>
-                                <Text style={styles.stringTitle}>
-                                    Strings
+                                <Text style={styles.intTitle}>
+                                    ints
                                 </Text>
-                                <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_1} textColor={STYLES.STRINGS}/>
-                                <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_2} textColor={STYLES.STRINGS} />
-                                <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_3} textColor={STYLES.STRINGS} />
+                                <TypingDisplayText text={INTS_EXAMPLES.INT_EXAMPLE_1} textColor={STYLES.INTS}/>
+                                <TypingDisplayText text={INTS_EXAMPLES.INT_EXAMPLE_2} textColor={STYLES.INTS} />
+                                <TypingDisplayText text={INTS_EXAMPLES.INT_EXAMPLE_3} textColor={STYLES.INTS} />
                             </>
                         }
 
                         {tab === 2 &&
                             <>
-                                <Text style={styles.stringTitle}>
-                                    Not Strings
+                                <Text style={styles.intTitle}>
+                                    Not ints
                                 </Text>
-                                <TypingDisplayText text={STRINGS_EXAMPLES.NOT_STRING_EXAMPLE_1} textColor={STYLES.STRINGS} />
-                                <TypingDisplayText text={STRINGS_EXAMPLES.NOT_STRING_EXAMPLE_2} textColor={STYLES.STRINGS} />
+                                <TypingDisplayText text={INTS_EXAMPLES.NOT_INT_EXAMPLE_1} textColor={STYLES.STRINGS} />
+                                <TypingDisplayText text={INTS_EXAMPLES.NOT_INT_EXAMPLE_2} textColor={STYLES.STRINGS} />
                             </>
                         }
                         {tab === 3 &&
-                            <TypingDisplayText text={STRINGS_LESSONS.EXPLANATION_2} textColor="white" />
+                            <TypingDisplayText text={INTS_LESSONS.EXPLANATION_2} textColor="white" />
                         }
                         {tab === 4 &&
                             <>
-                                <Text style={styles.stringTitle}>
-                                    Strings
+                                <Text style={styles.intTitle}>
+                                    ints
                                 </Text>
-                                <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_4} textColor={STYLES.STRINGS} />
-                                <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_5} textColor={STYLES.STRINGS} />
-                                <TypingDisplayText text={STRINGS_EXAMPLES.STRING_EXAMPLE_6} textColor={STYLES.STRINGS} />
+                                <TypingDisplayText text={INTS_EXAMPLES.INT_EXAMPLE_4} textColor={STYLES.INTS} />
+                                <TypingDisplayText text={INTS_EXAMPLES.INT_EXAMPLE_5} textColor={STYLES.INTS} />
                             </>
                         }
 
@@ -92,10 +91,10 @@ const JavaDataTypesStringsLesson: FC<JavaDataTypesStringsLessonProps> = ({ handl
     );
 }
 
-export default JavaDataTypesStringsLesson;
+export default JavaDataTypesIntsLesson;
 
 const styles = StyleSheet.create({
-    stringTitle: {
+    intTitle: {
         color: STYLES.ORANGE,
         fontFamily: STYLES.FONT,
         fontSize: STYLES.FONT_SIZE_TITLE,

@@ -3,6 +3,8 @@ import JavaLessonsScreen from './javaLessons';
 import JavaDataTypesStrings from './lessons/java/dataTypes/strings';
 import JavaDataTypesStringsQuiz from './quizzes/java/dataTypes/strings';
 import { useNavigation } from '@react-navigation/native';
+import JavaDataTypesIntsQuiz from './quizzes/java/dataTypes/ints';
+import JavaDataTypesInts from './lessons/java/dataTypes/ints'
 
 export default function JavaLessonsNavigator() {
     const [componentToShow, setComponentToShow] = useState<string>("Java Lessons");
@@ -45,6 +47,16 @@ export default function JavaLessonsNavigator() {
             }
             {componentToShow === "Strings Quiz" &&
                 <JavaDataTypesStringsQuiz
+                    handleUpdateComponentProp={handleUpdateComponent}
+                />
+            }
+            {componentToShow === "Ints Lesson" &&
+                <JavaDataTypesInts
+                    handleUpdateComponentProp={handleUpdateComponent}
+                />
+            }
+            {componentToShow === "Strings Quiz" &&
+                <JavaDataTypesIntsQuiz
                     handleUpdateComponentProp={handleUpdateComponent}
                 />
             }

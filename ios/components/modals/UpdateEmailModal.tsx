@@ -15,6 +15,7 @@ const UpdateEmailModal: FC<UpdateEmailModalProps> = ({ handleToggleModal, update
     const [focus, setFocus] = useState<string>("");
     const [newEmail, setNewEmail] = useState<string>("")
     const [showError, setShowError] = useState<boolean>(false);
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     const handleFocus = (input: string) => {
         setFocus(input);
@@ -31,15 +32,12 @@ const UpdateEmailModal: FC<UpdateEmailModalProps> = ({ handleToggleModal, update
     }
 
     const handleConfirm = async () => {
-        if (currentUser) {
+        if (emailRegex.test(newEmail) && currentUser){
             const data = await updateUserEmail(currentUser.userId, newEmail);
-            if (data.newEmail != null) {
-                console.log(data.newEmail)
-                updateEmail(data.newEmail);
-                handleCloseModal()
-            } else {
-                setShowError(true);
-            }
+            updateEmail(data.newEmail);
+            handleCloseModal()
+        } else {
+            setShowError(true);
         }
     }
 

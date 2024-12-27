@@ -3,7 +3,7 @@ import { LessonTracker } from "@/types/LessonTracker"
 export const getJavaLessons = (lessonTracker: LessonTracker) => {
     return {
       "Data Types": [
-        {"ints": [lessonTracker.javaLT.javaDataTypesLT.intsLessonIsComplete, "Strings Lesson"]},
+        {"ints": [lessonTracker.javaLT.javaDataTypesLT.intsLessonIsComplete, "Ints Lesson"]},
         {"Strings": [lessonTracker.javaLT.javaDataTypesLT.stringsLessonIsComplete, "Strings Lesson"]},
         {"booleans": [lessonTracker.javaLT.javaDataTypesLT.booleansLessonIsComplete, "Strings Lesson"]},
         {"Longs": [lessonTracker.javaLT.javaDataTypesLT.longsLessonIsComplete, "Strings Lesson"]},

@@ -10,12 +10,12 @@ interface DeleteAccountModalProps {
 }
 
 const DeleteAccountModal: FC<DeleteAccountModalProps> = ({ handleToggleModal, visible }) => {
-    const { currentUser } = useUser();
+    const { currentUser, logout } = useUser();
 
     const handleConfirmDelete = async () => {
         if (currentUser) {
             const data = await deleteAccount(currentUser.userId);
-            handleToggleModal();
+            await logout()
         }
     };
 
