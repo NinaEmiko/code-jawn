@@ -1,5 +1,5 @@
 import { StyleSheet, Text, Pressable, TextInput, View, Dimensions } from 'react-native';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { STYLES } from '@/assets/styles';
 
 const screenHeight = Dimensions.get('window').height;
@@ -31,6 +31,10 @@ const InputAnswer: FC<InputAnswerProps> = ({ answerProp, acceptableAnswers, hand
         }
     }
 
+    useEffect(() => {
+        setAnswer(placeHolder)
+    },[])
+
   return (
     <View style={styles.buttonContainer}>
         <TextInput
@@ -39,7 +43,6 @@ const InputAnswer: FC<InputAnswerProps> = ({ answerProp, acceptableAnswers, hand
             onBlur={handleBlur}
             value={answer}
             onChangeText={setAnswer}
-            placeholder={placeHolder}
         />
 
         <Pressable

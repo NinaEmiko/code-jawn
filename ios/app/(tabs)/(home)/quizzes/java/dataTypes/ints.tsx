@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Dimensions, ImageBackground, Pressable } from 'react-native';
 import React, { FC, useState } from 'react';
-import { STRINGS_EXPLANATIONS, STRINGS_QUIZ } from '@/constants/Java/DataTypes/StringsConstants';
 import ProgressCircle from '@/components/ProgressCircle';
 import TypingDisplayText from '@/components/TypingDisplayText';
 import { STYLES } from '@/assets/styles';
@@ -9,6 +8,7 @@ import InputAnswer from '@/components/InputAnswer';
 import QuizModal from '@/components/modals/QuizModal';
 import { updateJavaDataTypesLT } from '@/api/apiService';
 import { useUser } from '@/context/UserContext';
+import { INTS_EXPLANATIONS, INTS_QUIZ } from '@/constants/Java/DataTypes/IntsConstants';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -25,7 +25,7 @@ const JavaDataTypesIntsQuiz: FC<JavaDataTypesIntsQuizProps> = ({ handleUpdateCom
     const [answerIsCorrect, setAnswerIsCorrect] = useState<boolean>(false);
 
     const handleSelect = (correct: boolean, answer: number) => {
-        setModalText(STRINGS_EXPLANATIONS[questionNumber + 1 as keyof typeof STRINGS_EXPLANATIONS]?.[answer - 1])
+        setModalText(INTS_EXPLANATIONS[questionNumber + 1 as keyof typeof INTS_EXPLANATIONS]?.[answer - 1])
         if (correct) {
             setAnswerIsCorrect(true);
             setModalVisible(true);
@@ -45,7 +45,7 @@ const JavaDataTypesIntsQuiz: FC<JavaDataTypesIntsQuizProps> = ({ handleUpdateCom
 
     const handleCompleteQuiz = async () => {
         if (currentUser){
-            const data = await updateJavaDataTypesLT(currentUser.userId, "Strings");
+            const data = await updateJavaDataTypesLT(currentUser.userId, "ints");
             handleUpdateComponentProp("Java Lessons", "Data Types")
         }
     }
@@ -63,22 +63,22 @@ const JavaDataTypesIntsQuiz: FC<JavaDataTypesIntsQuizProps> = ({ handleUpdateCom
                         style={styles.image}
                     >
                         {questionNumber === 0 &&
-                            <TypingDisplayText text={STRINGS_QUIZ.STRING_QUESTION_1} textColor="white" />
+                            <TypingDisplayText text={INTS_QUIZ.INT_QUESTION_1} textColor="white" />
                         }
                         {questionNumber === 1 &&
-                            <TypingDisplayText text={STRINGS_QUIZ.STRING_QUESTION_2} textColor="white" />
+                            <TypingDisplayText text={INTS_QUIZ.INT_QUESTION_2} textColor="white" />
                         }
                         {questionNumber === 2 &&
-                            <TypingDisplayText text={STRINGS_QUIZ.STRING_QUESTION_3} textColor="white" />
+                            <TypingDisplayText text={INTS_QUIZ.INT_QUESTION_3} textColor="white" />
                         }
                         {questionNumber === 3 &&
-                            <TypingDisplayText text={STRINGS_QUIZ.STRING_QUESTION_4} textColor="white" />
+                            <TypingDisplayText text={INTS_QUIZ.INT_QUESTION_4} textColor="white" />
                         }
                         {questionNumber === 4 &&
-                            <TypingDisplayText text={STRINGS_QUIZ.STRING_QUESTION_5} textColor="white" />
+                            <TypingDisplayText text={INTS_QUIZ.INT_QUESTION_5} textColor="white" />
                         }
                         {questionNumber === 5 &&
-                            <TypingDisplayText text={STRINGS_QUIZ.GOOD_JOB} textColor="white" />
+                            <TypingDisplayText text={INTS_QUIZ.GOOD_JOB} textColor="white" />
                         }
                     </ImageBackground>
                 </View>
@@ -87,13 +87,13 @@ const JavaDataTypesIntsQuiz: FC<JavaDataTypesIntsQuizProps> = ({ handleUpdateCom
             {questionNumber === 0 &&
                 <MultipleChoice
                     choices={4}
-                    answer1={"false"}
-                    answer1Styles={styles.answerBoolean}
-                    answer2={"5"}
+                    answer1={"\"57\""}
+                    answer1Styles={styles.answerString}
+                    answer2={"true"}
                     answer2Styles={styles.answerInt}
-                    answer3={"\"This is a String.\""}
+                    answer3={"-17"}
                     answer3Styles={styles.answerString}
-                    answer4={"This is a String."}
+                    answer4={"None of the above."}
                     answer4Styles={styles.answerText}
                     handleSelectProp={handleSelect}
                     correctAnswer={3}
@@ -102,59 +102,51 @@ const JavaDataTypesIntsQuiz: FC<JavaDataTypesIntsQuizProps> = ({ handleUpdateCom
             {questionNumber === 1 &&
                 <MultipleChoice
                     choices={4}
-                    answer1={`five`}
-                    answer1Styles={styles.answerText}
-                    answer2={`"5"`}
-                    answer2Styles={styles.answerString}
-                    answer3={`"5.5"`}
-                    answer3Styles={styles.answerString}
-                    answer4={`"five"`}
-                    answer4Styles={styles.answerString}
+                    answer1={`-5`}
+                    answer1Styles={styles.answerInt}
+                    answer2={`0`}
+                    answer2Styles={styles.answerInt}
+                    answer3={`5.5`}
+                    answer3Styles={styles.answerInt}
+                    answer4={`1000000`}
+                    answer4Styles={styles.answerInt}
                     handleSelectProp={handleSelect}
-                    correctAnswer={1}
+                    correctAnswer={3}
                 />
             }
             {questionNumber === 2 &&
                 <MultipleChoice
-                    choices={4}
-                    answer1={`"This is my house."`}
-                    answer1Styles={styles.answerString}
-                    answer2={`They are all of type String.`}
+                    choices={2}
+                    answer1={`True`}
+                    answer1Styles={styles.answerText}
+                    answer2={`False`}
                     answer2Styles={styles.answerText}
-                    answer3={`'This is my house.'`}
-                    answer3Styles={styles.answerString}
-                    answer4={`\`This is my house.\``}
-                    answer4Styles={styles.answerString}
                     handleSelectProp={handleSelect}
-                    correctAnswer={2}
+                    correctAnswer={1}
                 />
             }
             {questionNumber === 3 &&
                 <MultipleChoice
                     choices={4}
-                    answer1={`It is missing quotation marks.`}
+                    answer1={`A users email address.`}
                     answer1Styles={styles.answerText}
-                    answer2={`There is nothing missing.`}
+                    answer2={`Whether or not a user is 30 years old.`}
                     answer2Styles={styles.answerText}
-                    answer3={`It is missing an = sign.`}
+                    answer3={`The value of PI.`}
                     answer3Styles={styles.answerText}
-                    answer4={`It contains a 5 and that is an int value.`}
+                    answer4={`The amount of wins a user has in a game.`}
                     answer4Styles={styles.answerText}
                     handleSelectProp={handleSelect}
-                    correctAnswer={1}
+                    correctAnswer={4}
                 />
             }
             {questionNumber === 4 &&
                 <InputAnswer
-                    placeHolder={"17"}
+                    placeHolder={`\"17\"`}
                     answerProp={"17"}
                     handleSelect={handleSelect} 
                     acceptableAnswers={[
-                        `“17”`,
-                        `‘17’`,
-                        `\`17\``,
-                        `'17'`,
-                        `"17"`
+                        `17`,
                     ]}                
                 />
             }

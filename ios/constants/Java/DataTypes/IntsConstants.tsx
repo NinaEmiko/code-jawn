@@ -6,7 +6,7 @@ export const INTS_LESSONS = {
 export const INTS_QUIZ = {
     INT_QUESTION_1: `Select value that is of type int.`,
     INT_QUESTION_2: `Select value that is not of type int.`,
-    INT_QUESTION_3: `Select value that is not of type int.`,
+    INT_QUESTION_3: `This value is an int: 105`,
     INT_QUESTION_4: `Which of these would you use an int for?`,
     INT_QUESTION_5: `Update this value to make it into a int:`,
     GOOD_JOB: 'Good job!'
@@ -24,31 +24,29 @@ export const INTS_EXAMPLES = {
 
 export const INTS_EXPLANATIONS = {
     1: [
-        `This is a boolean value. If it were surrounded by quotation marks, it would become a String value: "false".`,
-        `String values must be surrounded by quotation marks or backticks. 5 written in this way would be an int value.`,
-        `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`,
-        `String values must be surrounded by quotation marks or backticks.`,
+        `This is a String value. If it were not surrounded by quotation marks, it would become a int value: 57.`,
+        `This is a boolean value.`,
+        `This is a negative whole number which makes it a valid int value.`,
+        `Incorrect. One of the above answers is a valid int value.`,
     ],
     2: [
-        `String values must be surrounded by quotation marks or backticks, which means this value is not a String.`,
-        `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`,
-        `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`,
-        `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`
+        `-5 is a negative whole number which makes it a valid int value.`,
+        `0 is a whole number which makes it a valid int value.`,
+        `5.5 has a decimal point, therefore it is not a whole number and not a valid int value.`,
+        `1000000 is a large whole number, which makes it a valid int value.`
     ],
     3: [
-        `While this is a valid String value, it is not the only valid String value.`,
-        `All three are valid String values.`,
-        `While this is a valid String value, it is not the only valid String value.`,
-        `While this is a valid String value, it is not the only valid String value.`
+        `Correct. 105 is a whole number, therefore it is an int.`,
+        `Incorrect.`
     ],
     4: [
-        `This value alone is not a String value, but by surrounding it in quotation marks, it will become a String.`,
-        `There is something missing from making this into a String value.`,
-        `While an = sign can be used to assign a String value to a variable, it is not a requirement in order to have a String value.`,
-        `If a number is within quotation marks, it is a part of a String value and not an int value.`
+        `A String would be the appropriate data type for a users email would .`,
+        `A boolean would be the appropriate data type for representing whether or not a user is 30 years old.`,
+        `A double would be the appropriate data type for representing the value of PI, and it contains a decimal point.`,
+        `Correct! An int would be an appropriate data type for representing the amount of wins a user has in a game.`
     ],
     5: [
-        `You are correct! By surrounding 17 with "", '', or \`\`, you have turned it into a String value.`,
-        `You are incorrect. To turn 17 into a String value you must surround it with "", '', or \`\`.`
+        `You are correct! By removing the quotation marks from "17", you have turned it into an int value.`,
+        `You are incorrect.`
     ]
 } as const;

@@ -55,7 +55,7 @@ export default function JavaLessonsNavigator() {
                     handleUpdateComponentProp={handleUpdateComponent}
                 />
             }
-            {componentToShow === "Strings Quiz" &&
+            {componentToShow === "Ints Quiz" &&
                 <JavaDataTypesIntsQuiz
                     handleUpdateComponentProp={handleUpdateComponent}
                 />
