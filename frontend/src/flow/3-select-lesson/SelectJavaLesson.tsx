@@ -68,7 +68,7 @@ function JavaLessons({props}:{props:any}) {
                     </ul>
                 </div>
                 <div className="right-section">
-                    <h2 className="text">{showSection}</h2>
+                    <h2 className="lesson-title">{showSection}</h2>
                     {showSection === 'Data Types' &&
                         <SelectDataTypeLesson props={{
                             handleButtonClick:handleButtonClick,
@@ -104,6 +104,11 @@ function JavaLessons({props}:{props:any}) {
                     {showSection === 'Operators' &&
                         <SelectOperatorsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                 </div>
             </div>
         </Display2>

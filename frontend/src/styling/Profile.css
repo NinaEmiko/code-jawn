@@ -11,22 +11,23 @@
 }
 
 .terms-title{
+    margin-top: 50px;
     font-size: var(--header-text);
-    padding-bottom: 4%;
+    padding-bottom: 2%;
     color: var(--sub-secondary-jawn)
 }
 
 .terms-sub-title{
     font-size: var(--text);
-    padding-bottom: 4%;
+    padding-bottom: 2%;
     color: var(--sub-secondary-jawn)
 }
 
 .terms-text{
     font-size: var(--sub-text);
-    padding-bottom: 3%;
+    padding-bottom: 1%;
 }
 
 .terms-section{
-    padding: 5%;
+    padding: 1%;
 }

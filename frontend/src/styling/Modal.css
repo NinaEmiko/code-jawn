@@ -13,7 +13,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--primary-light-jawn);
+    background-color: var(--primary-jawn);
     padding: 15px;
     border-radius: 10px;
     z-index: 1000;
@@ -48,4 +48,10 @@
 
   .modal-explanation{
     margin-bottom: 30px;
+  }
+
+  .modal-btn-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }

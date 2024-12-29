@@ -1,17 +1,19 @@
 import { useState } from "react";
 import DividerJawn from "../../components/utility/DividerJawn";
-import DeleteAccount from "../../components/profile/DeleteAccount";
 import UpdateEmail from "../../components/profile/UpdateEmail";
 import UpdatePassword from "../../components/profile/UpdatePassword";
 import TermsAndConditions from "../../components/profile/other/TermsAndConditions";
-import ProfileHeaderDisplay from "../../components/ProfileHeaderDisplay";
-import Header from "../../components/Header";
 import Support from "../../components/profile/other/Support";
 import Acknowledgments from "../../components/profile/other/Acknowledgments";
+import Modal from "../../components/Modal";
+import DeleteAccount from "../../components/profile/DeleteAccount";
 
 const Profile = ({props}:{props:any}) => {
     const [activeComponent, setActiveComponent] = useState("");
     const [showBackBtn, setShowBackBtn] = useState(false);
+    const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
+    const [updatePasswordModalIsOpen, setUpdatePasswordModalIsOpen] = useState(false);
+    const [updateEmailModalIsOpen, setUpdateEmailModalIsOpen] = useState(false);
 
     const handleUpdateActiveComponent = (component: string) => {
         setActiveComponent(component)
@@ -23,8 +25,16 @@ const Profile = ({props}:{props:any}) => {
         setShowBackBtn(false)
     }
 
-    const handleLogOut = () => {
-        props.logout();
+    const handleDeleteModal = () => {
+        setDeleteModalIsOpen(!deleteModalIsOpen)
+    }
+
+    const handleUpdatePasswordModal = () => {
+        setUpdatePasswordModalIsOpen(!updatePasswordModalIsOpen)
+    }
+
+    const handleUpdateEmailModal = () => {
+        setUpdateEmailModalIsOpen(!updateEmailModalIsOpen)
     }
 
     return (
@@ -32,7 +42,7 @@ const Profile = ({props}:{props:any}) => {
             {showBackBtn &&
                 <div className="back-btn-container">
                   <button className="back-btn-jawn" onClick={() => handleBackClick()} >
-                  ←
+                  « Back to Settings
                   </button>
                 </div>
             }
@@ -59,15 +69,15 @@ const Profile = ({props}:{props:any}) => {
                                     Security
                                 </div>
                                 <div className="">
-                                    <a onClick={() => handleUpdateActiveComponent("Update Email") } className="profile-link">Update Email</a>
+                                    <a onClick={() => handleUpdateEmailModal() } className="profile-link">Update Email</a>
                                 </div>
                                 <br/>
                                 <div className="">
-                                    <a onClick={() => handleUpdateActiveComponent("Update Password") } className="profile-link">Update Password</a>
+                                    <a onClick={() => handleUpdatePasswordModal() } className="profile-link">Update Password</a>
                                 </div>
                                 <br/>
                                 <div className="">
-                                    <a onClick={() => handleUpdateActiveComponent("Delete Account") } className="profile-link">Delete Account</a>
+                                    <a onClick={() => handleDeleteModal() } className="profile-link">Delete Account</a>
                                 </div>
                                 <br/>
                                 <DividerJawn />
@@ -105,15 +115,6 @@ const Profile = ({props}:{props:any}) => {
                             </>
                         }
 
-                        {activeComponent === "Delete Account" &&
-                            <>
-                                <DeleteAccount props={{
-                                        currentUser:props.currentUser,
-                                        logout:props.logout
-                                }} />
-                            </>
-                        }
-
                         {activeComponent === "Terms and Conditions" &&
                             <>
                                 <TermsAndConditions props={{
@@ -137,6 +138,15 @@ const Profile = ({props}:{props:any}) => {
                                 }} />
                             </>
                         }
+                        <Modal isOpen={updateEmailModalIsOpen}>
+                            <UpdateEmail props={{currentUser: props.currentUser, handleUpdateEmailModal: handleUpdateEmailModal}} />
+                        </Modal>
+                        <Modal isOpen={updatePasswordModalIsOpen}>
+                            <UpdatePassword props={{currentUser: props.currentUser, handleUpdatePasswordModal: handleUpdatePasswordModal}} />
+                        </Modal>
+                        <Modal isOpen={deleteModalIsOpen}>
+                            <DeleteAccount props={{currentUser: props.currentUser, handleDeleteModal: handleDeleteModal}} />
+                        </Modal>
                     </div>
                 </div>
         </div>

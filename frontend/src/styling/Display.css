@@ -132,4 +132,9 @@
     text-align: center;
     color: red;
     font-size: var(--text);
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }

@@ -11,6 +11,7 @@ const DeleteAccount = ({props}:{props:any}) => {
 
     return (
         <div className="update-jawn">
+
             <div className="warning-txt">
                 WARNING: You are about to delete your account. This action cannot be undone. Do you wish to continue?
             </div>
@@ -19,8 +20,9 @@ const DeleteAccount = ({props}:{props:any}) => {
             <br/>
             <br/>
 
-            <div onClick={() => handleDeleteAccount()} className="warning-btn">
-                Delete Account
+            <div className="modal-btn-container">
+                <button className="input-btn-warning" onClick={()=> handleDeleteAccount()}>Delete</button>
+                <button className="input-btn" onClick={()=> props.handleDeleteModal()}>Cancel</button>
             </div>
         </div>
     )

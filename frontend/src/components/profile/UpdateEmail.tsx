@@ -29,18 +29,24 @@ const updateEmail = ({ props }: { props: any; }) => {
                 onSubmit={onSubmitNewEmail}
                 className="form-jawn"
             >   <div className="just-text-jawn">
-                    <JustText props={{text: "New Email"}} />
+                    <JustText props={{text: "Update Email"}} />
                 </div>
+                <br/>
                 <input 
                 onChange={onChangeHandler}
                 value={newEmail}
                 name="email"
                 type="text"
+                placeholder="New Email"
                 className="form-control" >
                 </input>
                 <br/>
                 <br/>
-                <button className="input-btn" type="submit">Submit</button>
+                <br/>
+                <div className="modal-btn-container">
+                    <button className="input-btn" type="submit">Submit</button>
+                    <button className="input-btn" onClick={()=> props.handleUpdateEmailModal()}>Cancel</button>
+                </div>
             </form>
         </div>
     )
