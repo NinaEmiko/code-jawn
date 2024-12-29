@@ -4,12 +4,13 @@
     font-size: var(--text);
     border: none;
     color: black;
-    border-radius: 20px;
-    padding: 3%;
+    border-radius: 10px;
+    padding: 5px;
     width: 100%;
     background-color: var(--accent-jawn);
-    font-weight: bold;
+    /* font-weight: bold; */
     box-shadow: 0 0 20px black; 
+    margin-top: 10px;
 }
 
 .sign-out-btn {

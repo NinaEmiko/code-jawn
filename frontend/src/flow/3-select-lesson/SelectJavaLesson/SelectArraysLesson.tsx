@@ -6,37 +6,37 @@ function SelectArraysLesson({props}:{props:any}) {
 
     return (
         <div className="lesson-btn-container">
-            <button className="lesson-btn"
-                onClick={() => null}>
-                {/* onClick={() => handleButtonClick("Java Initializing Arrays")} */}
-                    Initializing Arrays
-            </button>
-            <button className="lesson-btn"
-                onClick={() => null}>
-                {/* onClick={() => handleButtonClick("Java Arrays Assigning Values")} */}
-                    Assigning Values
-            </button>
-            <button className="lesson-btn"
-                onClick={() => null}>
-                {/* onClick={() => handleButtonClick("Java Arrays Indexes")} */}
-                    Array Indexes
-            </button>
-            <button className="lesson-btn"
-                onClick={() => null}>
-                {/* onClick={() => handleButtonClick("Java Arrays Updating Values")} */}
-                    Updating Values
-            </button>
-            <button className="lesson-btn"
-                onClick={() => null}>
-                {/* onClick={() => handleButtonClick("Java Arrays Length Method")} */}
-                    Length Method
-            </button>
-            <button className="lesson-btn"
-                onClick={() => null}>
-                {/* onClick={() => handleButtonClick("Java Arrays Looping")} */}
-                    Looping Through An Array
-            </button>
+        <div className="lesson-btn"
+            onClick={() => null}>
+            {/* onClick={() => handleButtonClick("Java Data Types booleans")} */}
+            Initializing Arrays
         </div>
+        <div className="lesson-btn"
+            onClick={() => null}>
+            {/* onClick={() => handleButtonClick("Java Data Types Longs")} */}
+            Assigning Values
+        </div>
+        <div className="lesson-btn"
+            onClick={() => null}>
+            {/* onClick={() => handleButtonClick("Java Data Types floats")} */}
+            Array Indexes
+        </div>
+        <div className="lesson-btn"
+            onClick={() => null}>
+            {/* onClick={() => handleButtonClick("Java Data Types doubles")} */}
+            Updating Values
+        </div>
+        <div className="lesson-btn"
+            onClick={() => null}>
+            {/* onClick={() => handleButtonClick("Java Data Types shorts")} */}
+            Length Method
+        </div>
+        <div className="lesson-btn"
+            onClick={() => null}>
+            {/* onClick={() => handleButtonClick("Java Data Types bytes")} */}
+            Looping Through An Array
+        </div>
+    </div>
     )
 }
 export default SelectArraysLesson

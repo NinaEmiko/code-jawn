@@ -3,7 +3,6 @@ import Cookies from 'js-cookie';
 import { setAuthHeader } from "./helpers/axiosHelper";
 import LoginForm from "./flow/1-select-language/LoginForm";
 import { register, login } from "./api/api"
-import AppBar from "./components/AppBar";
 import "./styling/Answer.css"
 import "./styling/Container.css"
 import "./styling/Controls.css"
@@ -16,6 +15,9 @@ import "./styling/Question.css"
 import "./styling/Profile.css"
 import "./styling/Button.css"
 import "./styling/Spacer.css"
+import "./styling/GetStarted.css"
+import './styling/GlowingButton.css';
+import './styling/Header.css';
 import JavaScriptSections from "./flow/2-languages/JavaScriptSections";
 import JavaSections from "./flow/2-languages/JavaSections";
 import SelectLanguage from "./flow/1-select-language/SelectLanguage";
@@ -24,8 +26,10 @@ import Profile from "./flow/1-select-language/Profile";
 import HeaderDisplay from "./components/HeaderDisplay";
 import Header from "./components/Header";
 import ProfileHeaderDisplay from "./components/ProfileHeaderDisplay";
+import GetStarted from "./flow/1-select-language/GetStarted";
 
 function App() {
+  const [getStarted, setGetStarted] = useState(false);
   const [activeTab, setActiveTab] = useState("Select a Language");
   const [showProfile, setShowProfile] = useState(false);
   const [showAppBar, setShowAppBar] = useState(true);
@@ -36,6 +40,10 @@ function App() {
     id: 0,
     loggedIn: false,
   });
+
+  const handleGetStarted = () => {
+    setGetStarted(true)
+  }
 
   const handleUpdateEmail = (newEmail: string) => {
     setCurrentUser((prev) => ({
@@ -116,9 +124,13 @@ function App() {
 
   return (
     <Container>
-      <HeaderDisplay>
-        <Header props={{ text: pageTitle }} />
-      </HeaderDisplay>
+
+      {!getStarted ? (
+        <GetStarted
+          handleGetStarted={handleGetStarted}
+        />
+      ) : (
+    <>
 
       {!currentUser.loggedIn &&
         <LoginForm
@@ -129,8 +141,10 @@ function App() {
           handlePageTitle={(handlePageTitle)}
         />
       }
+
       {currentUser.loggedIn &&
       <>
+        <Header props={{handleClickProfile, handleClickLearn, handleClickLogout: logout}} />
           {activeTab === "Select a Language" &&
             <SelectLanguage props={{
               handleRedirectHome:handleRedirectHome,
@@ -162,14 +176,10 @@ function App() {
                 }} />
             </>
           }
-          {showAppBar &&
-            <AppBar props={{
-              handleClickProfile:handleClickProfile,
-              handleClickLearn:handleClickLearn
-            }} />
-          }
         </>
       }
+      </>
+      )}
     </Container>
   )
 }

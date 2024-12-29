@@ -2,6 +2,7 @@ import JavaIcon from '../../assets/java-icon.png'
 import JavaScriptIcon from '../../assets/javascript-icon.png'
 import EmojiGenerator from '../utility/EmojiGenerator';
 import ForwardButton from '../../assets/forward-button-icon.png'
+import DividerJawn from '../utility/DividerJawn';
 
 const LanguageButtonContainer = ({props}:{props:any}) => {
 
@@ -44,6 +45,7 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
             <div className="language-btn-link" onClick={() => handleButtonClick(props.language)}>
                 Go to {props.language} lessons»
             </div>
+            <DividerJawn />
         </div>
     )
 }

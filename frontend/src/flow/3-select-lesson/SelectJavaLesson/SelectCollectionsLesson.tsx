@@ -6,12 +6,12 @@ function SelectCollectionsLesson({props}:{props:any}) {
 
     return (
         <div className="lesson-btn-container">
-            <button className="lesson-btn"
-                onClick={() => null}>
-                {/* onClick={() => handleButtonClick("")} */}
-                    Coming Soon
-            </button>
+        <div className="lesson-btn"
+            onClick={() => null}>
+            {/* onClick={() => handleButtonClick("Java Data Types booleans")} */}
+            Coming Soon
         </div>
+    </div>
     )
 }
 export default SelectCollectionsLesson

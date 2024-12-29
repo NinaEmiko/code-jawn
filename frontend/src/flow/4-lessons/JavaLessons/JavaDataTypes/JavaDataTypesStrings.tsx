@@ -9,6 +9,7 @@ import Display from "../../../../components/Display";
 import JavaDataTypesStringsLecture from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture";
 import JavaDataTypesStringsPostLesson from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsPostLesson";
 import { updateJavaDataTypesLT } from "../../../../api/api";
+import Display2 from "../../../../components/Display2";
 
 function JavaDataTypesStrings({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -16,11 +17,6 @@ function JavaDataTypesStrings({props}:{props:any}) {
     const [questionsAnswered, setQuestionsAnswered] = useState(0);
     const [lecturesCompleted, setLecturesCompleted] = useState(false);
     const [restCallSuccessful, setRestCallSuccessful] = useState(false);
-
-    const handleBackClick = () => {
-        props.handleShowAppBar(true);
-        props.handleRedirectJavaLessons("Java Lessons");
-    }
 
     const handleCompleteLesson = () => {
         props.handleShowAppBar(true);
@@ -50,11 +46,6 @@ function JavaDataTypesStrings({props}:{props:any}) {
 
   return (
     <>
-        <div className="back-btn-container">
-            <button className="back-btn-jawn" onClick={handleBackClick}>
-                ←
-            </button>
-        </div>
         <Display>
             <div className="spacer-15" />
             {lecturesCompleted === false &&
@@ -83,8 +74,8 @@ function JavaDataTypesStrings({props}:{props:any}) {
                     }
                 </>
             }
-            <div className="spacer-5" />
-            <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/>
+            {/* <div className="spacer-5" /> */}
+            {/* <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/> */}
         </Display>
     </>
   )

@@ -8,7 +8,7 @@ const HeaderDisplay: React.FC<{children: ReactNode }> = ( {children}:{children:a
                     <div className="top-header">
                         {children}
                     </div>
-                    <div className="bottom-header" />
+                    {/* <div className="bottom-header" /> */}
                 </div>
             </div>
     )

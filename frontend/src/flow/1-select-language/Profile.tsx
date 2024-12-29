@@ -29,9 +29,6 @@ const Profile = ({props}:{props:any}) => {
 
     return (
         <>
-            <ProfileHeaderDisplay>
-                <Header props={{text: "Profile"}} />
-            </ProfileHeaderDisplay>
             {showBackBtn &&
                 <div className="back-btn-container">
                   <button className="back-btn-jawn" onClick={() => handleBackClick()} >
@@ -43,17 +40,18 @@ const Profile = ({props}:{props:any}) => {
                 <div className="parent-jawn">
                     <div className="child-jawn2">
                         
-                        <div className="spacer-15"/>
+                        <div className="spacer-10"/>
                         {activeComponent === "" &&
                             <>
                                 <div className="text2">
                                     Account
                                 </div>
-                                <div className="sub-text3">
-                                    <div className="">{props.currentUser.username}</div>
+                                <div className="">
+                                    <a onClick={() => null } className="sub-text3">{props.currentUser.username}</a>
                                 </div>
-                                <div className="sub-text3">
-                                    <div className="">{props.currentUser.email}</div>
+                                <br/>
+                                <div className="">
+                                    <a onClick={() => null } className="sub-text3">{props.currentUser.email}</a>
                                 </div>
                                 <br/>
                                 <DividerJawn />
@@ -87,11 +85,6 @@ const Profile = ({props}:{props:any}) => {
                                 <div className="">
                                 <a onClick={() => handleUpdateActiveComponent("Support") } className="profile-link">Support</a>
                                 </div>
-                                <br/>
-                                <div>
-                                    <button onClick={() => handleLogOut()} className="sign-out-btn" >{"Sign Out"}</button>
-                                </div>
-                                <div className="spacer-15"/>
                             </>
                         }
 

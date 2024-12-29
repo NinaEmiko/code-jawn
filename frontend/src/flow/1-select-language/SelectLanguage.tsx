@@ -13,7 +13,7 @@ function SelectLesson({props}:{props:any}) {
     return (
       <>
         <Display>
-          <div className="spacer-15" />
+          <div className="spacer-25" />
             <LanguageButtonContainer props={{
                     iconAltText: "Java Icon",
                     language: "Java",

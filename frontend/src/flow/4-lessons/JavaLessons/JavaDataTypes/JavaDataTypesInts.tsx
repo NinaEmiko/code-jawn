@@ -46,11 +46,6 @@ function JavaDataTypesInts({props}:{props:any}) {
 
   return (
     <>
-        <div className="back-btn-container">
-            <button className="back-btn-jawn" onClick={handleBackClick}>
-                ←
-            </button>
-        </div>
         <Display>
             <div className="spacer-15" />
             {lecturesCompleted === false &&

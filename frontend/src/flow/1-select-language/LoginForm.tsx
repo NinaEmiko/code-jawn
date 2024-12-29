@@ -61,9 +61,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   };
 
   return (
-    <>
+    <div className="login-background">
       <LoginDisplay>
-      <div className="spacer-20" />
+      
         {activeButton === 'Sign In' && (
           <form 
           className="form-jawn" 
@@ -71,22 +71,25 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           ref={loginFormRef}
           >
 
-            <JustText props={{text: "Username"}} />
+            <JustText props={{text: "Login"}} />
+            <div className="spacer-20" />
+            
             <input
               type="text"
               value={username}
               name="username"
               className="form-control"
               onChange={onChangeHandler}
+              placeholder='Username'
             />
 
-            <JustText props={{text: "Password"}} />
             <input
               type="password"
               value={password}
               name="password"
               className="form-control"
               onChange={onChangeHandler}
+              placeholder='Password'
             />
 
             <div className="sub-text2">
@@ -109,37 +112,36 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           ref={registerFormRef}
           >
 
-            <JustText props={{text: "Username"}} />
+            <JustText props={{text: "Register"}} />
             <input
               type="text"
               value={username}
               name="username"
               className="form-control"
               onChange={onChangeHandler}
+              placeholder='Username'
             />
 
-            <JustText props={{text: "Email"}} />
             <input
               type="text"
               value={email}
               name="email"
               className="form-control"
               onChange={onChangeHandler}
+              placeholder='Email'
             />
 
-            <JustText props={{text: "Password"}} />
             <input
               type="password"
               value={password}
               name="password"
               className="form-control"
               onChange={onChangeHandler}
+              placeholder='Password'
             />
                 
             <p style={{color: "red"}}>{message}</p>
-              
-            <div className="spacer"> </div>
-             
+                           
             <button className="input-btn" type="submit">Sign Up</button>
 
             <div className="sub-text">
@@ -149,7 +151,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           </form>
         )}
       </LoginDisplay>
-    </>
+    </div>
   );
 };
 

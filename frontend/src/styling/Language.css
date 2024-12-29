@@ -3,9 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background-color: var(--primary-light-jawn);
-    border-radius: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
     width: 100%;
 }
 
@@ -16,23 +15,29 @@
 .container-for-language-btn,
 .container-for-language-btn2{
     width: 100%;
-    background-color: var(--primary-light-jawn);
-    border-radius: 20px;
     margin-bottom: 5%;
     justify-content: space-between;
-    box-shadow: 0 0 20px black; 
 }
 
 .description-container{
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
     padding-bottom: 15px;
 }
 
 .language-btn-link{
     text-align: right;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 15px;
+    text-decoration: underline;
+    color: var(--accent-jawn);
+    font-size: var(--sub-text);
+}
+.language-btn-link2{
+    text-align: left;
+    /* padding-left: 50px;
+    padding-right: 50px; */
     padding-bottom: 15px;
     text-decoration: underline;
     color: var(--accent-jawn);
@@ -60,10 +65,7 @@
 
 .language-icon {
     margin-right: 1%;
-    width: 20%;
-    height: 100%;
-    max-width: 20%;
-    max-height: 100%;
+    max-width: 10%;
 }
 
 .code-jawn-icon {
@@ -74,13 +76,13 @@
 }
 
 .center-language-btn{
-    width: 80%;
+    width: 90%;
     text-align: left;
 }
 
 .language-btn {
     flex-grow: 1;
-    font-size: var(--header-text);
+    font-size: var(--text);
     color: var(--sub-secondary-jawn);
     text-align: left;
     width: 100%;

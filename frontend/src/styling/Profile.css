@@ -1,7 +1,7 @@
 .profile-jawn2{
     border-top-left-radius: 70px;
     height: 100%;
-    background-color: var(--primary-jawn);
+    background-color: var(--background-jawn);
     width: 100%;
     overflow: hidden;
     z-index: 2;

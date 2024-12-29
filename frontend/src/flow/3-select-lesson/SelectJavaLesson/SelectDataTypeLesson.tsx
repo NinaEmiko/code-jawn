@@ -23,68 +23,65 @@ function SelectDataTypeLesson({props}:{props:any}) {
 
     return (
         <div className="lesson-btn-container">
-            {stringsComplete ?
-                <button className="lesson-btn-complete"
-                    onClick={() => handleButtonClick("Java Data Types Strings")}>
-                        Strings →
-                </button>
-            :
-                <button className="lesson-btn"
-                    onClick={() => handleButtonClick("Java Data Types Strings")}>
-                        Strings →
-                </button>
-            }   
-            {intsComplete ?
-                <button className="lesson-btn-complete"
-                    onClick={() => handleButtonClick("Java Data Types ints")}>
-                        ints →
-                </button>
-            :
-                <button className="lesson-btn"
-                    onClick={() => handleButtonClick("Java Data Types ints")}>
-                        ints →
-                </button>
-            }   
-            <button className="lesson-btn"
+            <div className="lesson-btn"
+                onClick={() => handleButtonClick("Java Data Types Strings")}>
+                    Strings
+                    {stringsComplete ? (
+                        <div className="lesson-complete">Lesson complete!</div>
+                    ): (
+                        <div className="lesson-incomplete">Not started</div>
+                    )}
+            </div>
+
+            <div className="lesson-btn"
+                onClick={() => handleButtonClick("Java Data Types ints")}>
+                    ints
+                    {intsComplete ? (
+                        <div className="lesson-complete">Lesson complete!</div>
+                    ): (
+                        <div className="lesson-incomplete">Not started</div>
+                    )}
+            </div>
+            <div className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Data Types booleans")} */}
-                    booleans →
-            </button>
-            <button className="lesson-btn"
+                    booleans
+            </div>
+            <div className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Data Types Longs")} */}
-                    Longs →
-            </button>
-            <button className="lesson-btn"
+                    Longs
+            </div>
+            <div className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Data Types floats")} */}
-                    floats →
-            </button>
-            <button className="lesson-btn"
+                    floats
+            </div>
+            <div className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Data Types doubles")} */}
-                    doubles →
-            </button>
-            <button className="lesson-btn"
+                    doubles
+            </div>
+            <div className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Data Types shorts")} */}
-                    shorts →
-            </button>
-            <button className="lesson-btn"
+                    shorts
+            </div>
+            <div className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Data Types bytes")} */}
-                    bytes →
-            </button>
-            <button className="lesson-btn"
+                    bytes
+            </div>
+            <div className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Data Types chars")} */}
-                    chars →
-            </button>
-            <button className="lesson-btn"
+                    chars
+            </div>
+            <div className="lesson-btn"
                 onClick={() => null}>
                 {/* onClick={() => handleButtonClick("Java Data Types Comments")} */}
-                    Comments →
-            </button>
+                    Comments
+            </div>
         </div>
     )
 }

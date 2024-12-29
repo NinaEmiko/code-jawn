@@ -2,19 +2,32 @@
 
 .display-jawn,
 .login-display-jawn {
-    border-top-left-radius: 70px;
-    background-color: var(--primary-jawn);
-    width: 100%;
-    overflow: hidden;
-    /* padding-top: 25%; */
+
 }
 
 .display-jawn {
-    height: 100%;
+
 }
 
 .login-display-jawn {
-    height: 100%;
+    background-color: var(--background-jawn);
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    width: auto;
+    height: auto;
+    
+    max-width: 30%;
+    max-height: 90%;
+    
+    padding: 20px;
+    
+    box-sizing: border-box;
 }
 
 /* PARENT */
@@ -24,14 +37,19 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    overflow: auto;
-    overflow-y: scroll;
+    /* overflow: auto;
+    overflow-y: scroll; */
 }
 
 /* CHILD */
 
 .child-jawn{
     width: 90%;
+    /* margin-top: 10%;     */
+}
+.child-jawn3{
+    width: 90%;
+    height: 100%;
     /* margin-top: 10%;     */
 }
 
@@ -46,31 +64,19 @@
 /* HEADER */
 
 .top-display{
-    height: 20%;
-    z-index: 2;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    background-color: transparent;
-    pointer-events: none;
-    text-align: center;
-
+    /* height: 10px;
+    width: 100%; */
 }
 
 .inner-top-display{
-    background-color: transparent;
-    height: 100%;
-    max-height: 100%;
-    pointer-events: none;
 }
 
 .top-header{
-    height: 60%;
-    max-height: 60%;
+    height: 33%;
+    max-height: 33%;
     width: 100%;
     max-width: 100%;
-    border-radius: 0 0 70px 0;
+    /* border-radius: 0 0 70px 0; */
     background-color: var(--sub-secondary-jawn);
     box-shadow: 0 0 20px black; 
     padding: 3%;
