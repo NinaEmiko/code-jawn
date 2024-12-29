@@ -23,6 +23,7 @@
     height: auto;
     
     max-width: 30%;
+    min-width: 30%;
     max-height: 90%;
     
     padding: 20px;

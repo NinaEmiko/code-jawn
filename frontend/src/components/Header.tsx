@@ -7,25 +7,25 @@ const Header = ({props}:{props:any}) => {
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const handleClickProfile = () => {
-    setDropdownOpen(!dropdownOpen)
+    setDropdownOpen(false)
     props.handleClickProfile();
   }
 
   const handleClickLearn = () => {
-    setDropdownOpen(!dropdownOpen)
+    setDropdownOpen(false)
     props.handleClickLearn();
   }
 
   const handleClickLogout = () => {
-    setDropdownOpen(!dropdownOpen)
+    setDropdownOpen(false)
     props.handleClickLogout();
   }
 
   return (
     <header className="header">
       <div className="header-left">
-        <img src={logo} className="logo"></img>
-        <h1 className="site-name">Code Jawn</h1>
+        <img onClick={handleClickLearn} src={logo} className="logo"></img>
+        <h1 className="site-name" onClick={handleClickLearn}>Code Jawn</h1>
       </div>
       <div className="header-right">
         <div className="dropdown">

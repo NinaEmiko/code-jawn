@@ -72,7 +72,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           >
 
             <JustText props={{text: "Login"}} />
-            <div className="spacer-20" />
+            <div className="spacer-25" />
             
             <input
               type="text"
@@ -82,7 +82,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
               onChange={onChangeHandler}
               placeholder='Username'
             />
-
+            <br/>
             <input
               type="password"
               value={password}
@@ -91,11 +91,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
               onChange={onChangeHandler}
               placeholder='Password'
             />
-
             <div className="sub-text2">
               <a className="jawnski" href="">Forgot Password</a>
             </div>
-
+            <br/>
+            <br/>
             <button className="input-btn" type="submit">Sign In</button>
 
             <div className="sub-text">
@@ -113,6 +113,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           >
 
             <JustText props={{text: "Register"}} />
+            <br/>
             <input
               type="text"
               value={username}
@@ -121,7 +122,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
               onChange={onChangeHandler}
               placeholder='Username'
             />
-
+            <br/>
             <input
               type="text"
               value={email}
@@ -130,7 +131,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
               onChange={onChangeHandler}
               placeholder='Email'
             />
-
+            <br/>
             <input
               type="password"
               value={password}
@@ -141,7 +142,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
             />
                 
             <p style={{color: "red"}}>{message}</p>
-                           
+            <br/>
             <button className="input-btn" type="submit">Sign Up</button>
 
             <div className="sub-text">

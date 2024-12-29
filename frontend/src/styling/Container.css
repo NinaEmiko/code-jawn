@@ -131,8 +131,9 @@ input{
   flex: 1;
   background-color: var(--background-jawn);
   box-sizing: border-box;
-  padding: 20px;
-  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
   border-right: 1px solid var(--primary-light-jawn);
   
 }
@@ -150,4 +151,12 @@ input{
   font-family: Menlo;
   color: var(--sub-secondary-jawn);
   text-align: center;
+}
+
+input:focus {
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid var(--sub-secondary-jawn);
 }

@@ -1,8 +1,6 @@
 .form-control{
     display: block;
     width: 100%; 
-    /* padding: 2.5%; */
-    /* margin-bottom: 10px; */
     margin-top: 10px;
     margin-bottom: 10px;
     background: transparent;
@@ -10,8 +8,12 @@
     border-left: none;
     border-right: none;
     height: 60%;
-    font-size: var(--text);
+    font-size: 20px;
     color: var(--sub-secondary-jawn);
+}
+.form-jawn{
+    /* width: 350px; 
+    padding-right: 30px; */
 }
 
 .link{
