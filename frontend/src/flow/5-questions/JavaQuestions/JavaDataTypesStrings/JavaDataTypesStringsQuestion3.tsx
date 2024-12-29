@@ -4,7 +4,6 @@ import { useState } from "react"
 import AnswerText from "../../../../components/answer/AnswerText"
 import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral"
 import DividerJawn from "../../../../components/utility/DividerJawn"
-import MultipleChoiceAnswer from "../../../../components/answer/MultipleChoiceAnswer"
 import { STRINGS_QUESTIONS,
     STRINGS_QUESTION_3_ANSWERS,
     STRINGS_QUESTION_3_BOOLEANS,
@@ -12,98 +11,89 @@ import { STRINGS_QUESTIONS,
 import useSound from "use-sound";
 import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
 import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
+import Modal from "../../../../components/Modal"
 
 
 function JavaDataTypesStringsQuestion3({props}:{props:any}) {
-    const [answer, setAnswer] = useState('');
     const [playCorrectSoundEffect] = useSound(correctSoundEffect);
     const [playIncorrectSoundEffect] = useSound(IncorrectSoundEffect);
+    const [isModalOpenA, setIsModalOpenA] = useState(false);
+    const [isModalOpenB, setIsModalOpenB] = useState(false);
+    const [isModalOpenC, setIsModalOpenC] = useState(false);
+    const [isModalOpenD, setIsModalOpenD] = useState(false);
 
     const handleAnswer1Click = () => {
-        setAnswer("A"); 
         playIncorrectSoundEffect();
+        setIsModalOpenA(true);
     }
     const handleAnswer2Click = () => { 
-        setAnswer("B"); 
         playCorrectSoundEffect();
+        setIsModalOpenB(true);
     }
     const handleAnswer3Click = () => { 
-        setAnswer("C"); 
         playIncorrectSoundEffect();
+        setIsModalOpenC(true);
     }
     const handleAnswer4Click = () => {
-        setAnswer("D");
         playIncorrectSoundEffect();
+        setIsModalOpenD(true);
     }
 
     const endQuestion = () => { props.completeQuestion(true); }
 
-    const retry = () => { setAnswer(''); }
+    const retry = () => { 
+        setIsModalOpenA(false);
+        setIsModalOpenB(false);
+        setIsModalOpenC(false);
+        setIsModalOpenD(false);
+    }
 
     return (
         <>
-            {answer === '' &&
-                <div className="question-container">
-                    <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_3}} />
-                    <div className="answer-jawn">
-                        <AnswerCodeBlock props={{
-                            answerClicked:handleAnswer1Click,
-                            code: STRINGS_QUESTION_3_ANSWERS.ANSWER_1
-                            }} />
-                            <DividerJawn />
-                        <AnswerText props={{
-                            answerClicked:handleAnswer2Click,
-                            text: STRINGS_QUESTION_3_ANSWERS.ANSWER_2
-                            }} />
-                            <DividerJawn />
-                        <AnswerTemplateLiteral props={{
-                            answerClicked:handleAnswer3Click,
-                            text: STRINGS_QUESTION_3_ANSWERS.ANSWER_3
-                            }} />
-                            <DividerJawn />
-                        <AnswerTemplateLiteral props={{
-                            answerClicked:handleAnswer4Click,
-                            text: STRINGS_QUESTION_3_ANSWERS.ANSWER_4
-                            }} />
-                    </div>
+            <div className="question-container">
+                <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_3}} />
+                <div className="answer-jawn">
+                    <AnswerCodeBlock props={{
+                        answerClicked:handleAnswer1Click,
+                        code: STRINGS_QUESTION_3_ANSWERS.ANSWER_1
+                        }} />
+                        <DividerJawn />
+                    <AnswerText props={{
+                        answerClicked:handleAnswer2Click,
+                        text: STRINGS_QUESTION_3_ANSWERS.ANSWER_2
+                        }} />
+                        <DividerJawn />
+                    <AnswerTemplateLiteral props={{
+                        answerClicked:handleAnswer3Click,
+                        text: STRINGS_QUESTION_3_ANSWERS.ANSWER_3
+                        }} />
+                        <DividerJawn />
+                    <AnswerTemplateLiteral props={{
+                        answerClicked:handleAnswer4Click,
+                        text: STRINGS_QUESTION_3_ANSWERS.ANSWER_4
+                        }} />
                 </div>
-            }
-            {answer === 'A' &&
-                <MultipleChoiceAnswer props={{
-                    type: "code",
-                    correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_1,
-                    answer: STRINGS_QUESTION_3_ANSWERS.ANSWER_1,
-                    explanation: STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_1,
-                    endQuestion: retry
-                }} />
-            }
-            {answer === 'B' &&
-                <MultipleChoiceAnswer props={{
-                    type: "text",
-                    correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_2,
-                    answer: STRINGS_QUESTION_3_ANSWERS.ANSWER_2,
-                    explanation: STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_2,
-                    endQuestion: endQuestion
-                }} />
-            }
-            {answer === 'C' &&
-                <MultipleChoiceAnswer props={{
-                    type: "template-literal",
-                    correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_3,
-                    answer: STRINGS_QUESTION_3_ANSWERS.ANSWER_3,
-                    explanation: STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_3,
-                    endQuestion: retry
-                }} />
-            }
-            {answer === 'D' &&
-                <MultipleChoiceAnswer props={{
-                    type: "template-literal",
-                    correct: STRINGS_QUESTION_3_BOOLEANS.ANSWER_4,
-                    answer: STRINGS_QUESTION_3_ANSWERS.ANSWER_4,
-                    explanation: STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_4,
-                    endQuestion: retry
-                }} />
-            }
+            </div>
+            <Modal isOpen={isModalOpenA}>
+                <h2 className="modal-incorrect">{"Incorrect"}</h2>
+                <p className="modal-explanation">{STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_1}</p>
+                <button className="modal-close-btn" onClick={()=> retry()}>OK</button>
+            </Modal>
+            <Modal isOpen={isModalOpenB}>
+                <h2 className="modal-correct">{"Correct!"}</h2>
+                <p className="modal-explanation">{STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_2}</p>
+                <button className="modal-close-btn" onClick={()=> endQuestion()}>OK</button>
+            </Modal>
+            <Modal isOpen={isModalOpenC}>
+                <h2 className="modal-incorrect">{"Incorrect"}</h2>
+                <p className="modal-explanation">{STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_3}</p>
+                <button className="modal-close-btn" onClick={()=> retry()}>OK</button>
+            </Modal>
+            <Modal isOpen={isModalOpenD}>
+                <h2 className="modal-incorrect">{"Incorrect"}</h2>
+                <p className="modal-explanation">{STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_4}</p>
+                <button className="modal-close-btn" onClick={()=> retry()}>OK</button>
+            </Modal>
         </>
     )
 }

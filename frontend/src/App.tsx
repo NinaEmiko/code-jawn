@@ -18,6 +18,7 @@ import "./styling/Spacer.css"
 import "./styling/GetStarted.css"
 import './styling/GlowingButton.css';
 import './styling/Header.css';
+import './styling/Modal.css';
 import JavaScriptSections from "./flow/2-languages/JavaScriptSections";
 import JavaSections from "./flow/2-languages/JavaSections";
 import SelectLanguage from "./flow/1-select-language/SelectLanguage";
