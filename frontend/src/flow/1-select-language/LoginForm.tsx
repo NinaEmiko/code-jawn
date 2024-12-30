@@ -5,14 +5,13 @@ import LoginDisplay from '../../components/LoginDisplay';
 
 
 interface LoginFormProps {
-  handlePageTitle: (title: string) => void;
   onLogin: (e: FormEvent, username: string, password: string) => void;
   onRegister: (e: FormEvent, username: string, password: string, email: string) => void;
   currentUser: {username: string, id: number, loggedIn: boolean};
   logout: () => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser, logout, handlePageTitle }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser, logout }) => {
   const [activeButton, setActiveButton] = useState('Sign In');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -25,10 +24,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   const handleTabClick = (button: string) => {
     if (button === "Sign In") {
       setActiveButton(button);
-      handlePageTitle("Welcome Back!");
     } else if (button === "Sign Up") {
       setActiveButton(button);
-      handlePageTitle("Welcome!");
     }
   };
 

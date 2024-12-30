@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Display2 from "../../components/Display2";
 
-function JavaScriptLessons({props}:{props:any}) {
+function SpringBootLessons({props}:{props:any}) {
     const [showSection, setShowSection] = useState('Coming Soon');
 
     const handleBackClick = () => {
@@ -31,4 +31,4 @@ function JavaScriptLessons({props}:{props:any}) {
   )
 }
 
-export default JavaScriptLessons
+export default SpringBootLessons

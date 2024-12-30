@@ -46,17 +46,21 @@
 
 .child-jawn{
     width: 90%;
-    /* margin-top: 10%;     */
+    overflow-y: auto;
+    max-height: 100vh;
 }
+
+.child-jawn::-webkit-scrollbar{
+    display: none;
+}
+
 .child-jawn3{
     width: 90%;
     height: 100%;
-    /* margin-top: 10%;     */
 }
 
 .child-jawn2{
     width: 100%;
-    /* margin-top: 10%;     */
     overflow: auto;
     overflow-y: scroll;
     background-color: transparent;
@@ -65,8 +69,7 @@
 /* HEADER */
 
 .top-display{
-    /* height: 10px;
-    width: 100%; */
+
 }
 
 .inner-top-display{

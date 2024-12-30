@@ -28,6 +28,7 @@ import HeaderDisplay from "./components/HeaderDisplay";
 import Header from "./components/Header";
 import ProfileHeaderDisplay from "./components/ProfileHeaderDisplay";
 import GetStarted from "./flow/1-select-language/GetStarted";
+import PythonSections from "./flow/2-languages/PythonSections";
 
 function App() {
   const [getStarted, setGetStarted] = useState(false);
@@ -52,7 +53,6 @@ function App() {
       email: newEmail,
     }));
   }
-  const handlePageTitle = (title: string) => { setPageTitle(title); }
   const handleClickProfile = () => { setShowProfile(true); }
   const handleClickLearn = () => { setShowProfile(false); }
   const handleRedirectHome = (component: string) => { setActiveTab(component); }
@@ -139,7 +139,6 @@ function App() {
           onRegister={registerCall}
           currentUser={currentUser}
           logout={(logout)}
-          handlePageTitle={(handlePageTitle)}
         />
       }
 
@@ -149,7 +148,6 @@ function App() {
           {activeTab === "Select a Language" &&
             <SelectLanguage props={{
               handleRedirectHome:handleRedirectHome,
-              handlePageTitle:handlePageTitle,
               currentUser:currentUser
             }} />
           }
@@ -157,14 +155,26 @@ function App() {
             <JavaSections props={{
               handleRedirectHome:handleRedirectHome,
               currentUser:currentUser,
-              handlePageTitle:handlePageTitle,
-              handleShowAppBar:handleShowAppBar
             }} />
           }
           {activeTab === "JavaScript" &&
-            <JavaScriptSections props={{
+            <PythonSections props={{
               handleRedirectHome:handleRedirectHome,
-              handlePageTitle:handlePageTitle
+            }} />
+          } 
+          {activeTab === "Python" &&
+            <PythonSections props={{
+              handleRedirectHome:handleRedirectHome,
+            }} />
+          } 
+          {activeTab === "SpringBoot" &&
+            <PythonSections props={{
+              handleRedirectHome:handleRedirectHome,
+            }} />
+          } 
+          {activeTab === "React" &&
+            <PythonSections props={{
+              handleRedirectHome:handleRedirectHome,
             }} />
           } 
 
