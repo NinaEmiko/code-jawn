@@ -1,5 +1,4 @@
-import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
-import Cookies from 'js-cookie';
+import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import JustText from '../../components/utility/JustText';
 import LoginDisplay from '../../components/LoginDisplay';
 
@@ -7,11 +6,9 @@ import LoginDisplay from '../../components/LoginDisplay';
 interface LoginFormProps {
   onLogin: (e: FormEvent, username: string, password: string) => void;
   onRegister: (e: FormEvent, username: string, password: string, email: string) => void;
-  currentUser: {username: string, id: number, loggedIn: boolean};
-  logout: () => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser, logout }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister }) => {
   const [activeButton, setActiveButton] = useState('Sign In');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -37,15 +34,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
   };
 
   const onSubmitLogin = (e: FormEvent) => {
-    
     e.preventDefault();
-
     onLogin(e, username, password);
     setMessage("Username or password is incorrect.")
   };
 
   const onSubmitRegister = (e: FormEvent) => {
-
     e.preventDefault();
     
     if (username.length < 4 || username.length > 16) {
@@ -69,7 +63,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           >
 
             <JustText props={{text: "Login"}} />
-            <div className="spacer-25" />
             
             <input
               type="text"
@@ -79,7 +72,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
               onChange={onChangeHandler}
               placeholder='Username'
             />
-            <br/>
+
             <input
               type="password"
               value={password}
@@ -88,11 +81,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
               onChange={onChangeHandler}
               placeholder='Password'
             />
-            <div className="sub-text2">
+
+            <div className="forgot-password">
               <a className="jawnski" href="">Forgot Password</a>
             </div>
-            <br/>
-            <br/>
+
             <button className="input-btn" type="submit">Sign In</button>
 
             <div className="sub-text">
@@ -110,7 +103,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
           >
 
             <JustText props={{text: "Register"}} />
-            <br/>
+
             <input
               type="text"
               value={username}
@@ -119,7 +112,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
               onChange={onChangeHandler}
               placeholder='Username'
             />
-            <br/>
+
             <input
               type="text"
               value={email}
@@ -128,7 +121,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
               onChange={onChangeHandler}
               placeholder='Email'
             />
-            <br/>
+            
             <input
               type="password"
               value={password}
@@ -139,7 +132,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister, currentUser,
             />
                 
             <p style={{color: "red"}}>{message}</p>
-            <br/>
+            
             <button className="input-btn" type="submit">Sign Up</button>
 
             <div className="sub-text">

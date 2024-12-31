@@ -4,7 +4,6 @@ import { useState } from "react"
 import DividerJawn from "../../../../components/utility/DividerJawn"
 import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral"
 import { STRINGS_QUESTION_2_ANSWERS,
-    STRINGS_QUESTION_2_BOOLEANS,
     STRINGS_QUESTION_2_EXPLANATIONS,
     STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import useSound from "use-sound";

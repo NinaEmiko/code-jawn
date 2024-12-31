@@ -6,21 +6,21 @@ function SelectReactLessons({props}:{props:any}) {
 
     const handleRedirectReactLessons = (component: string) => {
         setActiveTab(component);
-      }
+    }
 
-  return (
-   <>
-      {activeTab === "React Lessons" &&
-            <SelectReactLesson 
-              props={{
-                handleRedirectReactLessons:handleRedirectReactLessons,
-                handleRedirectHome:props.handleRedirectHome,
-                currentUser:props.currentUser,
-                handleShowAppBar:props.handleShowAppBar
-              }} />
-        }
-   </>
-  )
+    return (
+        <>
+            {activeTab === "React Lessons" &&
+                <SelectReactLesson 
+                    props={{
+                        handleRedirectReactLessons:handleRedirectReactLessons,
+                        handleRedirectHome:props.handleRedirectHome,
+                        currentUser:props.currentUser,
+                        handleShowAppBar:props.handleShowAppBar
+                  }} />
+              }
+        </>
+    )
 }
 
 export default SelectReactLessons

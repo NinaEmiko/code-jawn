@@ -9,47 +9,47 @@ function SelectJavaLessons({props}:{props:any}) {
 
     const handleRedirectJavaLessons = (component: string) => {
         setActiveTab(component);
-      }
+    }
 
-  return (
-   <>
-      {activeTab === "Java Lessons" &&
-            <SelectJavaLesson 
-              props={{
-                handleRedirectJavaLessons:handleRedirectJavaLessons,
-                handleRedirectHome:props.handleRedirectHome,
-                currentUser:props.currentUser,
-                handlePageTitle:props.handlePageTitle,
-                handleShowAppBar:props.handleShowAppBar
-              }} />
-        }
-        {activeTab === "Java Initializing Variables" &&
-            <JavaVariables
-              props={{
-                handleRedirectJavaLessons:handleRedirectJavaLessons,
-                handleRedirectHome:props.handleRedirectHome
-              }} />
-        }
-        {activeTab === "Java Data Types Strings" &&
-            <JavaDataTypesStrings
-              props={{
-                handleRedirectJavaLessons:handleRedirectJavaLessons,
-                handleRedirectHome:props.handleRedirectHome,
-                currentUser:props.currentUser,
-                handleShowAppBar:props.handleShowAppBar
-              }} />
-        }
-        {activeTab === "Java Data Types ints" &&
-            <JavaDataTypesInts
-              props={{
-                handleRedirectJavaLessons:handleRedirectJavaLessons,
-                handleRedirectHome:props.handleRedirectHome,
-                currentUser:props.currentUser,
-                handleShowAppBar:props.handleShowAppBar
-              }} />
-        }
-   </>
-  )
+    return (
+        <>
+            {activeTab === "Java Lessons" &&
+                <SelectJavaLesson 
+                    props={{
+                        handleRedirectJavaLessons:handleRedirectJavaLessons,
+                        handleRedirectHome:props.handleRedirectHome,
+                        currentUser:props.currentUser,
+                        handlePageTitle:props.handlePageTitle,
+                        handleShowAppBar:props.handleShowAppBar
+                  }} />
+              }
+              {activeTab === "Java Initializing Variables" &&
+                  <JavaVariables
+                      props={{
+                          handleRedirectJavaLessons:handleRedirectJavaLessons,
+                          handleRedirectHome:props.handleRedirectHome
+                    }} />
+              }
+              {activeTab === "Java Data Types Strings" &&
+                  <JavaDataTypesStrings
+                      props={{
+                          handleRedirectJavaLessons:handleRedirectJavaLessons,
+                          handleRedirectHome:props.handleRedirectHome,
+                          currentUser:props.currentUser,
+                          handleShowAppBar:props.handleShowAppBar
+                    }} />
+              }
+              {activeTab === "Java Data Types ints" &&
+                  <JavaDataTypesInts
+                      props={{
+                          handleRedirectJavaLessons:handleRedirectJavaLessons,
+                          handleRedirectHome:props.handleRedirectHome,
+                          currentUser:props.currentUser,
+                          handleShowAppBar:props.handleShowAppBar
+                    }} />
+              }
+        </>
+    )
 }
 
 export default SelectJavaLessons

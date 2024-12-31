@@ -9,26 +9,26 @@ function SpringBootLessons({props}:{props:any}) {
         props.handlePageTitle("Select a Language");
     }
 
-  return (
-    <>
-        <Display2>
-            <div className="container">
-                <div className="left-section">
-                    <div className="language-btn-link2" onClick={() => handleBackClick()}>
-                        « Back to Languages
+    return (
+        <>
+            <Display2>
+                <div className="container">
+                    <div className="left-section">
+                        <div className="language-btn-link2" onClick={() => handleBackClick()}>
+                            « Back to Languages
+                        </div>
+                        <h2 className="text">Lessons</h2>
+                        <ul>
+                        </ul>
                     </div>
-                    <h2 className="text">Lessons</h2>
-                    <ul>
-                    </ul>
-                </div>
-                <div className="right-section">
-                    <h2 className="lesson-title">{showSection}</h2>
+                    <div className="right-section">
+                        <h2 className="lesson-title">{showSection}</h2>
 
+                    </div>
                 </div>
-            </div>
-        </Display2>
-    </>
-  )
+            </Display2>
+        </>
+    )
 }
 
 export default SpringBootLessons

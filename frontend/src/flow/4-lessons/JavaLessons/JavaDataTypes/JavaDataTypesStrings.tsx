@@ -3,9 +3,7 @@ import JavaDataTypesStringsQuestion1 from "../../../5-questions/JavaQuestions/Ja
 import JavaDataTypesStringsQuestion2 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion2";
 import JavaDataTypesStringsQuestion3 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion3";
 import JavaDataTypesStringsQuestion4 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion4";
-import ProgressTracker from "../../../../components/utility/ProgressTracker";
 import JavaDataTypesStringsQuestion5 from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
-import Display from "../../../../components/Display";
 import JavaDataTypesStringsLecture from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture";
 import JavaDataTypesStringsPostLesson from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsPostLesson";
 import { updateJavaDataTypesLT } from "../../../../api/api";
@@ -19,7 +17,6 @@ function JavaDataTypesStrings({props}:{props:any}) {
     const [restCallSuccessful, setRestCallSuccessful] = useState(false);
 
     const handleCompleteLesson = () => {
-        props.handleShowAppBar(true);
         props.handleRedirectJavaLessons("Java Lessons");
     }
 
@@ -46,7 +43,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
 
   return (
     <>
-        <Display>
+        <Display2>
             <div className="spacer-15" />
             {lecturesCompleted === false &&
                 <JavaDataTypesStringsLecture props={{completeLecture:completeLecture}} />
@@ -74,9 +71,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
                     }
                 </>
             }
-            {/* <div className="spacer-5" /> */}
-            {/* <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:5}}/> */}
-        </Display>
+        </Display2>
     </>
   )
 }

@@ -3,7 +3,6 @@ import { useState } from "react"
 import AnswerText from "../../../../components/answer/AnswerText"
 import DividerJawn from "../../../../components/utility/DividerJawn"
 import { STRINGS_QUESTION_4_ANSWERS,
-    STRINGS_QUESTION_4_BOOLEANS,
     STRINGS_QUESTION_4_EXPLANATIONS,
     STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import useSound from "use-sound";

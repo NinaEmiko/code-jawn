@@ -41,117 +41,71 @@ const Profile = ({props}:{props:any}) => {
         <>
             {showBackBtn &&
                 <div className="back-btn-container">
-                  <button className="back-btn-jawn" onClick={() => handleBackClick()} >
-                  « Back to Settings
-                  </button>
+                    <button className="back-btn-jawn" onClick={() => handleBackClick()} >
+                        « Back to Settings
+                    </button>
                 </div>
             }
             <div className="profile-jawn2">
                 <div className="parent-jawn">
                     <div className="child-jawn2">
                         
-                        <div className="spacer-10"/>
+                        <div className="spacer-15"/>
+
                         {activeComponent === "" &&
-                            <>
-                                <div className="text2">
-                                    Account
-                                </div>
-                                <div className="">
-                                    <a onClick={() => null } className="sub-text3">{props.currentUser.username}</a>
-                                </div>
-                                <br/>
-                                <div className="">
-                                    <a onClick={() => null } className="sub-text3">{props.currentUser.email}</a>
-                                </div>
-                                <br/>
+                            <div className="profile-container">
+                                <div className="profile-header">Account</div>
+                                <a onClick={() => null } className="sub-text3">{props.currentUser.username}</a>
+                                <a onClick={() => null } className="sub-text3">{props.currentUser.email}</a>
                                 <DividerJawn />
-                                <div className="text2">
-                                    Security
-                                </div>
-                                <div className="">
-                                    <a onClick={() => handleUpdateEmailModal() } className="profile-link">Update Email</a>
-                                </div>
-                                <br/>
-                                <div className="">
-                                    <a onClick={() => handleUpdatePasswordModal() } className="profile-link">Update Password</a>
-                                </div>
-                                <br/>
-                                <div className="">
-                                    <a onClick={() => handleDeleteModal() } className="profile-link">Delete Account</a>
-                                </div>
-                                <br/>
+                                <div className="profile-header">Security</div>
+                                <a onClick={() => handleUpdateEmailModal() } className="profile-link">Update Email</a>
+                                <a onClick={() => handleUpdatePasswordModal() } className="profile-link">Update Password</a>
+                                <a onClick={() => handleDeleteModal() } className="profile-link">Delete Account</a>
                                 <DividerJawn />
-                                <div className="text2">
-                                    Other
-                                </div>
-                                <div className="">
+                                <div className="profile-header">Other</div>
                                 <a onClick={() => handleUpdateActiveComponent("Terms and Conditions") } className="profile-link">Terms and Conditions</a>
-                                </div>
-                                <br/>
-                                <div className="">
                                 <a onClick={() => handleUpdateActiveComponent("Acknowledgments") } className="profile-link">Acknowledgments</a>
-                                </div>
-                                <br/>
-                                <div className="">
                                 <a onClick={() => handleUpdateActiveComponent("Support") } className="profile-link">Support</a>
-                                </div>
-                            </>
+                            </div>
                         }
 
                         {activeComponent === "Update Password" && 
-                            <>
-                                <UpdatePassword props={{
-                                    currentUser:props.currentUser
-                                }} />
-                            </>
+                            <UpdatePassword props={{currentUser:props.currentUser}} />
                         }
 
                         {activeComponent === "Update Email" && 
-                            <>
-                                <UpdateEmail props={{
-                                    currentUser:props.currentUser,
-                                    handleUpdateEmail:props.handleUpdateEmail
-                                }} />
-                            </>
+                            <UpdateEmail props={{currentUser:props.currentUser, handleUpdateEmail:props.handleUpdateEmail}} />
                         }
 
                         {activeComponent === "Terms and Conditions" &&
-                            <>
-                                <TermsAndConditions props={{
-
-                                }} />
-                            </>
+                            <TermsAndConditions props={{}} />
                         }
 
                         {activeComponent === "Support" &&
-                            <>
-                                <Support props={{
-
-                                }} />
-                            </>
+                            <Support props={{}} />
                         }
 
                         {activeComponent === "Acknowledgments" &&
-                            <>
-                                <Acknowledgments props={{
-
-                                }} />
-                            </>
+                            <Acknowledgments props={{}} />
                         }
+
                         <Modal isOpen={updateEmailModalIsOpen}>
                             <UpdateEmail props={{currentUser: props.currentUser, handleUpdateEmailModal: handleUpdateEmailModal}} />
                         </Modal>
+
                         <Modal isOpen={updatePasswordModalIsOpen}>
                             <UpdatePassword props={{currentUser: props.currentUser, handleUpdatePasswordModal: handleUpdatePasswordModal}} />
                         </Modal>
+
                         <Modal isOpen={deleteModalIsOpen}>
                             <DeleteAccount props={{currentUser: props.currentUser, handleDeleteModal: handleDeleteModal}} />
                         </Modal>
                     </div>
                 </div>
-        </div>
-      </>
+            </div>
+        </>
     )
 }
   
-  export default Profile
+export default Profile

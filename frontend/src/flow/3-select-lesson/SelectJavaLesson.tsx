@@ -6,9 +6,7 @@ import SelectArraysLesson from "./SelectJavaLesson/SelectArraysLesson";
 import SelectCollectionsLesson from "./SelectJavaLesson/SelectCollectionsLesson";
 import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
 import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
-import LanguageLessonContainer from "../../components/lesson/LanguageLessonContainer";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
-import Display from "../../components/Display";
 import { getJavaDataTypesLT } from "../../api/api";
 import Display2 from "../../components/Display2";
 
@@ -44,11 +42,6 @@ function JavaLessons({props}:{props:any}) {
 
   return (
     <>
-        {/* <div className="back-btn-container">
-            <button className="back-btn-jawn" onClick={handleBackClick}>
-                ←
-            </button>
-        </div> */}
         <Display2>
             <div className="container">
                 <div className="left-section">
@@ -73,7 +66,6 @@ function JavaLessons({props}:{props:any}) {
                         <SelectDataTypeLesson props={{
                             handleButtonClick:handleButtonClick,
                             currentUser:props.currentUser,
-                            handleShowAppBar:props.handleShowAppBar
                         }} />
                     }
 
@@ -104,11 +96,7 @@ function JavaLessons({props}:{props:any}) {
                     {showSection === 'Operators' &&
                         <SelectOperatorsLesson props={{handleButtonClick:handleButtonClick}} />
                     }
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <div className="spacer-10" />
                 </div>
             </div>
         </Display2>

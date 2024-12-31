@@ -27,7 +27,6 @@ const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
                     <JavaDataTypesStringsLecture2 />
                 )}
             </div>
-
             <GlowingButton buttonText={buttonText} buttonColor={'#12edd8'} buttonPress={handleClickButton} />
         </>
     )

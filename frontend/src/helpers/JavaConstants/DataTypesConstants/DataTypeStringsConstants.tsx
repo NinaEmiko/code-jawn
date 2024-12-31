@@ -20,13 +20,6 @@ export const STRINGS_QUESTION_1_EXPLANATIONS = {
     ANSWER_4: `String values must be surrounded by quotation marks or backticks.`
 }
 
-export const STRINGS_QUESTION_1_BOOLEANS = {
-    ANSWER_1: false,
-    ANSWER_2: false,
-    ANSWER_3: true,
-    ANSWER_4: false
-}
-
 export const STRINGS_QUESTION_2_ANSWERS = {
     ANSWER_1: `five`,
     ANSWER_2: `"5"`,
@@ -39,13 +32,6 @@ export const STRINGS_QUESTION_2_EXPLANATIONS = {
     ANSWER_2: `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`,
     ANSWER_3: `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`,
     ANSWER_4: `This is a sequence of characters surrounded by quotation marks which makes it a valid String value.`
-}
-
-export const STRINGS_QUESTION_2_BOOLEANS = {
-    ANSWER_1: true,
-    ANSWER_2: false,
-    ANSWER_3: false,
-    ANSWER_4: false
 }
 
 export const STRINGS_QUESTION_3_ANSWERS = {
@@ -62,13 +48,6 @@ export const STRINGS_QUESTION_3_EXPLANATIONS = {
     ANSWER_4: `While this is a valid String value, it is not the only valid String value.`
 }
 
-export const STRINGS_QUESTION_3_BOOLEANS = {
-    ANSWER_1: false,
-    ANSWER_2: true,
-    ANSWER_3: false,
-    ANSWER_4: false
-}
-
 export const STRINGS_QUESTION_4_ANSWERS = {
     ANSWER_1: `It is missing quotation marks.`,
     ANSWER_2: `There is nothing missing.`,
@@ -83,12 +62,6 @@ export const STRINGS_QUESTION_4_EXPLANATIONS = {
     ANSWER_4: `If a number is within quotation marks, it is a part of a String value and not an int value.`
 }
 
-export const STRINGS_QUESTION_4_BOOLEANS = {
-    ANSWER_1: true,
-    ANSWER_2: false,
-    ANSWER_3: false,
-    ANSWER_4: false
-}
 export const STRINGS_QUESTION_5_ANSWERS = {
     CORRECT_ANSWER_1: `"17"`,
     CORRECT_ANSWER_2: `'17'`,

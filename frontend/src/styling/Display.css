@@ -50,7 +50,9 @@
     max-height: 100vh;
 }
 
-.child-jawn::-webkit-scrollbar{
+.child-jawn::-webkit-scrollbar,
+.child-jawn2::-webkit-scrollbar,
+.child-jawn3::-webkit-scrollbar{
     display: none;
 }
 

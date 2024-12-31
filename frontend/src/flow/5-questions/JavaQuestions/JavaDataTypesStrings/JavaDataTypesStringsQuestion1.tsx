@@ -5,7 +5,6 @@ import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateL
 import DividerJawn from "../../../../components/utility/DividerJawn"
 import AnswerBoolean from "../../../../components/answer/AnswerBoolean"
 import { STRINGS_QUESTION_1_ANSWERS,
-    STRINGS_QUESTION_1_BOOLEANS,
     STRINGS_QUESTION_1_EXPLANATIONS,
     STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import useSound from "use-sound";

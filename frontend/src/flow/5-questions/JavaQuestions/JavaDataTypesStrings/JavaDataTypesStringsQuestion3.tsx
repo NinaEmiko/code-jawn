@@ -6,7 +6,6 @@ import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateL
 import DividerJawn from "../../../../components/utility/DividerJawn"
 import { STRINGS_QUESTIONS,
     STRINGS_QUESTION_3_ANSWERS,
-    STRINGS_QUESTION_3_BOOLEANS,
     STRINGS_QUESTION_3_EXPLANATIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants"
 import useSound from "use-sound";
 import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";

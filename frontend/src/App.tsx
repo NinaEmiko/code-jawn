@@ -19,14 +19,11 @@ import "./styling/GetStarted.css"
 import './styling/GlowingButton.css';
 import './styling/Header.css';
 import './styling/Modal.css';
-import JavaScriptSections from "./flow/2-languages/JavaScriptSections";
 import JavaSections from "./flow/2-languages/JavaSections";
 import SelectLanguage from "./flow/1-select-language/SelectLanguage";
 import Container from "./components/Container";
 import Profile from "./flow/1-select-language/Profile";
-import HeaderDisplay from "./components/HeaderDisplay";
 import Header from "./components/Header";
-import ProfileHeaderDisplay from "./components/ProfileHeaderDisplay";
 import GetStarted from "./flow/1-select-language/GetStarted";
 import PythonSections from "./flow/2-languages/PythonSections";
 
@@ -34,8 +31,6 @@ function App() {
   const [getStarted, setGetStarted] = useState(false);
   const [activeTab, setActiveTab] = useState("Select a Language");
   const [showProfile, setShowProfile] = useState(false);
-  const [showAppBar, setShowAppBar] = useState(true);
-  const [pageTitle, setPageTitle] = useState("Welcome Back!");
   const [currentUser, setCurrentUser] = useState({
     username: '',
     email: '',
@@ -53,12 +48,10 @@ function App() {
       email: newEmail,
     }));
   }
+
   const handleClickProfile = () => { setShowProfile(true); }
   const handleClickLearn = () => { setShowProfile(false); }
   const handleRedirectHome = (component: string) => { setActiveTab(component); }
-  const handleShowAppBar = (show: boolean) => {
-    show === true ? setShowAppBar(true) : setShowAppBar(false);
-  }
 
   const logout = () => {
     setCurrentUser((prev) => ({
@@ -70,7 +63,6 @@ function App() {
     Cookies.set('storedUsername', "");
     Cookies.set("storedEmail", "")
     Cookies.set('authHeader', "");
-    setPageTitle("Welcome Back!");
   };
 
   const loginCall = async (e: FormEvent, username: string, password: string) => {
@@ -87,7 +79,6 @@ function App() {
           email: data.email,
           loggedIn: true,
         });
-    setPageTitle("Select a Language");
 }
 
   const registerCall = async (e: FormEvent, username: string, email: string, password: string) => {
@@ -104,7 +95,6 @@ function App() {
           email: data.email,
           loggedIn: true,
         });
-    setPageTitle("Select a Language");
   };
 
   useEffect(() => {
@@ -137,8 +127,6 @@ function App() {
         <LoginForm
           onLogin={loginCall}
           onRegister={registerCall}
-          currentUser={currentUser}
-          logout={(logout)}
         />
       }
 

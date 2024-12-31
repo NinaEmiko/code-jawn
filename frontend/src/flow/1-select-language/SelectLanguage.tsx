@@ -1,7 +1,5 @@
 import LanguageButtonContainer from "../../components/language/LanguageButtonContainer"
 import Display from "../../components/Display"
-import HeaderDisplay from "../../components/HeaderDisplay"
-import Header from "../../components/Header"
 import { LANGUAGE_DESCRIPTIONS } from "../../helpers/languageDescriptionsHelper"
 
 function SelectLesson({props}:{props:any}) {

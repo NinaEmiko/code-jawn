@@ -12,10 +12,8 @@
     height: 30%;
 }
 .lecture-example{
-    /* margin-bottom: 3%; */
     color: var(--off-white-jawn);
     font-size: var(--sub-text);
-    /* height: 60%; */
 }
 
 .table-jawn{
@@ -25,9 +23,7 @@
 }
 
 .lecture-container2{
-    /* display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px; */
+
 }
 
 .row-jawn{
@@ -59,14 +55,13 @@
 }
 
 .lecture-jawn{
-    height: 85%;
-    /* flex: 0 0 100%; */
+    height: 100%;
     width: 100%;
     box-sizing: border-box;
     flex: 0 0 calc(100%);
     width: calc(100% + 5%);
     padding: 3%;
-
+    margin-top: 100px;
 }
 
 .lecture-container{
@@ -144,4 +139,8 @@
     width: 50%;
     padding-left: 3%;
     color: white;
+}
+
+.question-container{
+    margin-top: 100px;
 }

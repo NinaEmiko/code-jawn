@@ -100,13 +100,9 @@ input{
 }
 
 .sub-text3{
-  /* text-decoration: underline; */
   color: white;
   font-size: var(--sub-text);
-  padding-left: 3%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 2%;
+  margin-left: 40px;
 }
 
 .header-text{
@@ -116,6 +112,12 @@ input{
   color: black;
   font-weight: bold;
   
+}
+
+.profile-header{
+  font-size: var(--text);
+  color: var(--sub-secondary-jawn);
+  margin-left: 40px;
 }
 
 /*  */
@@ -142,7 +144,6 @@ input{
   flex: 5;
   background-color: var(--background-jawn);
   box-sizing: border-box;
-  /* padding: 20px; */
   margin-left: 25px;
 }
 
@@ -159,4 +160,10 @@ input:focus {
   border-left: none;
   border-right: none;
   border-bottom: 2px solid var(--sub-secondary-jawn);
+}
+
+.profile-container{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
 }
