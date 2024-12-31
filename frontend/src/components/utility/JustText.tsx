@@ -1,8 +1,14 @@
-const JustText = ({props}:{props:any}) => {
+import { FC } from "react";
+
+interface JustTextProps{
+    text: string
+}
+
+const JustText: FC<JustTextProps> = ({text}) => {
 
     return (
         <div className="text">
-            {props.text}
+            {text}
         </div>
     )
 }

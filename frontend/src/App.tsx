@@ -26,6 +26,19 @@ import Header from "./components/Header";
 import GetStarted from "./flow/1-select-language/GetStarted";
 import PythonSections from "./flow/2-languages/PythonSections";
 
+export interface User{
+  username: string,
+  email: string,
+  id: number,
+  loggedIn: boolean,
+}
+
+export interface LessonsProps{
+  handleRedirectLanguageLessons:(component: string)=>void,
+  handleRedirectHome:(component: string)=>void,
+  currentUser:User,
+}
+
 function App() {
   const [getStarted, setGetStarted] = useState(false);
   const [activeTab, setActiveTab] = useState("Select a Language");
@@ -131,12 +144,11 @@ function App() {
 
       {currentUser.loggedIn &&
       <>
-        <Header props={{handleClickProfile, handleClickLearn, handleClickLogout: logout}} />
+        <Header handleClickProfile={handleClickProfile} handleClickLearn={handleClickLearn} handleClickLogout={logout} />
           {activeTab === "Select a Language" &&
-            <SelectLanguage props={{
-              handleRedirectHome:handleRedirectHome,
-              currentUser:currentUser
-            }} />
+            <SelectLanguage
+              handleRedirectHome={handleRedirectHome}
+            />
           }
           {activeTab === "Java" &&
             <JavaSections props={{

@@ -5,12 +5,29 @@ import SpringBootIcon from "../assets/springboot-icon.png"
 import ReactIcon from "../assets/react-icon.png"
 import EmojiGenerator from './utility/EmojiGenerator';
 import DividerJawn from './utility/DividerJawn';
+import { FC } from 'react'
 
-const LanguageButtonContainer = ({props}:{props:any}) => {
+interface LanguageButtonContainerProps{
+    handleButtonClick: (language: string)=>void,
+    language: string,
+    iconAltText: string,
+    lessonsCompleted: number,
+    totalLessons: number,
+    description: string,
+}
 
-    const handleButtonClick = (language: string) => {
-        props.handleButtonClick(language);
+const LanguageButtonContainer: FC<LanguageButtonContainerProps> = ({
+    handleButtonClick,
+    language,
+    iconAltText,
+    lessonsCompleted,
+    totalLessons,
+    description}) => {
+
+    const handleButtonClickJawn = (language: string) => {
+        handleButtonClick(language);
     }
+
     const handleIcon = (language: string) => {
         switch (language){
             case "Java":
@@ -30,22 +47,22 @@ const LanguageButtonContainer = ({props}:{props:any}) => {
         <div className="container-for-language-btn">
             <div className="language-btn-container" >
                 <img className="language-icon"
-                    src={handleIcon(props.language)}
-                    alt={props.iconAltText} />
+                    src={handleIcon(language)}
+                    alt={iconAltText} />
                 <div className="center-language-btn">
                     <div className="language-btn">
-                        {props.language}
+                        {language}
                     </div>
                     <div className="">
-                        <EmojiGenerator props={{lessonsCompleted:props.lessonsCompleted, totalLessons:props.totalLessons}} />
+                        <EmojiGenerator lessonsCompleted={lessonsCompleted} totalLessons={totalLessons} />
                     </div>
                 </div>
             </div>
             <div className="description-container">
-                {props.description}
+                {description}
             </div>
-            <div className="language-btn-link" onClick={() => handleButtonClick(props.language)}>
-                Go to {props.language} lessons»
+            <div className="language-btn-link" onClick={() => handleButtonClickJawn(language)}>
+                Go to {language} lessons»
             </div>
             <DividerJawn />
         </div>

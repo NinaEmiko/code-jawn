@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import SelectSpringBootLesson from "../3-select-lesson/SelectSpringBootLesson";
+import { LessonsProps } from "../../App";
 
-function SelectSpringBootLessons({props}:{props:any}) {
+const SelectSpringBootLessons: FC<LessonsProps> = ({handleRedirectHome, currentUser}) => {
     const [activeTab, setActiveTab] = useState("SpringBoot Lessons");
 
     const handleRedirectSpringBootLessons = (component: string) => {
@@ -12,12 +13,10 @@ function SelectSpringBootLessons({props}:{props:any}) {
         <>
             {activeTab === "SpringBoot Lessons" &&
                 <SelectSpringBootLesson 
-                    props={{
-                        handleRedirectSpringBootLessons:handleRedirectSpringBootLessons,
-                        handleRedirectHome:props.handleRedirectHome,
-                        currentUser:props.currentUser,
-                        handleShowAppBar:props.handleShowAppBar
-                  }} />
+                    handleRedirectLanguageLessons={handleRedirectSpringBootLessons}
+                    handleRedirectHome={handleRedirectHome}
+                    currentUser={currentUser}
+                />
               }
         </>
     )

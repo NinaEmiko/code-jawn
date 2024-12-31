@@ -39,7 +39,7 @@ const UpdateEmail: FC<UpdateEmailProps> = ({ handleUpdateEmail, handleUpdateEmai
                 onSubmit={onSubmitNewEmail}
                 className="form-jawn"
             >   <div className="just-text-jawn">
-                    <JustText props={{text: "Update Email"}} />
+                    <JustText text={"Update Email"} />
                 </div>
                 <br/>
                 <input 

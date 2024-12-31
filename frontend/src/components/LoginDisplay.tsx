@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 
-
 const LoginDisplay: React.FC<{children: ReactNode }> = ( {children}:{children:any} ) => {
 
     return (

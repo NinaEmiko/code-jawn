@@ -62,7 +62,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister }) => {
           ref={loginFormRef}
           >
 
-            <JustText props={{text: "Login"}} />
+            <JustText text={"Login"} />
             
             <input
               type="text"
@@ -102,7 +102,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister }) => {
           ref={registerFormRef}
           >
 
-            <JustText props={{text: "Register"}} />
+            <JustText text={"Register"} />
 
             <input
               type="text"

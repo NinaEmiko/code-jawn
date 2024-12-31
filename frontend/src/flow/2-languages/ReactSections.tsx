@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import SelectReactLesson from "../3-select-lesson/SelectReactLesson";
+import { LessonsProps } from "../../App";
 
-function SelectReactLessons({props}:{props:any}) {
+const SelectReactLessons: FC<LessonsProps> = ({handleRedirectHome, currentUser}) => {
     const [activeTab, setActiveTab] = useState("React Lessons");
 
     const handleRedirectReactLessons = (component: string) => {
@@ -12,12 +13,10 @@ function SelectReactLessons({props}:{props:any}) {
         <>
             {activeTab === "React Lessons" &&
                 <SelectReactLesson 
-                    props={{
-                        handleRedirectReactLessons:handleRedirectReactLessons,
-                        handleRedirectHome:props.handleRedirectHome,
-                        currentUser:props.currentUser,
-                        handleShowAppBar:props.handleShowAppBar
-                  }} />
+                    handleRedirectLanguageLessons={handleRedirectReactLessons}
+                    handleRedirectHome={handleRedirectHome}
+                    currentUser={currentUser}
+                />
               }
         </>
     )

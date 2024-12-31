@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 
-
 const Display: React.FC<{children: ReactNode }> = ( {children}:{children:any} ) => {
 
     return (

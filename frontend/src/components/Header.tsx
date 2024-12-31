@@ -1,31 +1,37 @@
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 import logo from "../assets/lola-icon.jpg"
 
-const Header = ({props}:{props:any}) => {
+interface HeaderProps{
+  handleClickProfile: ()=> void,
+  handleClickLearn: ()=> void,
+  handleClickLogout: ()=> void,
+}
+
+const Header: FC<HeaderProps> = ({handleClickLearn, handleClickLogout, handleClickProfile}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
-  const handleClickProfile = () => {
+  const handleClickProfileJawn = () => {
     setDropdownOpen(false)
-    props.handleClickProfile();
+    handleClickProfile();
   }
 
-  const handleClickLearn = () => {
+  const handleClickLearnJawn = () => {
     setDropdownOpen(false)
-    props.handleClickLearn();
+    handleClickLearn();
   }
 
-  const handleClickLogout = () => {
+  const handleClickLogoutJawn = () => {
     setDropdownOpen(false)
-    props.handleClickLogout();
+    handleClickLogout();
   }
 
   return (
     <header className="header">
       <div className="header-left">
-        <img onClick={handleClickLearn} src={logo} className="logo"></img>
-        <h1 className="site-name" onClick={handleClickLearn}>Code Jawn</h1>
+        <img onClick={handleClickLearnJawn} src={logo} className="logo"></img>
+        <h1 className="site-name" onClick={handleClickLearnJawn}>Code Jawn</h1>
       </div>
       <div className="header-right">
         <div className="dropdown">
@@ -34,9 +40,9 @@ const Header = ({props}:{props:any}) => {
           </button>
           {dropdownOpen && (
             <div className="dropdown-content">
-              <a onClick={handleClickLearn}>Home</a>
-              <a onClick={handleClickProfile}>Settings</a>
-              <a onClick={handleClickLogout}>Logout</a>
+              <a onClick={handleClickLearnJawn}>Home</a>
+              <a onClick={handleClickProfileJawn}>Settings</a>
+              <a onClick={handleClickLogoutJawn}>Logout</a>
             </div>
           )}
         </div>

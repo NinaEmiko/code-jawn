@@ -1,12 +1,12 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 import Display from "../../components/Display";
+import { LessonsProps } from "../../App";
 
-function JavaScriptLessons({props}:{props:any}) {
+const JavaScriptLessons: FC<LessonsProps> = ({handleRedirectHome}) => {
     const [showSection, setShowSection] = useState('Coming Soon');
 
     const handleBackClick = () => {
-        props.handleRedirectHome("Select a Language");
-        props.handlePageTitle("Select a Language");
+        handleRedirectHome("Select a Language");
     }
 
     return (

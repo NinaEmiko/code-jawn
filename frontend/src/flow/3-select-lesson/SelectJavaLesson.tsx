@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import SelectVariablesLesson from "./SelectJavaLesson/SelectVariablesLesson";
 import SelectLoopsLesson from "./SelectJavaLesson/SelectLoopsLesson";
 import SelectConditionalsLesson from "./SelectJavaLesson/SelectConditionalsLesson";
@@ -9,14 +9,15 @@ import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 import { getJavaDataTypesLT } from "../../api/api";
 import Display from "../../components/Display";
+import { LessonsProps } from "../../App";
 
-function JavaLessons({props}:{props:any}) {
+const JavaLessons: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRedirectLanguageLessons}) => {
     const [showSection, setShowSection] = useState('Data Types');
     const [lessonsCompleted, setLessonsCompleted] = useState(0)
 
     const getJavaDataTypesLTCall = async () => {
         let completed = 0;
-        const data = await getJavaDataTypesLT(props.currentUser.id);
+        const data = await getJavaDataTypesLT(currentUser.id);
             if (data.stringsLessonIsComplete){
                 completed += 1;
             };
@@ -28,12 +29,11 @@ function JavaLessons({props}:{props:any}) {
     })
 
     const handleButtonClick = (lesson: string) => {
-        props.handleRedirectJavaLessons(lesson);
+        handleRedirectLanguageLessons(lesson);
     }
 
     const handleBackClick = () => {
-        props.handleRedirectHome("Select a Language");
-        props.handlePageTitle("Select a Language");
+        handleRedirectHome("Select a Language");
     }
 
     const handleShowSection = (section: string) => {
@@ -65,7 +65,7 @@ function JavaLessons({props}:{props:any}) {
                     {showSection === 'Data Types' &&
                         <SelectDataTypeLesson props={{
                             handleButtonClick:handleButtonClick,
-                            currentUser:props.currentUser,
+                            currentUser:currentUser,
                         }} />
                     }
 

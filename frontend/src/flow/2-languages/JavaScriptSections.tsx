@@ -12,12 +12,10 @@ function SelectJavaScriptLessons({props}:{props:any}) {
         <>
             {activeTab === "JavaScript Lessons" &&
                 <SelectJavaScriptLesson 
-                    props={{
-                        handleRedirectJavaScriptLessons:handleRedirectJavaScriptLessons,
-                        handleRedirectHome:props.handleRedirectHome,
-                        currentUser:props.currentUser,
-                        handleShowAppBar:props.handleShowAppBar
-                  }} />
+                        handleRedirectLanguageLessons={handleRedirectJavaScriptLessons}
+                        handleRedirectHome={props.handleRedirectHome}
+                        currentUser={props.currentUser}
+                />
               }
         </>
     )

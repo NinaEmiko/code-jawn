@@ -75,7 +75,7 @@ const UpdatePassword: FC<UpdatePasswordProps> = ({handleUpdatePasswordModal, cur
             onSubmit={onSubmitNewPassword}
             className="form-jawn">
                 <div className="just-text-jawn">
-                    <JustText props={{text: "Update Password"}} />
+                    <JustText text={"Update Password"} />
                 </div>
                 <br />
                 <input 
@@ -106,7 +106,7 @@ const UpdatePassword: FC<UpdatePasswordProps> = ({handleUpdatePasswordModal, cur
                 </input>
                 <br/>
                 {showError && 
-                    <JustText props={{text: {errorText}}} />
+                    <JustText text={errorText} />
                 }
                 <br/>
                 <br/>
