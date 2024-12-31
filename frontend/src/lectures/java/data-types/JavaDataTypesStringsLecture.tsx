@@ -4,13 +4,13 @@ import Display from "../../../components/Display";
 import { SubLessonsProps } from "../../../App";
 import PostLesson from "../../../components/PostLesson";
 import GlowingButton from "../../../components/GlowingButton";
-import JavaDataTypesStringsLecture1 from "../../../questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture1";
-import JavaDataTypesStringsLecture2 from "../../../questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture2";
-import JavaDataTypesStringsQuestion1 from "../../../questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion1";
-import JavaDataTypesStringsQuestion2 from "../../../questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion2";
-import JavaDataTypesStringsQuestion3 from "../../../questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion3";
-import JavaDataTypesStringsQuestion4 from "../../../questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion4";
-import JavaDataTypesStringsQuestion5 from "../../../questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsQuestion5";
+import JavaDataTypesStringsLecture1 from "../../../questions/java/data-types/strings/JavaDataTypesStringsLecture1";
+import JavaDataTypesStringsLecture2 from "../../../questions/java/data-types/strings/JavaDataTypesStringsLecture2";
+import JavaDataTypesStringsQuestion1 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion1";
+import JavaDataTypesStringsQuestion2 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion2";
+import JavaDataTypesStringsQuestion3 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion3";
+import JavaDataTypesStringsQuestion4 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion4";
+import JavaDataTypesStringsQuestion5 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion5";
 
 const JavaDataTypesStringsLecture: FC<SubLessonsProps> = ({handleRedirectLesson, currentUser}) => {
     const [correctAnswers, setCorrectAnswers] = useState(0);

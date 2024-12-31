@@ -1,13 +1,13 @@
 import { FC, useState } from "react"
 import useSound from "use-sound";
-import correctSoundEffect from "../../../../public/sounds/achievement-sound-effect.mp3";
-import IncorrectSoundEffect from "../../../../public/sounds/incorrect-answer-sound-effect.mp3";
-import { QuestionProps } from "../../../App";
-import { STRINGS_QUESTION_4_ANSWERS, STRINGS_QUESTION_4_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants";
-import Question from "../../../components/question/Question";
-import AnswerText from "../../../components/answer/AnswerText";
-import DividerJawn from "../../../components/utility/DividerJawn";
-import Modal from "../../../components/Modal";
+import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
+import { QuestionProps } from "../../../../App";
+import { STRINGS_QUESTION_4_ANSWERS, STRINGS_QUESTION_4_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants";
+import Question from "../../../../components/question/Question";
+import AnswerText from "../../../../components/answer/AnswerText";
+import DividerJawn from "../../../../components/utility/DividerJawn";
+import Modal from "../../../../components/Modal";
 
 const JavaDataTypesStringsQuestion4: FC<QuestionProps> = ({completeQuestion}) => {
     const [playCorrectSoundEffect] = useSound(correctSoundEffect);

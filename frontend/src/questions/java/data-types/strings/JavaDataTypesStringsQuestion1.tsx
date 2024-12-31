@@ -1,17 +1,17 @@
 import { FC, useState } from "react"
 import useSound from "use-sound";
-import correctSoundEffect from "../../../../public/sounds/achievement-sound-effect.mp3";
-import IncorrectSoundEffect from "../../../../public/sounds/incorrect-answer-sound-effect.mp3";
-import { QuestionProps } from "../../../App";
-import Question from "../../../components/question/Question";
-import { STRINGS_QUESTION_1_ANSWERS, STRINGS_QUESTION_1_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants";
-import AnswerBoolean from "../../../components/answer/AnswerBoolean";
-import DividerJawn from "../../../components/utility/DividerJawn";
-import AnswerCodeBlock from "../../../components/answer/AnswerCodeBlock";
-import AnswerTemplateLiteral from "../../../components/answer/AnswerTemplateLiteral";
-import Modal from "../../../components/Modal";
-import AnswerText from "../../../components/answer/AnswerText";
-import AnswerInt from "../../../components/answer/AnswerInt";
+import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
+import { QuestionProps } from "../../../../App";
+import Question from "../../../../components/question/Question";
+import { STRINGS_QUESTION_1_ANSWERS, STRINGS_QUESTION_1_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants";
+import AnswerBoolean from "../../../../components/answer/AnswerBoolean";
+import DividerJawn from "../../../../components/utility/DividerJawn";
+import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock";
+import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral";
+import Modal from "../../../../components/Modal";
+import AnswerText from "../../../../components/answer/AnswerText";
+import AnswerInt from "../../../../components/answer/AnswerInt";
 
 const JavaDataTypesStringsQuestion1: FC<QuestionProps> = ({completeQuestion}) => {
     const [playCorrectSoundEffect] = useSound(correctSoundEffect);

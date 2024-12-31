@@ -62,6 +62,13 @@ export interface QuestionProps{
   completeQuestion: (isComplete: boolean)=>void;
 }
 
+export interface LectureWidgetProps{
+  isComplete: boolean,
+  handleClickWidget: (lecture: string)=>void,
+  lesson: string,
+  path: string,
+}
+
 function App() {
   const [getStarted, setGetStarted] = useState(false);
   const [activeTab, setActiveTab] = useState("Select a Language");

@@ -1,11 +1,11 @@
 import { FC, useState } from "react"
 import useSound from "use-sound";
-import correctSoundEffect from "../../../../public/sounds/achievement-sound-effect.mp3";
-import IncorrectSoundEffect from "../../../../public/sounds/incorrect-answer-sound-effect.mp3";
-import { QuestionProps } from "../../../App";
-import InputQuestion from "../../../components/question/InputQuestion";
-import Modal from "../../../components/Modal";
-import { STRINGS_QUESTION_5_ANSWERS, STRINGS_QUESTION_5_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants";
+import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
+import { QuestionProps } from "../../../../App";
+import InputQuestion from "../../../../components/question/InputQuestion";
+import Modal from "../../../../components/Modal";
+import { STRINGS_QUESTION_5_ANSWERS, STRINGS_QUESTION_5_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants";
 const JavaDataTypesStringsQuestion5: FC<QuestionProps> = ({completeQuestion}) => {
     const [value, setValue] = useState(`17`);
     const [playCorrectSoundEffect] = useSound(correctSoundEffect);

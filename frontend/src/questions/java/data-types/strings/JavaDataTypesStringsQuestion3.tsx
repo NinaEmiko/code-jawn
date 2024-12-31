@@ -1,16 +1,16 @@
+import { FC, useState } from "react"
 import useSound from "use-sound";
-import correctSoundEffect from "../../../../public/sounds/achievement-sound-effect.mp3";
-import IncorrectSoundEffect from "../../../../public/sounds/incorrect-answer-sound-effect.mp3";
-import { QuestionProps } from "../../../App";
-import { FC, useState } from "react";
-import { STRINGS_QUESTION_2_ANSWERS, STRINGS_QUESTION_2_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants";
-import Question from "../../../components/question/Question";
-import AnswerTemplateLiteral from "../../../components/answer/AnswerTemplateLiteral";
-import DividerJawn from "../../../components/utility/DividerJawn";
-import Modal from "../../../components/Modal";
-import AnswerText from "../../../components/answer/AnswerText";
-
-const JavaDataTypesStringsQuestion2: FC<QuestionProps> = ({completeQuestion}) => {
+import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
+import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
+import { QuestionProps } from "../../../../App";
+import { STRINGS_QUESTION_3_ANSWERS, STRINGS_QUESTION_3_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants";
+import Question from "../../../../components/question/Question";
+import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock";
+import DividerJawn from "../../../../components/utility/DividerJawn";
+import AnswerText from "../../../../components/answer/AnswerText";
+import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral";
+import Modal from "../../../../components/Modal";
+const JavaDataTypesStringsQuestion3: FC<QuestionProps> = ({completeQuestion}) => {
     const [playCorrectSoundEffect] = useSound(correctSoundEffect);
     const [playIncorrectSoundEffect] = useSound(IncorrectSoundEffect);
     const [isModalOpenA, setIsModalOpenA] = useState(false);
@@ -19,11 +19,11 @@ const JavaDataTypesStringsQuestion2: FC<QuestionProps> = ({completeQuestion}) =>
     const [isModalOpenD, setIsModalOpenD] = useState(false);
 
     const handleAnswer1Click = () => {
-        playCorrectSoundEffect();
+        playIncorrectSoundEffect();
         setIsModalOpenA(true);
     }
     const handleAnswer2Click = () => { 
-        playIncorrectSoundEffect();
+        playCorrectSoundEffect();
         setIsModalOpenB(true);
     }
     const handleAnswer3Click = () => { 
@@ -47,52 +47,52 @@ const JavaDataTypesStringsQuestion2: FC<QuestionProps> = ({completeQuestion}) =>
     return (
         <>
             <div className="question-container">
-                <Question text={STRINGS_QUESTIONS.STRING_QUESTION_2} />
+                <Question text={STRINGS_QUESTIONS.STRING_QUESTION_3} />
                 <div className="answer-jawn">
-                    <AnswerText
+                    <AnswerCodeBlock
                         answerClicked={handleAnswer1Click}
-                        text={STRINGS_QUESTION_2_ANSWERS.ANSWER_1}
+                        code={STRINGS_QUESTION_3_ANSWERS.ANSWER_1}
                     />
                     <DividerJawn />
-                    <AnswerTemplateLiteral
+                    <AnswerText
                         answerClicked={handleAnswer2Click}
-                        text={STRINGS_QUESTION_2_ANSWERS.ANSWER_2}
+                        text={STRINGS_QUESTION_3_ANSWERS.ANSWER_2}
                     />
                     <DividerJawn />
                     <AnswerTemplateLiteral
                         answerClicked={handleAnswer3Click}
-                        text={STRINGS_QUESTION_2_ANSWERS.ANSWER_3}
+                        text={STRINGS_QUESTION_3_ANSWERS.ANSWER_3}
                     />
                     <DividerJawn />
                     <AnswerTemplateLiteral
                         answerClicked={handleAnswer4Click}
-                        text={STRINGS_QUESTION_2_ANSWERS.ANSWER_4}
+                        text={STRINGS_QUESTION_3_ANSWERS.ANSWER_4}
                     />
                 </div>
             </div>
             <Modal isOpen={isModalOpenA}>
-                <h2 className="modal-correct">{"Correct!"}</h2>
-                <p className="modal-explanation">{STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_1}</p>
-                <button className="modal-close-btn" onClick={()=> endQuestion()}>OK</button>
+                <h2 className="modal-incorrect">{"Incorrect"}</h2>
+                <p className="modal-explanation">{STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_1}</p>
+                <button className="modal-close-btn" onClick={()=> retry()}>OK</button>
             </Modal>
             <Modal isOpen={isModalOpenB}>
-                <h2 className="modal-incorrect">{"Incorrect"}</h2>
-                <p className="modal-explanation">{STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_2}</p>
-                <button className="modal-close-btn" onClick={()=> retry()}>OK</button>
+                <h2 className="modal-correct">{"Correct!"}</h2>
+                <p className="modal-explanation">{STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_2}</p>
+                <button className="modal-close-btn" onClick={()=> endQuestion()}>OK</button>
             </Modal>
             <Modal isOpen={isModalOpenC}>
                 <h2 className="modal-incorrect">{"Incorrect"}</h2>
-                <p className="modal-explanation">{STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_3}</p>
+                <p className="modal-explanation">{STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_3}</p>
                 <button className="modal-close-btn" onClick={()=> retry()}>OK</button>
             </Modal>
             <Modal isOpen={isModalOpenD}>
                 <h2 className="modal-incorrect">{"Incorrect"}</h2>
-                <p className="modal-explanation">{STRINGS_QUESTION_2_EXPLANATIONS.ANSWER_4}</p>
+                <p className="modal-explanation">{STRINGS_QUESTION_3_EXPLANATIONS.ANSWER_4}</p>
                 <button className="modal-close-btn" onClick={()=> retry()}>OK</button>
             </Modal>
         </>
     )
 }
   
-export default JavaDataTypesStringsQuestion2
+export default JavaDataTypesStringsQuestion3
   
