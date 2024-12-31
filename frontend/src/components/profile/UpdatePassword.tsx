@@ -3,11 +3,7 @@ import { ChangeEvent, FC, FormEvent, useRef, useState } from "react";
 import { updateUserPassword } from "../../api/api";
 import JustText from "../utility/JustText";
 import { validCharacters } from "../../helpers/validCharacters";
-
-export interface User {
-    userId: number;
-    username: string;
-}
+import { User } from "../../App";
 
 interface UpdatePasswordProps{
     handleUpdatePasswordModal: ()=> void,
@@ -55,7 +51,7 @@ const UpdatePassword: FC<UpdatePasswordProps> = ({handleUpdatePasswordModal, cur
             setErrorText("Passwords cannot match usernames.")
             setShowError(true);
         } else {
-            const data = await updateUserPassword(currentUser.userId, oldPassword, newPassword);
+            const data = await updateUserPassword(currentUser.id, oldPassword, newPassword);
             Cookies.set('storedPassword', data.newPassword);
             handleUpdatePasswordModal()
         }

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import SelectJavaScriptLesson from "../3-select-lesson/SelectJavaScriptLesson";
+import { LanguageProps, LessonsProps } from "../../App";
 
-function SelectJavaScriptLessons({props}:{props:any}) {
+const SelectJavaScriptLessons: FC<LanguageProps> = ({handleRedirectHome, currentUser}) => {
     const [activeTab, setActiveTab] = useState("JavaScript Lessons");
 
     const handleRedirectJavaScriptLessons = (component: string) => {
@@ -12,9 +13,9 @@ function SelectJavaScriptLessons({props}:{props:any}) {
         <>
             {activeTab === "JavaScript Lessons" &&
                 <SelectJavaScriptLesson 
-                        handleRedirectLanguageLessons={handleRedirectJavaScriptLessons}
-                        handleRedirectHome={props.handleRedirectHome}
-                        currentUser={props.currentUser}
+                    handleRedirectLanguage={handleRedirectJavaScriptLessons}
+                    handleRedirectHome={handleRedirectHome}
+                    currentUser={currentUser}
                 />
               }
         </>

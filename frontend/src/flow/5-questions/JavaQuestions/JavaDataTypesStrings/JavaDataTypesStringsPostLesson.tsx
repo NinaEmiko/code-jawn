@@ -1,7 +1,10 @@
-const JavaDataTypesStringsPostLesson = ({props}:{props:any}) => {
+import { FC } from "react";
+import { PostLessonProps } from "../../../../App";
+
+const JavaDataTypesStringsPostLesson: FC<PostLessonProps> = ({handleCompleteLesson, restCallSuccessful}) => {
 
     const handleClickContinue = () => {
-        props.handleCompleteLesson()
+        handleCompleteLesson()
     }
 
     return (
@@ -16,7 +19,7 @@ const JavaDataTypesStringsPostLesson = ({props}:{props:any}) => {
 
                 </div>
             </div>
-            {props.restCallSuccessful &&
+            {restCallSuccessful &&
             <div className="input-question-container">
                 <button className="input-question-btn" onClick={() => handleClickContinue()}>Complete Lesson</button>
             </div>

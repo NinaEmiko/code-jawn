@@ -1,8 +1,4 @@
-function SelectVariablesLesson({props}:{props:any}) {
-
-    const handleButtonClick = (lesson: string) => {
-        props.handleButtonClick(lesson);
-    }
+function SelectVariablesLesson() {
 
     return (
         <div className="lesson-btn-container">

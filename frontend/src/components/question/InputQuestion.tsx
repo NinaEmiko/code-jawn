@@ -5,7 +5,7 @@ interface InputQuestionProps{
     handleSubmit: ()=>void,
     question: string,
     value: string,
-    handleChange: () => void,
+    handleChange: (event: any) => void,
 }
 
 const InputQuestion: FC<InputQuestionProps> = ({handleSubmit, question, value, handleChange}) => {

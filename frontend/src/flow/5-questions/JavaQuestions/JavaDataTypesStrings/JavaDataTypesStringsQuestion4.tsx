@@ -1,5 +1,5 @@
 import Question from "../../../../components/question/Question"
-import { useState } from "react"
+import { FC, useState } from "react"
 import AnswerText from "../../../../components/answer/AnswerText"
 import DividerJawn from "../../../../components/utility/DividerJawn"
 import { STRINGS_QUESTION_4_ANSWERS,
@@ -9,8 +9,9 @@ import useSound from "use-sound";
 import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
 import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
 import Modal from "../../../../components/Modal"
+import { QuestionProps } from "../../../../App"
 
-function JavaDataTypesStringsQuestion4({props}:{props:any}) {
+const JavaDataTypesStringsQuestion4: FC<QuestionProps> = ({completeQuestion}) => {
     const [playCorrectSoundEffect] = useSound(correctSoundEffect);
     const [playIncorrectSoundEffect] = useSound(IncorrectSoundEffect);
     const [isModalOpenA, setIsModalOpenA] = useState(false);
@@ -35,7 +36,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
         setIsModalOpenD(true);
     }
 
-    const endQuestion = () => { props.completeQuestion(true); }
+    const endQuestion = () => { completeQuestion(true); }
 
     const retry = () => { 
         setIsModalOpenA(false);

@@ -1,9 +1,6 @@
 import { FC } from "react";
 import { deleteAccount } from "../../api/api";
-
-export interface User {
-    userId: number;
-}
+import { User } from "../../App";
 
 interface DeleteAccountProps{
     logout: ()=>void,
@@ -15,7 +12,7 @@ const DeleteAccount: FC<DeleteAccountProps> = ({logout, handleDeleteModal, curre
 
     const handleDeleteAccount = async () => {
         console.log("click")
-        const data = await deleteAccount(currentUser.userId);
+        const data = await deleteAccount(currentUser.id);
         if (data === "SUCCESS") logout();
         console.log(data);
     }

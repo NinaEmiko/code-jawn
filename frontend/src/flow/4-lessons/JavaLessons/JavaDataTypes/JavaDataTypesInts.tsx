@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import JavaDataTypesIntsQuestion1 from "../../../5-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion1";
 import JavaDataTypesIntsQuestion4 from "../../../5-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsQuestion4";
 import ProgressTracker from "../../../../components/utility/ProgressTracker";
@@ -6,26 +6,21 @@ import { updateJavaDataTypesLT } from "../../../../api/api";
 import Display from "../../../../components/Display";
 import JavaDataTypesIntsLecture from "../../../5-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsLecture";
 import JavaDataTypesIntsPostLesson from "../../../5-questions/JavaQuestions/JavaDataTypesInts/JavaDataTypesIntsPostLesson";
+import { SubLessonsProps } from "../../../../App";
 
-function JavaDataTypesInts({props}:{props:any}) {
+const JavaDataTypesInts: FC<SubLessonsProps> = ({handleRedirectLesson, currentUser}) => {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
     const [questionsAnswered, setQuestionsAnswered] = useState(0);
     const [lecturesCompleted, setLecturesCompleted] = useState(false);
     const [restCallSuccessful, setRestCallSuccessful] = useState(false);
 
-    const handleBackClick = () => {
-        props.handleShowAppBar(true);
-        props.handleRedirectJavaLessons("Java Lessons");
-    }
-
     const handleCompleteLesson = () => {
-        props.handleShowAppBar(true);
-        props.handleRedirectJavaLessons("Java Lessons");
+        handleRedirectLesson("Java Lessons");
     }
 
     const updateLessonTracker = async () => {
-        const data = await updateJavaDataTypesLT(props.currentUser.id, "ints");
+        const data = await updateJavaDataTypesLT(currentUser.id, "ints");
         if (data === "SUCCESS"){
             setRestCallSuccessful(true);
         }
@@ -65,8 +60,7 @@ function JavaDataTypesInts({props}:{props:any}) {
                     }
                 </>
             }
-            <div className="spacer-5" />
-            <ProgressTracker props={{questionsAnswered:questionsAnswered,totalQuestions:2}}/>
+
         </Display>
     </>
   )

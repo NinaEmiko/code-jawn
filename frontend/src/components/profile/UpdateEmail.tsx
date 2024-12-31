@@ -2,10 +2,7 @@ import { ChangeEvent, FC, FormEvent, useRef, useState } from "react"
 import { updateUserEmail } from "../../api/api";
 import Cookies from "js-cookie";
 import JustText from "../utility/JustText";
-
-export interface User {
-    userId: number;
-}
+import { User } from "../../App";
 
 interface UpdateEmailProps{
     handleUpdateEmail: (newEmail: string) => void,
@@ -26,7 +23,7 @@ const UpdateEmail: FC<UpdateEmailProps> = ({ handleUpdateEmail, handleUpdateEmai
       const onSubmitNewEmail = async (e: FormEvent) => {    
         e.preventDefault();
     
-        const data = await updateUserEmail(currentUser.userId, newEmail);
+        const data = await updateUserEmail(currentUser.id, newEmail);
         Cookies.set('storedEmail', data.newEmail);
         handleUpdateEmail(data.newEmail);
         handleUpdateEmailModal()

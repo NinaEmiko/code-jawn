@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 import SelectReactLesson from "../3-select-lesson/SelectReactLesson";
-import { LessonsProps } from "../../App";
+import { LanguageProps, LessonsProps } from "../../App";
 
-const SelectReactLessons: FC<LessonsProps> = ({handleRedirectHome, currentUser}) => {
+const SelectReactLessons: FC<LanguageProps> = ({handleRedirectHome, currentUser}) => {
     const [activeTab, setActiveTab] = useState("React Lessons");
 
     const handleRedirectReactLessons = (component: string) => {
@@ -13,7 +13,7 @@ const SelectReactLessons: FC<LessonsProps> = ({handleRedirectHome, currentUser})
         <>
             {activeTab === "React Lessons" &&
                 <SelectReactLesson 
-                    handleRedirectLanguageLessons={handleRedirectReactLessons}
+                    handleRedirectLanguage={handleRedirectReactLessons}
                     handleRedirectHome={handleRedirectHome}
                     currentUser={currentUser}
                 />

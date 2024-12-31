@@ -1,8 +1,4 @@
-function SelectIfElseLesson({props}:{props:any}) {
-
-    const handleButtonClick = (lesson: string) => {
-        props.handleButtonClick(lesson);
-    }
+function SelectIfElseLesson() {
 
     return (
         <div className="lesson-btn-container">

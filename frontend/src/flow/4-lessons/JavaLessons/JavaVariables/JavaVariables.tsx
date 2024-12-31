@@ -5,15 +5,10 @@ import JavaVariableQuestion3 from "../../../5-questions/JavaQuestions/JavaVariab
 import JavaVariableQuestion4 from "../../../5-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion4"
 import JavaVariableQuestion5 from "../../../5-questions/JavaQuestions/JavaVariablesQuestions.tsx/JavaVariableQuestion5"
 
-function JavaLesson1({props}:{props:any}) {
+function JavaLesson1() {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
     const [questionsAnswered, setQuestionsAnswered] = useState(0);
-
-
-    const handleBackClick = () => {
-        props.handleRedirectJavaLessons("Java Lessons");
-    }
 
     const completeQuestion = (correct: boolean) => {
         correct ? 

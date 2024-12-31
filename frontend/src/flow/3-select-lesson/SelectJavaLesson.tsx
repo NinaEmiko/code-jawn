@@ -11,7 +11,7 @@ import { getJavaDataTypesLT } from "../../api/api";
 import Display from "../../components/Display";
 import { LessonsProps } from "../../App";
 
-const JavaLessons: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRedirectLanguageLessons}) => {
+const JavaLessons: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRedirectLanguage}) => {
     const [showSection, setShowSection] = useState('Data Types');
     const [lessonsCompleted, setLessonsCompleted] = useState(0)
 
@@ -29,7 +29,7 @@ const JavaLessons: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleR
     })
 
     const handleButtonClick = (lesson: string) => {
-        handleRedirectLanguageLessons(lesson);
+        handleRedirectLanguage(lesson);
     }
 
     const handleBackClick = () => {
@@ -63,38 +63,38 @@ const JavaLessons: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleR
                 <div className="right-section">
                     <h2 className="lesson-title">{showSection}</h2>
                     {showSection === 'Data Types' &&
-                        <SelectDataTypeLesson props={{
-                            handleButtonClick:handleButtonClick,
-                            currentUser:currentUser,
-                        }} />
+                        <SelectDataTypeLesson
+                            handleRedirectLesson={handleButtonClick}
+                            currentUser={currentUser}
+                        />
                     }
 
                     {showSection === 'Variables' &&
-                        <SelectVariablesLesson props={{handleButtonClick:handleButtonClick}} />
+                        <SelectVariablesLesson />
                     }
 
                     {showSection === 'For Loops' &&
-                        <SelectLoopsLesson props={{handleButtonClick:handleButtonClick}} />
+                        <SelectLoopsLesson />
                     }
             
                     {showSection === 'Conditionals' &&
-                        <SelectConditionalsLesson props={{handleButtonClick:handleButtonClick}} />
+                        <SelectConditionalsLesson />
                     }
             
                     {showSection === 'Arrays' &&
-                        <SelectArraysLesson props={{handleButtonClick:handleButtonClick}} />
+                        <SelectArraysLesson />
                     }
 
                     {showSection === 'Collections' &&
-                        <SelectCollectionsLesson props={{handleButtonClick:handleButtonClick}} />
+                        <SelectCollectionsLesson />
                     }
 
                     {showSection === 'Methods' &&
-                        <SelectMethodsLesson props={{handleButtonClick:handleButtonClick}} />
+                        <SelectMethodsLesson />
                     }
 
                     {showSection === 'Operators' &&
-                        <SelectOperatorsLesson props={{handleButtonClick:handleButtonClick}} />
+                        <SelectOperatorsLesson />
                     }
                     <div className="spacer-10" />
                 </div>

@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { getJavaDataTypesLT } from "../../../api/api";
+import { SubLessonsProps } from "../../../App";
 
-function SelectDataTypeLesson({props}:{props:any}) {
+const SelectDataTypeLesson: FC<SubLessonsProps> = ({currentUser, handleRedirectLesson}) => {
     const [stringsComplete, setStringsComplete] = useState(false);
     const [intsComplete, setIntsComplete] = useState(false);
 
     const getJavaDataTypesLTCall = async () => {
-        const data = await getJavaDataTypesLT(props.currentUser.id);
+        const data = await getJavaDataTypesLT(currentUser.id);
             setStringsComplete(data.stringsLessonIsComplete);
             setIntsComplete(data.intsLessonIsComplete);
     }
 
     const handleButtonClick = (lesson: string) => {
-        props.handleButtonClick(lesson);
+        handleRedirectLesson(lesson);
     }
 
     useEffect(() => {

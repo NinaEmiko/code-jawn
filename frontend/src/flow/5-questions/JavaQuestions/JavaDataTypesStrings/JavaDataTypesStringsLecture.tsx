@@ -1,20 +1,19 @@
 import JavaDataTypesStringsLecture1 from './JavaDataTypesStringsLecture1';
 import JavaDataTypesStringsLecture2 from './JavaDataTypesStringsLecture2';
 import GlowingButton from '../../../../components/GlowingButton';
-import { useState } from 'react';
+import { FC, useState } from 'react';
+import { LectureProps } from '../../../../App';
 
-const JavaDataTypesStringsLecture = ({props}:{props:any}) => {
+const JavaDataTypesStringsLecture: FC<LectureProps> = ({completeLecture}) => {
     const [buttonText, setButtonText] = useState('Next');
     const [activeLecture, setActiveLecture] = useState(0)
-
-
 
     const handleClickButton = () =>{
         if (activeLecture === 0) {
             setButtonText('Begin')
             setActiveLecture(1)
         } else {
-            props.completeLecture()
+            completeLecture()
         }
     }
 

@@ -34,9 +34,32 @@ export interface User{
 }
 
 export interface LessonsProps{
-  handleRedirectLanguageLessons:(component: string)=>void,
+  handleRedirectLanguage:(component: string)=>void,
   handleRedirectHome:(component: string)=>void,
   currentUser:User,
+}
+
+export interface LanguageProps{
+  handleRedirectHome:(component: string)=>void,
+  currentUser:User,
+}
+
+export interface SubLessonsProps{
+  handleRedirectLesson:(component: string)=>void,
+  currentUser:User,
+}
+
+export interface LectureProps{
+  completeLecture: ()=>void;
+}
+
+export interface PostLessonProps{
+  handleCompleteLesson: ()=>void;
+  restCallSuccessful: boolean;
+}
+
+export interface QuestionProps{
+  completeQuestion: (isComplete: boolean)=>void;
 }
 
 function App() {
@@ -151,30 +174,34 @@ function App() {
             />
           }
           {activeTab === "Java" &&
-            <JavaSections props={{
-              handleRedirectHome:handleRedirectHome,
-              currentUser:currentUser,
-            }} />
+            <JavaSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
           }
           {activeTab === "JavaScript" &&
-            <PythonSections props={{
-              handleRedirectHome:handleRedirectHome,
-            }} />
+            <PythonSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
           } 
           {activeTab === "Python" &&
-            <PythonSections props={{
-              handleRedirectHome:handleRedirectHome,
-            }} />
+            <PythonSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
           } 
           {activeTab === "SpringBoot" &&
-            <PythonSections props={{
-              handleRedirectHome:handleRedirectHome,
-            }} />
+            <PythonSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
           } 
           {activeTab === "React" &&
-            <PythonSections props={{
-              handleRedirectHome:handleRedirectHome,
-            }} />
+            <PythonSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
           } 
 
           {showProfile && 

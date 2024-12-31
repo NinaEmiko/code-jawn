@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 import InputQuestion from "../../../../components/question/InputQuestion"
 import { STRINGS_QUESTION_5_ANSWERS,
     STRINGS_QUESTION_5_EXPLANATIONS,
@@ -7,8 +7,9 @@ import useSound from "use-sound";
 import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
 import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
 import Modal from "../../../../components/Modal";
+import { QuestionProps } from "../../../../App";
 
-function JavaDataTypesStringsQuestion5({props}:{props:any}) {
+const JavaDataTypesStringsQuestion5: FC<QuestionProps> = ({completeQuestion}) => {
     const [value, setValue] = useState(`17`);
     const [playCorrectSoundEffect] = useSound(correctSoundEffect);
     const [playIncorrectSoundEffect] = useSound(IncorrectSoundEffect);
@@ -20,8 +21,7 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
       };
 
     const endQuestion = () => {
-        props.completeQuestion(true);
-        props.updateLessonTracker();
+        completeQuestion(true);
     }
 
     const handleSubmit = () => {
@@ -40,11 +40,11 @@ function JavaDataTypesStringsQuestion5({props}:{props:any}) {
 
     return (
         <>
-            <InputQuestion props={{
-                question:STRINGS_QUESTIONS.STRING_QUESTION_5,
-                value:value,
-                handleChange:handleChange,
-                handleSubmit:handleSubmit}} />
+            <InputQuestion
+                question={STRINGS_QUESTIONS.STRING_QUESTION_5}
+                value={value}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit} />
             <>
                 <Modal isOpen={isModalOpenCorrect}>
                     <h2 className="modal-correct">{"Correct!"}</h2>

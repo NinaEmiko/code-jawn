@@ -1,8 +1,4 @@
-function SelectOperatorsLesson({props}:{props:any}) {
-
-    const handleButtonClick = (lesson: string) => {
-        props.handleButtonClick(lesson);
-    }
+function SelectOperatorsLesson() {
 
     return (
         <div className="lesson-btn-container">
