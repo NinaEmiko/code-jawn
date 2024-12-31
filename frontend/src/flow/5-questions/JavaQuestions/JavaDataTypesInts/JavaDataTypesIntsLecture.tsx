@@ -40,7 +40,7 @@ const JavaDataTypesIntsLecture = ({props}:{props:any}) => {
     return (
         <>
         
-        <div className="lecture-container" 
+        <div className="lecture-container2" 
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
             >

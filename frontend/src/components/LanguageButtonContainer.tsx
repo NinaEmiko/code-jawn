@@ -1,10 +1,10 @@
-import JavaIcon from '../../assets/java-icon.png'
-import JavaScriptIcon from '../../assets/javascript-icon.png'
-import PythonIcon from "../../assets/python-icon.png"
-import SpringBootIcon from "../../assets/springboot-icon.png"
-import ReactIcon from "../../assets/springboot-icon.png"
-import EmojiGenerator from '../utility/EmojiGenerator';
-import DividerJawn from '../utility/DividerJawn';
+import JavaIcon from '../assets/java-icon.png'
+import JavaScriptIcon from '../assets/javascript-icon.png'
+import PythonIcon from "../assets/python-icon.png"
+import SpringBootIcon from "../assets/springboot-icon.png"
+import ReactIcon from "../assets/springboot-icon.png"
+import EmojiGenerator from './utility/EmojiGenerator';
+import DividerJawn from './utility/DividerJawn';
 
 const LanguageButtonContainer = ({props}:{props:any}) => {
 

@@ -52,26 +52,12 @@
 
 .lecture-jawn{
     height: 100%;
-    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
     flex: 0 0 calc(100%);
     width: calc(100% + 5%);
     padding: 3%;
-    margin-top: 100px;
-}
-
-.lecture-container{
-    width: 100%;
-    background-color: var(--primary-light-jawn);
-    border-radius: 20px;
-    height: 60%;
-    justify-content: space-between;
-    box-shadow: 0 0 20px black; 
-    padding: 5%;
-
-    overflow: hidden;
-    width: 100%;
-    position: relative;
+    overflow-x: hidden;
 }
 
 .swipeable-pages {
@@ -135,8 +121,4 @@
     width: 50%;
     padding-left: 3%;
     color: white;
-}
-
-.question-container{
-    margin-top: 100px;
 }

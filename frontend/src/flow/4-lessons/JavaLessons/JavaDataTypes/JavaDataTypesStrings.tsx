@@ -7,7 +7,7 @@ import JavaDataTypesStringsQuestion5 from "../../../5-questions/JavaQuestions/Ja
 import JavaDataTypesStringsLecture from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsLecture";
 import JavaDataTypesStringsPostLesson from "../../../5-questions/JavaQuestions/JavaDataTypesStrings/JavaDataTypesStringsPostLesson";
 import { updateJavaDataTypesLT } from "../../../../api/api";
-import Display2 from "../../../../components/Display2";
+import Display from "../../../../components/Display";
 
 function JavaDataTypesStrings({props}:{props:any}) {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -43,7 +43,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
 
   return (
     <>
-        <Display2>
+        <Display>
             <div className="spacer-15" />
             {lecturesCompleted === false &&
                 <JavaDataTypesStringsLecture props={{completeLecture:completeLecture}} />
@@ -71,7 +71,7 @@ function JavaDataTypesStrings({props}:{props:any}) {
                     }
                 </>
             }
-        </Display2>
+        </Display>
     </>
   )
 }

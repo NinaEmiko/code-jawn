@@ -4,10 +4,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
-  }
+    margin-top: 100px;
+}
   
-  .glowing-button {
+.glowing-button {
     font-size: 20px;
     font-weight: bold;
     padding: 10px 20px;
@@ -17,9 +17,5 @@
     outline: none;
     transition: all 0.2s ease-in-out;
     font-family: Menlo;
-  }
-  
-  .glowing-button:hover {
-    /* transform: scale(1.1); */
-  }
+}
   

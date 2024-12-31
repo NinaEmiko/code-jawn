@@ -33,6 +33,10 @@
 
 /* CHILD */
 
+.display-jawn{
+    height: 100%;
+}
+
 .child-jawn{
     width: 90%;
     overflow-y: auto;
@@ -40,15 +44,10 @@
 }
 
 .child-jawn::-webkit-scrollbar,
-.child-jawn2::-webkit-scrollbar,
-.child-jawn3::-webkit-scrollbar{
+.child-jawn2::-webkit-scrollbar{
     display: none;
 }
 
-.child-jawn3{
-    width: 90%;
-    height: 100%;
-}
 
 .child-jawn2{
     width: 100%;

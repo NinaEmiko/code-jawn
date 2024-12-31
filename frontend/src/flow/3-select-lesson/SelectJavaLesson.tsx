@@ -8,7 +8,7 @@ import SelectMethodsLesson from "./SelectJavaLesson/SelectMethodsLesson";
 import SelectOperatorsLesson from "./SelectJavaLesson/SelectOperatorsLesson";
 import SelectDataTypeLesson from "./SelectJavaLesson/SelectDataTypeLesson";
 import { getJavaDataTypesLT } from "../../api/api";
-import Display2 from "../../components/Display2";
+import Display from "../../components/Display";
 
 function JavaLessons({props}:{props:any}) {
     const [showSection, setShowSection] = useState('Data Types');
@@ -42,7 +42,7 @@ function JavaLessons({props}:{props:any}) {
 
   return (
     <>
-        <Display2>
+        <Display>
             <div className="container">
                 <div className="left-section">
                     <div className="language-btn-link2" onClick={() => handleBackClick()}>
@@ -99,7 +99,7 @@ function JavaLessons({props}:{props:any}) {
                     <div className="spacer-10" />
                 </div>
             </div>
-        </Display2>
+        </Display>
     </>
   )
 }

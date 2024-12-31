@@ -11,7 +11,24 @@
     margin-top: 10px;
 }
 
-.input-btn {
+.input-question-btn {
+    font-size: var(--text);
+    border: none;
+    color: black;
+    border-radius: 10px;
+    padding: 5px;
+    width: 60%;
+    box-shadow: 0 0 20px black; 
+    margin-top: 10px;
+}
+
+.input-question-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-btn, .input-question-btn {
     background-color: var(--accent-jawn);
 }
 

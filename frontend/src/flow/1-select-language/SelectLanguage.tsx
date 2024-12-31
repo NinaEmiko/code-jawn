@@ -1,4 +1,4 @@
-import LanguageButtonContainer from "../../components/language/LanguageButtonContainer"
+import LanguageButtonContainer from "../../components/LanguageButtonContainer"
 import Display from "../../components/Display"
 import { LANGUAGE_DESCRIPTIONS } from "../../helpers/languageDescriptionsHelper"
 

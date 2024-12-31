@@ -20,7 +20,9 @@ const InputQuestion = ({props}:{props:any}) => {
                     />
                 </div>
             </div>
-            <button className="input-btn" onClick={() => handleClickSubmit()}>Submit</button>
+            <div className="input-question-container">
+                <button className="input-question-btn" onClick={() => handleClickSubmit()}>Submit</button>
+            </div>
         </>
     )
 }
