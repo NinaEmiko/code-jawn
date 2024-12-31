@@ -44,9 +44,6 @@
     cursor: pointer;
   }
   
-  .dropdown-button:hover {
-  }
-  
   .dropdown-content {
     display: block;
     position: absolute;

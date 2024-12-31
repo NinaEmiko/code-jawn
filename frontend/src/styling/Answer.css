@@ -41,21 +41,20 @@
     margin-top: 50px;
 }
 
-.answer-input{
-    width: 90%;
-    font-size: var(--header-text);
-    background: transparent;
+.answer-input, .answer-input:focus{
     border-left: none;
     border-right: none;
     border-top: none;
     box-sizing: border-box;
 }
 
+.answer-input{
+    width: 90%;
+    font-size: var(--header-text);
+    background: transparent;
+}
+
 .answer-input:focus{
-    border-left: none;
-    border-right: none;
-    border-top: none;
     outline: none;
     border-color: var(--accent-jawn);
-    box-sizing: border-box;
 }

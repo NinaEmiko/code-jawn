@@ -1,14 +1,5 @@
 /* CONTAINER */
 
-.display-jawn,
-.login-display-jawn {
-
-}
-
-.display-jawn {
-
-}
-
 .login-display-jawn {
     background-color: var(--background-jawn);
     border-radius: 10px;
@@ -38,8 +29,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    /* overflow: auto;
-    overflow-y: scroll; */
 }
 
 /* CHILD */
@@ -65,50 +54,6 @@
     width: 100%;
     overflow: auto;
     overflow-y: scroll;
-    background-color: transparent;
-}
-
-/* HEADER */
-
-.top-display{
-
-}
-
-.inner-top-display{
-}
-
-.top-header{
-    height: 33%;
-    max-height: 33%;
-    width: 100%;
-    max-width: 100%;
-    /* border-radius: 0 0 70px 0; */
-    background-color: var(--sub-secondary-jawn);
-    box-shadow: 0 0 20px black; 
-    padding: 3%;
-}
-
-.bottom-header{
-    pointer-events: none;
-    height: 100%;
-    width: 100%;
-    border-radius: 70px 0 0 0;
-    box-shadow:
-        -65px -30px 0 0 var(--sub-secondary-jawn),
-        30px 0 0 0 transparent;
-        z-index: 2;
-}
-
-/* PROFILE HEADER */
-
-.profile-top-display{
-    height: 20%;
-    z-index: 5;
-    width: 100%;
-    top: 0;
-    left: 0;
-    text-align: center;
-    position: absolute;
     background-color: transparent;
 }
 

@@ -50,6 +50,7 @@ body{
 input{
   text-align: right;
 }
+
 .progress-tracker{
   width: 100%;
   text-align: center;
@@ -111,7 +112,6 @@ input{
   max-height: 100%;
   color: black;
   font-weight: bold;
-  
 }
 
 .profile-header{

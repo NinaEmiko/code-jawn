@@ -5,7 +5,6 @@ import LoginForm from "./flow/1-select-language/LoginForm";
 import { register, login } from "./api/api"
 import "./styling/Answer.css"
 import "./styling/Container.css"
-import "./styling/Controls.css"
 import "./styling/Display.css"
 import "./styling/Language.css"
 import "./styling/Lecture.css"

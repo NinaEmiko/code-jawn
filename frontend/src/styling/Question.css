@@ -88,11 +88,9 @@
     border-radius: 10px;
     overflow: hidden;
     height: 20px;
-    /* position: relative; */
     border: solid black;
     bottom: 0;
     position: absolute;
-    /* z-index: 2; */
     margin-bottom: 5%;
     width: 90%;
 }

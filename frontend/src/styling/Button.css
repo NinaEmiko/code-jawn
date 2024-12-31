@@ -1,35 +1,22 @@
 /* BUTTON STYLES */
 
-.input-btn, .sign-out-btn {
+.input-btn, .input-btn-warning {
     font-size: var(--text);
     border: none;
     color: black;
     border-radius: 10px;
     padding: 5px;
     width: 100%;
-    background-color: var(--accent-jawn);
-    /* font-weight: bold; */
     box-shadow: 0 0 20px black; 
     margin-top: 10px;
+}
+
+.input-btn {
+    background-color: var(--accent-jawn);
 }
 
 .input-btn-warning {
-    font-size: var(--text);
-    border: none;
-    color: black;
-    border-radius: 10px;
-    padding: 5px;
-    width: 100%;
     background-color: red;
-    /* font-weight: bold; */
-    box-shadow: 0 0 20px black; 
-    margin-top: 10px;
-}
-
-.sign-out-btn {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
 }
 
 .back-btn-container{
@@ -59,63 +46,4 @@
     color: var(--accent-jawn);
     font-size: var(--sub-text);
     width: 100%;
-}
-
-.back-btn-container-profile{
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-}
-
-.back-btn-jawn-profile{
-    z-index: 6;
-}
-
-.header-btn{
-    font-size: var(--text);
-    color: black;
-    text-align: center;
-    background-color: var(--accent-jawn);
-}
-
-.warning-btn{
-    margin-top: 10px;
-    text-align: center;
-    color: black;
-    font-size: var(--text);
-    background-color: black;
-    padding: 3%;
-    border-radius: 20px;
-    width: 100%;
-    background-color: red;
-    font-weight: bold;
-    box-shadow: 0 0 20px black; 
-}
-
-.warning-btn-cancel{
-    margin-top: 10px;
-    text-align: center;
-    color: black;
-    font-size: var(--text);
-    background-color: black;
-    padding: 3%;
-    border-radius: 20px;
-    width: 100%;
-    background-color: var(--accent-jawn);
-    font-weight: bold;
-    box-shadow: 0 0 20px black; 
-}
-
-.confirm-btn{
-    margin-top: 10px;
-    text-align: center;
-    color: black;
-    font-size: var(--text);
-    background-color: black;
-    padding: 3%;
-    border-radius: 20px;
-    width: 100%;
-    background-color: var(--sub-secondary-jawn);
-    font-weight: bold;
-    box-shadow: 0 0 20px black; 
 }

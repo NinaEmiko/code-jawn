@@ -8,10 +8,6 @@
     width: 100%;
 }
 
-/* .language-btn-container{
-    height: 100%;
-} */
-
 .container-for-language-btn,
 .container-for-language-btn2{
     width: 100%;
@@ -19,7 +15,7 @@
     justify-content: space-between;
 }
 
-.description-container{
+.description-container, .language-btn-link{
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 15px;
@@ -27,52 +23,21 @@
 
 .language-btn-link{
     text-align: right;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 15px;
     text-decoration: underline;
     color: var(--accent-jawn);
     font-size: var(--sub-text);
 }
 .language-btn-link2{
     text-align: left;
-    /* padding-left: 50px;
-    padding-right: 50px; */
     padding-bottom: 15px;
     text-decoration: underline;
     color: var(--accent-jawn);
     font-size: var(--sub-text);
 }
 
-.code-jawn-icon-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.select-language-sub-text{
-    text-align: center;
-    color: var(--off-white-jawn);
-    padding-bottom: 10%;
-    font-size: var(--text);
-}
-
-.language-btn-content {
-    display: flex;
-    align-items: center;
-}
-
 .language-icon {
     margin-right: 1%;
     max-width: 10%;
-}
-
-.code-jawn-icon {
-    width: 150px;
-    height: 150px;
-    max-width: 150px;
-    max-height: 150px;
 }
 
 .center-language-btn{
@@ -97,14 +62,6 @@
     height: 33%;
 }
 
-.additional-text {
-    flex-grow: 1;
-    font-size: var(--sub-text);
-    color: var(--accent-jawn);
-    text-align: left;
-    padding-left: 3%;
-    width: 100%;
-}
 
 .expand-icon{
     width: 20%;
@@ -113,9 +70,4 @@
     text-align: center;
     font-size: var(--header-text);
     color: var(--accent-jawn);
-}
-
-.forward-button-icon{
-    height: 50%;
-    width: 50%;
 }
