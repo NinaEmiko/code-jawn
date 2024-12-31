@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { setAuthHeader } from "./helpers/axiosHelper";
-import LoginForm from "./flow/1-select-language/LoginForm";
+import LoginForm from "./pages/LoginForm";
 import { register, login } from "./api/api"
 import "./styling/Answer.css"
 import "./styling/Container.css"
@@ -18,13 +18,13 @@ import "./styling/GetStarted.css"
 import './styling/GlowingButton.css';
 import './styling/Header.css';
 import './styling/Modal.css';
-import JavaSections from "./flow/2-languages/JavaSections";
-import SelectLanguage from "./flow/1-select-language/SelectLanguage";
+import JavaSections from "./languages/JavaLanguage";
+import SelectLanguage from "./pages/SelectLanguage";
 import Container from "./components/Container";
-import Profile from "./flow/1-select-language/Profile";
+import Profile from "./pages/Profile";
 import Header from "./components/Header";
-import GetStarted from "./flow/1-select-language/GetStarted";
-import PythonSections from "./flow/2-languages/PythonSections";
+import GetStarted from "./pages/GetStarted";
+import PythonSections from "./languages/PythonLanguage";
 
 export interface User{
   username: string,
