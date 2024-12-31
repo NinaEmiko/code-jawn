@@ -1,11 +1,22 @@
+import { FC } from "react";
 import { deleteAccount } from "../../api/api";
 
-const DeleteAccount = ({props}:{props:any}) => {
+export interface User {
+    userId: number;
+}
+
+interface DeleteAccountProps{
+    logout: ()=>void,
+    handleDeleteModal: ()=>void,
+    currentUser: User
+}
+
+const DeleteAccount: FC<DeleteAccountProps> = ({logout, handleDeleteModal, currentUser}) => {
 
     const handleDeleteAccount = async () => {
         console.log("click")
-        const data = await deleteAccount(props.currentUser.id);
-        if (data === "SUCCESS") props.logout();
+        const data = await deleteAccount(currentUser.userId);
+        if (data === "SUCCESS") logout();
         console.log(data);
     }
 
@@ -22,7 +33,7 @@ const DeleteAccount = ({props}:{props:any}) => {
 
             <div className="modal-btn-container">
                 <button className="input-btn-warning" onClick={()=> handleDeleteAccount()}>Delete</button>
-                <button className="input-btn" onClick={()=> props.handleDeleteModal()}>Cancel</button>
+                <button className="input-btn" onClick={()=> handleDeleteModal()}>Cancel</button>
             </div>
         </div>
     )

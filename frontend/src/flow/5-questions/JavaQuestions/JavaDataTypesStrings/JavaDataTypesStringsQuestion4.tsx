@@ -47,7 +47,7 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
     return (
         <>
             <div className="question-container">
-                <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_4}} />
+                <Question text={STRINGS_QUESTIONS.STRING_QUESTION_4} />
                 <div className="answer-jawn">
                         
                     <AnswerText

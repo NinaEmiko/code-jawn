@@ -1,22 +1,30 @@
+import { FC } from "react";
 import Question from "./Question";
 
-const InputQuestion = ({props}:{props:any}) => {
+interface InputQuestionProps{
+    handleSubmit: ()=>void,
+    question: string,
+    value: string,
+    handleChange: () => void,
+}
+
+const InputQuestion: FC<InputQuestionProps> = ({handleSubmit, question, value, handleChange}) => {
 
     const handleClickSubmit = () => {
-        props.handleSubmit()
+        handleSubmit()
     }
 
     return (
         <>
             <div className="question-container">
                 <div className="question-jawn">
-                    <Question props={{text:props.question}} />
+                    <Question text={question} />
                 </div>
                 <div className="answer-jawn-input">   
                     <input
                         className="answer-input"
-                        value={props.value}
-                        onChange={props.handleChange}
+                        value={value}
+                        onChange={handleChange}
                     />
                 </div>
             </div>

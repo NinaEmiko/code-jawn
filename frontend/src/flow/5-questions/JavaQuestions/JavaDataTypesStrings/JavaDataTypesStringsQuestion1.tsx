@@ -49,7 +49,7 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
     return (
         <>
             <div className="question-container">
-                <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_1}} />
+                <Question text={STRINGS_QUESTIONS.STRING_QUESTION_1} />
                 <div className="answer-jawn">
                     <AnswerBoolean
                         answerClicked={handleAnswer1Click}

@@ -1,9 +1,19 @@
-import { ChangeEvent, FormEvent, useRef, useState } from "react"
+import { ChangeEvent, FC, FormEvent, useRef, useState } from "react"
 import { updateUserEmail } from "../../api/api";
 import Cookies from "js-cookie";
 import JustText from "../utility/JustText";
 
-const updateEmail = ({ props }: { props: any; }) => {
+export interface User {
+    userId: number;
+}
+
+interface UpdateEmailProps{
+    handleUpdateEmail: (newEmail: string) => void,
+    handleUpdateEmailModal: ()=>void,
+    currentUser: User,
+}
+
+const UpdateEmail: FC<UpdateEmailProps> = ({ handleUpdateEmail, handleUpdateEmailModal, currentUser }) => {
     const [newEmail, setNewEmail] = useState('');
 
     const newEmailFormRef = useRef<HTMLFormElement | null>(null);
@@ -16,10 +26,10 @@ const updateEmail = ({ props }: { props: any; }) => {
       const onSubmitNewEmail = async (e: FormEvent) => {    
         e.preventDefault();
     
-        const data = await updateUserEmail(props.currentUser.id, newEmail);
+        const data = await updateUserEmail(currentUser.userId, newEmail);
         Cookies.set('storedEmail', data.newEmail);
-        props.handleUpdateEmail(data.newEmail);
-        props.handleBackClick()
+        handleUpdateEmail(data.newEmail);
+        handleUpdateEmailModal()
       };    
 
     return (
@@ -45,10 +55,10 @@ const updateEmail = ({ props }: { props: any; }) => {
                 <br/>
                 <div className="modal-btn-container">
                     <button className="input-btn" type="submit">Submit</button>
-                    <button className="input-btn" onClick={()=> props.handleUpdateEmailModal()}>Cancel</button>
+                    <button className="input-btn" onClick={()=> handleUpdateEmailModal()}>Cancel</button>
                 </div>
             </form>
         </div>
     )
 }
-export default updateEmail;
+export default UpdateEmail;

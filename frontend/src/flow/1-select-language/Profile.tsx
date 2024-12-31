@@ -70,36 +70,28 @@ const Profile = ({props}:{props:any}) => {
                             </div>
                         }
 
-                        {activeComponent === "Update Password" && 
-                            <UpdatePassword props={{currentUser:props.currentUser}} />
-                        }
-
-                        {activeComponent === "Update Email" && 
-                            <UpdateEmail props={{currentUser:props.currentUser, handleUpdateEmail:props.handleUpdateEmail}} />
-                        }
-
                         {activeComponent === "Terms and Conditions" &&
-                            <TermsAndConditions props={{}} />
+                            <TermsAndConditions />
                         }
 
                         {activeComponent === "Support" &&
-                            <Support props={{}} />
+                            <Support />
                         }
 
                         {activeComponent === "Acknowledgments" &&
-                            <Acknowledgments props={{}} />
+                            <Acknowledgments />
                         }
 
                         <Modal isOpen={updateEmailModalIsOpen}>
-                            <UpdateEmail props={{currentUser: props.currentUser, handleUpdateEmailModal: handleUpdateEmailModal}} />
+                            <UpdateEmail currentUser={props.currentUser} handleUpdateEmailModal={handleUpdateEmailModal} handleUpdateEmail={props.handleUpdateEmail} />
                         </Modal>
 
                         <Modal isOpen={updatePasswordModalIsOpen}>
-                            <UpdatePassword props={{currentUser: props.currentUser, handleUpdatePasswordModal: handleUpdatePasswordModal}} />
+                            <UpdatePassword currentUser={props.currentUser} handleUpdatePasswordModal={handleUpdatePasswordModal} />
                         </Modal>
 
                         <Modal isOpen={deleteModalIsOpen}>
-                            <DeleteAccount props={{currentUser: props.currentUser, handleDeleteModal: handleDeleteModal}} />
+                            <DeleteAccount currentUser={props.currentUser} handleDeleteModal={handleDeleteModal} logout={props.logout} />
                         </Modal>
                     </div>
                 </div>
@@ -108,4 +100,4 @@ const Profile = ({props}:{props:any}) => {
     )
 }
   
-export default Profile
+  export default Profile

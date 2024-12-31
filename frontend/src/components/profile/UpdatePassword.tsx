@@ -1,10 +1,20 @@
 import Cookies from "js-cookie";
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useRef, useState } from "react";
 import { updateUserPassword } from "../../api/api";
 import JustText from "../utility/JustText";
 import { validCharacters } from "../../helpers/validCharacters";
 
-const updatePassword = ({props}:{props:any}) => {
+export interface User {
+    userId: number;
+    username: string;
+}
+
+interface UpdatePasswordProps{
+    handleUpdatePasswordModal: ()=> void,
+    currentUser: User,
+}
+
+const UpdatePassword: FC<UpdatePasswordProps> = ({handleUpdatePasswordModal, currentUser}) => {
     const [newPassword, setNewPassword] = useState('');
     const [oldPassword, setOldPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -41,13 +51,13 @@ const updatePassword = ({props}:{props:any}) => {
         } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(newPassword)) {
             setErrorText("Password must contain at least one special character (ie: !, @, #, $, %, &).")
             setShowError(true);
-        } else if (newPassword === props.currentUser.username){
+        } else if (newPassword === currentUser.username){
             setErrorText("Passwords cannot match usernames.")
             setShowError(true);
         } else {
-            const data = await updateUserPassword(props.currentUser.id, oldPassword, newPassword);
+            const data = await updateUserPassword(currentUser.userId, oldPassword, newPassword);
             Cookies.set('storedPassword', data.newPassword);
-            props.handleUpdatePasswordModal()
+            handleUpdatePasswordModal()
         }
     };   
 
@@ -102,10 +112,10 @@ const updatePassword = ({props}:{props:any}) => {
                 <br/>
                 <div className="modal-btn-container">
                     <button className="input-btn" type="submit">Submit</button>
-                    <button className="input-btn" onClick={()=> props.handleUpdatePasswordModal()}>Cancel</button>
+                    <button className="input-btn" onClick={()=> handleUpdatePasswordModal()}>Cancel</button>
                 </div>
             </form>
         </div>
     )
 }
-export default updatePassword;
+export default UpdatePassword;
