@@ -52,25 +52,25 @@ function JavaDataTypesStringsQuestion3({props}:{props:any}) {
             <div className="question-container">
                 <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_3}} />
                 <div className="answer-jawn">
-                    <AnswerCodeBlock props={{
-                        answerClicked:handleAnswer1Click,
-                        code: STRINGS_QUESTION_3_ANSWERS.ANSWER_1
-                        }} />
-                        <DividerJawn />
-                    <AnswerText props={{
-                        answerClicked:handleAnswer2Click,
-                        text: STRINGS_QUESTION_3_ANSWERS.ANSWER_2
-                        }} />
-                        <DividerJawn />
-                    <AnswerTemplateLiteral props={{
-                        answerClicked:handleAnswer3Click,
-                        text: STRINGS_QUESTION_3_ANSWERS.ANSWER_3
-                        }} />
-                        <DividerJawn />
-                    <AnswerTemplateLiteral props={{
-                        answerClicked:handleAnswer4Click,
-                        text: STRINGS_QUESTION_3_ANSWERS.ANSWER_4
-                        }} />
+                    <AnswerCodeBlock
+                        answerClicked={handleAnswer1Click}
+                        code={STRINGS_QUESTION_3_ANSWERS.ANSWER_1}
+                    />
+                    <DividerJawn />
+                    <AnswerText
+                        answerClicked={handleAnswer2Click}
+                        text={STRINGS_QUESTION_3_ANSWERS.ANSWER_2}
+                    />
+                    <DividerJawn />
+                    <AnswerTemplateLiteral
+                        answerClicked={handleAnswer3Click}
+                        text={STRINGS_QUESTION_3_ANSWERS.ANSWER_3}
+                    />
+                    <DividerJawn />
+                    <AnswerTemplateLiteral
+                        answerClicked={handleAnswer4Click}
+                        text={STRINGS_QUESTION_3_ANSWERS.ANSWER_4}
+                    />
                 </div>
             </div>
             <Modal isOpen={isModalOpenA}>

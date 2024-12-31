@@ -40,19 +40,6 @@
     margin: 0 auto;
 }
 
-.top-divider-container{
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.top-divider{
-    border-bottom: solid 2px black;
-    width: 95%;
-    text-align: center;
-    margin: 0 auto;
-}
-
 .question-explanation-container{
     height: 25%;
     width: 100%;

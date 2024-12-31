@@ -50,25 +50,25 @@ function JavaDataTypesStringsQuestion2({props}:{props:any}) {
             <div className="question-container">
                 <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_2}} />
                 <div className="answer-jawn">
-                    <AnswerTemplateLiteral props={{
-                        answerClicked:handleAnswer1Click,
-                        text: STRINGS_QUESTION_2_ANSWERS.ANSWER_1
-                        }} />
+                    <AnswerTemplateLiteral
+                        answerClicked={handleAnswer1Click}
+                        text={STRINGS_QUESTION_2_ANSWERS.ANSWER_1}
+                    />
                         <DividerJawn />
-                    <AnswerCodeBlock props={{
-                        answerClicked:handleAnswer2Click,
-                        code: STRINGS_QUESTION_2_ANSWERS.ANSWER_2
-                        }} />
+                    <AnswerCodeBlock
+                        answerClicked={handleAnswer2Click}
+                        code={STRINGS_QUESTION_2_ANSWERS.ANSWER_2}
+                    />
                         <DividerJawn />
-                    <AnswerCodeBlock props={{
-                        answerClicked:handleAnswer3Click,
-                        code: STRINGS_QUESTION_2_ANSWERS.ANSWER_3
-                        }} />
+                    <AnswerCodeBlock
+                        answerClicked={handleAnswer3Click}
+                        code={STRINGS_QUESTION_2_ANSWERS.ANSWER_3}
+                    />
                         <DividerJawn />
-                    <AnswerCodeBlock props={{
-                        answerClicked:handleAnswer4Click,
-                        code: STRINGS_QUESTION_2_ANSWERS.ANSWER_4
-                        }} />
+                    <AnswerCodeBlock
+                        answerClicked={handleAnswer4Click}
+                        code={STRINGS_QUESTION_2_ANSWERS.ANSWER_4}
+                    />
                 </div>
             </div>
             <Modal isOpen={isModalOpenA}>

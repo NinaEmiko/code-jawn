@@ -50,25 +50,25 @@ function JavaDataTypesStringsQuestion4({props}:{props:any}) {
                 <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_4}} />
                 <div className="answer-jawn">
                         
-                    <AnswerText props={{
-                        answerClicked:handleAnswer1Click,
-                        text: STRINGS_QUESTION_4_ANSWERS.ANSWER_1
-                        }} />
-                        <DividerJawn />
-                    <AnswerText props={{
-                        answerClicked:handleAnswer2Click,
-                        text: STRINGS_QUESTION_4_ANSWERS.ANSWER_2
-                        }} />
-                        <DividerJawn />
-                    <AnswerText props={{
-                        answerClicked:handleAnswer3Click,
-                        text: STRINGS_QUESTION_4_ANSWERS.ANSWER_3
-                        }} />
-                        <DividerJawn />
-                    <AnswerText props={{
-                        answerClicked:handleAnswer4Click,
-                        text: STRINGS_QUESTION_4_ANSWERS.ANSWER_4
-                        }} />
+                    <AnswerText
+                        answerClicked={handleAnswer1Click}
+                        text={STRINGS_QUESTION_4_ANSWERS.ANSWER_1}
+                    />
+                    <DividerJawn />
+                    <AnswerText
+                        answerClicked={handleAnswer2Click}
+                        text={STRINGS_QUESTION_4_ANSWERS.ANSWER_2}
+                    />
+                    <DividerJawn />
+                    <AnswerText
+                        answerClicked={handleAnswer3Click}
+                        text={STRINGS_QUESTION_4_ANSWERS.ANSWER_3}
+                    />
+                    <DividerJawn />
+                    <AnswerText
+                        answerClicked={handleAnswer4Click}
+                        text={STRINGS_QUESTION_4_ANSWERS.ANSWER_4}
+                    />
                 </div>
             </div>
             <Modal isOpen={isModalOpenA}>

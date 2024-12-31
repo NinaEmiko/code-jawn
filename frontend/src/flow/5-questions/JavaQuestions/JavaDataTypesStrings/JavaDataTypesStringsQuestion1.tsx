@@ -51,25 +51,25 @@ function JavaDataTypesStringsQuestion1({props}:{props:any}) {
             <div className="question-container">
                 <Question props={{text: STRINGS_QUESTIONS.STRING_QUESTION_1}} />
                 <div className="answer-jawn">
-                    <AnswerBoolean props={{
-                        answerClicked:handleAnswer1Click,
-                        text: STRINGS_QUESTION_1_ANSWERS.ANSWER_1
-                    }} />
+                    <AnswerBoolean
+                        answerClicked={handleAnswer1Click}
+                        text={STRINGS_QUESTION_1_ANSWERS.ANSWER_1}
+                    />
                     <DividerJawn />
-                    <AnswerCodeBlock props={{
-                        answerClicked:handleAnswer2Click,
-                        code: STRINGS_QUESTION_1_ANSWERS.ANSWER_2
-                        }} />
+                    <AnswerCodeBlock
+                        answerClicked={handleAnswer2Click}
+                        code={STRINGS_QUESTION_1_ANSWERS.ANSWER_2}
+                    />
                     <DividerJawn />
-                    <AnswerCodeBlock props={{
-                        answerClicked:handleAnswer3Click,
-                        code: STRINGS_QUESTION_1_ANSWERS.ANSWER_3
-                        }} />
+                    <AnswerCodeBlock
+                        answerClicked={handleAnswer3Click}
+                        code={STRINGS_QUESTION_1_ANSWERS.ANSWER_3}
+                    />
                     <DividerJawn />
-                    <AnswerTemplateLiteral props={{
-                        answerClicked:handleAnswer4Click,
-                        text: STRINGS_QUESTION_1_ANSWERS.ANSWER_4
-                        }} />
+                    <AnswerTemplateLiteral
+                        answerClicked={handleAnswer4Click}
+                        text={STRINGS_QUESTION_1_ANSWERS.ANSWER_4}
+                    />
                 </div>
             </div>
             <Modal isOpen={isModalOpenA}>
