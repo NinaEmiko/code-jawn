@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { updateJavaDataTypesLT } from "../../../api/api";
 import Display from "../../../components/Display";
-import { SubLessonsProps } from "../../../App";
+import { SubLessonsProps } from "../../../types/components"
 import PostLesson from "../../../components/PostLesson";
 import GlowingButton from "../../../components/GlowingButton";
 import JavaDataTypesStringsLecture1 from "../../../questions/java/data-types/strings/JavaDataTypesStringsLecture1";

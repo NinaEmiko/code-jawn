@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { LectureWidgetProps } from "../App";
+import { LectureWidgetProps } from "../types/components";
 
 
 

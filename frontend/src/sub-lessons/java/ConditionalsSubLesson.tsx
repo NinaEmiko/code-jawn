@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 import LectureWidget from "../../components/LectureWidget"
+import { SubLessonsProps } from "../../types/components"
 
 interface ConditionalsLT{
     ifLessonIsComplete: boolean,
@@ -31,8 +32,7 @@ const DefaultConditionalsLT = {
     continueStatementLessonIsComplete: false,
 }
 
-
-function ConditionalsSubLesson() {
+const ConditionalsSubLesson: FC<SubLessonsProps> = () => {
     const [lessonTracker, setLessonTracker] = useState<ConditionalsLT>(DefaultConditionalsLT)
 
     const handleButtonClickNull = (lesson: string) => {

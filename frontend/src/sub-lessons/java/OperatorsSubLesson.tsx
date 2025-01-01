@@ -1,5 +1,5 @@
 import { FC, useState } from "react"
-import { SubLessonsProps } from "../../App"
+import { SubLessonsProps } from "../../types/components"
 import LectureWidget from "../../components/LectureWidget"
 
 interface OperatorsLT{

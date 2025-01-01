@@ -1,6 +1,6 @@
 import { FC, useState } from "react"
 import Display from "../components/Display";
-import { LessonsProps } from "../App";
+import { LessonsProps } from "../types/components";
 
 const SpringBootLesson: FC<LessonsProps> = ({handleRedirectHome}) => {
     const [showSection, setShowSection] = useState('Coming Soon');

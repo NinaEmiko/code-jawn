@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import SelectPythonLesson from "../lessons/PythonLesson";
-import { LanguageProps } from "../App";
+import { LanguageProps } from "../types/components";
 
 const PythonLanguage: FC<LanguageProps> = ({handleRedirectHome, currentUser}) => {
     const [activeTab, setActiveTab] = useState("Python Lessons");

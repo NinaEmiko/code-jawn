@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { getJavaDataTypesLT } from "../../api/api";
-import { SubLessonsProps } from "../../App";
+import { SubLessonsProps } from "../../types/components";
 import LectureWidget from "../../components/LectureWidget";
 import { JAVA_NAVIGATION_PATHS } from "../../helpers/NavigationConstants";
 

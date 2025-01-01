@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import SelectJavaLesson from "../lessons/JavaLesson";
 import JavaDataTypesStrings from "../lectures/java/data-types/JavaDataTypesStringsLecture";
-import { LanguageProps } from "../App";
+import { LanguageProps } from "../types/components";
 import { JAVA_NAVIGATION_PATHS } from "../helpers/NavigationConstants";
 
 const JavaLanguage: FC<LanguageProps> = ({handleRedirectHome, currentUser}) => {

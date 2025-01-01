@@ -1,6 +1,6 @@
 import { FC, useState } from "react"
 import Display from "../components/Display";
-import { LessonsProps } from "../App";
+import { LessonsProps } from "../types/components";
 import DataTypesSubLesson from "../sub-lessons/java/DataTypesSubLesson";
 import OperatorsSubLesson from "../sub-lessons/java/OperatorsSubLesson";
 import MethodsSubLesson from "../sub-lessons/java/MethodsSubLesson";
@@ -9,6 +9,17 @@ import ArraysSubLesson from "../sub-lessons/java/ArraysSubLesson";
 import ConditionalsSubLesson from "../sub-lessons/java/ConditionalsSubLesson";
 import VariablesSubLesson from "../sub-lessons/java/VariablesSubLesson";
 import ForLoopsSubLesson from "../sub-lessons/java/ForLoopsSubLesson";
+
+const lessons = [
+    "Data Types",
+    "Variables",
+    "For Loops",
+    "Conditionals",
+    "Arrays",
+    "Collections",
+    "Methods",
+    "Operators"
+]
 
 const JavaLesson: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRedirectLanguage}) => {
     const [showSection, setShowSection] = useState('Data Types');
@@ -35,14 +46,9 @@ const JavaLesson: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRe
                     </div>
                     <h2 className="text">Lessons</h2>
                     <ul>
-                        <div className="lesson-jawnski" onClick={() => handleShowSection("Data Types")}>Data Types</div>
-                        <div className="lesson-jawnski" onClick={() => handleShowSection("Variables")}>Variables</div>
-                        <div className="lesson-jawnski" onClick={() => handleShowSection("For Loops")}>For Loops</div>
-                        <div className="lesson-jawnski" onClick={() => handleShowSection("Conditionals")}>Conditionals</div>
-                        <div className="lesson-jawnski" onClick={() => handleShowSection("Arrays")}>Arrays</div>
-                        <div className="lesson-jawnski" onClick={() => handleShowSection("Collections")}>Collections</div>
-                        <div className="lesson-jawnski" onClick={() => handleShowSection("Methods")}>Methods</div>
-                        <div className="lesson-jawnski" onClick={() => handleShowSection("Operators")}>Operators</div>
+                        {lessons.map((item, index) => (
+                            <div className="lesson-jawnski" onClick={() => handleShowSection(item)}>{item}</div>
+                        ))}
                     </ul>
                 </div>
                 <div className="right-section">
@@ -51,7 +57,7 @@ const JavaLesson: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRe
                     {showSection === 'Data Types' && <DataTypesSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
                     {showSection === 'Variables' && <VariablesSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
                     {showSection === 'For Loops' && <ForLoopsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
-                    {showSection === 'Conditionals' && <ConditionalsSubLesson /> }
+                    {showSection === 'Conditionals' && <ConditionalsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
                     {showSection === 'Arrays' && <ArraysSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
                     {showSection === 'Collections' && <CollectionsSubLesson /> }
                     {showSection === 'Methods' && <MethodsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
