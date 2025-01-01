@@ -2,7 +2,7 @@ import { FC, useState } from "react"
 import useSound from "use-sound";
 import correctSoundEffect from "../../../../../public/sounds/achievement-sound-effect.mp3";
 import IncorrectSoundEffect from "../../../../../public/sounds/incorrect-answer-sound-effect.mp3";
-import { QuestionProps } from "../../../../App";
+import { QuestionProps } from "../../../../types/components";
 import Question from "../../../../components/question/Question";
 import { STRINGS_QUESTION_1_ANSWERS, STRINGS_QUESTION_1_EXPLANATIONS, STRINGS_QUESTIONS } from "../../../../helpers/JavaConstants/DataTypesConstants/DataTypeStringsConstants";
 import AnswerBoolean from "../../../../components/answer/AnswerBoolean";
