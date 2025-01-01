@@ -6,8 +6,8 @@ const PythonLanguage: FC<LanguageProps> = ({handleRedirectHome, currentUser}) =>
     const [activeTab, setActiveTab] = useState("Python Lessons");
 
     const handleRedirectPythonLessons = (component: string) => {
-          setActiveTab(component);
-      }
+        setActiveTab(component);
+    }
 
     return (
         <>

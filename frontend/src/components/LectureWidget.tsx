@@ -8,7 +8,9 @@ const LectureWidget: FC<LectureWidgetProps> = ({isComplete, handleClickWidget, l
     return (
         <div className="lesson-btn"
         onClick={() => handleClickWidget(path)}>
-            {lesson}
+            <div className="lecture-widget-lesson">
+                {lesson}
+            </div>
             {isComplete ? (
                 <div className="lesson-complete">Lesson complete!</div>
             ): (

@@ -45,12 +45,10 @@
 .lesson-complete{
     font-size: 15px;
     color: green;
-    font-weight: bold;
 }
 .lesson-incomplete{
     font-size: 15px;
     color: white;
-    font-weight: bold;
 }
 
 .lesson-section-jawn{

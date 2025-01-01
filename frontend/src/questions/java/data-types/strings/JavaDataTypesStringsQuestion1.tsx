@@ -8,7 +8,6 @@ import { STRINGS_QUESTION_1_ANSWERS, STRINGS_QUESTION_1_EXPLANATIONS, STRINGS_QU
 import AnswerBoolean from "../../../../components/answer/AnswerBoolean";
 import DividerJawn from "../../../../components/utility/DividerJawn";
 import AnswerCodeBlock from "../../../../components/answer/AnswerCodeBlock";
-import AnswerTemplateLiteral from "../../../../components/answer/AnswerTemplateLiteral";
 import Modal from "../../../../components/Modal";
 import AnswerText from "../../../../components/answer/AnswerText";
 import AnswerInt from "../../../../components/answer/AnswerInt";

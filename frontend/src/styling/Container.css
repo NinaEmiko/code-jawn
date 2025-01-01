@@ -167,3 +167,8 @@ input:focus {
   grid-template-columns: repeat(1, 1fr);
   gap: 20px;
 }
+
+.lecture-widget-lesson{
+  color: var(--sub-secondary-jawn);
+  font-weight: bold;
+}

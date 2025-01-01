@@ -1,5 +1,4 @@
-import { FC, useEffect, useState } from "react"
-import { getJavaDataTypesLT } from "../api/api";
+import { FC, useState } from "react"
 import Display from "../components/Display";
 import { LessonsProps } from "../App";
 import DataTypesSubLesson from "../sub-lessons/java/DataTypesSubLesson";
@@ -13,20 +12,6 @@ import ForLoopsSubLesson from "../sub-lessons/java/ForLoopsSubLesson";
 
 const JavaLesson: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRedirectLanguage}) => {
     const [showSection, setShowSection] = useState('Data Types');
-    const [lessonsCompleted, setLessonsCompleted] = useState(0)
-
-    const getJavaDataTypesLTCall = async () => {
-        let completed = 0;
-        const data = await getJavaDataTypesLT(currentUser.id);
-            if (data.stringsLessonIsComplete){
-                completed += 1;
-            };
-            setLessonsCompleted(completed);
-    }
-
-    useEffect(() => {
-        getJavaDataTypesLTCall();
-    })
 
     const handleButtonClick = (lesson: string) => {
         handleRedirectLanguage(lesson);
@@ -62,40 +47,16 @@ const JavaLesson: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRe
                 </div>
                 <div className="right-section">
                     <h2 className="lesson-title">{showSection}</h2>
-                    {showSection === 'Data Types' &&
-                        <DataTypesSubLesson
-                            handleRedirectLesson={handleButtonClick}
-                            currentUser={currentUser}
-                        />
-                    }
 
-                    {showSection === 'Variables' &&
-                        <VariablesSubLesson />
-                    }
+                    {showSection === 'Data Types' && <DataTypesSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
+                    {showSection === 'Variables' && <VariablesSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
+                    {showSection === 'For Loops' && <ForLoopsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
+                    {showSection === 'Conditionals' && <ConditionalsSubLesson /> }
+                    {showSection === 'Arrays' && <ArraysSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
+                    {showSection === 'Collections' && <CollectionsSubLesson /> }
+                    {showSection === 'Methods' && <MethodsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
+                    {showSection === 'Operators' && <OperatorsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
 
-                    {showSection === 'For Loops' &&
-                        <ForLoopsSubLesson />
-                    }
-            
-                    {showSection === 'Conditionals' &&
-                        <ConditionalsSubLesson />
-                    }
-            
-                    {showSection === 'Arrays' &&
-                        <ArraysSubLesson />
-                    }
-
-                    {showSection === 'Collections' &&
-                        <CollectionsSubLesson />
-                    }
-
-                    {showSection === 'Methods' &&
-                        <MethodsSubLesson />
-                    }
-
-                    {showSection === 'Operators' &&
-                        <OperatorsSubLesson />
-                    }
                     <div className="spacer-10" />
                 </div>
             </div>

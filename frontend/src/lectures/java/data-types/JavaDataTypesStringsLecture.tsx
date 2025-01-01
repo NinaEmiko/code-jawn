@@ -11,6 +11,7 @@ import JavaDataTypesStringsQuestion2 from "../../../questions/java/data-types/st
 import JavaDataTypesStringsQuestion3 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion3";
 import JavaDataTypesStringsQuestion4 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion4";
 import JavaDataTypesStringsQuestion5 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion5";
+import { JAVA_NAVIGATION_PATHS } from "../../../helpers/NavigationConstants";
 
 const JavaDataTypesStringsLecture: FC<SubLessonsProps> = ({handleRedirectLesson, currentUser}) => {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -31,7 +32,7 @@ const JavaDataTypesStringsLecture: FC<SubLessonsProps> = ({handleRedirectLesson,
     }
 
     const handleCompleteLesson = () => {
-        handleRedirectLesson("Java Lessons");
+        handleRedirectLesson(JAVA_NAVIGATION_PATHS.DEFAULT);
     }
 
     const updateLessonTracker = async () => {

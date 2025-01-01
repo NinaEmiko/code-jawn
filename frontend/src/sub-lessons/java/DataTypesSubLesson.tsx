@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { getJavaDataTypesLT } from "../../api/api";
 import { SubLessonsProps } from "../../App";
 import LectureWidget from "../../components/LectureWidget";
+import { JAVA_NAVIGATION_PATHS } from "../../helpers/NavigationConstants";
 
 interface DataTypesLT{
     stringsLessonIsComplete: boolean,
@@ -51,19 +52,19 @@ const DataTypesSubLesson: FC<SubLessonsProps> = ({currentUser, handleRedirectLes
     return (
         <div className="lesson-btn-container">
             <LectureWidget 
-                path={"Java Data Types Strings"}
+                path={JAVA_NAVIGATION_PATHS.STRINGS}
                 lesson={"Strings"}
                 isComplete={lessonTracker.stringsLessonIsComplete}
                 handleClickWidget={handleButtonClick}
             />
             <LectureWidget 
-                path={"Java Data Types ints"}
+                path={JAVA_NAVIGATION_PATHS.INTS}
                 lesson={"ints"}
                 isComplete={lessonTracker.intsLessonIsComplete}
                 handleClickWidget={handleButtonClickNull}
             />
             <LectureWidget 
-                path={"Java Data Types booleans"}
+                path={JAVA_NAVIGATION_PATHS.BOOLEANS}
                 lesson={"booleans"}
                 isComplete={lessonTracker.booleansLessonIsComplete}
                 handleClickWidget={handleButtonClickNull}
