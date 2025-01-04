@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import SelectReactLesson from "../lessons/ReactLesson";
-import { LanguageProps } from "../App";
+import { LanguageProps } from "../types/components";
 
 const ReactLanguage: FC<LanguageProps> = ({handleRedirectHome, currentUser}) => {
     const [activeTab, setActiveTab] = useState("React Lessons");

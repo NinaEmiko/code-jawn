@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import '../styling/GlowingButton.css'
 
 interface GlowingButtonProps {
     buttonText: string;

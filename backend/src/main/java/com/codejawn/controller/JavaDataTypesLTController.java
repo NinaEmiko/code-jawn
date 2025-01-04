@@ -35,11 +35,18 @@ public class JavaDataTypesLTController {
     }
 
     @PostMapping("/reset")
-    public ResponseEntity<String> resetJavaDataTylesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside resetJavaDataTylesLT controller method.");
+    public ResponseEntity<String> resetJavaDataTypesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
+        logger.info("Inside resetJavaDataTypesLT controller method.");
         Long userId = updateLTDTO.getUserId();
-        String lesson = updateLTDTO.getLesson();
-        String response = javaDataTypesLTService.resetLT(userId, lesson);
+        String response = javaDataTypesLTService.resetLT(userId);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PostMapping("/complete")
+    public ResponseEntity<String> completeJavaDataTypesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
+        logger.info("Inside completeJavaDataTypesLT controller method.");
+        Long userId = updateLTDTO.getUserId();
+        String response = javaDataTypesLTService.completeLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

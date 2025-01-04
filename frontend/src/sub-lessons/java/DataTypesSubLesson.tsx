@@ -47,7 +47,7 @@ const DataTypesSubLesson: FC<SubLessonsProps> = ({currentUser, handleRedirectLes
 
     useEffect(() => {
         getJavaDataTypesLTCall();
-    })
+    }, [])
 
     return (
         <div className="lesson-btn-container">

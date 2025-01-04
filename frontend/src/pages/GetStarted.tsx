@@ -1,4 +1,5 @@
 import { FC } from "react";
+import '../styling/GetStarted.css'
 import GlowingButton from "../components/GlowingButton";
 
 interface GetStartedProps {

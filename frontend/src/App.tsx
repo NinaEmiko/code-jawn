@@ -14,9 +14,6 @@ import "./styling/Question.css"
 import "./styling/Profile.css"
 import "./styling/Button.css"
 import "./styling/Spacer.css"
-import "./styling/GetStarted.css"
-import './styling/GlowingButton.css';
-import './styling/Header.css';
 import './styling/Modal.css';
 import JavaSections from "./languages/JavaLanguage";
 import SelectLanguage from "./pages/SelectLanguage";

@@ -48,6 +48,7 @@ public class SecurityConfig {
                                         "/api/java/datatypes/lessons/update",
                                         "/api/java/datatypes/lessons/get/{id}",
                                         "/api/java/datatypes/lessons/reset",
+                                        "/api/java/datatypes/lessons/complete",
                                         "/api/auth/delete/{id}",
                                         "/api/auth/update-password",
                                         "/api/auth/update-email",

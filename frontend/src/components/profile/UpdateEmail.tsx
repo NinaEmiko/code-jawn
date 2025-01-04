@@ -2,7 +2,7 @@ import { ChangeEvent, FC, FormEvent, useRef, useState } from "react"
 import { updateUserEmail } from "../../api/api";
 import Cookies from "js-cookie";
 import JustText from "../utility/JustText";
-import { User } from "../../App";
+import { User } from "../../types/components";
 
 interface UpdateEmailProps{
     handleUpdateEmail: (newEmail: string) => void,

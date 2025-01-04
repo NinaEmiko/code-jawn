@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import logo from "../assets/lola-icon.jpg"
+import '../styling/Header.css'
 
 interface HeaderProps{
   handleClickProfile: ()=> void,

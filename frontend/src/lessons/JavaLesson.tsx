@@ -16,7 +16,7 @@ const lessons = [
     "For Loops",
     "Conditionals",
     "Arrays",
-    "Collections",
+    // "Collections",
     "Methods",
     "Operators"
 ]

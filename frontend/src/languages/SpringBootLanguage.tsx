@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import SelectSpringBootLesson from "../lessons/SpringBootLesson";
-import { LanguageProps } from "../App";
+import { LanguageProps } from "../types/components";
 
 const SpringBootLanguage: FC<LanguageProps> = ({handleRedirectHome, currentUser}) => {
     const [activeTab, setActiveTab] = useState("SpringBoot Lessons");
