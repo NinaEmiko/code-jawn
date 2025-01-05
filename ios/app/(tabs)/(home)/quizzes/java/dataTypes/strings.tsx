@@ -20,6 +20,7 @@ const JavaDataTypesStringsQuiz: FC<JavaDataTypesStringsQuizProps> = ({ handleUpd
     const { currentUser } = useUser();
     const [questionNumber, setQuestionNumber] = useState<number>(0);
     const [progress, setProgress] = useState<number>(0);
+    const [previousProgress, setPreviousProgress] = useState<number>(0);
     const [modalVisible, setModalVisible] = useState<boolean>(false);
     const [modalText, setModalText] = useState<string>("");
     const [answerIsCorrect, setAnswerIsCorrect] = useState<boolean>(false);
@@ -37,6 +38,7 @@ const JavaDataTypesStringsQuiz: FC<JavaDataTypesStringsQuizProps> = ({ handleUpd
     const handleModalClose = () => {
         if (answerIsCorrect) {
             setQuestionNumber(questionNumber + 1)
+            setPreviousProgress(progress);
             setProgress(progress + 20);
             setAnswerIsCorrect(false);
         }
@@ -55,7 +57,7 @@ const JavaDataTypesStringsQuiz: FC<JavaDataTypesStringsQuizProps> = ({ handleUpd
             <View style={styles.headerReplacement} />
             <View style={styles.lessonContainer}>
                 <View style={styles.banner}>
-                    <ProgressCircle props={{percentage:progress, style: {width: 80, height: 80} }} />
+                    <ProgressCircle props={{percentage:progress, previousPercentage:previousProgress, style: {width: 80, height: 80} }} />
                 </View>
                 <View style={styles.lessonCard}>
                     <ImageBackground 

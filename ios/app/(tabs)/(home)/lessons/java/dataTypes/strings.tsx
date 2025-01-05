@@ -32,7 +32,7 @@ const JavaDataTypesStringsLesson: FC<JavaDataTypesStringsLessonProps> = ({ handl
             <View style={styles.headerReplacement} />
             <View style={styles.lessonContainer}>
                 <View style={styles.banner}>
-                    <ProgressCircle props={{percentage:0, style: {width: 80, height: 80} }} />
+                    <ProgressCircle props={{percentage:0, previousPercentage:0, style: {width: 80, height: 80} }} />
                 </View>
                 <View style={styles.lessonCard}>
                     <ImageBackground 

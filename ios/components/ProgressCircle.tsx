@@ -6,12 +6,12 @@ import Svg, { Circle, Text as SvgText } from 'react-native-svg';
 const ProgressCircle = ({ props }: { props: any }) => {
     const radius = props.size || 60;
     const circumference = 2 * Math.PI * radius;
-    const [currentPercentage, setCurrentPercentage] = useState<number>(0);
+    const [currentPercentage, setCurrentPercentage] = useState<number>(props.previousPercentage);
     const strokeDashoffset = circumference - (currentPercentage / 100) * circumference;
     const rotation = -90;
 
     useEffect(() => {
-        setCurrentPercentage(0);
+        setCurrentPercentage(props.previousPercentage);
 
         const intervalId = setInterval(() => {
           setCurrentPercentage((prev) => {

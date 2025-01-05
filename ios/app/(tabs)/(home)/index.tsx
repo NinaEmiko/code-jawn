@@ -87,7 +87,7 @@ export default function HomeScreen() {
             </ScrollView>
 
             <View style={styles.progress}>
-                <ProgressCircle props={{percentage:activeProgress, style:{width: 200, height: 200}}} />
+                <ProgressCircle props={{percentage:activeProgress, previousPercentage:0, style:{width: 200, height: 200}}} />
             </View> 
 
             <View style={styles.card}>
