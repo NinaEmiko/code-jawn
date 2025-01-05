@@ -1,58 +1,42 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import { SubLessonsProps } from "../../types/components"
 import LectureWidget from "../../components/LectureWidget"
 
-interface VariablesLT{
-    initializingVariablesLessonIsComplete: boolean,
-    namingVariablesLessonIsComplete: boolean,
-    assigningValuesLessonIsComplete: boolean,
-    updatingValuesLessonIsComplete: boolean,
-    constantsLessonIsComplete: boolean,
-}
-
-const DefaultVariablesLT = {
-    initializingVariablesLessonIsComplete: false,
-    namingVariablesLessonIsComplete: false,
-    assigningValuesLessonIsComplete: false,
-    updatingValuesLessonIsComplete: false,
-    constantsLessonIsComplete: false,
-}
-
-const VariablesSubLesson: FC<SubLessonsProps> = () => {
-    const [lessonTracker, setLessonTracker] = useState<VariablesLT>(DefaultVariablesLT)
+const VariablesSubLesson: FC<SubLessonsProps> = ({lessonTracker}) => {
 
     const handleButtonClickNull = (lesson: string) => {
     }
-    
+
     return (
+        
         <div className="lesson-btn-container">
             <LectureWidget 
                 path={""}
-                lesson={"Initializing Arrays"}
+                lesson={"Initializing Variables"}
                 isComplete={lessonTracker.initializingVariablesLessonIsComplete}
                 handleClickWidget={handleButtonClickNull}
             />
             <LectureWidget 
                 path={""}
-                lesson={"Assigning Values"}
+                lesson={"Naming Variables"}
                 isComplete={lessonTracker.namingVariablesLessonIsComplete}
                 handleClickWidget={handleButtonClickNull}
             />
             <LectureWidget 
                 path={""}
-                lesson={"Array Indexes"}
+                lesson={"Assigning Values"}
                 isComplete={lessonTracker.assigningValuesLessonIsComplete}
                 handleClickWidget={handleButtonClickNull}
             />
             <LectureWidget 
-                path={"Java Data Types Longs"}
+                path={""}
                 lesson={"Updating Values"}
                 isComplete={lessonTracker.updatingValuesLessonIsComplete}
                 handleClickWidget={handleButtonClickNull}
             />
             <LectureWidget 
-                path={"Java Data Types floats"}
-                lesson={"Length Method"}
+                path={""}
+                lesson={"Constants"}
                 isComplete={lessonTracker.constantsLessonIsComplete}
                 handleClickWidget={handleButtonClickNull}
             />

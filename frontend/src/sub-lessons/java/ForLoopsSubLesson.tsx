@@ -1,31 +1,8 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import { SubLessonsProps } from "../../types/components"
 import LectureWidget from "../../components/LectureWidget"
 
-interface ForLoopsLT{
-    forLoopsSyntaxLessonIsComplete: boolean,
-    forLoopsConditionLessonIsComplete: boolean,
-    forLoopsIncrementDecrementLessonIsComplete: boolean,
-    nestedForLoopsLessonIsComplete: boolean,
-    whileLoopsSyntaxLessonIsComplete: boolean,
-    whileLoopsConditionLessonIsComplete: boolean,
-    doWhileLoopsSyntaxLessonIsComplete: boolean,
-    forEachSyntaxLessonIsComplete: boolean,
-}
-
-const DefaultForLoopsLT = {
-    forLoopsSyntaxLessonIsComplete: false,
-    forLoopsConditionLessonIsComplete: false,
-    forLoopsIncrementDecrementLessonIsComplete: false,
-    nestedForLoopsLessonIsComplete: false,
-    whileLoopsSyntaxLessonIsComplete: false,
-    whileLoopsConditionLessonIsComplete: false,
-    doWhileLoopsSyntaxLessonIsComplete: false,
-    forEachSyntaxLessonIsComplete: false,
-}
-
-const ForLoopsSubLesson: FC<SubLessonsProps> = () => {
-    const [lessonTracker, setLessonTracker] = useState<ForLoopsLT>(DefaultForLoopsLT)
+const ForLoopsSubLesson: FC<SubLessonsProps> = ({lessonTracker}) => {
 
     const handleButtonClickNull = (lesson: string) => {
     }

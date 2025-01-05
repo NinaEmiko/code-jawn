@@ -1,29 +1,8 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import { SubLessonsProps } from "../../types/components"
 import LectureWidget from "../../components/LectureWidget"
 
-interface MethodsLT{
-    methodSignaturesLessonIsComplete: boolean,
-    returnTypesLessonIsComplete: boolean,
-    parametersLessonIsComplete: boolean,
-    returnStatementIsComplete: boolean,
-    scopeLessonIsComplete: boolean,
-    namingMethodsLessonIsComplete: boolean,
-    overLoadingLessonIsComplete: boolean,
-}
-
-const DefaultMethodsLT = {
-    methodSignaturesLessonIsComplete: false,
-    returnTypesLessonIsComplete: false,
-    parametersLessonIsComplete: false,
-    returnStatementIsComplete: false,
-    scopeLessonIsComplete: false,
-    namingMethodsLessonIsComplete: false,
-    overLoadingLessonIsComplete: false,
-}
-
-const MethodsSubLesson: FC<SubLessonsProps> = () => {
-    const [lessonTracker, setLessonTracker] = useState<MethodsLT>(DefaultMethodsLT)
+const MethodsSubLesson: FC<SubLessonsProps> = ({lessonTracker}) => {
 
     const handleButtonClickNull = (lesson: string) => {
     }

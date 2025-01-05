@@ -1,42 +1,9 @@
-import { FC, useEffect, useState } from "react";
-import { getJavaDataTypesLT } from "../../api/api";
+import { FC } from "react";
 import { SubLessonsProps } from "../../types/components";
 import LectureWidget from "../../components/LectureWidget";
 import { JAVA_NAVIGATION_PATHS } from "../../helpers/NavigationConstants";
 
-interface DataTypesLT{
-    stringsLessonIsComplete: boolean,
-    intsLessonIsComplete: boolean,
-    booleansLessonIsComplete: boolean,
-    longsLessonIsComplete: boolean,
-    floatsLessonIsComplete: boolean,
-    doublesLessonIsComplete: boolean,
-    shortsLessonIsComplete: boolean,
-    bytesLessonIsComplete: boolean,
-    charsLessonIsComplete: boolean,
-    commentsLessonIsComplete: boolean,
-}
-
-const DefaultDataTypesLT = {
-    stringsLessonIsComplete: false,
-    intsLessonIsComplete: false,
-    booleansLessonIsComplete: false,
-    longsLessonIsComplete: false,
-    floatsLessonIsComplete: false,
-    doublesLessonIsComplete: false,
-    shortsLessonIsComplete: false,
-    bytesLessonIsComplete: false,
-    charsLessonIsComplete: false,
-    commentsLessonIsComplete: false,
-}
-
-const DataTypesSubLesson: FC<SubLessonsProps> = ({currentUser, handleRedirectLesson}) => {
-    const [lessonTracker, setLessonTracker] = useState<DataTypesLT>(DefaultDataTypesLT)
-
-    const getJavaDataTypesLTCall = async () => {
-        const data = await getJavaDataTypesLT(currentUser.id);
-            setLessonTracker(data);
-    }
+const DataTypesSubLesson: FC<SubLessonsProps> = ({handleRedirectLesson, lessonTracker}) => {
 
     const handleButtonClick = (lesson: string) => {
         handleRedirectLesson(lesson);
@@ -44,10 +11,6 @@ const DataTypesSubLesson: FC<SubLessonsProps> = ({currentUser, handleRedirectLes
 
     const handleButtonClickNull = (lesson: string) => {
     }
-
-    useEffect(() => {
-        getJavaDataTypesLTCall();
-    }, [])
 
     return (
         <div className="lesson-btn-container">

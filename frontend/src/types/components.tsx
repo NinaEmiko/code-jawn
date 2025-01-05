@@ -19,6 +19,7 @@ export interface User{
   export interface SubLessonsProps{
     handleRedirectLesson:(component: string)=>void,
     currentUser:User,
+    lessonTracker:any
   }
   
   export interface LectureProps{

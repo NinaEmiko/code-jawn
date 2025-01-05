@@ -1,49 +1,8 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import { SubLessonsProps } from "../../types/components"
 import LectureWidget from "../../components/LectureWidget"
 
-interface OperatorsLT{
-    andLessonIsComplete: boolean,
-    orLessonIsComplete: boolean,
-    notLessonIsComplete: boolean,
-    plusLessonIsComplete: boolean,
-    minusLessonIsComplete: boolean,
-    divideLessonIsComplete: boolean,
-    multiplyLessonIsComplete: boolean,
-    modulusLessonIsComplete: boolean,
-    incrementLessonIsComplete: boolean,
-    decrementessonIsComplete: boolean,
-    lessThanLessonIsComplete: boolean,
-    greaterThanLessonIsComplete: boolean,
-    doubleEqualsLessonIsComplete: boolean,
-    lessThanEqualToLessonIsComplete: boolean,
-    greaterThanEqualToLessonIsComplete: boolean,
-    notEqualLessonIsComplete: boolean,
-    equalsLessonIsComplete: boolean,
-}
-
-const DefaultOperatorsLT = {
-    andLessonIsComplete: false,
-    orLessonIsComplete: false,
-    notLessonIsComplete: false,
-    plusLessonIsComplete: false,
-    minusLessonIsComplete: false,
-    divideLessonIsComplete: false,
-    multiplyLessonIsComplete: false,
-    modulusLessonIsComplete: false,
-    incrementLessonIsComplete: false,
-    decrementessonIsComplete: false,
-    lessThanLessonIsComplete: false,
-    greaterThanLessonIsComplete: false,
-    doubleEqualsLessonIsComplete: false,
-    lessThanEqualToLessonIsComplete: false,
-    greaterThanEqualToLessonIsComplete: false,
-    notEqualLessonIsComplete: false,
-    equalsLessonIsComplete: false,
-}
-
-const OperatorsSubLesson: FC<SubLessonsProps> = () => {
-    const [lessonTracker, setLessonTracker] = useState<OperatorsLT>(DefaultOperatorsLT)
+const OperatorsSubLesson: FC<SubLessonsProps> = ({lessonTracker}) => {
 
     const handleButtonClickNull = (lesson: string) => {
     }

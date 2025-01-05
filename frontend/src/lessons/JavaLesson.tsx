@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import Display from "../components/Display";
 import { LessonsProps } from "../types/components";
 import DataTypesSubLesson from "../sub-lessons/java/DataTypesSubLesson";
@@ -9,6 +9,8 @@ import ArraysSubLesson from "../sub-lessons/java/ArraysSubLesson";
 import ConditionalsSubLesson from "../sub-lessons/java/ConditionalsSubLesson";
 import VariablesSubLesson from "../sub-lessons/java/VariablesSubLesson";
 import ForLoopsSubLesson from "../sub-lessons/java/ForLoopsSubLesson";
+import { getJavaLT } from "../api/api";
+import { getDefaultJavaLT, javaLT } from "../types/java/JavaLT";
 
 const lessons = [
     "Data Types",
@@ -23,6 +25,9 @@ const lessons = [
 
 const JavaLesson: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRedirectLanguage}) => {
     const [showSection, setShowSection] = useState('Data Types');
+    const [lessonTracker, setLessonTracker] = useState<javaLT>(getDefaultJavaLT);
+    const [lessonTrackerSet, setLessonTrackerSet] = useState<boolean>(false);
+
 
     const handleButtonClick = (lesson: string) => {
         handleRedirectLanguage(lesson);
@@ -35,6 +40,16 @@ const JavaLesson: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRe
     const handleShowSection = (section: string) => {
         setShowSection(section);
     }
+
+    const getJavaLTCall = async () => {
+        const data = await getJavaLT(currentUser.id)
+        setLessonTracker(data.javaLT)
+        setLessonTrackerSet(true)
+    }
+
+    useEffect(() => {
+        getJavaLTCall()
+    },[])
 
   return (
     <>
@@ -51,20 +66,22 @@ const JavaLesson: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRe
                         ))}
                     </ul>
                 </div>
+                {lessonTrackerSet &&
                 <div className="right-section">
                     <h2 className="lesson-title">{showSection}</h2>
 
-                    {showSection === 'Data Types' && <DataTypesSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
-                    {showSection === 'Variables' && <VariablesSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
-                    {showSection === 'For Loops' && <ForLoopsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
-                    {showSection === 'Conditionals' && <ConditionalsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
-                    {showSection === 'Arrays' && <ArraysSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
+                    {showSection === 'Data Types' && <DataTypesSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} lessonTracker={lessonTracker?.javaDataTypesLT} /> }
+                    {showSection === 'Variables' && <VariablesSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} lessonTracker={lessonTracker?.javaVariablesLT} /> }
+                    {showSection === 'For Loops' && <ForLoopsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} lessonTracker={lessonTracker?.javaForLoopsLT} /> }
+                    {showSection === 'Conditionals' && <ConditionalsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} lessonTracker={lessonTracker?.javaConditionalsLT} /> }
+                    {showSection === 'Arrays' && <ArraysSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} lessonTracker={lessonTracker?.javaArraysLT} /> }
                     {showSection === 'Collections' && <CollectionsSubLesson /> }
-                    {showSection === 'Methods' && <MethodsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
-                    {showSection === 'Operators' && <OperatorsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} /> }
+                    {showSection === 'Methods' && <MethodsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} lessonTracker={lessonTracker?.javaMethodsLT} /> }
+                    {showSection === 'Operators' && <OperatorsSubLesson handleRedirectLesson={handleButtonClick} currentUser={currentUser} lessonTracker={lessonTracker?.javaOperatorsLT} /> }
 
                     <div className="spacer-10" />
                 </div>
+                }
             </div>
         </Display>
     </>

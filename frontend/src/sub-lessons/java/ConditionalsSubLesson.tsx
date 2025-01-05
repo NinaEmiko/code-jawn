@@ -1,39 +1,8 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import LectureWidget from "../../components/LectureWidget"
 import { SubLessonsProps } from "../../types/components"
 
-interface ConditionalsLT{
-    ifLessonIsComplete: boolean,
-    elseLessonIsComplete: boolean,
-    elseifLessonIsComplete: boolean,
-    multipleIfsLessonIsComplete: boolean,
-    multipleElseifsLessonIsComplete: boolean,
-    ifElseNestingLessonIsComplete: boolean,
-    ternaryLessonIsComplete: boolean,
-    switchSyntaxLessonIsComplete: boolean,
-    switchExpressionsLessonIsComplete: boolean,
-    switchCasesLessonIsComplete: boolean,
-    breakStatementLessonIsComplete: boolean,
-    continueStatementLessonIsComplete: boolean,
-}
-
-const DefaultConditionalsLT = {
-    ifLessonIsComplete: false,
-    elseLessonIsComplete: false,
-    elseifLessonIsComplete: false,
-    multipleIfsLessonIsComplete: false,
-    multipleElseifsLessonIsComplete: false,
-    ifElseNestingLessonIsComplete: false,
-    ternaryLessonIsComplete: false,
-    switchSyntaxLessonIsComplete: false,
-    switchExpressionsLessonIsComplete: false,
-    switchCasesLessonIsComplete: false,
-    breakStatementLessonIsComplete: false,
-    continueStatementLessonIsComplete: false,
-}
-
-const ConditionalsSubLesson: FC<SubLessonsProps> = () => {
-    const [lessonTracker, setLessonTracker] = useState<ConditionalsLT>(DefaultConditionalsLT)
+const ConditionalsSubLesson: FC<SubLessonsProps> = ({lessonTracker}) => {
 
     const handleButtonClickNull = (lesson: string) => {
     }

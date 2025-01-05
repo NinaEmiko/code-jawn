@@ -38,6 +38,26 @@ export const getJavaDataTypesLT = async (userId: number) => {
     }
 };
 
+export const getJavaLT = async (userId: number) => {
+    try {
+        const response = await axios.get(`${ENDPOINTS.GET_JAVA_LT}/${userId}`);
+        return response.data;
+    } catch (error) {
+      console.error('Error retrieving javaLT:', error);
+      throw error;
+    }
+};
+
+export const getJavaVariablesLT = async (userId: number) => {
+    try {
+        const response = await axios.get(`${ENDPOINTS.GET_JAVA_VARIABLES_LT}/${userId}`);
+        return response.data;
+    } catch (error) {
+      console.error('Error retrieving javaVariablesLT:', error);
+      throw error;
+    }
+};
+
 export const updateJavaDataTypesLT = async (userId: number, lesson: string) => {
     try {
         const response = await axios.put(`${ENDPOINTS.UPDATE_JAVA_DATA_TYPES_LT}`, {

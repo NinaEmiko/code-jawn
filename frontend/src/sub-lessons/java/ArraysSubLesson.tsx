@@ -1,27 +1,8 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import { SubLessonsProps } from "../../types/components"
 import LectureWidget from "../../components/LectureWidget"
 
-interface ArraysLT{
-    initializingArraysLessonIsComplete: boolean,
-    assigningValuesLessonIsComplete: boolean,
-    arrayIndexesLessonIsComplete: boolean,
-    updatingValuesLessonIsComplete: boolean,
-    lengthMethodLessonIsComplete: boolean,
-    loopingThroughAnArrayLessonIsComplete: boolean,
-}
-
-const DefaultArraysLT = {
-    initializingArraysLessonIsComplete: false,
-    assigningValuesLessonIsComplete: false,
-    arrayIndexesLessonIsComplete: false,
-    updatingValuesLessonIsComplete: false,
-    lengthMethodLessonIsComplete: false,
-    loopingThroughAnArrayLessonIsComplete: false,
-}
-
-const ArraysSubLesson: FC<SubLessonsProps> = () => {
-    const [lessonTracker, setLessonTracker] = useState<ArraysLT>(DefaultArraysLT)
+const ArraysSubLesson: FC<SubLessonsProps> = ({lessonTracker}) => {
 
     const handleButtonClickNull = (lesson: string) => {
     }
