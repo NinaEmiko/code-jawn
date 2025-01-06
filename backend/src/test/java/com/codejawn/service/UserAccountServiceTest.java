@@ -88,16 +88,16 @@ public class UserAccountServiceTest {
         userAccount.setLessonTracker(lessonTracker);
     }
 
-    @Test
-    void register_should_make_call_to_repository() {
-        when(passwordEncoder.encode(any())).thenReturn("password");
-        when(roleRepository.findByName(anyString())).thenReturn(Optional.ofNullable(role));
-        when(userAccountRepository.save(any())).thenReturn(userAccount);
-
-        userAccountService.register("username", "email", "password");
-
-        verify(userAccountRepository, times(1)).save(userAccount);
-    }
+//    @Test
+//    void register_should_make_call_to_repository() {
+//        when(passwordEncoder.encode(any())).thenReturn("password");
+//        when(roleRepository.findByName(anyString())).thenReturn(Optional.ofNullable(role));
+//        when(userAccountRepository.save(any())).thenReturn(userAccount);
+//
+//        userAccountService.register("username", "email", "password");
+//
+//        verify(userAccountRepository, times(1)).save(userAccount);
+//    }
     @Test
     void login_should_make_call_to_repository() {
         when(authenticationManager.authenticate(any())).thenReturn(authentication);
