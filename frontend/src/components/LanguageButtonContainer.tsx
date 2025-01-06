@@ -6,6 +6,7 @@ import ReactIcon from "../assets/react-icon.png"
 import EmojiGenerator from './utility/EmojiGenerator';
 import DividerJawn from './utility/DividerJawn';
 import { FC } from 'react'
+import ProgressCircle from './ProgressCircle'
 
 interface LanguageButtonContainerProps{
     handleButtonClick: (language: string)=>void,
@@ -14,6 +15,7 @@ interface LanguageButtonContainerProps{
     lessonsCompleted: number,
     totalLessons: number,
     description: string,
+    progress: number
 }
 
 const LanguageButtonContainer: FC<LanguageButtonContainerProps> = ({
@@ -22,7 +24,9 @@ const LanguageButtonContainer: FC<LanguageButtonContainerProps> = ({
     iconAltText,
     lessonsCompleted,
     totalLessons,
-    description}) => {
+    description,
+    progress
+}) => {
 
     const handleButtonClickJawn = (language: string) => {
         handleButtonClick(language);
@@ -57,6 +61,7 @@ const LanguageButtonContainer: FC<LanguageButtonContainerProps> = ({
                         <EmojiGenerator lessonsCompleted={lessonsCompleted} totalLessons={totalLessons} />
                     </div>
                 </div>
+                <ProgressCircle percentage={progress} previousPercentage={0} style={{width: 80, height: 80} } />
             </div>
             <div className="description-container">
                 {description}

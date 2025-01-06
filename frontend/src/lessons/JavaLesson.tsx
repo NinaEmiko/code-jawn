@@ -9,7 +9,7 @@ import ArraysSubLesson from "../sub-lessons/java/ArraysSubLesson";
 import ConditionalsSubLesson from "../sub-lessons/java/ConditionalsSubLesson";
 import VariablesSubLesson from "../sub-lessons/java/VariablesSubLesson";
 import ForLoopsSubLesson from "../sub-lessons/java/ForLoopsSubLesson";
-import { getJavaLT } from "../api/api";
+import { getLT } from "../api/api";
 import { getDefaultJavaLT, javaLT } from "../types/java/JavaLT";
 
 const lessons = [
@@ -41,14 +41,14 @@ const JavaLesson: FC<LessonsProps> = ({currentUser, handleRedirectHome, handleRe
         setShowSection(section);
     }
 
-    const getJavaLTCall = async () => {
-        const data = await getJavaLT(currentUser.id)
+    const getLTCall = async () => {
+        const data = await getLT(currentUser.id)
         setLessonTracker(data.javaLT)
         setLessonTrackerSet(true)
     }
 
     useEffect(() => {
-        getJavaLTCall()
+        getLTCall()
     },[])
 
   return (

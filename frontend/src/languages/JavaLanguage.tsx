@@ -24,6 +24,7 @@ const JavaLanguage: FC<LanguageProps> = ({handleRedirectHome, currentUser}) => {
                   <JavaDataTypesStrings
                         handleRedirectLesson={handleRedirectJavaLessons}
                         currentUser={currentUser}
+                        lessonTracker={null}
                     />
               }
         </>

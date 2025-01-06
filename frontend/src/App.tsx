@@ -132,6 +132,7 @@ function App() {
           {activeTab === "Select a Language" &&
             <SelectLanguage
               handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
             />
           }
           {activeTab === "Java" &&

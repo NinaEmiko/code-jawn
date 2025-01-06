@@ -38,9 +38,9 @@ export const getJavaDataTypesLT = async (userId: number) => {
     }
 };
 
-export const getJavaLT = async (userId: number) => {
+export const getLT = async (userId: number) => {
     try {
-        const response = await axios.get(`${ENDPOINTS.GET_JAVA_LT}/${userId}`);
+        const response = await axios.get(`${ENDPOINTS.GET_LT}/${userId}`);
         return response.data;
     } catch (error) {
       console.error('Error retrieving javaLT:', error);
