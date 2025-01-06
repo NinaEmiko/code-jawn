@@ -62,3 +62,33 @@
     font-size: var(--header-text);
     text-align: left;
 }
+
+@media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .left-section {
+      width: 100%; 
+      border-right: none;
+    }
+  
+    .left-section button {
+      font-size: 16px;
+      padding: 12px;
+    }
+  
+    .right-section {
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 15px;
+    }
+  
+    .right-section h1 {
+      font-size: 20px;
+    }
+
+    .lesson-btn-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }

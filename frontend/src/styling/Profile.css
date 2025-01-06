@@ -17,6 +17,16 @@
     color: var(--sub-secondary-jawn)
 }
 
+@media (max-width: 600px) {
+    .terms-title{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .terms-sub-title{
+        font-size: 25px;
+    }
+  }
+
 .terms-sub-title{
     font-size: var(--text);
     padding-bottom: 2%;
