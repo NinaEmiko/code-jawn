@@ -172,3 +172,8 @@ input:focus {
   color: var(--sub-secondary-jawn);
   font-weight: bold;
 }
+
+.progress-circle-container{
+  float: right;
+  margin-right: 25px;
+}

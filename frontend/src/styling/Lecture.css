@@ -56,7 +56,10 @@
     box-sizing: border-box;
     flex: 0 0 calc(100%);
     width: calc(100% + 5%);
-    padding: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+    padding-top: 1%;
     overflow-x: hidden;
 }
 

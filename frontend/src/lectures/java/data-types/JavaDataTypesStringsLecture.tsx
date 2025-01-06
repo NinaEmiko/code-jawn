@@ -12,6 +12,7 @@ import JavaDataTypesStringsQuestion3 from "../../../questions/java/data-types/st
 import JavaDataTypesStringsQuestion4 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion4";
 import JavaDataTypesStringsQuestion5 from "../../../questions/java/data-types/strings/JavaDataTypesStringsQuestion5";
 import { JAVA_NAVIGATION_PATHS } from "../../../helpers/NavigationConstants";
+import ProgressCircle from "../../../components/ProgressCircle";
 
 const JavaDataTypesStringsLecture: FC<SubLessonsProps> = ({handleRedirectLesson, currentUser}) => {
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -21,6 +22,8 @@ const JavaDataTypesStringsLecture: FC<SubLessonsProps> = ({handleRedirectLesson,
     const [restCallSuccessful, setRestCallSuccessful] = useState(false);
     const [buttonText, setButtonText] = useState('Next');
     const [activeLecture, setActiveLecture] = useState(0)
+    const [progress, setProgress] = useState<number>(0);
+    const [previousProgress, setPreviousProgress] = useState<number>(0);
 
     const handleClickButton = () =>{
         if (activeLecture === 0) {
@@ -52,16 +55,21 @@ const JavaDataTypesStringsLecture: FC<SubLessonsProps> = ({handleRedirectLesson,
             if (questionsAnswered === 4){
                 updateLessonTracker()
             }
+            setPreviousProgress(progress);
+            setProgress(progress + 20);
+            setQuestionsAnswered(questionsAnswered + 1);
         } else {
             setIncorrectAnswers(incorrectAnswers + 1);
         }
-        setQuestionsAnswered(questionsAnswered + 1);
     }
 
   return (
     <>
         <Display>
-            <div className="spacer-15" />
+            <div className="spacer-10" />
+            <div className="progress-circle-container">
+                <ProgressCircle percentage={progress} previousPercentage={previousProgress} style={{width: 80, height: 80} } />
+            </div>
             {lecturesCompleted === false &&
                 <>
                     <div className="lecture-container2">
