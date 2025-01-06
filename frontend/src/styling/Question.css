@@ -1,11 +1,16 @@
 .question-text{
-    color: var(--off-white-jawn);
+    /* color: var(--off-white-jawn);
     font-size: var(--text);
     height: 15%;
     padding-bottom: 15px;
     padding-top: 5%;
     padding-left: 5%;
-    padding-right: 5%;
+    padding-right: 5%; */
+    margin-bottom: 6%;
+    color: var(--off-white-jawn);
+    font-size: var(--sub-text);
+    text-align: center;
+    height: 30%;
 }
 
 .lesson-congratulations{
@@ -19,11 +24,21 @@
 }
 
 .question-jawn{
-    display: flex;
+    /* display: flex;
     height: 10%;
     align-items: center;
     justify-content: center;
-    text-align: left;
+    text-align: left; */
+    height: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex: 0 0 calc(100%);
+    width: calc(100% + 5%);
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+    padding-top: 1%;
+    overflow-x: hidden;
 }
 
 /* DIVIDER */
@@ -35,19 +50,6 @@
 
 .divider{
     border-bottom: solid 2px var(--off-white-jawn);
-    width: 95%;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.top-divider-container{
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.top-divider{
-    border-bottom: solid 2px black;
     width: 95%;
     text-align: center;
     margin: 0 auto;
@@ -88,11 +90,9 @@
     border-radius: 10px;
     overflow: hidden;
     height: 20px;
-    /* position: relative; */
     border: solid black;
     bottom: 0;
     position: absolute;
-    /* z-index: 2; */
     margin-bottom: 5%;
     width: 90%;
 }

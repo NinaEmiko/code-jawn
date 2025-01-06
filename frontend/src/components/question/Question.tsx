@@ -1,9 +1,15 @@
-const Question = ({props}:{props:any}) => {
+import { FC } from "react";
+
+interface QuestionProps{
+    text: string
+}
+
+const Question: FC<QuestionProps> = ({text}) => {
 
     return (
         <div className="question-jawn">
             <div className="question-text">
-                {props.text}
+                {text}
             </div>
         </div>
     )

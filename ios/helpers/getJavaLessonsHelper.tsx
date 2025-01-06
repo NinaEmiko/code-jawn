@@ -1,0 +1,85 @@
+import { LessonTracker } from "@/types/LessonTracker"
+
+export const getJavaLessons = (lessonTracker: LessonTracker) => {
+    return {
+      "Data Types": [
+        {"ints": [lessonTracker.javaLT.javaDataTypesLT.intsLessonIsComplete, "Ints Lesson"]},
+        {"Strings": [lessonTracker.javaLT.javaDataTypesLT.stringsLessonIsComplete, "Strings Lesson"]},
+        {"booleans": [lessonTracker.javaLT.javaDataTypesLT.booleansLessonIsComplete, "Strings Lesson"]},
+        {"Longs": [lessonTracker.javaLT.javaDataTypesLT.longsLessonIsComplete, "Strings Lesson"]},
+        {"floats": [lessonTracker.javaLT.javaDataTypesLT.floatsLessonIsComplete, "Strings Lesson"]},
+        {"doubles": [lessonTracker.javaLT.javaDataTypesLT.doublesLessonIsComplete, "Strings Lesson"]},
+        {"shorts": [lessonTracker.javaLT.javaDataTypesLT.shortsLessonIsComplete, "Strings Lesson"]},
+        {"bytes": [lessonTracker.javaLT.javaDataTypesLT.bytesLessonIsComplete, "Strings Lesson"]},
+        {"chars": [lessonTracker.javaLT.javaDataTypesLT.charsLessonIsComplete, "Strings Lesson"]},
+        {"Comments": [lessonTracker.javaLT.javaDataTypesLT.commentsLessonIsComplete, "Strings Lesson"]}
+      ],
+      "Variables": [
+        {"Initializing Variables": [lessonTracker.javaLT.javaVariablesLT.initializingVariablesLessonIsComplete, "Strings Lesson"]},
+        {"Naming Variables": [lessonTracker.javaLT.javaVariablesLT.namingVariablesLessonIsComplete, "Strings Lesson"]},
+        {"Assigning Values": [lessonTracker.javaLT.javaVariablesLT.assigningValuesLessonIsComplete, "Strings Lesson"]},
+        {"Updating Values": [lessonTracker.javaLT.javaVariablesLT.updatingValuesLessonIsComplete, "Strings Lesson"]},
+        {"Constants": [lessonTracker.javaLT.javaVariablesLT.constantsLessonIsComplete, "Strings Lesson"]}
+      ],
+      "For Loops": [
+        {"For Loops Syntax": [lessonTracker.javaLT.javaForLoopsLT.forLoopsSyntaxLessonIsComplete, "Strings Lesson"]},
+        {"For Loops Condition": [lessonTracker.javaLT.javaForLoopsLT.forLoopsConditionLessonIsComplete, "Strings Lesson"]},
+        {"Increment/Decrement": [lessonTracker.javaLT.javaForLoopsLT.forLoopsIncrementDecrementLessonIsComplete, "Strings Lesson"]},
+        {"Nested For Loops": [lessonTracker.javaLT.javaForLoopsLT.nestedForLoopsLessonIsComplete, "Strings Lesson"]},
+        {"While Loops Syntax": [lessonTracker.javaLT.javaForLoopsLT.whileLoopsSyntaxLessonIsComplete, "Strings Lesson"]},
+        {"While Loops Condition": [lessonTracker.javaLT.javaForLoopsLT.whileLoopsConditionLessonIsComplete, "Strings Lesson"]},
+        {"For Each Syntax": [lessonTracker.javaLT.javaForLoopsLT.forEachSyntaxLessonIsComplete, "Strings Lesson"]},
+      ],
+      "Conditionals": [
+        {"If": [lessonTracker.javaLT.javaConditionalsLT.ifLessonIsComplete, "Strings Lesson"]},
+        {"Else": [lessonTracker.javaLT.javaConditionalsLT.elseLessonIsComplete, "Strings Lesson"]},
+        {"Elseif": [lessonTracker.javaLT.javaConditionalsLT.elseifLessonIsComplete, "Strings Lesson"]},
+        {"Multiple Ifs": [lessonTracker.javaLT.javaConditionalsLT.multipleIfsLessonIsComplete, "Strings Lesson"]},
+        {"Multiple Elseifs": [lessonTracker.javaLT.javaConditionalsLT.multipleElseifsLessonIsComplete, "Strings Lesson"]},
+        {"If/Else Nesting": [lessonTracker.javaLT.javaConditionalsLT.ifElseNestingLessonIsComplete, "Strings Lesson"]},
+        {"Ternary": [lessonTracker.javaLT.javaConditionalsLT.ternaryLessonIsComplete, "Strings Lesson"]},
+        {"Switch Syntax": [lessonTracker.javaLT.javaConditionalsLT.switchSyntaxLessonIsComplete, "Strings Lesson"]},
+        {"Switch Expressions": [lessonTracker.javaLT.javaConditionalsLT.switchExpressionsLessonIsComplete, "Strings Lesson"]},
+        {"Switch Cases": [lessonTracker.javaLT.javaConditionalsLT.switchCasesLessonIsComplete, "Strings Lesson"]},
+        {"Break Statement": [lessonTracker.javaLT.javaConditionalsLT.breakStatementLessonIsComplete, "Strings Lesson"]},
+        {"Continue Statement": [lessonTracker.javaLT.javaConditionalsLT.continueStatementLessonIsComplete, "Strings Lesson"]},
+      ],
+      "Arrays":[
+        {"Initializing Arrays": [lessonTracker.javaLT.javaArraysLT.initializingArraysLessonIsComplete, "Strings Lesson"]},
+        {"Assigning Values": [lessonTracker.javaLT.javaArraysLT.assigningValuesLessonIsComplete, "Strings Lesson"]},
+        {"Array Indexes": [lessonTracker.javaLT.javaArraysLT.arrayIndexesLessonIsComplete, "Strings Lesson"]},
+        {"Updating Values": [lessonTracker.javaLT.javaArraysLT.updatingValuesLessonIsComplete, "Strings Lesson"]},
+        {"Length Method": [lessonTracker.javaLT.javaArraysLT.lengthMethodLessonIsComplete, "Strings Lesson"]},
+        {"Looping Through Arrays": [lessonTracker.javaLT.javaArraysLT.loopingThroughArrayLessonIsComplete, "Strings Lesson"]},
+      ],
+      "Collections": [
+      ],
+      "Methods": [
+        {"Method Signatures": [lessonTracker.javaLT.javaMethodsLT.methodSignaturesLessonIsComplete, "Strings Lesson"]},
+        {"Return Types": [lessonTracker.javaLT.javaMethodsLT.returnTypesLessonIsComplete, "Strings Lesson"]},
+        {"Parameters": [lessonTracker.javaLT.javaMethodsLT.parametersLessonIsComplete, "Strings Lesson"]},
+        {"Scope": [lessonTracker.javaLT.javaMethodsLT.scopeLessonIsComplete, "Strings Lesson"]},
+        {"Naming Methods": [lessonTracker.javaLT.javaMethodsLT.namingMethodsLessonIsComplete, "Strings Lesson"]},
+        {"Overloading": [lessonTracker.javaLT.javaMethodsLT.overloadingLessonIsComplete, "Strings Lesson"]},
+      ],
+      "Operators": [
+        {"&&": [lessonTracker.javaLT.javaOperatorsLT.andLessonIsComplete, "Strings Lesson"]},
+        {"||": [lessonTracker.javaLT.javaOperatorsLT.orLessonIsComplete, "Strings Lesson"]},
+        {"!": [lessonTracker.javaLT.javaOperatorsLT.notLessonIsComplete, "Strings Lesson"]},
+        {"+": [lessonTracker.javaLT.javaOperatorsLT.plusLessonIsComplete, "Strings Lesson"]},
+        {"-": [lessonTracker.javaLT.javaOperatorsLT.minusLessonIsComplete, "Strings Lesson"]},
+        {"/": [lessonTracker.javaLT.javaOperatorsLT.divideLessonIsComplete, "Strings Lesson"]},
+        {"*": [lessonTracker.javaLT.javaOperatorsLT.multiplyLessonIsComplete, "Strings Lesson"]},
+        {"%": [lessonTracker.javaLT.javaOperatorsLT.modulusLessonIsComplete, "Strings Lesson"]},
+        {"++": [lessonTracker.javaLT.javaOperatorsLT.incrementLessonIsComplete, "Strings Lesson"]},
+        {"--": [lessonTracker.javaLT.javaOperatorsLT.decrementLessonIsComplete, "Strings Lesson"]},
+        {"<": [lessonTracker.javaLT.javaOperatorsLT.lessThanLessonIsComplete, "Strings Lesson"]},
+        {">": [lessonTracker.javaLT.javaOperatorsLT.greaterThanLessonIsComplete, "Strings Lesson"]},
+        {"==": [lessonTracker.javaLT.javaOperatorsLT.doubleEqualsLessonIsComplete, "Strings Lesson"]},
+        {"<=": [lessonTracker.javaLT.javaOperatorsLT.lessThanEqualToLessonIsComplete, "Strings Lesson"]},
+        {">=": [lessonTracker.javaLT.javaOperatorsLT.greaterThanEqualToLessonIsComplete, "Strings Lesson"]},
+        {"!=": [lessonTracker.javaLT.javaOperatorsLT.notEqualToLessonIsComplete, "Strings Lesson"]},
+        {"=": [lessonTracker.javaLT.javaOperatorsLT.equalsLessonIsComplete, "Strings Lesson"]},
+      ],
+    }
+  }

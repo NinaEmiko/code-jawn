@@ -8,45 +8,47 @@
 }
 
 .lesson-btn-container{
-    margin: 5px;
-    align-items: center;
-    text-align: center;
-    padding-right: 10px;
-    padding-bottom: 4%;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: start;
+    margin-right: 25px;
 }
 
 .lesson-btn{
     margin: 5px;
-    font-size: var(--text);
-    background-color: var(--accent-jawn);
-    color: black;
-    padding: 5px;
-    width: 100%;
+    font-size: var(--sub-text);
+    background-color: var(--primary-jawn);
+    color: white;
     border: transparent;
-    text-align: right;
-    font-weight: bold;
+    text-align: left;
     box-shadow: 0 0 20px black; 
-    width: 66%;
-    margin-left: 33%;
     border-radius: 15px;
-    padding: 2%;
+    padding: 5%;
+    width: 100%;
+    height: auto;
 }
 
-.lesson-btn-complete{
-    background-color: var(--sub-secondary-jawn);
-    margin: 5px;
-    font-size: var(--text);
-    color: black;
-    padding: 5px;
-    width: 100%;
-    border: transparent;
-    text-align: right;
-    font-weight: bold;
-    box-shadow: 0 0 20px black; 
-    width: 66%;
-    margin-left: 33%;
-    border-radius: 15px;
-    padding: 2%;
+.lesson-jawnski{
+    margin-top: 10px;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.lesson-jawnski:hover{
+    margin-top: 10px;
+    text-decoration: underline;
+    color: var(--sub-secondary-jawn);
+}
+
+.lesson-complete{
+    font-size: 15px;
+    color: green;
+}
+.lesson-incomplete{
+    font-size: 15px;
+    color: white;
 }
 
 .lesson-section-jawn{
@@ -60,3 +62,33 @@
     font-size: var(--header-text);
     text-align: left;
 }
+
+@media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .left-section {
+      width: 100%; 
+      border-right: none;
+    }
+  
+    .left-section button {
+      font-size: 16px;
+      padding: 12px;
+    }
+  
+    .right-section {
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 15px;
+    }
+  
+    .right-section h1 {
+      font-size: 20px;
+    }
+
+    .lesson-btn-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }

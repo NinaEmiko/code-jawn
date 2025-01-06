@@ -1,10 +1,9 @@
 import { TERMS_AND_CONDITIONS } from "../../../helpers/termsAndConditionsConstants";
 
-const TermsAndConditions = ({ props }: { props: any; }) => {
+const TermsAndConditions = () => {
 
     return (
         <div className="update-jawn">
-            {/* <br/> */}
             <div className="terms-section">
                 <div className="terms-title">
                     {TERMS_AND_CONDITIONS.TITLE}
@@ -164,11 +163,6 @@ const TermsAndConditions = ({ props }: { props: any; }) => {
                     {TERMS_AND_CONDITIONS.MISCELLANEOUS_WAIVER}
                 </div>
             </div>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
         </div>
     )
 }

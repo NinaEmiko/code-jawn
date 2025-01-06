@@ -1,5 +1,6 @@
 package com.codejawn.model;
 
+import com.codejawn.model.java.JavaLT;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
 package com.codejawn.repository;
 
-import com.codejawn.model.JavaLT;
+import com.codejawn.model.java.JavaLT;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

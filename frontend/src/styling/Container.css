@@ -7,12 +7,13 @@
   --sub-secondary-jawn: #ff8c34;
   --accent-jawn: #12edd8;
   --string-jawn: #859900;
+  --background-jawn: #1E1E1E;
 
   /* FONT SIZES  */
   --back-arrow-text: 10vw;
-  --header-text: 7vw;
-  --text: 5vw;
-  --sub-text: 4vw;
+  --header-text: 50px;
+  --text: 25px;
+  --sub-text: 15px;
 }
 
 html, body, #root {
@@ -21,7 +22,7 @@ html, body, #root {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--sub-secondary-jawn);
+  background-color: var(--background-jawn);
 }
 body{
   display: flex;
@@ -43,12 +44,13 @@ body{
   max-width: 100%;
   justify-content: center;
   box-sizing: border-box;
-  background-color: var(--sub-secondary-jawn);
+  background-color: var(--background-jawn);
 } 
 
 input{
   text-align: right;
 }
+
 .progress-tracker{
   width: 100%;
   text-align: center;
@@ -62,6 +64,7 @@ input{
   color: var(--sub-secondary-jawn);
   margin-top: 3%;
   margin-bottom: 1%;
+  font-weight: bold;
 }
 
 .text-right{
@@ -86,29 +89,91 @@ input{
 .sub-text{
   float: right;
   margin: 3%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: var(--sub-text);
 }
 
 .sub-text2{
   float: right;
-  margin-bottom: 5%;
   font-size: var(--sub-text);
   color: black;
 }
 
 .sub-text3{
-  font-size: var(--sub-text);
   color: white;
-  padding-left: 3%;
-  padding-top: 2%;
-  padding-left: 5%;
-  padding-right: 5%;
+  font-size: var(--sub-text);
+  margin-left: 40px;
 }
 
 .header-text{
-  font-size: var(--header-text);
+  font-size: var(--text);
   max-width: 100%;
   max-height: 100%;
   color: black;
   font-weight: bold;
+}
+
+.profile-header{
+  font-size: var(--text);
+  color: var(--sub-secondary-jawn);
+  margin-left: 40px;
+}
+
+/*  */
+
+.container {
+  margin-top: 60px;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.left-section {
+  flex: 1;
+  background-color: var(--background-jawn);
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  border-right: 1px solid var(--primary-light-jawn);
+  
+}
+
+.right-section {
+  flex: 5;
+  background-color: var(--background-jawn);
+  box-sizing: border-box;
+  margin-left: 25px;
+}
+
+.lesson-title{
+  font-size: 40px;
+  font-family: Menlo;
+  color: var(--sub-secondary-jawn);
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid var(--sub-secondary-jawn);
+}
+
+.profile-container{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+
+.lecture-widget-lesson{
+  color: var(--sub-secondary-jawn);
+  font-weight: bold;
+}
+
+.progress-circle-container{
+  float: right;
+  margin-right: 25px;
 }

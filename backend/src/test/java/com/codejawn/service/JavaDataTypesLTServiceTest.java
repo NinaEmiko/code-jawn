@@ -1,7 +1,7 @@
 package com.codejawn.service;
 
-import com.codejawn.model.JavaDataTypesLT;
-import com.codejawn.model.JavaLT;
+import com.codejawn.model.java.JavaDataTypesLT;
+import com.codejawn.model.java.JavaLT;
 import com.codejawn.model.LessonTracker;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.JavaDataTypesLTRepository;

@@ -1,7 +1,7 @@
 package com.codejawn.controller;
 
 import com.codejawn.dto.UpdateLTDTO;
-import com.codejawn.model.JavaDataTypesLT;
+import com.codejawn.model.java.JavaDataTypesLT;
 import com.codejawn.service.JavaDataTypesLTService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -34,4 +34,19 @@ public class JavaDataTypesLTController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @PostMapping("/reset")
+    public ResponseEntity<String> resetJavaDataTypesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
+        logger.info("Inside resetJavaDataTypesLT controller method.");
+        Long userId = updateLTDTO.getUserId();
+        String response = javaDataTypesLTService.resetLT(userId);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PostMapping("/complete")
+    public ResponseEntity<String> completeJavaDataTypesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
+        logger.info("Inside completeJavaDataTypesLT controller method.");
+        Long userId = updateLTDTO.getUserId();
+        String response = javaDataTypesLTService.completeLT(userId);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

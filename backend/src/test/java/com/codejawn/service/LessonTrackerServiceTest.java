@@ -1,8 +1,7 @@
 package com.codejawn.service;
 
-import com.codejawn.model.JavaLT;
+import com.codejawn.model.java.JavaLT;
 import com.codejawn.model.LessonTracker;
-import com.codejawn.model.UserAccount;
 import com.codejawn.repository.LessonTrackerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -2,6 +2,8 @@ package com.codejawn.service;
 
 import com.codejawn.dto.AuthResponseDTO;
 import com.codejawn.model.*;
+import com.codejawn.model.java.JavaDataTypesLT;
+import com.codejawn.model.java.JavaLT;
 import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
@@ -14,7 +16,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;

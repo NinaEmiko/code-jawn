@@ -6,6 +6,7 @@
     padding: 20px;
     font-size: var(--sub-text);
     height: 16%;
+    padding-left: 30px;
 }
 
 .answer-text-boolean{
@@ -26,7 +27,8 @@
 
 .answer-jawn{
     padding-bottom: 3%;
-    height: 70%;
+    height: 50%;
+    margin-top: 125px;
 }
 
 .answer-jawn-input{
@@ -36,23 +38,23 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    margin-top: 50px;
+}
+
+.answer-input, .answer-input:focus{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    box-sizing: border-box;
 }
 
 .answer-input{
     width: 90%;
     font-size: var(--header-text);
     background: transparent;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    box-sizing: border-box;
 }
 
 .answer-input:focus{
-    border-left: none;
-    border-right: none;
-    border-top: none;
     outline: none;
     border-color: var(--accent-jawn);
-    box-sizing: border-box;
 }
