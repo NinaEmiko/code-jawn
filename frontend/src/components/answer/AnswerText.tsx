@@ -1,12 +1,19 @@
-const AnswerText = ({props}:{props:any}) => {
+import { FC } from "react";
+
+interface AnswerTextProps{
+    text: string,
+    answerClicked: ()=>void
+}
+
+const AnswerText: FC<AnswerTextProps> = ({text, answerClicked}) => {
     
     const handleAnswerClick = () => {
-        props.answerClicked();
+        answerClicked();
     }
 
     return (
         <div onClick={() => handleAnswerClick()} className="answer-text">
-            {props.text}
+            {text}
         </div>
     )
 }

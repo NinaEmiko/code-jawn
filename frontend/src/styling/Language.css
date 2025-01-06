@@ -3,84 +3,58 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background-color: var(--primary-light-jawn);
-    border-radius: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
     width: 100%;
 }
 
-/* .language-btn-container{
-    height: 100%;
-} */
+.language-btn-container-scroll{
+
+}
 
 .container-for-language-btn,
 .container-for-language-btn2{
     width: 100%;
-    background-color: var(--primary-light-jawn);
-    border-radius: 20px;
     margin-bottom: 5%;
     justify-content: space-between;
-    box-shadow: 0 0 20px black; 
 }
 
-.description-container{
-    padding-left: 15px;
-    padding-right: 15px;
+.description-container, .language-btn-link{
+    padding-left: 50px;
+    padding-right: 50px;
     padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 .language-btn-link{
     text-align: right;
-    padding-left: 15px;
-    padding-right: 15px;
+    text-decoration: underline;
+    color: var(--accent-jawn);
+    font-size: var(--sub-text);
+}
+.language-btn-link2{
+    text-align: left;
     padding-bottom: 15px;
     text-decoration: underline;
     color: var(--accent-jawn);
     font-size: var(--sub-text);
 }
 
-.code-jawn-icon-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.select-language-sub-text{
-    text-align: center;
-    color: var(--off-white-jawn);
-    padding-bottom: 10%;
-    font-size: var(--text);
-}
-
-.language-btn-content {
-    display: flex;
-    align-items: center;
-}
-
 .language-icon {
-    margin-right: 1%;
-    width: 20%;
-    height: 100%;
-    max-width: 20%;
-    max-height: 100%;
-}
-
-.code-jawn-icon {
-    width: 150px;
-    height: 150px;
-    max-width: 150px;
-    max-height: 150px;
+    /* margin-right: 1%; */
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
 }
 
 .center-language-btn{
-    width: 80%;
+    width: 90%;
     text-align: left;
 }
 
 .language-btn {
     flex-grow: 1;
-    font-size: var(--header-text);
+    font-size: var(--text);
     color: var(--sub-secondary-jawn);
     text-align: left;
     width: 100%;
@@ -95,14 +69,6 @@
     height: 33%;
 }
 
-.additional-text {
-    flex-grow: 1;
-    font-size: var(--sub-text);
-    color: var(--accent-jawn);
-    text-align: left;
-    padding-left: 3%;
-    width: 100%;
-}
 
 .expand-icon{
     width: 20%;
@@ -111,9 +77,4 @@
     text-align: center;
     font-size: var(--header-text);
     color: var(--accent-jawn);
-}
-
-.forward-button-icon{
-    height: 50%;
-    width: 50%;
 }

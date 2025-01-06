@@ -1,7 +1,13 @@
+import { FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { solarizedDarkAtom } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-const AnswerCodeBlock = ({props}:{props:any}) => {
+interface AnswerCodeBlockProps{
+    code: string,
+    answerClicked: ()=>void
+}
+
+const AnswerCodeBlock: FC<AnswerCodeBlockProps> = ({code, answerClicked}) => {
 
     const customStyle = {
         ...solarizedDarkAtom,
@@ -18,15 +24,14 @@ const AnswerCodeBlock = ({props}:{props:any}) => {
         },
       };
     
-      const handleAnswerClick = () => {
-        
-        props.answerClicked();
+    const handleAnswerClick = () => {
+        answerClicked();
     }
 
     return (
         <div onClick={() => handleAnswerClick()} className="answer-text">
             <SyntaxHighlighter language={"java"} style={customStyle} >
-                {props.code}
+                {code}
             </SyntaxHighlighter>
         </div>
     )

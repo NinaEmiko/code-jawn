@@ -1,23 +1,31 @@
-import JustText from "../utility/JustText";
+import { FC } from "react";
 import AnswerExplanationHeader from "./AnswerExplanationHeader";
 import Explanation from "./Explanation";
 
-const InputAnswer = ({props}:{props:any}) => {
+interface InputAnswerProps{
+    endQuestion: ()=>void,
+    correct: boolean,
+    explanation: string,
+    type: string,
+    value: string
+}
+
+const InputAnswer: FC<InputAnswerProps> = ({endQuestion, correct, explanation, type, value}) => {
 
     const handleClickContinue = () => {
-        props.endQuestion()
+        endQuestion()
     }
     return (
-        <>
-            <AnswerExplanationHeader props={{correct: props.correct}} />
-            {props.type === "template-literal" &&
+        <div className="input-question-container">
+            <AnswerExplanationHeader correct={correct} />
+            {type === "template-literal" &&
                 <div className="answer-text-template-literal">
-                    {props.value}
+                    {value}
                 </div>
             }
-            <Explanation props={props.explanation} />
-            <button className="input-btn" onClick={() => handleClickContinue()}>Continue</button>
-        </>
+            <Explanation explanation={explanation} />
+            <button className="input-question-btn" onClick={() => handleClickContinue()}>Continue</button>
+        </div>
         
     )
 }

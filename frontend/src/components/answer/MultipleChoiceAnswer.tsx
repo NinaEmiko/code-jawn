@@ -1,49 +1,62 @@
+import { FC } from "react";
 import AnswerCodeBlock from "./AnswerCodeBlock";
 import AnswerExplanationHeader from "./AnswerExplanationHeader";
-import AnswerText from "./AnswerTemplateLiteral";
 import Explanation from "./Explanation";
 
-const MultipleChoiceAnswer = ({props}:{props:any}) => {
+interface MultipleChoiceAnswerProps{
+    answer: string,
+    answerClicked: ()=>void,
+    endQuestion: ()=>void
+    correct: boolean,
+    type: string,
+    explanation: string,
+}
+
+const MultipleChoiceAnswer: FC<MultipleChoiceAnswerProps> = ({answer, answerClicked, endQuestion, correct, type, explanation}) => {
+
+    const handleNull = () => {
+
+    }
 
     const handleAnswerClick = () => {
-        props.answerClicked();
+        answerClicked();
     }
 
     const handleClickContinue = () => {
-        props.endQuestion()
+        endQuestion()
     }
     return (
         <div className="question-explanation-container">
-        <AnswerExplanationHeader props={{correct: props.correct}} />
+        <AnswerExplanationHeader correct={correct} />
         <div className="answer-jawn">
-            {props.type === "text" &&
+            {type === "text" &&
                 <div onClick={() => handleAnswerClick()} className="answer-text">
-                    {props.answer}
+                    {answer}
                 </div>
             }
-            {props.type === "template-literal" &&
+            {type === "template-literal" &&
                 <div onClick={() => handleAnswerClick()} className="answer-text-template-literal">
-                    {props.answer}
+                    {answer}
                 </div>
             }
-            {props.type === "boolean" &&
+            {type === "boolean" &&
                 <div onClick={() => handleAnswerClick()} className="answer-text-boolean">
-                    {props.answer}
+                    {answer}
                 </div>
             }
-            {props.type === "int" &&
+            {type === "int" &&
                 <div onClick={() => handleAnswerClick()} className="answer-text-int">
-                    {props.answer}
+                    {answer}
                 </div>
             }
-            {props.type === "code" &&
-                <AnswerCodeBlock props={{
-                    answerClicked:null,
-                    code: props.answer
-                    }} />
+            {type === "code" &&
+                <AnswerCodeBlock 
+                    answerClicked={handleNull}
+                    code={answer}
+                    />
             }
         </div>
-        <Explanation props={props.explanation} />
+        <Explanation explanation={explanation} />
         <button className="input-btn" onClick={() => handleClickContinue()} >
             Continue
         </button>

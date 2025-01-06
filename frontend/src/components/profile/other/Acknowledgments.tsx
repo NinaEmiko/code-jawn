@@ -1,6 +1,4 @@
-import { TERMS_AND_CONDITIONS } from "../../../helpers/termsAndConditionsConstants";
-
-const Acknowledgments = ({ props }: { props: any; }) => {
+const Acknowledgments = () => {
 
     return (
         <div className="update-jawn">
@@ -17,11 +15,6 @@ const Acknowledgments = ({ props }: { props: any; }) => {
                     
                 </div>
             </div>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
         </div>
     )
 }

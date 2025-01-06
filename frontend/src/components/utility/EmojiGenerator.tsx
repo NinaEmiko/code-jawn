@@ -1,25 +1,31 @@
+import { FC } from "react";
 import { progressConstants } from "../../helpers/ProgressConstants";
 
-const EmojiGenerator = ({props}:{props:any}) => {
+interface EmojiGeneratorProps{
+    lessonsCompleted: number,
+    totalLessons: number,
+}
+
+const EmojiGenerator: FC<EmojiGeneratorProps> = ({lessonsCompleted, totalLessons}) => {
 
     return (
         <div className="progress-emoji">
-            {props.lessonsCompleted === 0 &&
+            {lessonsCompleted === 0 &&
             progressConstants.NOT_STARTED
             }
-            {props.lessonsCompleted <= props.totalLessons *.33 &&
-            props.lessonsCompleted > 0 &&
+            {lessonsCompleted <= totalLessons *.33 &&
+            lessonsCompleted > 0 &&
             progressConstants.STARTED
             }
-            {props.lessonsCompleted > props.totalLessons *.33 && 
-            props.lessonsCompleted <= props.totalLessons *.66 &&
+            {lessonsCompleted > totalLessons *.33 && 
+            lessonsCompleted <= totalLessons *.66 &&
             progressConstants.IN_PROGRESS
             }
-            {props.lessonsCompleted > props.totalLessons *.66 &&
-            props.lessonsCompleted < props.totalLessons &&
+            {lessonsCompleted > totalLessons *.66 &&
+            lessonsCompleted < totalLessons &&
             progressConstants.NEAR_COMPLETED
             }
-            {props.lessonsCompleted === props.totalLessons &&
+            {lessonsCompleted === totalLessons &&
             progressConstants.COMPLETED
             }
         </div>

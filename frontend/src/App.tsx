@@ -1,12 +1,10 @@
 import { FormEvent, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { setAuthHeader } from "./helpers/axiosHelper";
-import LoginForm from "./flow/1-select-language/LoginForm";
+import LoginForm from "./pages/LoginForm";
 import { register, login } from "./api/api"
-import AppBar from "./components/AppBar";
 import "./styling/Answer.css"
 import "./styling/Container.css"
-import "./styling/Controls.css"
 import "./styling/Display.css"
 import "./styling/Language.css"
 import "./styling/Lecture.css"
@@ -16,20 +14,19 @@ import "./styling/Question.css"
 import "./styling/Profile.css"
 import "./styling/Button.css"
 import "./styling/Spacer.css"
-import JavaScriptSections from "./flow/2-languages/JavaScriptSections";
-import JavaSections from "./flow/2-languages/JavaSections";
-import SelectLanguage from "./flow/1-select-language/SelectLanguage";
+import './styling/Modal.css';
+import JavaSections from "./languages/JavaLanguage";
+import SelectLanguage from "./pages/SelectLanguage";
 import Container from "./components/Container";
-import Profile from "./flow/1-select-language/Profile";
-import HeaderDisplay from "./components/HeaderDisplay";
+import Profile from "./pages/Profile";
 import Header from "./components/Header";
-import ProfileHeaderDisplay from "./components/ProfileHeaderDisplay";
+import GetStarted from "./pages/GetStarted";
+import PythonSections from "./languages/PythonLanguage";
 
 function App() {
+  const [getStarted, setGetStarted] = useState(false);
   const [activeTab, setActiveTab] = useState("Select a Language");
   const [showProfile, setShowProfile] = useState(false);
-  const [showAppBar, setShowAppBar] = useState(true);
-  const [pageTitle, setPageTitle] = useState("Welcome Back!");
   const [currentUser, setCurrentUser] = useState({
     username: '',
     email: '',
@@ -37,19 +34,20 @@ function App() {
     loggedIn: false,
   });
 
+  const handleGetStarted = () => {
+    setGetStarted(true)
+  }
+
   const handleUpdateEmail = (newEmail: string) => {
     setCurrentUser((prev) => ({
       ...prev,
       email: newEmail,
     }));
   }
-  const handlePageTitle = (title: string) => { setPageTitle(title); }
+
   const handleClickProfile = () => { setShowProfile(true); }
   const handleClickLearn = () => { setShowProfile(false); }
   const handleRedirectHome = (component: string) => { setActiveTab(component); }
-  const handleShowAppBar = (show: boolean) => {
-    show === true ? setShowAppBar(true) : setShowAppBar(false);
-  }
 
   const logout = () => {
     setCurrentUser((prev) => ({
@@ -61,7 +59,6 @@ function App() {
     Cookies.set('storedUsername', "");
     Cookies.set("storedEmail", "")
     Cookies.set('authHeader', "");
-    setPageTitle("Welcome Back!");
   };
 
   const loginCall = async (e: FormEvent, username: string, password: string) => {
@@ -78,7 +75,6 @@ function App() {
           email: data.email,
           loggedIn: true,
         });
-    setPageTitle("Select a Language");
 }
 
   const registerCall = async (e: FormEvent, username: string, email: string, password: string) => {
@@ -95,7 +91,6 @@ function App() {
           email: data.email,
           loggedIn: true,
         });
-    setPageTitle("Select a Language");
   };
 
   useEffect(() => {
@@ -116,41 +111,59 @@ function App() {
 
   return (
     <Container>
-      <HeaderDisplay>
-        <Header props={{ text: pageTitle }} />
-      </HeaderDisplay>
+
+      {!getStarted ? (
+        <GetStarted
+          handleGetStarted={handleGetStarted}
+        />
+      ) : (
+    <>
 
       {!currentUser.loggedIn &&
         <LoginForm
           onLogin={loginCall}
           onRegister={registerCall}
-          currentUser={currentUser}
-          logout={(logout)}
-          handlePageTitle={(handlePageTitle)}
         />
       }
+
       {currentUser.loggedIn &&
       <>
+        <Header handleClickProfile={handleClickProfile} handleClickLearn={handleClickLearn} handleClickLogout={logout} />
           {activeTab === "Select a Language" &&
-            <SelectLanguage props={{
-              handleRedirectHome:handleRedirectHome,
-              handlePageTitle:handlePageTitle,
-              currentUser:currentUser
-            }} />
+            <SelectLanguage
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
           }
           {activeTab === "Java" &&
-            <JavaSections props={{
-              handleRedirectHome:handleRedirectHome,
-              currentUser:currentUser,
-              handlePageTitle:handlePageTitle,
-              handleShowAppBar:handleShowAppBar
-            }} />
+            <JavaSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
           }
           {activeTab === "JavaScript" &&
-            <JavaScriptSections props={{
-              handleRedirectHome:handleRedirectHome,
-              handlePageTitle:handlePageTitle
-            }} />
+            <PythonSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
+          } 
+          {activeTab === "Python" &&
+            <PythonSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
+          } 
+          {activeTab === "SpringBoot" &&
+            <PythonSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
+          } 
+          {activeTab === "React" &&
+            <PythonSections
+              handleRedirectHome={handleRedirectHome}
+              currentUser={currentUser}
+            />
           } 
 
           {showProfile && 
@@ -162,14 +175,10 @@ function App() {
                 }} />
             </>
           }
-          {showAppBar &&
-            <AppBar props={{
-              handleClickProfile:handleClickProfile,
-              handleClickLearn:handleClickLearn
-            }} />
-          }
         </>
       }
+      </>
+      )}
     </Container>
   )
 }

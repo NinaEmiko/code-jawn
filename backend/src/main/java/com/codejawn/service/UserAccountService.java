@@ -1,7 +1,9 @@
 package com.codejawn.service;
 
 import com.codejawn.dto.AuthResponseDTO;
+import com.codejawn.dto.UserAccountResponseDTO;
 import com.codejawn.model.*;
+import com.codejawn.model.java.*;
 import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
@@ -17,7 +19,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
-import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
@@ -31,12 +32,43 @@ public class UserAccountService {
     private final RoleRepository roleRepository;
     private final Logger logger = Logger.getLogger(UserAccountService.class.getName());
 
+    public UserAccountResponseDTO getUserAccount(Long id){
+        logger.info("Inside getUserAccount service method.");
+        UserAccount userAccount =  userAccountRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));
+
+        UserAccountResponseDTO userAccountResponseDTO = new UserAccountResponseDTO();
+        userAccountResponseDTO.setUserId(id);
+        userAccountResponseDTO.setUsername(userAccount.getUsername());
+        userAccountResponseDTO.setEmail(userAccount.getEmail());
+
+        return userAccountResponseDTO;
+    }
+
     @Transactional
     public UserAccount register(String userName, String email, String password) {
         logger.info("Inside register service method.");
+
+        JavaArraysLT javaArraysLT = new JavaArraysLT();
+        JavaCollectionsLT javaCollectionsLT = new JavaCollectionsLT();
+        JavaConditionalsLT javaConditionalsLT = new JavaConditionalsLT();
         JavaDataTypesLT javaDataTypesLT = new JavaDataTypesLT();
+        JavaForLoopsLT javaForLoopsLT = new JavaForLoopsLT();
+        JavaMethodsLT javaMethodsLT = new JavaMethodsLT();
+        JavaOperatorsLT javaOperatorsLT = new JavaOperatorsLT();
+        JavaVariablesLT javaVariablesLT = new JavaVariablesLT();
+
         JavaLT javaLT = new JavaLT();
+
+        javaLT.setJavaArraysLT(javaArraysLT);
+        javaLT.setJavaCollectionsLT(javaCollectionsLT);
+        javaLT.setJavaConditionalsLT(javaConditionalsLT);
         javaLT.setJavaDataTypesLT(javaDataTypesLT);
+        javaLT.setJavaForLoopsLT(javaForLoopsLT);
+        javaLT.setJavaMethodsLT(javaMethodsLT);
+        javaLT.setJavaOperatorsLT(javaOperatorsLT);
+        javaLT.setJavaVariablesLT(javaVariablesLT);
+
         LessonTracker lessonTracker = new LessonTracker();
         lessonTracker.setJavaLT(javaLT);
 
@@ -51,7 +83,6 @@ public class UserAccountService {
                 .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));
 
         userAccount.setRoles(Collections.singletonList(role));
-
         return userAccountRepository.save(userAccount);
     }
 

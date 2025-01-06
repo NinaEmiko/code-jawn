@@ -1,7 +1,7 @@
 package com.codejawn.controller;
 
 import com.codejawn.dto.UpdateLTDTO;
-import com.codejawn.model.JavaDataTypesLT;
+import com.codejawn.model.java.JavaDataTypesLT;
 import com.codejawn.service.JavaDataTypesLTService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

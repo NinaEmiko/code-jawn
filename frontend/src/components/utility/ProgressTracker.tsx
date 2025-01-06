@@ -1,5 +1,12 @@
-const ProgressTracker = ({props}:{props:any}) => {
-const progress = (props.questionsAnswered/props.totalQuestions) * 100;
+import { FC } from "react";
+
+interface ProgressTrackerProps{
+    questionsAnswered: number,
+    totalQuestions: number
+}
+
+const ProgressTracker: FC<ProgressTrackerProps> = ({questionsAnswered, totalQuestions}) => {
+const progress = (questionsAnswered/totalQuestions) * 100;
     return (
         <>
             <div className="progress-container">

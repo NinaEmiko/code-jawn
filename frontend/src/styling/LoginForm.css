@@ -1,12 +1,14 @@
 .form-control{
     display: block;
     width: 100%; 
-    padding: 2.5%;
-    margin-bottom: 1%;
-    border-radius: 20px;
+    margin-top: 25px;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     height: 60%;
-    font-size: var(--text);
-    color: black;
+    font-size: 20px;
+    color: var(--sub-secondary-jawn);
 }
 
 .link{
@@ -23,10 +25,7 @@
     text-decoration: underline;
     color: white;
     font-size: var(--sub-text);
-    padding-left: 3%;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 2%;
+    margin-left: 40px;
 }
 
 .update-jawn{
@@ -36,4 +35,20 @@
 
 .just-text-jawn{
     padding-left: 3%;
+}
+
+.login-background {
+    background-image: url('../assets/LoginScreen.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forgot-password{
+    text-align: right;
+    margin-top: 10px;
 }

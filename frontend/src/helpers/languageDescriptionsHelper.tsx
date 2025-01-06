@@ -1,4 +1,7 @@
 export const LANGUAGE_DESCRIPTIONS = {
     JAVA: `Java is a high-level, object-oriented programming language. It's widely used for building robust, secure, and scalable applications, from web and mobile apps to enterprise and embedded systems.`,
-    JAVASCRIPT: `JavaScript is a versatile, high-level programming language primarily used for adding interactive and dynamic features to websites.`
+    JAVASCRIPT: `JavaScript is a versatile, high-level programming language primarily used for adding interactive and dynamic features to websites.`,
+    PYTHON: `Python is a high-level, interpreted programming language known for its readability and simplicity. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming, and is used in fields like web development, data science, AI, and automation.`,
+    SPRINGBOOT: `Spring Boot is a Java-based framework that simplifies the development of production-ready applications by providing default configurations, embedded servers, and a wide range of pre-built components, allowing developers to create stand-alone, production-grade Spring applications with minimal setup. It is built on top of the Spring Framework, offering ease of deployment and a rapid development cycle.`,
+    REACT: `React is a popular JavaScript library for building user interfaces, particularly single-page applications, by creating reusable UI components. `
 }
