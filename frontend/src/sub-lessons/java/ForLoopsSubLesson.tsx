@@ -24,7 +24,7 @@ const ForLoopsSubLesson: FC<SubLessonsProps> = ({lessonTracker}) => {
             />
             <LectureWidget 
                 path={""}
-                lesson={"For Loops Increment/Decrement"}
+                lesson={"For Loops Increment Decrement"}
                 isComplete={lessonTracker.forLoopsIncrementDecrementLessonIsComplete}
                 handleClickWidget={handleButtonClickNull}
             />

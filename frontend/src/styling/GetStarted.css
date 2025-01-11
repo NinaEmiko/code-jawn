@@ -32,5 +32,10 @@
    @media (max-width: 600px) {
     .site-title-text{
       text-align: center;
+      padding-bottom: 0px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
      }
   }
