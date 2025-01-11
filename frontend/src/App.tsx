@@ -34,14 +34,6 @@ function App() {
     loggedIn: false,
   });
 
-  if (import.meta.env.MODE === "development") {
-    // Development-only code, like debugging or logging
-    console.log("We are in development mode!");
-  } else {
-    // Production-specific code
-    console.log("We are in production mode!");
-  }
-
   const handleGetStarted = () => {
     setGetStarted(true)
   }
