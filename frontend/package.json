@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "vite",
     "build-dev": "vite build",
-    "build": "cross-env mode=production vite build",
+    "build": "cross-env NODE_ENV=production vite build",
     "preview": "cross-env NODE_ENV=production vite preview",
-    "prod": "cross-env mode=production vite"
+    "prod": "cross-env NODE_ENV=production vite"
   },
   "dependencies": {
     "@types/js-cookie": "^3.0.6",
