@@ -23,6 +23,7 @@ const SelectLesson: FC<SelectLessonProps> = ({handleRedirectHome, currentUser}) 
     const getLTCall = async () => {
         const data = await getLT(currentUser.id)
         setJavaProgress(Math.round(javaProgressCalculator(data.javaLT)))
+        console.log("Thing: " + Math.round(javaProgressCalculator(data.javaLT)))
     }
 
     useEffect(() => {
