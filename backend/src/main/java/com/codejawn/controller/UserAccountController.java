@@ -7,6 +7,7 @@ import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.service.UserAccountService;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api/auth")
+@Slf4j
 public class UserAccountController {
 
     private UserAccountRepository userAccountRepository;

@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import JustText from '../components/utility/JustText';
 import LoginDisplay from '../components/LoginDisplay';
+import { validCharacters, validEmail } from '../helpers/validCharacters';
 
 
 interface LoginFormProps {
@@ -18,7 +19,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister }) => {
   const loginFormRef = useRef<HTMLFormElement | null>(null);
   const registerFormRef = useRef<HTMLFormElement | null>(null);
 
+  const invalidCharacterCheck = (jawn: string) => {
+      const charList = jawn.split("")
+      const isValid = charList.every(char => validCharacters.includes(char));
+      return isValid;
+  }
+
   const handleTabClick = (button: string) => {
+    setMessage('');
     if (button === "Sign In") {
       setActiveButton(button);
     } else if (button === "Sign Up") {
@@ -33,21 +41,44 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister }) => {
     else if (name === 'password') setPassword(value);
   };
 
-  const onSubmitLogin = (e: FormEvent) => {
+  const onSubmitLogin = async (e: FormEvent) => {
     e.preventDefault();
-    onLogin(e, username, password);
-    setMessage("Username or password is incorrect.")
+    setMessage('');
+    try {
+      await onLogin(e, username, password);
+    } catch (error) {
+      setMessage("Username or password is incorrect.")
+    }
   };
 
-  const onSubmitRegister = (e: FormEvent) => {
+  const onSubmitRegister = async (e: FormEvent) => {
     e.preventDefault();
-    
-    if (username.length < 4 || username.length > 16) {
-      setMessage("Username must be 4-16 characters.")
-    } else if(password.length < 7 || password.length > 16) {
-      setMessage("Passwords must be 8-16 characters.")
-    } else {
-      onRegister(e, username, email, password);
+    setMessage('');
+
+  if (password.length < 8 || password.length > 16) {
+    setMessage("Passwords must be between 8-16 characters.")
+  } else if (!invalidCharacterCheck(password)) {
+    setMessage("Password contains invalid characters.")
+  } else if (!/[A-Z]/.test(password)){
+    setMessage("Password must contain a capital letter.")
+  } else if (!/[a-z]/.test(password)){
+    setMessage("Password must contain a lower case letter.")
+  } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+    setMessage("Password must contain at least one special character (ie: !, @, #, $, %, &).")
+  } else if (password === username){
+    setMessage("Passwords cannot match usernames.")
+  } else if (username.length < 4 || username.length > 16) {
+    setMessage("Username must be 4-16 characters.")
+  } else if (!invalidCharacterCheck(username)) {
+    setMessage("Username contains invalid characters.")
+  } else if (!validEmail(email)) {
+    setMessage("Email is invalid.")
+  } else {
+      try {
+         await onRegister(e, username, email, password);
+      } catch (error) {
+        setMessage("Issue occured while attempting to register new account. Please try again later.")
+      }
     }
   };
 
@@ -81,6 +112,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegister }) => {
               onChange={onChangeHandler}
               placeholder='Password'
             />
+
+            <p style={{color: "red"}}>{message}</p>
 
             <div className="forgot-password">
               <a className="jawnski" href="">Forgot Password</a>

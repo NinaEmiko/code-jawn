@@ -3,7 +3,7 @@ import { ChangeEvent, FC, FormEvent, useRef, useState } from "react";
 import { updateUserPassword } from "../../api/api";
 import JustText from "../utility/JustText";
 import { validCharacters } from "../../helpers/validCharacters";
-import { User } from "../../App";
+import { User } from "../../types/components";
 
 interface UpdatePasswordProps{
     handleUpdatePasswordModal: ()=> void,
