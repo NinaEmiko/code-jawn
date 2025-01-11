@@ -5,3 +5,4 @@ backend/.idea
 backend/mvnw.cmd
 .gitignore
 frontend/node_modules
+frontend/dist
