@@ -69,4 +69,18 @@ public class JavaDataTypesLTControllerTest {
         ResponseEntity<?> response = javaDataTypesLTController.updateJavaDataTypesLT(updateLTDTO);
         Assertions.assertEquals(response.getBody(), "FAILED");
     }
+
+    @Test
+    void reset_java_data_types_lt_should_make_call_to_service_class(){
+        when(javaDataTypesLTService.resetLT(anyLong())).thenReturn("");
+        javaDataTypesLTController.resetJavaDataTypesLT(updateLTDTO);
+        verify(javaDataTypesLTService, times(1)).resetLT(1L);
+    }
+
+    @Test
+    void complete_java_data_types_lt_should_make_call_to_service_class(){
+        when(javaDataTypesLTService.completeLT(anyLong())).thenReturn("");
+        javaDataTypesLTController.completeJavaDataTypesLT(updateLTDTO);
+        verify(javaDataTypesLTService, times(1)).completeLT(1L);
+    }
 }
