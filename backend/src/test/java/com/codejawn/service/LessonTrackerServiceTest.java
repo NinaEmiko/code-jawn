@@ -5,6 +5,7 @@ import com.codejawn.model.java.JavaLT;
 import com.codejawn.model.LessonTracker;
 import com.codejawn.repository.LessonTrackerRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.service.java.JavaLTService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
