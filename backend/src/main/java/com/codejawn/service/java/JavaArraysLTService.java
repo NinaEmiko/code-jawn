@@ -4,6 +4,7 @@ import com.codejawn.model.java.JavaArraysLT;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.java.JavaArraysLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -35,9 +36,9 @@ public class JavaArraysLTService {
 
         try {
             javaArraysLTRepository.save(javaArraysLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -54,9 +55,9 @@ public class JavaArraysLTService {
             javaArraysLT.setQuizIsComplete(true);
             javaArraysLT.setComplete(true);
             javaArraysLTRepository.save(javaArraysLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -89,9 +90,9 @@ public class JavaArraysLTService {
             }
             checkCompletion(javaArraysLT);
             javaArraysLTRepository.save(javaArraysLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 

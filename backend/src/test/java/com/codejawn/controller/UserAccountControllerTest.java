@@ -6,6 +6,7 @@ import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.service.UserAccountService;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -130,14 +131,14 @@ public class UserAccountControllerTest {
     void update_password_should_return_success(){
         doNothing().when(userAccountService).updatePassword(anyLong(), anyString(), anyString());
         ResponseEntity<?> response = userAccountController.updatePassword(updatePasswordDTO);
-        Assertions.assertEquals(response.getBody(), "SUCCESS");
+        Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
     void update_password_should_return_failed(){
         doThrow(new RuntimeException()).when(userAccountService).updatePassword(anyLong(), anyString(), anyString());
         ResponseEntity<?> response = userAccountController.updatePassword(updatePasswordDTO);
-        Assertions.assertEquals(response.getBody(), "FAILED");
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
@@ -151,7 +152,7 @@ public class UserAccountControllerTest {
     void update_email_should_return_failed(){
         doThrow(new RuntimeException()).when(userAccountService).updateEmail(anyLong(), anyString());
         ResponseEntity<?> response = userAccountController.updateEmail(updateEmailDTO);
-        Assertions.assertEquals(response.getBody(), "FAILED");
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
@@ -165,7 +166,7 @@ public class UserAccountControllerTest {
     void update_username_should_return_failed(){
         doThrow(new RuntimeException()).when(userAccountService).updateUsername(anyLong(), anyString());
         ResponseEntity<?> response =  userAccountController.updateUsername(updateUsernameDTO);
-        Assertions.assertEquals(response.getBody(), "FAILED");
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
@@ -179,7 +180,7 @@ public class UserAccountControllerTest {
     void delete_account_should_return_failed(){
         when(userAccountService.deleteUser(anyLong())).thenThrow(new RuntimeException());
         ResponseEntity<?> response = userAccountController.deleteAccount(1L);
-        Assertions.assertEquals(response.getBody(), "FAILED");
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test

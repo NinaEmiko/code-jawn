@@ -4,6 +4,7 @@ import com.codejawn.model.java.JavaDataTypesLT;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.java.JavaDataTypesLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -37,9 +38,9 @@ public class JavaDataTypesLTService {
             javaDataTypesLT.setQuizIsComplete(false);
             javaDataTypesLT.setComplete(false);
             javaDataTypesLTRepository.save(javaDataTypesLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -60,9 +61,9 @@ public class JavaDataTypesLTService {
             javaDataTypesLT.setQuizIsComplete(true);
             javaDataTypesLT.setComplete(true);
             javaDataTypesLTRepository.save(javaDataTypesLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -107,9 +108,9 @@ public class JavaDataTypesLTService {
             }
             checkCompletion(javaDataTypesLT);
             javaDataTypesLTRepository.save(javaDataTypesLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 

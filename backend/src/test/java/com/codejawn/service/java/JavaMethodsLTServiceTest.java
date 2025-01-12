@@ -6,6 +6,7 @@ import com.codejawn.model.java.JavaMethodsLT;
 import com.codejawn.model.java.JavaLT;
 import com.codejawn.repository.java.JavaMethodsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -67,7 +68,7 @@ public class JavaMethodsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaMethodsLTRepository.save(any())).thenReturn(javaMethodsLT);
         String response = javaMethodsLTService.resetLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -75,7 +76,7 @@ public class JavaMethodsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaMethodsLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaMethodsLTService.resetLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 
     @Test
@@ -146,7 +147,7 @@ public class JavaMethodsLTServiceTest {
             when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
             when(javaMethodsLTRepository.save(any())).thenReturn(javaMethodsLT);
             String response = javaMethodsLTService.updateLT(1L, lesson);
-            Assertions.assertEquals(response, "SUCCESS");
+            Assertions.assertEquals(response, StatusCode.SUCCESS.name());
         }
     }
 
@@ -157,7 +158,7 @@ public class JavaMethodsLTServiceTest {
 
         String response = javaMethodsLTService.updateLT(1L, "ints");
 
-        Assertions.assertEquals(response, "FAILED");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
     }
 
     @Test
@@ -165,7 +166,7 @@ public class JavaMethodsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaMethodsLTRepository.save(any())).thenReturn(javaMethodsLT);
         String response = javaMethodsLTService.completeLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -173,6 +174,6 @@ public class JavaMethodsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaMethodsLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaMethodsLTService.completeLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 }

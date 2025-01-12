@@ -3,6 +3,7 @@ package com.codejawn.controller.java;
 import com.codejawn.dto.UpdateLTDTO;
 import com.codejawn.model.java.JavaVariablesLT;
 import com.codejawn.service.java.JavaVariablesLTService;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,24 +47,24 @@ public class JavaVariablesLTControllerTest {
 
     @Test
     void update_java_variables_lt_should_make_call_to_service_class(){
-        when(javaVariablesLTService.updateLT(anyLong(), anyString())).thenReturn("SUCCESS");
+        when(javaVariablesLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
         javaVariablesLTController.updateJavaVariablesLT(updateLTDTO);
         verify(javaVariablesLTService, times(1)).updateLT(1L, "Naming Variables");
     }
 
     @Test
     void update_java_variables_lt_should_return_success(){
-        when(javaVariablesLTService.updateLT(anyLong(), anyString())).thenReturn("SUCCESS");
+        when(javaVariablesLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
         ResponseEntity<?> response = javaVariablesLTController.updateJavaVariablesLT(updateLTDTO);
-        Assertions.assertEquals(response.getBody(), "SUCCESS");
+        Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
     void update_java_variables_lt_should_return_failed(){
         updateLTDTO.setLesson("Not a lesson");
-        when(javaVariablesLTService.updateLT(anyLong(), anyString())).thenReturn("FAILED");
+        when(javaVariablesLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.FAILED.name());
         ResponseEntity<?> response = javaVariablesLTController.updateJavaVariablesLT(updateLTDTO);
-        Assertions.assertEquals(response.getBody(), "FAILED");
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test

@@ -6,6 +6,7 @@ import com.codejawn.model.LessonTracker;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.java.JavaDataTypesLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -70,7 +71,7 @@ public class JavaDataTypesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaDataTypesLTRepository.save(any())).thenReturn(javaDataTypesLT);
         String response = javaDataTypesLTService.resetLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -78,7 +79,7 @@ public class JavaDataTypesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaDataTypesLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaDataTypesLTService.resetLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 
     @Test
@@ -156,7 +157,7 @@ public class JavaDataTypesLTServiceTest {
             when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
             when(javaDataTypesLTRepository.save(any())).thenReturn(javaDataTypesLT);
             String response = javaDataTypesLTService.updateLT(1L, lesson);
-            Assertions.assertEquals(response, "SUCCESS");
+            Assertions.assertEquals(response, StatusCode.SUCCESS.name());
         }
     }
 
@@ -167,7 +168,7 @@ public class JavaDataTypesLTServiceTest {
 
         String response = javaDataTypesLTService.updateLT(1L, "ints");
 
-        Assertions.assertEquals(response, "FAILED");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
     }
 
     @Test
@@ -175,7 +176,7 @@ public class JavaDataTypesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaDataTypesLTRepository.save(any())).thenReturn(javaDataTypesLT);
         String response = javaDataTypesLTService.completeLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -183,6 +184,6 @@ public class JavaDataTypesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaDataTypesLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaDataTypesLTService.completeLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 }

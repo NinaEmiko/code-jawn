@@ -4,6 +4,7 @@ import com.codejawn.model.java.JavaForLoopsLT;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.java.JavaForLoopsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -34,9 +35,9 @@ public class JavaForLoopsLTService {
             javaForLoopsLT.setForEachSyntaxLessonIsComplete(false);
             javaForLoopsLT.setComplete(false);
             javaForLoopsLTRepository.save(javaForLoopsLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -55,9 +56,9 @@ public class JavaForLoopsLTService {
             javaForLoopsLT.setQuizIsComplete(true);
             javaForLoopsLT.setComplete(true);
             javaForLoopsLTRepository.save(javaForLoopsLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -96,9 +97,9 @@ public class JavaForLoopsLTService {
             }
             checkCompletion(javaForLoopsLT);
             javaForLoopsLTRepository.save(javaForLoopsLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 

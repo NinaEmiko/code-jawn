@@ -6,6 +6,7 @@ import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.service.UserAccountService;
+import com.codejawn.util.StatusCode;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,9 +71,9 @@ public class UserAccountController {
 
         try{
             userAccountService.updatePassword(id, oldPassword, newPassword);
-            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+            return new ResponseEntity<>(StatusCode.SUCCESS.name(), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -87,7 +88,7 @@ public class UserAccountController {
             UpdateEmailResponse updateEmailResponse =  userAccountService.updateEmail(id, newEmail);
             return new ResponseEntity<>(updateEmailResponse, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -102,7 +103,7 @@ public class UserAccountController {
             UpdateUsernameResponse updateUsernameResponse = userAccountService.updateUsername(id, newEmail);
             return new ResponseEntity<>(updateUsernameResponse, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -114,7 +115,7 @@ public class UserAccountController {
             response = userAccountService.deleteUser(id);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("FAILED", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
         }
     }
 }

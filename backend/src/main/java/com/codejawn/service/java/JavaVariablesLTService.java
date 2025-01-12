@@ -4,6 +4,7 @@ import com.codejawn.model.java.JavaVariablesLT;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.java.JavaVariablesLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -32,9 +33,9 @@ public class JavaVariablesLTService {
             javaVariablesLT.setQuizIsComplete(false);
             javaVariablesLT.setComplete(false);
             javaVariablesLTRepository.save(javaVariablesLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -50,9 +51,9 @@ public class JavaVariablesLTService {
             javaVariablesLT.setQuizIsComplete(true);
             javaVariablesLT.setComplete(true);
             javaVariablesLTRepository.save(javaVariablesLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -82,9 +83,9 @@ public class JavaVariablesLTService {
             }
             checkCompletion(javaVariablesLT);
             javaVariablesLTRepository.save(javaVariablesLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 

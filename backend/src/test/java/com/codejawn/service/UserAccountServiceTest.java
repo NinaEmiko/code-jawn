@@ -10,6 +10,7 @@ import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.security.JWTGenerator;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -280,7 +281,7 @@ public class UserAccountServiceTest {
 
         String response = userAccountService.deleteUser(1L);
 
-        Assertions.assertEquals(response, "SUCCESS");
+        Assertions.assertEquals(response, StatusCode.SUCCESS.name());
     }
     @Test
     void delete_user_should_return_failed(){
@@ -288,6 +289,6 @@ public class UserAccountServiceTest {
 
         String response = userAccountService.deleteUser(1L);
 
-        Assertions.assertEquals(response, "FAILED");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
     }
 }

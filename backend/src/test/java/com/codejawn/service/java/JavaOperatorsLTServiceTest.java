@@ -6,6 +6,7 @@ import com.codejawn.model.java.JavaLT;
 import com.codejawn.model.java.JavaOperatorsLT;
 import com.codejawn.repository.java.JavaOperatorsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -78,7 +79,7 @@ public class JavaOperatorsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaOperatorsLTRepository.save(any())).thenReturn(javaOperatorsLT);
         String response = javaOperatorsLTService.resetLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -86,7 +87,7 @@ public class JavaOperatorsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaOperatorsLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaOperatorsLTService.resetLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 
     @Test
@@ -179,7 +180,7 @@ public class JavaOperatorsLTServiceTest {
             when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
             when(javaOperatorsLTRepository.save(any())).thenReturn(javaOperatorsLT);
             String response = javaOperatorsLTService.updateLT(1L, lesson);
-            Assertions.assertEquals(response, "SUCCESS");
+            Assertions.assertEquals(response, StatusCode.SUCCESS.name());
         }
     }
 
@@ -190,7 +191,7 @@ public class JavaOperatorsLTServiceTest {
 
         String response = javaOperatorsLTService.updateLT(1L, "ints");
 
-        Assertions.assertEquals(response, "FAILED");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
     }
 
     @Test
@@ -198,7 +199,7 @@ public class JavaOperatorsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaOperatorsLTRepository.save(any())).thenReturn(javaOperatorsLT);
         String response = javaOperatorsLTService.completeLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -206,6 +207,6 @@ public class JavaOperatorsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaOperatorsLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaOperatorsLTService.completeLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 }

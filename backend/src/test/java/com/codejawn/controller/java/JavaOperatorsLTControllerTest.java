@@ -3,6 +3,7 @@ package com.codejawn.controller.java;
 import com.codejawn.dto.UpdateLTDTO;
 import com.codejawn.model.java.JavaOperatorsLT;
 import com.codejawn.service.java.JavaOperatorsLTService;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,24 +47,24 @@ public class JavaOperatorsLTControllerTest {
 
     @Test
     void update_java_operators_lt_should_make_call_to_service_class(){
-        when(javaOperatorsLTService.updateLT(anyLong(), anyString())).thenReturn("SUCCESS");
+        when(javaOperatorsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
         javaOperatorsLTController.updateJavaOperatorsLT(updateLTDTO);
         verify(javaOperatorsLTService, times(1)).updateLT(1L, "Strings");
     }
 
     @Test
     void update_java_operators_lt_should_return_success(){
-        when(javaOperatorsLTService.updateLT(anyLong(), anyString())).thenReturn("SUCCESS");
+        when(javaOperatorsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
         ResponseEntity<?> response = javaOperatorsLTController.updateJavaOperatorsLT(updateLTDTO);
-        Assertions.assertEquals(response.getBody(), "SUCCESS");
+        Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
     void update_java_operators_lt_should_return_failed(){
         updateLTDTO.setLesson("Not a lesson");
-        when(javaOperatorsLTService.updateLT(anyLong(), anyString())).thenReturn("FAILED");
+        when(javaOperatorsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.FAILED.name());
         ResponseEntity<?> response = javaOperatorsLTController.updateJavaOperatorsLT(updateLTDTO);
-        Assertions.assertEquals(response.getBody(), "FAILED");
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test

@@ -6,6 +6,7 @@ import com.codejawn.model.java.JavaLT;
 import com.codejawn.model.java.JavaVariablesLT;
 import com.codejawn.repository.java.JavaVariablesLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -66,7 +67,7 @@ public class JavaVariablesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaVariablesLTRepository.save(any())).thenReturn(javaVariablesLT);
         String response = javaVariablesLTService.resetLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -74,7 +75,7 @@ public class JavaVariablesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaVariablesLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaVariablesLTService.resetLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 
     @Test
@@ -143,7 +144,7 @@ public class JavaVariablesLTServiceTest {
             when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
             when(javaVariablesLTRepository.save(any())).thenReturn(javaVariablesLT);
             String response = javaVariablesLTService.updateLT(1L, lesson);
-            Assertions.assertEquals(response, "SUCCESS");
+            Assertions.assertEquals(response, StatusCode.SUCCESS.name());
         }
     }
 
@@ -154,7 +155,7 @@ public class JavaVariablesLTServiceTest {
 
         String response = javaVariablesLTService.updateLT(1L, "ints");
 
-        Assertions.assertEquals(response, "FAILED");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
     }
 
     @Test
@@ -162,7 +163,7 @@ public class JavaVariablesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaVariablesLTRepository.save(any())).thenReturn(javaVariablesLT);
         String response = javaVariablesLTService.completeLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -170,6 +171,6 @@ public class JavaVariablesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaVariablesLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaVariablesLTService.completeLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 }

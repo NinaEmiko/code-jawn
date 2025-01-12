@@ -6,6 +6,7 @@ import com.codejawn.model.java.JavaConditionalsLT;
 import com.codejawn.model.java.JavaLT;
 import com.codejawn.repository.java.JavaConditionalsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -75,7 +76,7 @@ public class JavaConditionalsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaConditionalsLTRepository.save(any())).thenReturn(javaConditionalsLT);
         String response = javaConditionalsLTService.resetLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -83,7 +84,7 @@ public class JavaConditionalsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaConditionalsLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaConditionalsLTService.resetLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 
     @Test
@@ -166,7 +167,7 @@ public class JavaConditionalsLTServiceTest {
             when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
             when(javaConditionalsLTRepository.save(any())).thenReturn(javaConditionalsLT);
             String response = javaConditionalsLTService.updateLT(1L, lesson);
-            Assertions.assertEquals(response, "SUCCESS");
+            Assertions.assertEquals(response, StatusCode.SUCCESS.name());
         }
     }
 
@@ -177,7 +178,7 @@ public class JavaConditionalsLTServiceTest {
 
         String response = javaConditionalsLTService.updateLT(1L, "ints");
 
-        Assertions.assertEquals(response, "FAILED");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
     }
 
     @Test
@@ -185,7 +186,7 @@ public class JavaConditionalsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaConditionalsLTRepository.save(any())).thenReturn(javaConditionalsLT);
         String response = javaConditionalsLTService.completeLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -193,6 +194,6 @@ public class JavaConditionalsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaConditionalsLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaConditionalsLTService.completeLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 }

@@ -6,6 +6,7 @@ import com.codejawn.model.java.JavaArraysLT;
 import com.codejawn.model.java.JavaLT;
 import com.codejawn.repository.java.JavaArraysLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -68,7 +69,7 @@ public class JavaArraysLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaArraysLTRepository.save(any())).thenReturn(javaArraysLT);
         String response = javaArraysLTService.resetLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -76,7 +77,7 @@ public class JavaArraysLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaArraysLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaArraysLTService.resetLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 
     @Test
@@ -147,7 +148,7 @@ public class JavaArraysLTServiceTest {
             when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
             when(javaArraysLTRepository.save(any())).thenReturn(javaArraysLT);
             String response = javaArraysLTService.updateLT(1L, lesson);
-            Assertions.assertEquals(response, "SUCCESS");
+            Assertions.assertEquals(response, StatusCode.SUCCESS.name());
         }
     }
 
@@ -158,7 +159,7 @@ public class JavaArraysLTServiceTest {
 
         String response = javaArraysLTService.updateLT(1L, "ints");
 
-        Assertions.assertEquals(response, "FAILED");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
     }
 
     @Test
@@ -166,7 +167,7 @@ public class JavaArraysLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaArraysLTRepository.save(any())).thenReturn(javaArraysLT);
         String response = javaArraysLTService.completeLT(1L);
-        Assertions.assertEquals("SUCCESS", response);
+        Assertions.assertEquals(StatusCode.SUCCESS.name(), response);
     }
 
     @Test
@@ -174,6 +175,6 @@ public class JavaArraysLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaArraysLTRepository.save(any())).thenThrow(new RuntimeException());
         String response = javaArraysLTService.completeLT(1L);
-        Assertions.assertEquals("FAILED", response);
+        Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
 }

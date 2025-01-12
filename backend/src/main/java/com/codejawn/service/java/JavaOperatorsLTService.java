@@ -4,6 +4,7 @@ import com.codejawn.model.java.JavaOperatorsLT;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.java.JavaOperatorsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -44,9 +45,9 @@ public class JavaOperatorsLTService {
             javaOperatorsLT.setQuizIsComplete(false);
             javaOperatorsLT.setComplete(false);
             javaOperatorsLTRepository.save(javaOperatorsLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -74,9 +75,9 @@ public class JavaOperatorsLTService {
             javaOperatorsLT.setQuizIsComplete(true);
             javaOperatorsLT.setComplete(true);
             javaOperatorsLTRepository.save(javaOperatorsLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -141,9 +142,9 @@ public class JavaOperatorsLTService {
             }
             checkCompletion(javaOperatorsLT);
             javaOperatorsLTRepository.save(javaOperatorsLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 

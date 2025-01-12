@@ -4,6 +4,7 @@ import com.codejawn.model.java.JavaConditionalsLT;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.java.JavaConditionalsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.StatusCode;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -39,9 +40,9 @@ public class JavaConditionalsLTService {
             javaConditionalsLT.setQuizIsComplete(false);
             javaConditionalsLT.setComplete(false);
             javaConditionalsLTRepository.save(javaConditionalsLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -64,9 +65,9 @@ public class JavaConditionalsLTService {
             javaConditionalsLT.setQuizIsComplete(true);
             javaConditionalsLT.setComplete(true);
             javaConditionalsLTRepository.save(javaConditionalsLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
@@ -117,9 +118,9 @@ public class JavaConditionalsLTService {
             }
             checkCompletion(javaConditionalsLT);
             javaConditionalsLTRepository.save(javaConditionalsLT);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
     }
 
