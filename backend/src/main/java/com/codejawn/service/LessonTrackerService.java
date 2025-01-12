@@ -16,6 +16,7 @@ public class LessonTrackerService {
     public void deleteById(Long id) {
         lessonTrackerRepository.deleteById(id);
     }
+
     public LessonTracker getLessonTracker(Long id) {
 
         UserAccount userAccount = userAccountRepository.findById(id)

@@ -1,6 +1,7 @@
 package com.codejawn.service;
 
 import com.codejawn.dto.AuthResponseDTO;
+import com.codejawn.dto.UserAccountResponseDTO;
 import com.codejawn.model.*;
 import com.codejawn.model.java.JavaDataTypesLT;
 import com.codejawn.model.java.JavaLT;
@@ -16,6 +17,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -57,12 +59,14 @@ public class UserAccountServiceTest {
     AuthenticationManager authenticationManager;
     @Mock
     Authentication authentication;
+    @Mock
+    UserAccountResponseDTO userAccountResponseDTO;
 
     @BeforeEach
     void setup() {
         List<UserAccount> userAccountList = new ArrayList<>();
         role = new Role();
-        role.setName("role");
+        role.setName("USER");
         role.setId(1);
         role.setUserAccounts(userAccountList);
 
@@ -86,18 +90,31 @@ public class UserAccountServiceTest {
         userAccount.setRoles(roles);
         userAccount.setSubscriptionActive(true);
         userAccount.setLessonTracker(lessonTracker);
+
+        userAccountResponseDTO.setEmail("email");
+        userAccountResponseDTO.setUsername("username");
+        userAccountResponseDTO.setUserId(1L);
     }
 
-//    @Test
-//    void register_should_make_call_to_repository() {
-//        when(passwordEncoder.encode(any())).thenReturn("password");
-//        when(roleRepository.findByName(anyString())).thenReturn(Optional.ofNullable(role));
-//        when(userAccountRepository.save(any())).thenReturn(userAccount);
-//
-//        userAccountService.register("username", "email", "password");
-//
-//        verify(userAccountRepository, times(1)).save(userAccount);
-//    }
+    @Test
+    void get_user_account_should_return_correct_dto(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        UserAccountResponseDTO response = userAccountService.getUserAccount(1L);
+        Assertions.assertEquals("username", response.getUsername());
+        Assertions.assertEquals("email", response.getEmail());
+        Assertions.assertEquals(1L, response.getUserId());
+    }
+
+    @Test
+    void register_should_make_call_to_repository() {
+        when(passwordEncoder.encode(any())).thenReturn("password");
+        when(roleRepository.findByName(anyString())).thenReturn(Optional.ofNullable(role));
+        when(userAccountRepository.save(any())).thenReturn(userAccount);
+
+        userAccountService.register("username", "email", "password");
+
+        verify(userAccountRepository, times(1)).save(any());
+    }
     @Test
     void login_should_make_call_to_repository() {
         when(authenticationManager.authenticate(any())).thenReturn(authentication);
@@ -131,7 +148,7 @@ public class UserAccountServiceTest {
         AuthResponseDTO responseDTO = userAccountService.login("username", "password");
 
         Assertions.assertEquals(responseDTO.getUsername(), "username");
-        Assertions.assertEquals(responseDTO.getUserId(), null);
+        Assertions.assertNull(responseDTO.getUserId());
         Assertions.assertEquals(responseDTO.getTokenType(), "Bearer ");
         Assertions.assertEquals(responseDTO.getAccessToken(), "token");
         Assertions.assertEquals(responseDTO.getEmail(), "email");
@@ -171,13 +188,12 @@ public class UserAccountServiceTest {
     }
     @Test
     void update_username_should_throw_throw_runtime_exception(){
-        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        when(userAccountRepository.save(any())).thenThrow(new RuntimeException());
 
-        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             userAccountService.updateUsername(1L, "newUsername");
         });
-
-        Assertions.assertEquals(e.getMessage(), "User not found.");
     }
 
     @Test

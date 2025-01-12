@@ -15,6 +15,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Objects;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
@@ -46,6 +48,8 @@ public class UserAccountControllerTest {
     UpdateEmailResponse updateEmailResponse;
     @Mock
     UpdateUsernameResponse updateUsernameResponse;
+    @Mock
+    UserAccountResponseDTO userAccountResponseDTO;
     @BeforeEach
     void setup() {
         loginDTO = new LoginDTO();
@@ -87,13 +91,24 @@ public class UserAccountControllerTest {
         authResponseDTO.setLessonTracker(null);
         authResponseDTO.setEmail("email");
         authResponseDTO.setUsername("username");
+
+        userAccountResponseDTO.setEmail("email");
+        userAccountResponseDTO.setUsername("username");
+        userAccountResponseDTO.setUserId(1L);
+    }
+
+    @Test
+    void get_user_account_should_make_call_to_user_account_service(){
+        when(userAccountService.getUserAccount(anyLong())).thenReturn(userAccountResponseDTO);
+        userAccountController.getUserAccount(1L);
+        verify(userAccountService).getUserAccount(1L);
     }
 
     @Test
     void login_should_make_call_to_user_account_service(){
         when(userAccountService.login(anyString(), anyString())).thenReturn(authResponseDTO);
         userAccountController.login(loginDTO);
-        verify(userAccountService, times(1)).login("username","password");
+        verify(userAccountService).login("username","password");
     }
 
     @Test
@@ -101,14 +116,14 @@ public class UserAccountControllerTest {
         when(userAccountRepository.existsByUsername(anyString())).thenReturn(false);
         when(userAccountService.register(anyString(), anyString(), anyString())).thenReturn(userAccount);
         userAccountController.register(registerDTO);
-        verify(userAccountService, times(1)).register("username", "email", "password");
+        verify(userAccountService).register("username", "email", "password");
     }
 
     @Test
     void update_password_should_make_call_to_user_account_service(){
         doNothing().when(userAccountService).updatePassword(anyLong(), anyString(), anyString());
         userAccountController.updatePassword(updatePasswordDTO);
-        verify(userAccountService, times(1)).updatePassword(1L, "oldPassword", "newPassword");
+        verify(userAccountService).updatePassword(1L, "oldPassword", "newPassword");
     }
 
     @Test
@@ -129,7 +144,7 @@ public class UserAccountControllerTest {
     void update_email_should_make_call_to_user_account_service(){
         when(userAccountService.updateEmail(anyLong(), anyString())).thenReturn(updateEmailResponse);
         userAccountController.updateEmail(updateEmailDTO);
-        verify(userAccountService, times(1)).updateEmail(1L, "newEmail");
+        verify(userAccountService).updateEmail(1L, "newEmail");
     }
 
     @Test
@@ -143,7 +158,7 @@ public class UserAccountControllerTest {
     void update_username_should_make_call_to_user_account_service(){
         when(userAccountService.updateUsername(anyLong(), anyString())).thenReturn(updateUsernameResponse);
         userAccountController.updateUsername(updateUsernameDTO);
-        verify(userAccountService, times(1)).updateUsername(1L, "newUsername");
+        verify(userAccountService).updateUsername(1L, "newUsername");
     }
 
     @Test
@@ -157,7 +172,7 @@ public class UserAccountControllerTest {
     void delete_account_should_make_call_to_user_account_service(){
         when(userAccountService.deleteUser(anyLong())).thenReturn("");
         userAccountController.deleteAccount(1L);
-        verify(userAccountService, times(1)).deleteUser(1L);
+        verify(userAccountService).deleteUser(1L);
     }
 
     @Test

@@ -154,11 +154,11 @@ public class UserAccountService {
         try{
             userAccount.setUsername(newUsername);
 
-            UpdateUsernameResponse updateUsernameResponse = new UpdateUsernameResponse();
-            updateUsernameResponse.setNewUsername(newUsername);
-
             logger.info("Saving user account with id " + id + " with updated username.");
             userAccountRepository.save(userAccount);
+
+            UpdateUsernameResponse updateUsernameResponse = new UpdateUsernameResponse();
+            updateUsernameResponse.setNewUsername(newUsername);
 
             return updateUsernameResponse;
         } catch (Exception e) {
