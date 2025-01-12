@@ -16,19 +16,13 @@ public class JavaMethodsLTService {
     private final UserAccountRepository userAccountRepository;
 
     public JavaMethodsLT getLT(Long userId) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         return userAccount.getLessonTracker().getJavaLT().getJavaMethodsLT();
     }
 
     public String resetLT(Long userId) {
         log.info("Inside resetLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaMethodsLT javaMethodsLT = userAccount.getLessonTracker().getJavaLT().getJavaMethodsLT();
             javaMethodsLT.setMethodSignaturesLessonIsComplete(false);
@@ -48,10 +42,7 @@ public class JavaMethodsLTService {
 
     public String completeLT(Long userId) {
         log.info("Inside completeLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaMethodsLT javaMethodsLT = userAccount.getLessonTracker().getJavaLT().getJavaMethodsLT();
             javaMethodsLT.setMethodSignaturesLessonIsComplete(true);
@@ -70,10 +61,7 @@ public class JavaMethodsLTService {
     }
 
     public String updateLT(Long userId, String lesson) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaMethodsLT javaMethodsLT = userAccount.getLessonTracker().getJavaLT().getJavaMethodsLT();
             switch (lesson) {
@@ -105,6 +93,13 @@ public class JavaMethodsLTService {
         } catch (Exception e) {
             return "FAILED";
         }
+    }
+
+    private UserAccount retrieveUserAccount(Long userId) {
+        return userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
     }
 
     private void checkCompletion(JavaMethodsLT javaMethodsLT) {

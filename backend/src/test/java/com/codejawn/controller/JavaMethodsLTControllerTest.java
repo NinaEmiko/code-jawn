@@ -31,14 +31,6 @@ public class JavaMethodsLTControllerTest {
     void setup() {
         javaMethodsLT = new JavaMethodsLT();
         javaMethodsLT.setId(1L);
-        javaMethodsLT.setMethodSignaturesLessonIsComplete(true);
-        javaMethodsLT.setReturnTypesLessonIsComplete(true);
-        javaMethodsLT.setParametersLessonIsComplete(true);
-        javaMethodsLT.setScopeLessonIsComplete(true);
-        javaMethodsLT.setNamingMethodsLessonIsComplete(true);
-        javaMethodsLT.setOverloadingLessonIsComplete(true);
-        javaMethodsLT.setComplete(false);
-        javaMethodsLT.setQuizIsComplete(false);
 
         updateLTDTO = new UpdateLTDTO();
         updateLTDTO.setUserId(1L);

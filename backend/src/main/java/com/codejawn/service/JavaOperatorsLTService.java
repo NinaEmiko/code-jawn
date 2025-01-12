@@ -25,10 +25,7 @@ public class JavaOperatorsLTService {
 
     public String resetLT(Long userId) {
         log.info("Inside resetLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaOperatorsLT javaOperatorsLT = userAccount.getLessonTracker().getJavaLT().getJavaOperatorsLT();
             javaOperatorsLT.setAndLessonIsComplete(false);
@@ -59,10 +56,7 @@ public class JavaOperatorsLTService {
 
     public String completeLT(Long userId) {
         log.info("Inside completeLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaOperatorsLT javaOperatorsLT = userAccount.getLessonTracker().getJavaLT().getJavaOperatorsLT();
             javaOperatorsLT.setAndLessonIsComplete(true);
@@ -92,10 +86,7 @@ public class JavaOperatorsLTService {
     }
 
     public String updateLT(Long userId, String lesson) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaOperatorsLT javaOperatorsLT = userAccount.getLessonTracker().getJavaLT().getJavaOperatorsLT();
             switch (lesson) {
@@ -159,6 +150,13 @@ public class JavaOperatorsLTService {
         } catch (Exception e) {
             return "FAILED";
         }
+    }
+
+    private UserAccount retrieveUserAccount(Long userId) {
+        return userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
     }
 
     private void checkCompletion(JavaOperatorsLT javaOperatorsLT) {

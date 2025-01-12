@@ -148,12 +148,18 @@ public class JavaConditionalsLTServiceTest {
     @Test
     void update_lt_should_return_success(){
         ArrayList<String> lessonsList = new ArrayList<>();
-        lessonsList.add("Initializing Conditionals");
-        lessonsList.add("Assigning Values");
-        lessonsList.add("Array Indexes");
-        lessonsList.add("Updating Values");
-        lessonsList.add("Length Method");
-        lessonsList.add("Looping Through Conditionals");
+        lessonsList.add("If");
+        lessonsList.add("Else");
+        lessonsList.add("Elseif");
+        lessonsList.add("Multiple Ifs");
+        lessonsList.add("Multiple Elseifs");
+        lessonsList.add("If/Else Nesting");
+        lessonsList.add("Ternary");
+        lessonsList.add("Switch Syntax");
+        lessonsList.add("Switch Expressions");
+        lessonsList.add("Switch Cases");
+        lessonsList.add("Break Statement");
+        lessonsList.add("Continue Statement");
         lessonsList.add("Quiz");
 
         for (String lesson : lessonsList) {

@@ -18,19 +18,13 @@ public class JavaDataTypesLTService {
     private final UserAccountRepository userAccountRepository;
 
     public JavaDataTypesLT getLT(Long userId) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-            .orElseThrow(
-                    () -> new RuntimeException("User not found")
-            );
+        UserAccount userAccount = retrieveUserAccount(userId);
         return userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
     }
 
     public String resetLT(Long userId) {
         log.info("Inside resetLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaDataTypesLT javaDataTypesLT = userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
             javaDataTypesLT.setStringsLessonIsComplete(false);
@@ -54,10 +48,7 @@ public class JavaDataTypesLTService {
 
     public String completeLT(Long userId) {
         log.info("Inside completeLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaDataTypesLT javaDataTypesLT = userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
             javaDataTypesLT.setStringsLessonIsComplete(true);
@@ -80,10 +71,7 @@ public class JavaDataTypesLTService {
     }
 
     public String updateLT(Long userId, String lesson) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaDataTypesLT javaDataTypesLT = userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
             switch (lesson) {
@@ -127,6 +115,13 @@ public class JavaDataTypesLTService {
         } catch (Exception e) {
             return "FAILED";
         }
+    }
+
+    private UserAccount retrieveUserAccount(Long userId) {
+        return userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
     }
 
     private void checkCompletion(JavaDataTypesLT javaDataTypesLT) {

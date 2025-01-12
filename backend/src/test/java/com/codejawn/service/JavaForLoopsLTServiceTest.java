@@ -138,12 +138,14 @@ public class JavaForLoopsLTServiceTest {
     @Test
     void update_lt_should_return_success(){
         ArrayList<String> lessonsList = new ArrayList<>();
-        lessonsList.add("Initializing ForLoops");
-        lessonsList.add("Assigning Values");
-        lessonsList.add("Array Indexes");
-        lessonsList.add("Updating Values");
-        lessonsList.add("Length Method");
-        lessonsList.add("Looping Through ForLoops");
+        lessonsList.add("For Loops Syntax");
+        lessonsList.add("For Loops Condition");
+        lessonsList.add("For Loops Increment/Decrement");
+        lessonsList.add("Nesting For Loops");
+        lessonsList.add("While Loops Syntax");
+        lessonsList.add("While Loops Condition");
+        lessonsList.add("Do While Loops Syntax");
+        lessonsList.add("For Each Syntax");
         lessonsList.add("Quiz");
 
         for (String lesson : lessonsList) {

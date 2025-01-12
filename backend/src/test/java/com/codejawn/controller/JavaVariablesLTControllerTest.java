@@ -31,9 +31,6 @@ public class JavaVariablesLTControllerTest {
     void setup() {
         javaVariablesLT = new JavaVariablesLT();
         javaVariablesLT.setId(1L);
-        javaVariablesLT.setAssigningValuesLessonIsComplete(true);
-        javaVariablesLT.setComplete(false);
-        javaVariablesLT.setQuizIsComplete(false);
 
         updateLTDTO = new UpdateLTDTO();
         updateLTDTO.setUserId(1L);

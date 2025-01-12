@@ -16,19 +16,13 @@ public class JavaForLoopsLTService {
     private final UserAccountRepository userAccountRepository;
 
     public JavaForLoopsLT getLT(Long userId) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         return userAccount.getLessonTracker().getJavaLT().getJavaForLoopsLT();
     }
 
     public String resetLT(Long userId) {
         log.info("Inside resetLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaForLoopsLT javaForLoopsLT = userAccount.getLessonTracker().getJavaLT().getJavaForLoopsLT();
             javaForLoopsLT.setForLoopsSyntaxLessonIsComplete(false);
@@ -49,10 +43,7 @@ public class JavaForLoopsLTService {
 
     public String completeLT(Long userId) {
         log.info("Inside completeLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaForLoopsLT javaForLoopsLT = userAccount.getLessonTracker().getJavaLT().getJavaForLoopsLT();
             javaForLoopsLT.setForLoopsSyntaxLessonIsComplete(true);
@@ -73,10 +64,7 @@ public class JavaForLoopsLTService {
     }
 
     public String updateLT(Long userId, String lesson) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaForLoopsLT javaForLoopsLT = userAccount.getLessonTracker().getJavaLT().getJavaForLoopsLT();
             switch (lesson) {
@@ -114,6 +102,13 @@ public class JavaForLoopsLTService {
         } catch (Exception e) {
             return "FAILED";
         }
+    }
+
+    private UserAccount retrieveUserAccount(Long userId) {
+        return userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
     }
 
     private void checkCompletion(JavaForLoopsLT javaForLoopsLT) {

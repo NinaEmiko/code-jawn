@@ -37,6 +37,7 @@ public class JavaLTServiceTest {
         javaDataTypesLT.setStringsLessonIsComplete(false);
 
         javaLT = new JavaLT();
+        javaLT.setId(1L);
         javaLT.setFinalIsComplete(false);
         javaLT.setComplete(false);
         javaLT.setId(null);

@@ -31,25 +31,6 @@ public class JavaOperatorsLTControllerTest {
     void setup() {
         javaOperatorsLT = new JavaOperatorsLT();
         javaOperatorsLT.setId(1L);
-        javaOperatorsLT.setAndLessonIsComplete(true);
-        javaOperatorsLT.setOrLessonIsComplete(true);
-        javaOperatorsLT.setNotLessonIsComplete(true);
-        javaOperatorsLT.setPlusLessonIsComplete(true);
-        javaOperatorsLT.setMinusLessonIsComplete(true);
-        javaOperatorsLT.setDivideLessonIsComplete(true);
-        javaOperatorsLT.setMultiplyLessonIsComplete(true);
-        javaOperatorsLT.setModulusLessonIsComplete(true);
-        javaOperatorsLT.setIncrementLessonIsComplete(true);
-        javaOperatorsLT.setDecrementLessonIsComplete(true);
-        javaOperatorsLT.setLessThanLessonIsComplete(true);
-        javaOperatorsLT.setGreaterThanLessonIsComplete(true);
-        javaOperatorsLT.setDoubleEqualsLessonIsComplete(true);
-        javaOperatorsLT.setLessThanEqualToLessonIsComplete(true);
-        javaOperatorsLT.setGreaterThanEqualToLessonIsComplete(true);
-        javaOperatorsLT.setNotEqualToLessonIsComplete(true);
-        javaOperatorsLT.setEqualsLessonIsComplete(true);
-        javaOperatorsLT.setComplete(false);
-        javaOperatorsLT.setQuizIsComplete(false);
 
         updateLTDTO = new UpdateLTDTO();
         updateLTDTO.setUserId(1L);

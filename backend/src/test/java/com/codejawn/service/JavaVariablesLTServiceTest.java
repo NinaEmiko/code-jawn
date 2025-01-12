@@ -1,10 +1,10 @@
 package com.codejawn.service;
 
-import com.codejawn.model.java.JavaDataTypesLT;
-import com.codejawn.model.java.JavaLT;
 import com.codejawn.model.LessonTracker;
 import com.codejawn.model.UserAccount;
-import com.codejawn.repository.JavaDataTypesLTRepository;
+import com.codejawn.model.java.JavaLT;
+import com.codejawn.model.java.JavaVariablesLT;
+import com.codejawn.repository.JavaVariablesLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,17 +19,18 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class JavaDataTypesLTServiceTest {
-
+public class JavaVariablesLTServiceTest {
     @Mock
-    JavaDataTypesLTRepository javaDataTypesLTRepository;
+    JavaVariablesLTRepository javaVariablesLTRepository;
     @Mock
     UserAccountRepository userAccountRepository;
     @Mock
-    JavaDataTypesLT javaDataTypesLT;
+    JavaVariablesLT javaVariablesLT;
     @Mock
     UserAccount userAccount;
     @Mock
@@ -37,74 +38,65 @@ public class JavaDataTypesLTServiceTest {
     @Mock
     JavaLT javaLT;
     @InjectMocks
-    JavaDataTypesLTService javaDataTypesLTService;
+    JavaVariablesLTService javaVariablesLTService;
 
     @BeforeEach
     void setup(){
         lessonTracker = new LessonTracker();
         javaLT = new JavaLT();
-        javaDataTypesLT = new JavaDataTypesLT();
+        javaVariablesLT = new JavaVariablesLT();
         userAccount = new UserAccount();
         userAccount.setId(1L);
         userAccount.setLessonTracker(lessonTracker);
         lessonTracker.setJavaLT(javaLT);
-        javaLT.setJavaDataTypesLT(javaDataTypesLT);
+        javaLT.setJavaVariablesLT(javaVariablesLT);
 
-        javaDataTypesLT.setId(1L);
-        javaDataTypesLT.setStringsLessonIsComplete(true);
-        javaDataTypesLT.setComplete(false);
-        javaDataTypesLT.setQuizIsComplete(false);
-        javaDataTypesLT.setBooleansLessonIsComplete(false);
-        javaDataTypesLT.setIntsLessonIsComplete(false);
-        javaDataTypesLT.setBytesLessonIsComplete(false);
-        javaDataTypesLT.setCharsLessonIsComplete(false);
-        javaDataTypesLT.setShortsLessonIsComplete(false);
-        javaDataTypesLT.setLongsLessonIsComplete(false);
-        javaDataTypesLT.setCommentsLessonIsComplete(false);
-        javaDataTypesLT.setDoublesLessonIsComplete(false);
-        javaDataTypesLT.setFloatsLessonIsComplete(false);
+        javaVariablesLT.setId(1L);
+        javaVariablesLT.setAssigningValuesLessonIsComplete(true);
+        javaVariablesLT.setUpdatingValuesLessonIsComplete(true);
+        javaVariablesLT.setInitializingVariablesLessonIsComplete(true);
+        javaVariablesLT.setConstantsLessonIsComplete(true);
+        javaVariablesLT.setNamingVariablesLessonIsComplete(true);
+        javaVariablesLT.setComplete(false);
+        javaVariablesLT.setQuizIsComplete(false);
     }
 
     @Test
     void reset_lt_should_return_success() {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-        when(javaDataTypesLTRepository.save(any())).thenReturn(javaDataTypesLT);
-        String response = javaDataTypesLTService.resetLT(1L);
+        when(javaVariablesLTRepository.save(any())).thenReturn(javaVariablesLT);
+        String response = javaVariablesLTService.resetLT(1L);
         Assertions.assertEquals("SUCCESS", response);
     }
 
     @Test
     void reset_lt_should_return_failed() {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-        when(javaDataTypesLTRepository.save(any())).thenThrow(new RuntimeException());
-        String response = javaDataTypesLTService.resetLT(1L);
+        when(javaVariablesLTRepository.save(any())).thenThrow(new RuntimeException());
+        String response = javaVariablesLTService.resetLT(1L);
         Assertions.assertEquals("FAILED", response);
     }
 
     @Test
-    void getLTShouldReturnCorrectJavaDataTypesLT(){
+    void getLTShouldReturnCorrectJavaVariablesLT(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-        JavaDataTypesLT response = javaDataTypesLTService.getLT(1L);
-        Assertions.assertEquals(response, javaDataTypesLT);
+        JavaVariablesLT response = javaVariablesLTService.getLT(1L);
+        Assertions.assertEquals(response, javaVariablesLT);
 
         Assertions.assertEquals(1L, response.getId());
-        Assertions.assertTrue(response.isStringsLessonIsComplete());
+        Assertions.assertTrue(response.isAssigningValuesLessonIsComplete());
         Assertions.assertFalse(response.isComplete());
         Assertions.assertFalse(response.isQuizIsComplete());
-        Assertions.assertFalse(response.isIntsLessonIsComplete());
-        Assertions.assertFalse(response.isLongsLessonIsComplete());
-        Assertions.assertFalse(response.isShortsLessonIsComplete());
-        Assertions.assertFalse(response.isCharsLessonIsComplete());
-        Assertions.assertFalse(response.isCommentsLessonIsComplete());
-        Assertions.assertFalse(response.isDoublesLessonIsComplete());
-        Assertions.assertFalse(response.isFloatsLessonIsComplete());
-        Assertions.assertFalse(response.isBytesLessonIsComplete());
+        Assertions.assertTrue(response.isUpdatingValuesLessonIsComplete());
+        Assertions.assertTrue(response.isNamingVariablesLessonIsComplete());
+        Assertions.assertTrue(response.isConstantsLessonIsComplete());
+        Assertions.assertTrue(response.isInitializingVariablesLessonIsComplete());
     }
 
     @Test
     void getLTShouldMakeCallToUserAccountRepository(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-        javaDataTypesLTService.getLT(1L);
+        javaVariablesLTService.getLT(1L);
         verify(userAccountRepository, times(1)).findById(1L);
     }
 
@@ -112,7 +104,7 @@ public class JavaDataTypesLTServiceTest {
     void getLTShouldThrowUserNotFoundError(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            javaDataTypesLTService.getLT(2L);
+            javaVariablesLTService.getLT(2L);
         });
         Assertions.assertEquals(e.getMessage(), "User not found");
     }
@@ -120,10 +112,10 @@ public class JavaDataTypesLTServiceTest {
     @Test
     void update_lt_should_make_call_to_repositories(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-        when(javaDataTypesLTRepository.save(any())).thenReturn(userAccount);
-        javaDataTypesLTService.updateLT(1L, "Strings");
+        when(javaVariablesLTRepository.save(any())).thenReturn(userAccount);
+        javaVariablesLTService.updateLT(1L, "Strings");
         verify(userAccountRepository, times(1)).findById(1L);
-        verify(javaDataTypesLTRepository, times(1)).save(javaDataTypesLT);
+        verify(javaVariablesLTRepository, times(1)).save(javaVariablesLT);
     }
 
     @Test
@@ -131,7 +123,7 @@ public class JavaDataTypesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            javaDataTypesLTService.updateLT(1L, "ints");
+            javaVariablesLTService.updateLT(1L, "ints");
         });
 
         Assertions.assertEquals(e.getMessage(), "User not found");
@@ -140,22 +132,17 @@ public class JavaDataTypesLTServiceTest {
     @Test
     void update_lt_should_return_success(){
         ArrayList<String> lessonsList = new ArrayList<>();
-        lessonsList.add("Strings");
-        lessonsList.add("ints");
-        lessonsList.add("booleans");
-        lessonsList.add("Longs");
-        lessonsList.add("shorts");
-        lessonsList.add("bytes");
-        lessonsList.add("chars");
-        lessonsList.add("Comments");
-        lessonsList.add("doubles");
-        lessonsList.add("floats");
+        lessonsList.add("Initializing Variables");
+        lessonsList.add("Naming Variables");
+        lessonsList.add("Assigning Values");
+        lessonsList.add("Updating Values");
+        lessonsList.add("Constants");
         lessonsList.add("Quiz");
 
         for (String lesson : lessonsList) {
             when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-            when(javaDataTypesLTRepository.save(any())).thenReturn(javaDataTypesLT);
-            String response = javaDataTypesLTService.updateLT(1L, lesson);
+            when(javaVariablesLTRepository.save(any())).thenReturn(javaVariablesLT);
+            String response = javaVariablesLTService.updateLT(1L, lesson);
             Assertions.assertEquals(response, "SUCCESS");
         }
     }
@@ -163,9 +150,9 @@ public class JavaDataTypesLTServiceTest {
     @Test
     void update_lt_should_return_failed(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-        when(javaDataTypesLTRepository.save(any())).thenThrow(new RuntimeException());
+        when(javaVariablesLTRepository.save(any())).thenThrow(new RuntimeException());
 
-        String response = javaDataTypesLTService.updateLT(1L, "ints");
+        String response = javaVariablesLTService.updateLT(1L, "ints");
 
         Assertions.assertEquals(response, "FAILED");
     }
@@ -173,16 +160,16 @@ public class JavaDataTypesLTServiceTest {
     @Test
     void complete_lt_should_return_success() {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-        when(javaDataTypesLTRepository.save(any())).thenReturn(javaDataTypesLT);
-        String response = javaDataTypesLTService.completeLT(1L);
+        when(javaVariablesLTRepository.save(any())).thenReturn(javaVariablesLT);
+        String response = javaVariablesLTService.completeLT(1L);
         Assertions.assertEquals("SUCCESS", response);
     }
 
     @Test
     void complete_lt_should_return_failed() {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
-        when(javaDataTypesLTRepository.save(any())).thenThrow(new RuntimeException());
-        String response = javaDataTypesLTService.completeLT(1L);
+        when(javaVariablesLTRepository.save(any())).thenThrow(new RuntimeException());
+        String response = javaVariablesLTService.completeLT(1L);
         Assertions.assertEquals("FAILED", response);
     }
 }

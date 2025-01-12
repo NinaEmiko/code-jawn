@@ -16,19 +16,13 @@ public class JavaConditionalsLTService {
     private final UserAccountRepository userAccountRepository;
 
     public JavaConditionalsLT getLT(Long userId) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         return userAccount.getLessonTracker().getJavaLT().getJavaConditionalsLT();
     }
 
     public String resetLT(Long userId) {
         log.info("Inside resetLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaConditionalsLT javaConditionalsLT = userAccount.getLessonTracker().getJavaLT().getJavaConditionalsLT();
             javaConditionalsLT.setIfLessonIsComplete(false);
@@ -54,10 +48,7 @@ public class JavaConditionalsLTService {
 
     public String completeLT(Long userId) {
         log.info("Inside completeLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaConditionalsLT javaConditionalsLT = userAccount.getLessonTracker().getJavaLT().getJavaConditionalsLT();
             javaConditionalsLT.setIfLessonIsComplete(true);
@@ -82,10 +73,7 @@ public class JavaConditionalsLTService {
     }
 
     public String updateLT(Long userId, String lesson) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaConditionalsLT javaConditionalsLT = userAccount.getLessonTracker().getJavaLT().getJavaConditionalsLT();
             switch (lesson) {
@@ -135,6 +123,13 @@ public class JavaConditionalsLTService {
         } catch (Exception e) {
             return "FAILED";
         }
+    }
+
+    private UserAccount retrieveUserAccount(Long userId) {
+        return userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
     }
 
     private void checkCompletion(JavaConditionalsLT javaConditionalsLT) {

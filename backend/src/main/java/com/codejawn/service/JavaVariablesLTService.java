@@ -16,19 +16,13 @@ public class JavaVariablesLTService {
     private final UserAccountRepository userAccountRepository;
 
     public JavaVariablesLT getLT(Long userId) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         return userAccount.getLessonTracker().getJavaLT().getJavaVariablesLT();
     }
 
     public String resetLT(Long userId) {
         log.info("Inside resetLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaVariablesLT javaVariablesLT = userAccount.getLessonTracker().getJavaLT().getJavaVariablesLT();
             javaVariablesLT.setInitializingVariablesLessonIsComplete(false);
@@ -47,10 +41,7 @@ public class JavaVariablesLTService {
 
     public String completeLT(Long userId) {
         log.info("Inside completeLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaVariablesLT javaVariablesLT = userAccount.getLessonTracker().getJavaLT().getJavaVariablesLT();
             javaVariablesLT.setInitializingVariablesLessonIsComplete(true);
@@ -68,10 +59,7 @@ public class JavaVariablesLTService {
     }
 
     public String updateLT(Long userId, String lesson) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaVariablesLT javaVariablesLT = userAccount.getLessonTracker().getJavaLT().getJavaVariablesLT();
             switch (lesson) {
@@ -100,6 +88,13 @@ public class JavaVariablesLTService {
         } catch (Exception e) {
             return "FAILED";
         }
+    }
+
+    private UserAccount retrieveUserAccount(Long userId) {
+        return userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
     }
 
     private void checkCompletion(JavaVariablesLT javaVariablesLT) {
