@@ -10,6 +10,7 @@ import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.security.JWTGenerator;
 import com.codejawn.util.CodeJawnError;
+import com.codejawn.util.RoleCode;
 import com.codejawn.util.StatusCode;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -77,8 +78,8 @@ public class UserAccountService {
         userAccount.setLessonTracker(lessonTracker);
         userAccount.setSubscriptionActive(true);
 
-        Role role = roleRepository.findByName("USER")
-                .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));
+        Role role = roleRepository.findByName(RoleCode.USER.name())
+                .orElseThrow(() -> new RuntimeException(CodeJawnError.ROLE_USER_NOT_FOUNT.getMessage()));
 
         userAccount.setRoles(Collections.singletonList(role));
         return userAccountRepository.save(userAccount);
@@ -129,7 +130,7 @@ public class UserAccountService {
 
             return updateEmailResponse;
         } catch (Exception e) {
-            throw new RuntimeException("Error occurred while updating email for user account with id " + id + ".");
+            throw new RuntimeException(CodeJawnError.UPDATE_EMAIL_ERROR.getMessage());
         }
     }
 
@@ -145,7 +146,7 @@ public class UserAccountService {
 
             return updateUsernameResponse;
         } catch (Exception e) {
-            throw new RuntimeException("Error occurred while updating username for user account with id " + id + ".");
+            throw new RuntimeException(CodeJawnError.UPDATE_USERNAME_ERROR.getMessage());
         }
     }
 
