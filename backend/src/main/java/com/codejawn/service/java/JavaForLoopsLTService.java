@@ -98,8 +98,6 @@ public class JavaForLoopsLTService {
                 case QUIZ:
                     javaForLoopsLT.setQuizIsComplete(true);
                     break;
-                default:
-                    throw new RuntimeException(CodeJawnError.LESSON_NOT_FOUND.getMessage());
             }
             checkCompletion(javaForLoopsLT);
             javaForLoopsLTRepository.save(javaForLoopsLT);

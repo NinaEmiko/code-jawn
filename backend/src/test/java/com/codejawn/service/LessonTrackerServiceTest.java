@@ -56,9 +56,7 @@ public class LessonTrackerServiceTest {
     @Test
     void delete_by_id_should_make_call_To_repository() {
         doNothing().when(lessonTrackerRepository).deleteById(anyLong());
-
         lessonTrackerService.deleteById(1L);
-
         verify(lessonTrackerRepository).deleteById(1L);
     }
 
@@ -67,7 +65,8 @@ public class LessonTrackerServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         LessonTracker response = lessonTrackerService.getLessonTracker(1L);
         Assertions.assertNotNull(lessonTracker);
-
+        Assertions.assertNull(lessonTracker.getId());
+        Assertions.assertFalse(lessonTracker.isComplete());
     }
 
     @Test

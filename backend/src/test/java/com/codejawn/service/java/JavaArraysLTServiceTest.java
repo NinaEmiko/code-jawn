@@ -164,6 +164,13 @@ public class JavaArraysLTServiceTest {
     }
 
     @Test
+    void update_lt_should_return_failed_when_given_wrong_lesson(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        String response = javaArraysLTService.updateLT(1L, "Strings");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
+    }
+
+    @Test
     void complete_lt_should_return_success() {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaArraysLTRepository.save(any())).thenReturn(javaArraysLT);

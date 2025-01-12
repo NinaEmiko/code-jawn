@@ -187,4 +187,11 @@ public class JavaDataTypesLTServiceTest {
         String response = javaDataTypesLTService.completeLT(1L);
         Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
+
+    @Test
+    void update_lt_should_return_failed_when_given_wrong_lesson(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        String response = javaDataTypesLTService.updateLT(1L, "Cookie Monster");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
+    }
 }

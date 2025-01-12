@@ -142,8 +142,6 @@ public class JavaOperatorsLTService {
                 case QUIZ:
                     javaOperatorsLT.setQuizIsComplete(true);
                     break;
-                default:
-                    throw new RuntimeException(CodeJawnError.LESSON_NOT_FOUND.getMessage());
             }
             checkCompletion(javaOperatorsLT);
             javaOperatorsLTRepository.save(javaOperatorsLT);

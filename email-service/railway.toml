@@ -1,0 +1,17 @@
+# Railway Project Configuration
+
+name = "codejawn-email-service"
+region = "us-west-1"
+
+[[services]]
+internal_port = 8080
+protocol = "https"
+
+[services.environments]
+[services.environments.production]
+start_command = "java -jar target/email-service-1.0.0.jar"
+
+[services.routes]
+[services.routes.main]
+port = 8080
+public = true

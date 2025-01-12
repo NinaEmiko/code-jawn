@@ -3,6 +3,7 @@ package com.codejawn.service.java;
 import com.codejawn.model.java.JavaDataTypesLT;
 import com.codejawn.model.java.JavaLT;
 import com.codejawn.repository.java.JavaLTRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,7 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
@@ -18,8 +18,6 @@ import static org.mockito.Mockito.*;
 public class JavaLTServiceTest {
     @Mock
     JavaLTRepository javaLTRepository;
-    @Mock
-    JavaDataTypesLTService javaDataTypesLTService;
     @Mock
     JavaLT javaLT;
     @Mock
@@ -49,5 +47,13 @@ public class JavaLTServiceTest {
         doNothing().when(javaLTRepository).deleteById(anyLong());
         javaLTService.deleteById(1L);
         verify(javaLTRepository, times(1)).deleteById(1L);
+    }
+
+    @Test
+    void pojoTest() {
+        Assertions.assertNull(javaLT.getId());
+        Assertions.assertFalse(javaLT.isComplete());
+        Assertions.assertFalse(javaLT.isFinalIsComplete());
+        Assertions.assertNull(javaLT.getJavaCollectionsLT());
     }
 }
