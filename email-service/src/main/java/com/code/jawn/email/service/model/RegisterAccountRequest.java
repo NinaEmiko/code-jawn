@@ -1,16 +1,15 @@
 package com.code.jawn.email.service.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class RegisterAccountRequest {
-    private String to;
-    private String username;
+public class RegisterAccountRequest extends EmailRequest {
     private String code;
+
+    public RegisterAccountRequest(String to, String username, String code) {
+        super(to, username);
+        this.code = code;
+    }
 }
