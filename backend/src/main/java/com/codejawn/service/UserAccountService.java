@@ -9,8 +9,12 @@ import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.security.JWTGenerator;
+import com.codejawn.util.CodeJawnError;
+import com.codejawn.util.RoleCode;
+import com.codejawn.util.StatusCode;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,10 +23,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
-import java.util.logging.Logger;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class UserAccountService {
 
     private final UserAccountRepository userAccountRepository;
@@ -30,12 +34,9 @@ public class UserAccountService {
     private JWTGenerator jwtGenerator;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
-    private final Logger logger = Logger.getLogger(UserAccountService.class.getName());
 
     public UserAccountResponseDTO getUserAccount(Long id){
-        logger.info("Inside getUserAccount service method.");
-        UserAccount userAccount =  userAccountRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));
+        UserAccount userAccount = retrieveUserAccount(id);
 
         UserAccountResponseDTO userAccountResponseDTO = new UserAccountResponseDTO();
         userAccountResponseDTO.setUserId(id);
@@ -47,8 +48,6 @@ public class UserAccountService {
 
     @Transactional
     public UserAccount register(String userName, String email, String password) {
-        logger.info("Inside register service method.");
-
         JavaArraysLT javaArraysLT = new JavaArraysLT();
         JavaCollectionsLT javaCollectionsLT = new JavaCollectionsLT();
         JavaConditionalsLT javaConditionalsLT = new JavaConditionalsLT();
@@ -79,8 +78,8 @@ public class UserAccountService {
         userAccount.setLessonTracker(lessonTracker);
         userAccount.setSubscriptionActive(true);
 
-        Role role = roleRepository.findByName("USER")
-                .orElseThrow(() -> new RuntimeException("Error: Role USER not found."));
+        Role role = roleRepository.findByName(RoleCode.USER.name())
+                .orElseThrow(() -> new RuntimeException(CodeJawnError.ROLE_USER_NOT_FOUNT.getMessage()));
 
         userAccount.setRoles(Collections.singletonList(role));
         return userAccountRepository.save(userAccount);
@@ -96,7 +95,7 @@ public class UserAccountService {
 
         UserAccount userAccount = userAccountRepository.findByUsername(username)
                 .orElseThrow(
-                        () -> new RuntimeException("User not found")
+                        () -> new RuntimeException(CodeJawnError.USER_NOT_FOUND.getMessage())
                 );
         AuthResponseDTO authResponseDTO = new AuthResponseDTO(token);
         authResponseDTO.setUserId(userAccount.getId());
@@ -108,11 +107,7 @@ public class UserAccountService {
     }
 
     public void updatePassword(Long id, String oldPassword, String newPassword) {
-        logger.info("Inside updatePassword service method.");
-        UserAccount userAccount = userAccountRepository.findById(id)
-            .orElseThrow(
-                    () -> new RuntimeException("User not found")
-            );
+        UserAccount userAccount = retrieveUserAccount(id);
         try{
             userAccount.setPassword(passwordEncoder.encode(newPassword));
             userAccountRepository.save(userAccount);
@@ -123,16 +118,11 @@ public class UserAccountService {
     }
 
     public UpdateEmailResponse updateEmail(Long id, String newEmail) {
-        logger.info("Inside update email service method.");
-        UserAccount userAccount = userAccountRepository.findById(id)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found.")
-                );
+        UserAccount userAccount = retrieveUserAccount(id);
 
         try{
             userAccount.setEmail(newEmail);
 
-            logger.info("Saving user account with id " + id + " with updated email.");
             userAccountRepository.save(userAccount);
 
             UpdateEmailResponse updateEmailResponse = new UpdateEmailResponse();
@@ -140,38 +130,39 @@ public class UserAccountService {
 
             return updateEmailResponse;
         } catch (Exception e) {
-            throw new RuntimeException("Error occurred while updating email for user account with id " + id + ".");
+            throw new RuntimeException(CodeJawnError.UPDATE_EMAIL_ERROR.getMessage());
         }
     }
 
     public UpdateUsernameResponse updateUsername(Long id, String newUsername) {
-        logger.info("Inside update username service method.");
-
-        UserAccount userAccount = userAccountRepository.findById(id)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found.")
-                );
+        UserAccount userAccount = retrieveUserAccount(id);
         try{
             userAccount.setUsername(newUsername);
+
+            userAccountRepository.save(userAccount);
 
             UpdateUsernameResponse updateUsernameResponse = new UpdateUsernameResponse();
             updateUsernameResponse.setNewUsername(newUsername);
 
-            logger.info("Saving user account with id " + id + " with updated username.");
-            userAccountRepository.save(userAccount);
-
             return updateUsernameResponse;
         } catch (Exception e) {
-            throw new RuntimeException("Error occurred while updating username for user account with id " + id + ".");
+            throw new RuntimeException(CodeJawnError.UPDATE_USERNAME_ERROR.getMessage());
         }
     }
 
     public String deleteUser(Long id) {
         try {
             userAccountRepository.deleteById(id);
-            return "SUCCESS";
+            return StatusCode.SUCCESS.name();
         } catch (Exception e) {
-            return "FAILED";
+            return StatusCode.FAILED.name();
         }
+    }
+
+    private UserAccount retrieveUserAccount(Long userId) {
+        return userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException(CodeJawnError.USER_NOT_FOUND.getMessage())
+                );
     }
 }

@@ -1,7 +1,6 @@
 package com.codejawn.dto;
 
 import jakarta.validation.constraints.Email;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

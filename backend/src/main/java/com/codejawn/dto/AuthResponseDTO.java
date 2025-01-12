@@ -2,7 +2,6 @@ package com.codejawn.dto;
 
 import com.codejawn.model.LessonTracker;
 import com.codejawn.model.Role;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
