@@ -1,5 +1,9 @@
 package com.code.jawn.email.service.controller;
 
+import com.code.jawn.email.service.model.DeleteAccountRequest;
+import com.code.jawn.email.service.model.RegisterAccountRequest;
+import com.code.jawn.email.service.model.UpdateEmailRequest;
+import com.code.jawn.email.service.model.UpdatePasswordRequest;
 import com.code.jawn.email.service.service.EmailService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +19,9 @@ public class EmailController {
 
     @PostMapping("/register-account")
     public ResponseEntity<String> sendRegisterAccountEmail(
-            @RequestParam @Valid String to,
-            @RequestParam @Valid String username,
-            @RequestParam @Valid String code) {
+            @RequestBody @Valid RegisterAccountRequest registerAccountRequest) {
         try {
-            emailService.sendRegisterAccountEmail(to, username, code);
+            emailService.sendRegisterAccountEmail(registerAccountRequest);
             return ResponseEntity.ok("Email sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());
@@ -28,10 +30,9 @@ public class EmailController {
 
     @PostMapping("/delete-account")
     public ResponseEntity<String> sendDeleteAccountEmail(
-            @RequestParam @Valid String to,
-            @RequestParam @Valid String username) {
+            @RequestBody @Valid DeleteAccountRequest deleteAccountRequest) {
         try {
-            emailService.sendDeleteAccountEmail(to, username);
+            emailService.sendDeleteAccountEmail(deleteAccountRequest);
             return ResponseEntity.ok("Email sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());
@@ -39,10 +40,9 @@ public class EmailController {
     }
     @PostMapping("/update-password")
     public ResponseEntity<String> sendUpdatePasswordEmail(
-            @RequestParam @Valid String to,
-            @RequestParam @Valid String username) {
+            @RequestBody @Valid UpdatePasswordRequest updatePasswordRequest) {
         try {
-            emailService.sendUpdatePasswordEmail(to, username);
+            emailService.sendUpdatePasswordEmail(updatePasswordRequest);
             return ResponseEntity.ok("Email sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());
@@ -50,10 +50,9 @@ public class EmailController {
     }
     @PostMapping("/update-email")
     public ResponseEntity<String> sendUpdateEmail(
-            @RequestParam @Valid String to,
-            @RequestParam @Valid String username) {
+            @RequestBody @Valid UpdateEmailRequest updateEmailRequest) {
         try {
-            emailService.sendUpdateEmail(to, username);
+            emailService.sendUpdateEmail(updateEmailRequest);
             return ResponseEntity.ok("Email sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());

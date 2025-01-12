@@ -1,5 +1,8 @@
 package com.code.jawn.email.service.util;
 
+import lombok.Getter;
+
+@Getter
 public enum EmailSubject {
     UPDATE_PASSWORD_SUBJECT("Your Code Jawn password has been updated"),
     UPDATE_EMAIL_SUBJECT("Your Code Jawn email has been updated"),
@@ -10,9 +13,5 @@ public enum EmailSubject {
 
     EmailSubject(String message) {
         this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
     }
 }
