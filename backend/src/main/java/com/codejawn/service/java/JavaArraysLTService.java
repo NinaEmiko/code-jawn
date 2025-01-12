@@ -6,6 +6,7 @@ import com.codejawn.repository.java.JavaArraysLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
+import com.codejawn.util.java.JavaArraysLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -66,26 +67,27 @@ public class JavaArraysLTService {
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaArraysLT javaArraysLT = userAccount.getLessonTracker().getJavaLT().getJavaArraysLT();
-            switch (lesson) {
-                case "Initializing Arrays":
+            JavaArraysLesson javaArraysLesson = JavaArraysLesson.valueOf(lesson);
+            switch (javaArraysLesson) {
+                case INITIALIZING_ARRAYS:
                     javaArraysLT.setInitializingArraysLessonIsComplete(true);
                     break;
-                case "Assigning Values":
+                case ASSIGNING_VALUES:
                     javaArraysLT.setAssigningValuesLessonIsComplete(true);
                     break;
-                case "Array Indexes":
+                case ARRAY_INDEXES:
                     javaArraysLT.setArrayIndexesLessonIsComplete(true);
                     break;
-                case "Updating Values":
+                case UPDATING_VALUES:
                     javaArraysLT.setUpdatingValuesLessonIsComplete(true);
                     break;
-                case "Length Method":
+                case LENGTH_METHOD:
                     javaArraysLT.setLengthMethodLessonIsComplete(true);
                     break;
-                case "Looping Through Arrays":
+                case LOOPING_THROUGH_ARRAYS:
                     javaArraysLT.setLoopingThroughArrayLessonIsComplete(true);
                     break;
-                case "Quiz":
+                case QUIZ:
                     javaArraysLT.setQuizIsComplete(true);
                     break;
             }

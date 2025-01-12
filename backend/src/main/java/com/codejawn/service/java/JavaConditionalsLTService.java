@@ -6,6 +6,8 @@ import com.codejawn.repository.java.JavaConditionalsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
+import com.codejawn.util.java.JavaArraysLesson;
+import com.codejawn.util.java.JavaConditionalsLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -76,44 +78,45 @@ public class JavaConditionalsLTService {
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaConditionalsLT javaConditionalsLT = userAccount.getLessonTracker().getJavaLT().getJavaConditionalsLT();
-            switch (lesson) {
-                case "If":
+            JavaConditionalsLesson javaConditionalsLesson = JavaConditionalsLesson.valueOf(lesson);
+            switch (javaConditionalsLesson) {
+                case IF:
                     javaConditionalsLT.setIfLessonIsComplete(true);
                     break;
-                case "Else":
+                case ELSE:
                     javaConditionalsLT.setElseLessonIsComplete(true);
                     break;
-                case "Elseif":
+                case ELSEIF:
                     javaConditionalsLT.setElseifLessonIsComplete(true);
                     break;
-                case "Multiple Ifs":
+                case MULTIPLE_IFS:
                     javaConditionalsLT.setMultipleIfsLessonIsComplete(true);
                     break;
-                case "Multiple Elseifs":
+                case MULTIPLE_ELSEIFS:
                     javaConditionalsLT.setMultipleElseifsLessonIsComplete(true);
                     break;
-                case "If/Else Nesting":
+                case IF_ELSE_NESTING:
                     javaConditionalsLT.setIfElseNestingLessonIsComplete(true);
                     break;
-                case "Ternary":
+                case TERNARY:
                     javaConditionalsLT.setTernaryLessonIsComplete(true);
                     break;
-                case "Switch Syntax":
+                case SWITCH_SYNTAX:
                     javaConditionalsLT.setSwitchSyntaxLessonIsComplete(true);
                     break;
-                case "Switch Expressions":
+                case SWITCH_EXPRESSIONS:
                     javaConditionalsLT.setSwitchExpressionsLessonIsComplete(true);
                     break;
-                case "Switch Cases":
+                case SWITCH_CASES:
                     javaConditionalsLT.setSwitchCasesLessonIsComplete(true);
                     break;
-                case "Break Statement":
+                case BREAK_STATEMENT:
                     javaConditionalsLT.setBreakStatementLessonIsComplete(true);
                     break;
-                case "Continue Statement":
+                case CONTINUE_STATEMENT:
                     javaConditionalsLT.setContinueStatementLessonIsComplete(true);
                     break;
-                case "Quiz":
+                case QUIZ:
                     javaConditionalsLT.setQuizIsComplete(true);
                     break;
             }
