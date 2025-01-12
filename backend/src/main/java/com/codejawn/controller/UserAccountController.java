@@ -13,8 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.logging.Logger;
-
 @RestController
 @RequestMapping("/api/auth")
 @Slf4j
@@ -22,7 +20,6 @@ public class UserAccountController {
 
     private UserAccountRepository userAccountRepository;
     private UserAccountService userAccountService;
-    private final Logger logger = Logger.getLogger(UserAccountController.class.getName());
 
     @Autowired
     public UserAccountController(UserAccountRepository userAccountRepository,
@@ -33,14 +30,14 @@ public class UserAccountController {
 
     @GetMapping("/get/{id}")
     public ResponseEntity<UserAccountResponseDTO> getUserAccount(@PathVariable @Valid Long id){
-        logger.info("Inside getUserAccount controller method.");
+        log.info("Received request for user account with id: {}", id);
         UserAccountResponseDTO userAccountResponseDTO = userAccountService.getUserAccount(id);
         return new ResponseEntity<>(userAccountResponseDTO, HttpStatus.OK);
     }
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponseDTO> login(@RequestBody @Valid LoginDTO loginDTO){
-        logger.info("Inside login controller method.");
+        log.info("Received login request for user account with username: {}", loginDTO.getUsername());
         String username = loginDTO.getUsername();
         String password = loginDTO.getPassword();
         AuthResponseDTO authResponseDTO = userAccountService.login(username, password);
@@ -49,7 +46,7 @@ public class UserAccountController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody @Valid RegisterDTO registerDTO) {
-        logger.info("Inside register controller method.");
+        log.info("Received register request for new user account with username: {}", registerDTO.getUsername());
         if (userAccountRepository.existsByUsername(registerDTO.getUsername())) {
             return new ResponseEntity<>("Username is taken!", HttpStatus.BAD_REQUEST);
         }
@@ -65,7 +62,7 @@ public class UserAccountController {
 
     @PutMapping("/update-password")
     public ResponseEntity<?> updatePassword(@RequestBody @Valid UpdatePasswordDTO updatePasswordDTO) {
-        logger.info("Inside updatePassword controller method.");
+        log.info("Received request to update password for user account with id: {}", updatePasswordDTO.getId());
 
         Long id = updatePasswordDTO.getId();
         String oldPassword = updatePasswordDTO.getOldPassword();
@@ -81,8 +78,7 @@ public class UserAccountController {
 
     @PutMapping("/update-email")
     public ResponseEntity<?> updateEmail(@RequestBody @Valid UpdateEmailDTO updateEmailDTO) {
-        logger.info("Inside update email controller method.");
-        logger.info("Update email request: " + updateEmailDTO + ".");
+        log.info("Received request to update email for user account with id: {}", updateEmailDTO.getId());
 
         Long id = updateEmailDTO.getId();
         String newEmail = updateEmailDTO.getNewEmail();
@@ -97,8 +93,7 @@ public class UserAccountController {
 
     @PutMapping("/update-username")
     public ResponseEntity<?> updateUsername(@RequestBody @Valid UpdateUsernameDTO updateUsernameDTO) {
-        logger.info("Inside update username controller method.");
-        logger.info("Update username request: " + updateUsernameDTO + ".");
+        log.info("Received request to update username for user account with id: {}", updateUsernameDTO.getId());
 
         Long id = updateUsernameDTO.getId();
         String newEmail = updateUsernameDTO.getNewUsername();
@@ -113,7 +108,7 @@ public class UserAccountController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteAccount(@PathVariable @Valid Long id){
-        logger.info("Inside deleteAccount controller method.");
+        log.info("Received request to delete account with id: {}", id);
         String response;
         try{
             response = userAccountService.deleteUser(id);

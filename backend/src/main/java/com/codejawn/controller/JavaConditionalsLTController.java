@@ -5,29 +5,28 @@ import com.codejawn.model.java.JavaConditionalsLT;
 import com.codejawn.service.JavaConditionalsLTService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.logging.Logger;
-
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/java/conditionals/lessons")
+@Slf4j
 public class JavaConditionalsLTController {
-    private final Logger logger = Logger.getLogger(JavaConditionalsLTController.class.getName());
     private final JavaConditionalsLTService javaConditionalsLTService;
 
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getJavaConditionalsLT(@PathVariable @Valid Long id){
-        logger.info("Inside getJavaConditionalsLT controller method.");
+        log.info("Received request for Java Conditionals Lesson Tracker for account with id: {}", id);
         JavaConditionalsLT javaConditionalsLT = javaConditionalsLTService.getLT(id);
         return new ResponseEntity<>(javaConditionalsLT, HttpStatus.OK);
     }
 
     @PutMapping("/update")
     public ResponseEntity<String> updateJavaConditionalsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside updateJavaConditionalsLT controller method.");
+        log.info("Received request to update Java Conditionals Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String lesson = updateLTDTO.getLesson();
         String response = javaConditionalsLTService.updateLT(userId, lesson);
@@ -36,7 +35,7 @@ public class JavaConditionalsLTController {
 
     @PostMapping("/reset")
     public ResponseEntity<String> resetJavaConditionalsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside resetJavaConditionalsLT controller method.");
+        log.info("Received request to reset Java Conditionals Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String response = javaConditionalsLTService.resetLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -44,7 +43,7 @@ public class JavaConditionalsLTController {
 
     @PostMapping("/complete")
     public ResponseEntity<String> completeJavaConditionalsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside completeJavaConditionalsLT controller method.");
+        log.info("Received request to complete Java Conditionals Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String response = javaConditionalsLTService.completeLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);

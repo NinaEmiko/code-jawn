@@ -5,29 +5,28 @@ import com.codejawn.model.java.JavaForLoopsLT;
 import com.codejawn.service.JavaForLoopsLTService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.logging.Logger;
-
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/java/for-loops/lessons")
+@Slf4j
 public class JavaForLoopsLTController {
-    private final Logger logger = Logger.getLogger(JavaForLoopsLTController.class.getName());
     private final JavaForLoopsLTService javaForLoopsLTService;
 
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getJavaForLoopsLT(@PathVariable @Valid Long id){
-        logger.info("Inside getJavaForLoopsLT controller method.");
+        log.info("Received request for Java For Loops Lesson Tracker for account with id: {}", id);
         JavaForLoopsLT javaForLoopsLT = javaForLoopsLTService.getLT(id);
         return new ResponseEntity<>(javaForLoopsLT, HttpStatus.OK);
     }
 
     @PutMapping("/update")
     public ResponseEntity<String> updateJavaForLoopsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside updateJavaForLoopsLT controller method.");
+        log.info("Received request to update Java For Loops Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String lesson = updateLTDTO.getLesson();
         String response = javaForLoopsLTService.updateLT(userId, lesson);
@@ -36,7 +35,7 @@ public class JavaForLoopsLTController {
 
     @PostMapping("/reset")
     public ResponseEntity<String> resetJavaForLoopsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside resetJavaForLoopsLT controller method.");
+        log.info("Received request to reset Java For Loops Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String response = javaForLoopsLTService.resetLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -44,7 +43,7 @@ public class JavaForLoopsLTController {
 
     @PostMapping("/complete")
     public ResponseEntity<String> completeJavaForLoopsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside completeJavaForLoopsLT controller method.");
+        log.info("Received request to complete Java For Loops Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String response = javaForLoopsLTService.completeLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);

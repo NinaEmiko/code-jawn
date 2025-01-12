@@ -5,29 +5,28 @@ import com.codejawn.model.java.JavaMethodsLT;
 import com.codejawn.service.JavaMethodsLTService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.logging.Logger;
-
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/java/methods/lessons")
+@Slf4j
 public class JavaMethodsLTController {
-    private final Logger logger = Logger.getLogger(JavaMethodsLTController.class.getName());
     private final JavaMethodsLTService javaMethodsLTService;
 
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getJavaMethodsLT(@PathVariable @Valid Long id){
-        logger.info("Inside getJavaMethodsLT controller method.");
+        log.info("Received request for Java Methods Lesson Tracker for account with id: {}", id);
         JavaMethodsLT javaMethodsLT = javaMethodsLTService.getLT(id);
         return new ResponseEntity<>(javaMethodsLT, HttpStatus.OK);
     }
 
     @PutMapping("/update")
     public ResponseEntity<String> updateJavaMethodsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside updateJavaMethodsLT controller method.");
+        log.info("Received request to update Java Methods Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String lesson = updateLTDTO.getLesson();
         String response = javaMethodsLTService.updateLT(userId, lesson);
@@ -36,7 +35,7 @@ public class JavaMethodsLTController {
 
     @PostMapping("/reset")
     public ResponseEntity<String> resetJavaMethodsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside resetJavaMethodsLT controller method.");
+        log.info("Received request to reset Java Methods Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String response = javaMethodsLTService.resetLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -44,7 +43,7 @@ public class JavaMethodsLTController {
 
     @PostMapping("/complete")
     public ResponseEntity<String> completeJavaMethodsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside completeJavaMethodsLT controller method.");
+        log.info("Received request to complete Java Methods Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String response = javaMethodsLTService.completeLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);

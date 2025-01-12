@@ -5,29 +5,28 @@ import com.codejawn.model.java.JavaOperatorsLT;
 import com.codejawn.service.JavaOperatorsLTService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.logging.Logger;
-
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/java/operators/lessons")
+@Slf4j
 public class JavaOperatorsLTController {
-    private final Logger logger = Logger.getLogger(JavaOperatorsLTController.class.getName());
     private final JavaOperatorsLTService javaOperatorsLTService;
 
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getJavaOperatorsLT(@PathVariable @Valid Long id){
-        logger.info("Inside getJavaOperatorsLT controller method.");
+        log.info("Received request for Java Operators Lesson Tracker for account with id: {}", id);
         JavaOperatorsLT javaOperatorsLT = javaOperatorsLTService.getLT(id);
         return new ResponseEntity<>(javaOperatorsLT, HttpStatus.OK);
     }
 
     @PutMapping("/update")
     public ResponseEntity<String> updateJavaOperatorsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside updateJavaOperatorsLT controller method.");
+        log.info("Received request to update Java Operators Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String lesson = updateLTDTO.getLesson();
         String response = javaOperatorsLTService.updateLT(userId, lesson);
@@ -36,7 +35,7 @@ public class JavaOperatorsLTController {
 
     @PostMapping("/reset")
     public ResponseEntity<String> resetJavaOperatorsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside resetJavaOperatorsLT controller method.");
+        log.info("Received request to reset Java Operators Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String response = javaOperatorsLTService.resetLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -44,7 +43,7 @@ public class JavaOperatorsLTController {
 
     @PostMapping("/complete")
     public ResponseEntity<String> completeJavaOperatorsLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        logger.info("Inside completeJavaOperatorsLT controller method.");
+        log.info("Received request to complete Java Operators Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
         Long userId = updateLTDTO.getUserId();
         String response = javaOperatorsLTService.completeLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
