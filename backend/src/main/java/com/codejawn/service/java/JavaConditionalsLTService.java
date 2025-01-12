@@ -118,6 +118,8 @@ public class JavaConditionalsLTService {
                 case QUIZ:
                     javaConditionalsLT.setQuizIsComplete(true);
                     break;
+                default:
+                    throw new RuntimeException(CodeJawnError.LESSON_NOT_FOUND.getMessage());
             }
             checkCompletion(javaConditionalsLT);
             javaConditionalsLTRepository.save(javaConditionalsLT);
