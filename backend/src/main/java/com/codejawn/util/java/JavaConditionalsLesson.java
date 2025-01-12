@@ -1,5 +1,6 @@
 package com.codejawn.util.java;
 
+
 import lombok.Getter;
 
 @Getter
@@ -22,5 +23,16 @@ public enum JavaConditionalsLesson {
 
     JavaConditionalsLesson(String lesson) {
         this.lesson = lesson;
+    }
+
+    public static JavaConditionalsLesson fromLesson(String lessonString) {
+        if (lessonString != null) {
+            for (JavaConditionalsLesson l : values()) {
+                if (l.getLesson().equalsIgnoreCase(lessonString)) {
+                    return l;
+                }
+            }
+        }
+        return null;
     }
 }

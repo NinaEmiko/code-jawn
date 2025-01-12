@@ -123,7 +123,7 @@ public class JavaDataTypesLTServiceTest {
     void update_lt_should_make_call_to_repositories(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaDataTypesLTRepository.save(any())).thenReturn(userAccount);
-        javaDataTypesLTService.updateLT(1L, "Strings");
+        javaDataTypesLTService.updateLT(1L, "floats");
         verify(userAccountRepository, times(1)).findById(1L);
         verify(javaDataTypesLTRepository, times(1)).save(javaDataTypesLT);
     }
@@ -133,7 +133,7 @@ public class JavaDataTypesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            javaDataTypesLTService.updateLT(1L, "ints");
+            javaDataTypesLTService.updateLT(1L, "floats");
         });
 
         Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
@@ -167,7 +167,7 @@ public class JavaDataTypesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaDataTypesLTRepository.save(any())).thenThrow(new RuntimeException());
 
-        String response = javaDataTypesLTService.updateLT(1L, "ints");
+        String response = javaDataTypesLTService.updateLT(1L, "floats");
 
         Assertions.assertEquals(response, StatusCode.FAILED.name());
     }

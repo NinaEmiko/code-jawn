@@ -6,6 +6,7 @@ import com.codejawn.repository.java.JavaDataTypesLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
+import com.codejawn.util.java.JavaDataTypesLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -72,38 +73,39 @@ public class JavaDataTypesLTService {
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaDataTypesLT javaDataTypesLT = userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
-            switch (lesson) {
-                case "Strings":
+            JavaDataTypesLesson javaDataTypesLesson = JavaDataTypesLesson.fromLesson(lesson);
+            switch (javaDataTypesLesson) {
+                case STRINGS:
                     javaDataTypesLT.setStringsLessonIsComplete(true);
                     break;
-                case "ints":
+                case INTS:
                     javaDataTypesLT.setIntsLessonIsComplete(true);
                     break;
-                case "booleans":
+                case BOOLEANS:
                     javaDataTypesLT.setBooleansLessonIsComplete(true);
                     break;
-                case "Longs":
+                case LONGS:
                     javaDataTypesLT.setLongsLessonIsComplete(true);
                     break;
-                case "floats":
+                case FLOATS:
                     javaDataTypesLT.setFloatsLessonIsComplete(true);
                     break;
-                case "doubles":
+                case DOUBLES:
                     javaDataTypesLT.setDoublesLessonIsComplete(true);
                     break;
-                case "shorts":
+                case SHORTS:
                     javaDataTypesLT.setShortsLessonIsComplete(true);
                     break;
-                case "bytes":
+                case BYTES:
                     javaDataTypesLT.setBytesLessonIsComplete(true);
                     break;
-                case "chars":
+                case CHARS:
                     javaDataTypesLT.setCharsLessonIsComplete(true);
                     break;
-                case "Comments":
+                case COMMENTS:
                     javaDataTypesLT.setCommentsLessonIsComplete(true);
                     break;
-                case "Quiz":
+                case QUIZ:
                     javaDataTypesLT.setQuizIsComplete(true);
                     break;
             }

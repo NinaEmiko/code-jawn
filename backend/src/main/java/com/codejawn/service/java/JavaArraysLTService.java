@@ -67,7 +67,7 @@ public class JavaArraysLTService {
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaArraysLT javaArraysLT = userAccount.getLessonTracker().getJavaLT().getJavaArraysLT();
-            JavaArraysLesson javaArraysLesson = JavaArraysLesson.valueOf(lesson);
+            JavaArraysLesson javaArraysLesson = JavaArraysLesson.fromLesson(lesson);
             switch (javaArraysLesson) {
                 case INITIALIZING_ARRAYS:
                     javaArraysLT.setInitializingArraysLessonIsComplete(true);

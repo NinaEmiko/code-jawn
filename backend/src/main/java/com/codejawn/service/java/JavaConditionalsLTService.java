@@ -6,7 +6,6 @@ import com.codejawn.repository.java.JavaConditionalsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
-import com.codejawn.util.java.JavaArraysLesson;
 import com.codejawn.util.java.JavaConditionalsLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -78,7 +77,7 @@ public class JavaConditionalsLTService {
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaConditionalsLT javaConditionalsLT = userAccount.getLessonTracker().getJavaLT().getJavaConditionalsLT();
-            JavaConditionalsLesson javaConditionalsLesson = JavaConditionalsLesson.valueOf(lesson);
+            JavaConditionalsLesson javaConditionalsLesson = JavaConditionalsLesson.fromLesson(lesson);
             switch (javaConditionalsLesson) {
                 case IF:
                     javaConditionalsLT.setIfLessonIsComplete(true);

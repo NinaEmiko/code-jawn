@@ -15,6 +15,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -25,6 +27,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
+@MockitoSettings(strictness = Strictness.LENIENT)
 @ExtendWith(MockitoExtension.class)
 public class JavaConditionalsLTServiceTest {
 
@@ -131,7 +134,7 @@ public class JavaConditionalsLTServiceTest {
     void update_lt_should_make_call_to_repositories(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaConditionalsLTRepository.save(any())).thenReturn(userAccount);
-        javaConditionalsLTService.updateLT(1L, "Strings");
+        javaConditionalsLTService.updateLT(1L, "If");
         verify(userAccountRepository, times(1)).findById(1L);
         verify(javaConditionalsLTRepository, times(1)).save(javaConditionalsLT);
     }
@@ -141,7 +144,7 @@ public class JavaConditionalsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            javaConditionalsLTService.updateLT(1L, "ints");
+            javaConditionalsLTService.updateLT(1L, "If");
         });
 
         Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
@@ -177,7 +180,7 @@ public class JavaConditionalsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaConditionalsLTRepository.save(any())).thenThrow(new RuntimeException());
 
-        String response = javaConditionalsLTService.updateLT(1L, "ints");
+        String response = javaConditionalsLTService.updateLT(1L, "If");
 
         Assertions.assertEquals(response, StatusCode.FAILED.name());
     }

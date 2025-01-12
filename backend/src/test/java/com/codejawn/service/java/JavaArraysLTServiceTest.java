@@ -118,7 +118,7 @@ public class JavaArraysLTServiceTest {
     void update_lt_should_make_call_to_repositories(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaArraysLTRepository.save(any())).thenReturn(userAccount);
-        javaArraysLTService.updateLT(1L, "Strings");
+        javaArraysLTService.updateLT(1L, "Initializing Arrays");
         verify(userAccountRepository, times(1)).findById(1L);
         verify(javaArraysLTRepository, times(1)).save(javaArraysLT);
     }
@@ -128,7 +128,7 @@ public class JavaArraysLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            javaArraysLTService.updateLT(1L, "ints");
+            javaArraysLTService.updateLT(1L, "Initializing Arrays");
         });
 
         Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
@@ -158,7 +158,7 @@ public class JavaArraysLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaArraysLTRepository.save(any())).thenThrow(new RuntimeException());
 
-        String response = javaArraysLTService.updateLT(1L, "ints");
+        String response = javaArraysLTService.updateLT(1L, "Initializing Arrays");
 
         Assertions.assertEquals(response, StatusCode.FAILED.name());
     }

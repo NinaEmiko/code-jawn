@@ -17,4 +17,15 @@ public enum JavaArraysLesson {
     JavaArraysLesson(String lesson) {
         this.lesson = lesson;
     }
+
+    public static JavaArraysLesson fromLesson(String lessonString) {
+        if (lessonString != null) {
+            for (JavaArraysLesson l : values()) {
+                if (l.getLesson().equalsIgnoreCase(lessonString)) {
+                    return l;
+                }
+            }
+        }
+        return null;
+    }
 }
