@@ -121,7 +121,7 @@ public class JavaForLoopsLTServiceTest {
     void update_lt_should_make_call_to_repositories(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaForLoopsLTRepository.save(any())).thenReturn(userAccount);
-        javaForLoopsLTService.updateLT(1L, "Strings");
+        javaForLoopsLTService.updateLT(1L, "Nesting For Loops");
         verify(userAccountRepository, times(1)).findById(1L);
         verify(javaForLoopsLTRepository, times(1)).save(javaForLoopsLT);
     }
@@ -131,7 +131,7 @@ public class JavaForLoopsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            javaForLoopsLTService.updateLT(1L, "ints");
+            javaForLoopsLTService.updateLT(1L, "Nesting For Loops");
         });
 
         Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
@@ -163,7 +163,7 @@ public class JavaForLoopsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaForLoopsLTRepository.save(any())).thenThrow(new RuntimeException());
 
-        String response = javaForLoopsLTService.updateLT(1L, "ints");
+        String response = javaForLoopsLTService.updateLT(1L, "Nesting For Loops");
 
         Assertions.assertEquals(response, StatusCode.FAILED.name());
     }

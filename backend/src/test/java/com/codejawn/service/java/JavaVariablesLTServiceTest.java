@@ -115,7 +115,7 @@ public class JavaVariablesLTServiceTest {
     void update_lt_should_make_call_to_repositories(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaVariablesLTRepository.save(any())).thenReturn(userAccount);
-        javaVariablesLTService.updateLT(1L, "Strings");
+        javaVariablesLTService.updateLT(1L, "Constants");
         verify(userAccountRepository, times(1)).findById(1L);
         verify(javaVariablesLTRepository, times(1)).save(javaVariablesLT);
     }
@@ -125,7 +125,7 @@ public class JavaVariablesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            javaVariablesLTService.updateLT(1L, "ints");
+            javaVariablesLTService.updateLT(1L, "Constants");
         });
 
         Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
@@ -154,7 +154,7 @@ public class JavaVariablesLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaVariablesLTRepository.save(any())).thenThrow(new RuntimeException());
 
-        String response = javaVariablesLTService.updateLT(1L, "ints");
+        String response = javaVariablesLTService.updateLT(1L, "Constants");
 
         Assertions.assertEquals(response, StatusCode.FAILED.name());
     }

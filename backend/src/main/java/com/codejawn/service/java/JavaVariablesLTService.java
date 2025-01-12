@@ -6,6 +6,7 @@ import com.codejawn.repository.java.JavaVariablesLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
+import com.codejawn.util.java.JavaVariablesLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -62,23 +63,24 @@ public class JavaVariablesLTService {
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaVariablesLT javaVariablesLT = userAccount.getLessonTracker().getJavaLT().getJavaVariablesLT();
-            switch (lesson) {
-                case "Initializing Variables":
+            JavaVariablesLesson javaVariablesLesson = JavaVariablesLesson.fromLesson(lesson);
+            switch (javaVariablesLesson) {
+                case INITIALIZING_VARIABLES:
                     javaVariablesLT.setInitializingVariablesLessonIsComplete(true);
                     break;
-                case "Naming Variables":
+                case NAMING_VARIABLES:
                     javaVariablesLT.setNamingVariablesLessonIsComplete(true);
                     break;
-                case "Assigning Values":
+                case ASSIGNING_VALUES:
                     javaVariablesLT.setAssigningValuesLessonIsComplete(true);
                     break;
-                case "Updating Values":
+                case UPDATING_VALUES:
                     javaVariablesLT.setUpdatingValuesLessonIsComplete(true);
                     break;
-                case "Constants":
+                case CONSTANTS:
                     javaVariablesLT.setConstantsLessonIsComplete(true);
                     break;
-                case "Quiz":
+                case QUIZ:
                     javaVariablesLT.setQuizIsComplete(true);
                     break;
             }

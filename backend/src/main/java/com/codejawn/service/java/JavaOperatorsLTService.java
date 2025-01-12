@@ -6,6 +6,7 @@ import com.codejawn.repository.java.JavaOperatorsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
+import com.codejawn.util.java.JavaOperatorsLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -86,58 +87,59 @@ public class JavaOperatorsLTService {
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaOperatorsLT javaOperatorsLT = userAccount.getLessonTracker().getJavaLT().getJavaOperatorsLT();
-            switch (lesson) {
-                case "And":
+            JavaOperatorsLesson javaOperatorsLesson = JavaOperatorsLesson.fromLesson(lesson);
+            switch (javaOperatorsLesson) {
+                case AND:
                     javaOperatorsLT.setAndLessonIsComplete(true);
                     break;
-                case "Or":
+                case OR:
                     javaOperatorsLT.setOrLessonIsComplete(true);
                     break;
-                case "Not":
+                case NOT:
                     javaOperatorsLT.setNotLessonIsComplete(true);
                     break;
-                case "Plus":
+                case PLUS:
                     javaOperatorsLT.setPlusLessonIsComplete(true);
                     break;
-                case "Minus":
+                case MINUS:
                     javaOperatorsLT.setMinusLessonIsComplete(true);
                     break;
-                case "Divide":
+                case DIVIDE:
                     javaOperatorsLT.setDivideLessonIsComplete(true);
                     break;
-                case "Multiply":
+                case MULTIPLY:
                     javaOperatorsLT.setMultiplyLessonIsComplete(true);
                     break;
-                case "Modulus":
+                case MODULUS:
                     javaOperatorsLT.setModulusLessonIsComplete(true);
                     break;
-                case "Increment":
+                case INCREMENT:
                     javaOperatorsLT.setIncrementLessonIsComplete(true);
                     break;
-                case "Decrement":
+                case DECREMENT:
                     javaOperatorsLT.setDecrementLessonIsComplete(true);
                     break;
-                case "Less Than":
+                case LESS_THAN:
                     javaOperatorsLT.setLessThanLessonIsComplete(true);
                     break;
-                case "Greater Than":
+                case GREATER_THAN:
                     javaOperatorsLT.setGreaterThanLessonIsComplete(true);
                     break;
-                case "Double Equals":
+                case DOUBLE_EQUALS:
                     javaOperatorsLT.setDoubleEqualsLessonIsComplete(true);
                     break;
-                case "Less Than Equal To":
+                case LESS_THAN_EQUAL_TO:
                     javaOperatorsLT.setLessThanEqualToLessonIsComplete(true);
                     break;
-                case "Greater Than Equal To":
+                case GREATER_THAN_EQUAL_TO:
                     javaOperatorsLT.setGreaterThanEqualToLessonIsComplete(true);
                     break;
-                case "Not Equal To":
+                case NOT_EQUAL_TO:
                     javaOperatorsLT.setNotEqualToLessonIsComplete(true);
                     break;
-                case "Equals":
+                case EQUALS:
                     javaOperatorsLT.setEqualsLessonIsComplete(true);
-                case "Quiz":
+                case QUIZ:
                     javaOperatorsLT.setQuizIsComplete(true);
                     break;
             }

@@ -117,7 +117,7 @@ public class JavaMethodsLTServiceTest {
     void update_lt_should_make_call_to_repositories(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaMethodsLTRepository.save(any())).thenReturn(userAccount);
-        javaMethodsLTService.updateLT(1L, "Strings");
+        javaMethodsLTService.updateLT(1L, "Overloading");
         verify(userAccountRepository, times(1)).findById(1L);
         verify(javaMethodsLTRepository, times(1)).save(javaMethodsLT);
     }
@@ -127,7 +127,7 @@ public class JavaMethodsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            javaMethodsLTService.updateLT(1L, "ints");
+            javaMethodsLTService.updateLT(1L, "Overloading");
         });
 
         Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
@@ -157,7 +157,7 @@ public class JavaMethodsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaMethodsLTRepository.save(any())).thenThrow(new RuntimeException());
 
-        String response = javaMethodsLTService.updateLT(1L, "ints");
+        String response = javaMethodsLTService.updateLT(1L, "Overloading");
 
         Assertions.assertEquals(response, StatusCode.FAILED.name());
     }

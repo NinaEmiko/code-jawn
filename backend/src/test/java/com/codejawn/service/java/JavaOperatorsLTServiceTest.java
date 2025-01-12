@@ -139,7 +139,7 @@ public class JavaOperatorsLTServiceTest {
     void update_lt_should_make_call_to_repositories(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaOperatorsLTRepository.save(any())).thenReturn(userAccount);
-        javaOperatorsLTService.updateLT(1L, "Strings");
+        javaOperatorsLTService.updateLT(1L, "Multiply");
         verify(userAccountRepository, times(1)).findById(1L);
         verify(javaOperatorsLTRepository, times(1)).save(javaOperatorsLT);
     }
@@ -149,7 +149,7 @@ public class JavaOperatorsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
-            javaOperatorsLTService.updateLT(1L, "ints");
+            javaOperatorsLTService.updateLT(1L, "Multiply");
         });
 
         Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
@@ -190,7 +190,7 @@ public class JavaOperatorsLTServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(javaOperatorsLTRepository.save(any())).thenThrow(new RuntimeException());
 
-        String response = javaOperatorsLTService.updateLT(1L, "ints");
+        String response = javaOperatorsLTService.updateLT(1L, "Multiply");
 
         Assertions.assertEquals(response, StatusCode.FAILED.name());
     }

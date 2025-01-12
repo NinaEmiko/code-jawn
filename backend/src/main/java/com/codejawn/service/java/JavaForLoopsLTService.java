@@ -6,6 +6,8 @@ import com.codejawn.repository.java.JavaForLoopsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
+import com.codejawn.util.java.JavaDataTypesLesson;
+import com.codejawn.util.java.JavaForLoopsLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -67,32 +69,33 @@ public class JavaForLoopsLTService {
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaForLoopsLT javaForLoopsLT = userAccount.getLessonTracker().getJavaLT().getJavaForLoopsLT();
-            switch (lesson) {
-                case "For Loops Syntax":
+            JavaForLoopsLesson javaForLoopsLesson = JavaForLoopsLesson.fromLesson(lesson);
+            switch (javaForLoopsLesson) {
+                case FOR_LOOPS_SYNTAX:
                     javaForLoopsLT.setForLoopsSyntaxLessonIsComplete(true);
                     break;
-                case "For Loops Condition":
+                case FOR_LOOPS_CONDITION:
                     javaForLoopsLT.setForLoopsConditionLessonIsComplete(true);
                     break;
-                case "For Loops Increment/Decrement":
+                case FOR_LOOPS_INCREMENT_DECREMENT:
                     javaForLoopsLT.setForLoopsIncrementDecrementLessonIsComplete(true);
                     break;
-                case "Nesting For Loops":
+                case NESTING_FOR_LOOPS:
                     javaForLoopsLT.setNestedForLoopsLessonIsComplete(true);
                     break;
-                case "While Loops Syntax":
+                case WHILE_LOOPS_SYNTAX:
                     javaForLoopsLT.setWhileLoopsSyntaxLessonIsComplete(true);
                     break;
-                case "While Loops Condition":
+                case WHILE_LOOPS_CONDITION:
                     javaForLoopsLT.setWhileLoopsConditionLessonIsComplete(true);
                     break;
-                case "Do While Loops Syntax":
+                case DO_WHILE_LOOPS_SYNTAX:
                     javaForLoopsLT.setDoWhileLoopsSyntaxLessonIsComplete(true);
                     break;
-                case "For Each Syntax":
+                case FOR_EACH_SYNTAX:
                     javaForLoopsLT.setForEachSyntaxLessonIsComplete(true);
                     break;
-                case "Quiz":
+                case QUIZ:
                     javaForLoopsLT.setQuizIsComplete(true);
                     break;
             }

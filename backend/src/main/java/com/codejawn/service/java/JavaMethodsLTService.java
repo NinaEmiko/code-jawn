@@ -6,6 +6,7 @@ import com.codejawn.repository.java.JavaMethodsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
+import com.codejawn.util.java.JavaMethodsLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -64,26 +65,27 @@ public class JavaMethodsLTService {
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaMethodsLT javaMethodsLT = userAccount.getLessonTracker().getJavaLT().getJavaMethodsLT();
-            switch (lesson) {
-                case "Method Signatures":
+            JavaMethodsLesson javaMethodsLesson = JavaMethodsLesson.fromLesson(lesson);
+            switch (javaMethodsLesson) {
+                case METHOD_SIGNATURES:
                     javaMethodsLT.setMethodSignaturesLessonIsComplete(true);
                     break;
-                case "Return Types":
+                case RETURN_TYPES:
                     javaMethodsLT.setReturnTypesLessonIsComplete(true);
                     break;
-                case "Parameters":
+                case PARAMETERS:
                     javaMethodsLT.setParametersLessonIsComplete(true);
                     break;
-                case "Scope":
+                case SCOPE:
                     javaMethodsLT.setScopeLessonIsComplete(true);
                     break;
-                case "Naming Methods":
+                case NAMING_METHODS:
                     javaMethodsLT.setNamingMethodsLessonIsComplete(true);
                     break;
-                case "Overloading":
+                case OVERLOADING:
                     javaMethodsLT.setOverloadingLessonIsComplete(true);
                     break;
-                case "Quiz":
+                case QUIZ:
                     javaMethodsLT.setQuizIsComplete(true);
                     break;
             }
