@@ -8,8 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
-
 @Slf4j
 @AllArgsConstructor
 @Service
@@ -23,7 +21,6 @@ public class JavaDataTypesLTService {
     }
 
     public String resetLT(Long userId) {
-        log.info("Inside resetLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaDataTypesLT javaDataTypesLT = userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();
@@ -47,7 +44,6 @@ public class JavaDataTypesLTService {
     }
 
     public String completeLT(Long userId) {
-        log.info("Inside completeLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaDataTypesLT javaDataTypesLT = userAccount.getLessonTracker().getJavaLT().getJavaDataTypesLT();

@@ -21,7 +21,6 @@ public class JavaMethodsLTService {
     }
 
     public String resetLT(Long userId) {
-        log.info("Inside resetLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaMethodsLT javaMethodsLT = userAccount.getLessonTracker().getJavaLT().getJavaMethodsLT();
@@ -41,7 +40,6 @@ public class JavaMethodsLTService {
     }
 
     public String completeLT(Long userId) {
-        log.info("Inside completeLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaMethodsLT javaMethodsLT = userAccount.getLessonTracker().getJavaLT().getJavaMethodsLT();

@@ -21,7 +21,6 @@ public class JavaForLoopsLTService {
     }
 
     public String resetLT(Long userId) {
-        log.info("Inside resetLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaForLoopsLT javaForLoopsLT = userAccount.getLessonTracker().getJavaLT().getJavaForLoopsLT();
@@ -42,7 +41,6 @@ public class JavaForLoopsLTService {
     }
 
     public String completeLT(Long userId) {
-        log.info("Inside completeLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaForLoopsLT javaForLoopsLT = userAccount.getLessonTracker().getJavaLT().getJavaForLoopsLT();

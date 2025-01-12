@@ -21,7 +21,6 @@ public class JavaConditionalsLTService {
     }
 
     public String resetLT(Long userId) {
-        log.info("Inside resetLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaConditionalsLT javaConditionalsLT = userAccount.getLessonTracker().getJavaLT().getJavaConditionalsLT();
@@ -47,7 +46,6 @@ public class JavaConditionalsLTService {
     }
 
     public String completeLT(Long userId) {
-        log.info("Inside completeLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaConditionalsLT javaConditionalsLT = userAccount.getLessonTracker().getJavaLT().getJavaConditionalsLT();

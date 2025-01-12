@@ -184,7 +184,7 @@ public class UserAccountServiceTest {
             userAccountService.updateUsername(1L, "newUsername");
         });
 
-        Assertions.assertEquals(e.getMessage(), "User not found.");
+        Assertions.assertEquals(e.getMessage(), "User not found");
     }
     @Test
     void update_username_should_throw_throw_runtime_exception(){
@@ -224,7 +224,7 @@ public class UserAccountServiceTest {
             userAccountService.updateEmail(1L, "newEmail");
         });
 
-        Assertions.assertEquals(e.getMessage(), "User not found.");
+        Assertions.assertEquals(e.getMessage(), "User not found");
     }
     @Test
     void update_email_should_throw_runtime_exception(){

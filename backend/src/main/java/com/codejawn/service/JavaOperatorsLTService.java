@@ -16,15 +16,11 @@ public class JavaOperatorsLTService {
     private final UserAccountRepository userAccountRepository;
 
     public JavaOperatorsLT getLT(Long userId) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         return userAccount.getLessonTracker().getJavaLT().getJavaOperatorsLT();
     }
 
     public String resetLT(Long userId) {
-        log.info("Inside resetLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaOperatorsLT javaOperatorsLT = userAccount.getLessonTracker().getJavaLT().getJavaOperatorsLT();
@@ -55,7 +51,6 @@ public class JavaOperatorsLTService {
     }
 
     public String completeLT(Long userId) {
-        log.info("Inside completeLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaOperatorsLT javaOperatorsLT = userAccount.getLessonTracker().getJavaLT().getJavaOperatorsLT();

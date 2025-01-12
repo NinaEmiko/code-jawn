@@ -21,7 +21,6 @@ public class JavaVariablesLTService {
     }
 
     public String resetLT(Long userId) {
-        log.info("Inside resetLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaVariablesLT javaVariablesLT = userAccount.getLessonTracker().getJavaLT().getJavaVariablesLT();
@@ -40,7 +39,6 @@ public class JavaVariablesLTService {
     }
 
     public String completeLT(Long userId) {
-        log.info("Inside completeLT");
         UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaVariablesLT javaVariablesLT = userAccount.getLessonTracker().getJavaLT().getJavaVariablesLT();
