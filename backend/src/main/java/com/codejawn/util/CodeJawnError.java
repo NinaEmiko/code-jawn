@@ -8,7 +8,8 @@ public enum CodeJawnError {
     ROLE_USER_NOT_FOUNT("Role USER not found"),
     ROLE_ADMIN_NOT_FOUND("Role ADMIN not found"),
     UPDATE_USERNAME_ERROR("Error occurred while updating username"),
-    UPDATE_EMAIL_ERROR("Error occurred while updating email");
+    UPDATE_EMAIL_ERROR("Error occurred while updating email"),
+    LESSON_NOT_FOUND("Lesson not found");
 
     private final String message;
 

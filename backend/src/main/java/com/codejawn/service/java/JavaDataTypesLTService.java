@@ -108,6 +108,8 @@ public class JavaDataTypesLTService {
                 case QUIZ:
                     javaDataTypesLT.setQuizIsComplete(true);
                     break;
+                default:
+                    throw new RuntimeException(CodeJawnError.LESSON_NOT_FOUND.getMessage());
             }
             checkCompletion(javaDataTypesLT);
             javaDataTypesLTRepository.save(javaDataTypesLT);

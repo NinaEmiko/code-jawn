@@ -88,6 +88,8 @@ public class JavaMethodsLTService {
                 case QUIZ:
                     javaMethodsLT.setQuizIsComplete(true);
                     break;
+                default:
+                    throw new RuntimeException(CodeJawnError.LESSON_NOT_FOUND.getMessage());
             }
             checkCompletion(javaMethodsLT);
             javaMethodsLTRepository.save(javaMethodsLT);

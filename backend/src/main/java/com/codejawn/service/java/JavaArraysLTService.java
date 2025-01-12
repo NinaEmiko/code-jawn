@@ -90,6 +90,8 @@ public class JavaArraysLTService {
                 case QUIZ:
                     javaArraysLT.setQuizIsComplete(true);
                     break;
+                default:
+                    throw new RuntimeException(CodeJawnError.LESSON_NOT_FOUND.getMessage());
             }
             checkCompletion(javaArraysLT);
             javaArraysLTRepository.save(javaArraysLT);
