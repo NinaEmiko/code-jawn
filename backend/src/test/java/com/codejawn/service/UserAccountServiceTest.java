@@ -104,7 +104,12 @@ public class UserAccountServiceTest {
         UserAccountResponseDTO response = userAccountService.getUserAccount(1L);
         Assertions.assertEquals("username", response.getUsername());
         Assertions.assertEquals("email", response.getEmail());
+        Assertions.assertTrue(userAccount.getSubscriptionActive());
+        Assertions.assertEquals("password", userAccount.getPassword());
         Assertions.assertEquals(1L, response.getUserId());
+        Assertions.assertEquals(1L, role.getId());
+        Assertions.assertEquals("USER", role.getName());
+        Assertions.assertNotNull(role.getUserAccounts());
     }
 
     @Test

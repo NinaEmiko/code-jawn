@@ -83,8 +83,6 @@ public class JavaVariablesLTService {
                 case QUIZ:
                     javaVariablesLT.setQuizIsComplete(true);
                     break;
-                default:
-                    throw new RuntimeException(CodeJawnError.LESSON_NOT_FOUND.getMessage());
             }
             checkCompletion(javaVariablesLT);
             javaVariablesLTRepository.save(javaVariablesLT);

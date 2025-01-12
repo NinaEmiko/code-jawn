@@ -1,10 +1,8 @@
 package com.codejawn.config;
 
-import com.codejawn.security.CustomUserDetailsService;
 import com.codejawn.security.JWTAuthEntryPoint;
 import com.codejawn.security.JWTAuthenticationFilter;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
