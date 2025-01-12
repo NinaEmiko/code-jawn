@@ -6,6 +6,7 @@ import com.codejawn.model.java.JavaLT;
 import com.codejawn.model.java.JavaVariablesLT;
 import com.codejawn.repository.java.JavaVariablesLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -107,7 +108,7 @@ public class JavaVariablesLTServiceTest {
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
             javaVariablesLTService.getLT(2L);
         });
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
 
     @Test
@@ -127,7 +128,7 @@ public class JavaVariablesLTServiceTest {
             javaVariablesLTService.updateLT(1L, "ints");
         });
 
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
 
     @Test

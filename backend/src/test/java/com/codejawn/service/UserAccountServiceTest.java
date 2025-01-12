@@ -10,6 +10,7 @@ import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.security.JWTGenerator;
+import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -137,7 +138,7 @@ public class UserAccountServiceTest {
             userAccountService.login("username", "password");
         });
 
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
 
     @Test
@@ -185,7 +186,7 @@ public class UserAccountServiceTest {
             userAccountService.updateUsername(1L, "newUsername");
         });
 
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
     @Test
     void update_username_should_throw_throw_runtime_exception(){
@@ -225,7 +226,7 @@ public class UserAccountServiceTest {
             userAccountService.updateEmail(1L, "newEmail");
         });
 
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
     @Test
     void update_email_should_throw_runtime_exception(){
@@ -255,7 +256,7 @@ public class UserAccountServiceTest {
             userAccountService.updatePassword(1L, "oldPassword","newPassword");
         });
 
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
     @Test
     void update_password_should_throw_runtime_exception(){

@@ -9,6 +9,7 @@ import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.security.JWTGenerator;
+import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -93,7 +94,7 @@ public class UserAccountService {
 
         UserAccount userAccount = userAccountRepository.findByUsername(username)
                 .orElseThrow(
-                        () -> new RuntimeException("User not found")
+                        () -> new RuntimeException(CodeJawnError.USER_NOT_FOUND.getMessage())
                 );
         AuthResponseDTO authResponseDTO = new AuthResponseDTO(token);
         authResponseDTO.setUserId(userAccount.getId());
@@ -160,7 +161,7 @@ public class UserAccountService {
     private UserAccount retrieveUserAccount(Long userId) {
         return userAccountRepository.findById(userId)
                 .orElseThrow(
-                        () -> new RuntimeException("User not found")
+                        () -> new RuntimeException(CodeJawnError.USER_NOT_FOUND.getMessage())
                 );
     }
 }

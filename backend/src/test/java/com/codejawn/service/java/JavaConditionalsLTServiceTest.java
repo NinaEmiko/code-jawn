@@ -6,6 +6,7 @@ import com.codejawn.model.java.JavaConditionalsLT;
 import com.codejawn.model.java.JavaLT;
 import com.codejawn.repository.java.JavaConditionalsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -123,7 +124,7 @@ public class JavaConditionalsLTServiceTest {
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
             javaConditionalsLTService.getLT(2L);
         });
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
 
     @Test
@@ -143,7 +144,7 @@ public class JavaConditionalsLTServiceTest {
             javaConditionalsLTService.updateLT(1L, "ints");
         });
 
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
 
     @Test

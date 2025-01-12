@@ -6,6 +6,7 @@ import com.codejawn.model.java.JavaForLoopsLT;
 import com.codejawn.model.java.JavaLT;
 import com.codejawn.repository.java.JavaForLoopsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -113,7 +114,7 @@ public class JavaForLoopsLTServiceTest {
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
             javaForLoopsLTService.getLT(2L);
         });
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
 
     @Test
@@ -133,7 +134,7 @@ public class JavaForLoopsLTServiceTest {
             javaForLoopsLTService.updateLT(1L, "ints");
         });
 
-        Assertions.assertEquals(e.getMessage(), "User not found");
+        Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
 
     @Test

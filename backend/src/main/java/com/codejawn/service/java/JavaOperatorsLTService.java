@@ -4,6 +4,7 @@ import com.codejawn.model.java.JavaOperatorsLT;
 import com.codejawn.model.UserAccount;
 import com.codejawn.repository.java.JavaOperatorsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -151,7 +152,7 @@ public class JavaOperatorsLTService {
     private UserAccount retrieveUserAccount(Long userId) {
         return userAccountRepository.findById(userId)
                 .orElseThrow(
-                        () -> new RuntimeException("User not found")
+                        () -> new RuntimeException(CodeJawnError.USER_NOT_FOUND.getMessage())
                 );
     }
 
