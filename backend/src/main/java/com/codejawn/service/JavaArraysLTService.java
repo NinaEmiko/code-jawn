@@ -16,29 +16,24 @@ public class JavaArraysLTService {
     private final UserAccountRepository userAccountRepository;
 
     public JavaArraysLT getLT(Long userId) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         return userAccount.getLessonTracker().getJavaLT().getJavaArraysLT();
     }
 
     public String resetLT(Long userId) {
-        log.info("Inside resetLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
+
+        JavaArraysLT javaArraysLT = userAccount.getLessonTracker().getJavaLT().getJavaArraysLT();
+        javaArraysLT.setInitializingArraysLessonIsComplete(false);
+        javaArraysLT.setAssigningValuesLessonIsComplete(false);
+        javaArraysLT.setArrayIndexesLessonIsComplete(false);
+        javaArraysLT.setUpdatingValuesLessonIsComplete(false);
+        javaArraysLT.setLengthMethodLessonIsComplete(false);
+        javaArraysLT.setLoopingThroughArrayLessonIsComplete(false);
+        javaArraysLT.setQuizIsComplete(false);
+        javaArraysLT.setComplete(false);
+
         try {
-            JavaArraysLT javaArraysLT = userAccount.getLessonTracker().getJavaLT().getJavaArraysLT();
-            javaArraysLT.setInitializingArraysLessonIsComplete(false);
-            javaArraysLT.setAssigningValuesLessonIsComplete(false);
-            javaArraysLT.setArrayIndexesLessonIsComplete(false);
-            javaArraysLT.setUpdatingValuesLessonIsComplete(false);
-            javaArraysLT.setLengthMethodLessonIsComplete(false);
-            javaArraysLT.setLoopingThroughArrayLessonIsComplete(false);
-            javaArraysLT.setQuizIsComplete(false);
-            javaArraysLT.setComplete(false);
             javaArraysLTRepository.save(javaArraysLT);
             return "SUCCESS";
         } catch (Exception e) {
@@ -47,11 +42,7 @@ public class JavaArraysLTService {
     }
 
     public String completeLT(Long userId) {
-        log.info("Inside completeLT");
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaArraysLT javaArraysLT = userAccount.getLessonTracker().getJavaLT().getJavaArraysLT();
             javaArraysLT.setInitializingArraysLessonIsComplete(true);
@@ -70,10 +61,7 @@ public class JavaArraysLTService {
     }
 
     public String updateLT(Long userId, String lesson) {
-        UserAccount userAccount = userAccountRepository.findById(userId)
-                .orElseThrow(
-                        () -> new RuntimeException("User not found")
-                );
+        UserAccount userAccount = retrieveUserAccount(userId);
         try {
             JavaArraysLT javaArraysLT = userAccount.getLessonTracker().getJavaLT().getJavaArraysLT();
             switch (lesson) {
@@ -93,7 +81,8 @@ public class JavaArraysLTService {
                     javaArraysLT.setLengthMethodLessonIsComplete(true);
                     break;
                 case "Looping Through Arrays":
-                    javaArraysLT.setLoopingThroughArrayLessonIsComplete(true);                    break;
+                    javaArraysLT.setLoopingThroughArrayLessonIsComplete(true);
+                    break;
                 case "Quiz":
                     javaArraysLT.setQuizIsComplete(true);
                     break;
@@ -104,6 +93,13 @@ public class JavaArraysLTService {
         } catch (Exception e) {
             return "FAILED";
         }
+    }
+
+    private UserAccount retrieveUserAccount(Long userId) {
+        return userAccountRepository.findById(userId)
+                .orElseThrow(
+                        () -> new RuntimeException("User not found")
+                );
     }
 
     private void checkCompletion(JavaArraysLT javaArraysLT) {

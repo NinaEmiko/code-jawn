@@ -31,20 +31,6 @@ public class JavaConditionalsLTControllerTest {
     void setup() {
         javaConditionalsLT = new JavaConditionalsLT();
         javaConditionalsLT.setId(1L);
-        javaConditionalsLT.setIfLessonIsComplete(true);
-        javaConditionalsLT.setElseifLessonIsComplete(true);
-        javaConditionalsLT.setElseLessonIsComplete(true);
-        javaConditionalsLT.setMultipleIfsLessonIsComplete(true);
-        javaConditionalsLT.setMultipleElseifsLessonIsComplete(true);
-        javaConditionalsLT.setIfElseNestingLessonIsComplete(true);
-        javaConditionalsLT.setTernaryLessonIsComplete(true);
-        javaConditionalsLT.setSwitchSyntaxLessonIsComplete(true);
-        javaConditionalsLT.setSwitchCasesLessonIsComplete(true);
-        javaConditionalsLT.setSwitchExpressionsLessonIsComplete(true);
-        javaConditionalsLT.setBreakStatementLessonIsComplete(true);
-        javaConditionalsLT.setContinueStatementLessonIsComplete(true);
-        javaConditionalsLT.setComplete(false);
-        javaConditionalsLT.setQuizIsComplete(false);
 
         updateLTDTO = new UpdateLTDTO();
         updateLTDTO.setUserId(1L);

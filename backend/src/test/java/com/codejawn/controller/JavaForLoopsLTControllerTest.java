@@ -31,16 +31,6 @@ public class JavaForLoopsLTControllerTest {
     void setup() {
         javaForLoopsLT = new JavaForLoopsLT();
         javaForLoopsLT.setId(1L);
-        javaForLoopsLT.setForLoopsSyntaxLessonIsComplete(true);
-        javaForLoopsLT.setForLoopsConditionLessonIsComplete(true);
-        javaForLoopsLT.setForLoopsIncrementDecrementLessonIsComplete(true);
-        javaForLoopsLT.setNestedForLoopsLessonIsComplete(true);
-        javaForLoopsLT.setWhileLoopsConditionLessonIsComplete(true);
-        javaForLoopsLT.setWhileLoopsSyntaxLessonIsComplete(true);
-        javaForLoopsLT.setDoWhileLoopsSyntaxLessonIsComplete(true);
-        javaForLoopsLT.setForEachSyntaxLessonIsComplete(true);
-        javaForLoopsLT.setComplete(false);
-        javaForLoopsLT.setQuizIsComplete(false);
 
         updateLTDTO = new UpdateLTDTO();
         updateLTDTO.setUserId(1L);
