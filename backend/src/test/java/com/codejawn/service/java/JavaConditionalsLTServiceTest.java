@@ -200,4 +200,11 @@ public class JavaConditionalsLTServiceTest {
         String response = javaConditionalsLTService.completeLT(1L);
         Assertions.assertEquals(StatusCode.FAILED.name(), response);
     }
+
+    @Test
+    void update_lt_should_return_failed_when_given_wrong_lesson(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
+        String response = javaConditionalsLTService.updateLT(1L, "Strings");
+        Assertions.assertEquals(response, StatusCode.FAILED.name());
+    }
 }

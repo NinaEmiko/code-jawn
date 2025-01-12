@@ -1,5 +1,6 @@
 package com.codejawn.util.java;
 
+import com.codejawn.util.CodeJawnError;
 import lombok.Getter;
 
 @Getter
@@ -26,6 +27,6 @@ public enum JavaMethodsLesson {
                 }
             }
         }
-        return null;
+        throw new RuntimeException(CodeJawnError.LESSON_NOT_FOUND.getMessage());
     }
 }

@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: INFO
+
+spring:
+  mail:
+    username: ${PROD_FROM_EMAIL_ADDRESS}
+    password: ${PROD_FROM_EMAIL_PASSWORD}
+
+URL: ${PROD_ORIGIN_URL}
+
+cors:
+  allowed-origins: ${PROD_ORIGIN_URL}
+  allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+  allowed-headers: "*"
+  allow-credentials: true
