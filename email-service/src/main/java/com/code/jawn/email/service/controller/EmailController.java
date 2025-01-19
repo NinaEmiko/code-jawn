@@ -2,7 +2,7 @@ package com.code.jawn.email.service.controller;
 
 import com.code.jawn.email.service.context.*;
 import com.code.jawn.email.service.model.*;
-import com.code.jawn.email.service.service.EmailService;
+import com.code.jawn.email.service.service.EmailServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/email")
 @AllArgsConstructor
 public class EmailController {
-    private EmailService emailService;
+    private EmailServiceImpl emailServiceImpl;
 
     @PostMapping("/register-account")
     public ResponseEntity<String> sendRegisterAccountEmail(
@@ -19,7 +19,7 @@ public class EmailController {
         EmailContext emailContext = new RegisterAccountEmailContext();
         emailContext.init(registerAccountRequest);
         try {
-            emailService.sendEmail(emailContext);
+            emailServiceImpl.sendEmail(emailContext);
             return ResponseEntity.ok("Email sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());
@@ -32,7 +32,7 @@ public class EmailController {
         EmailContext emailContext = new DeleteAccountEmailContext();
         emailContext.init(deleteAccountRequest);
         try {
-            emailService.sendEmail(emailContext);
+            emailServiceImpl.sendEmail(emailContext);
             return ResponseEntity.ok("Email sent successfully!");
         } catch (Exception e) {
             return ResponseEntity.ok("Error sending email: " + e.getMessage());
@@ -45,7 +45,7 @@ public class EmailController {
         EmailContext emailContext = new UpdatePasswordEmailContext();
         emailContext.init(updatePasswordRequest);
         try {
-            emailService.sendEmail(emailContext);
+            emailServiceImpl.sendEmail(emailContext);
             return ResponseEntity.ok("Email sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());
@@ -58,7 +58,7 @@ public class EmailController {
         EmailContext emailContext = new UpdateEmailContext();
         emailContext.init(updateEmailRequest);
         try {
-            emailService.sendEmail(emailContext);
+            emailServiceImpl.sendEmail(emailContext);
             return ResponseEntity.ok("Email sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());
