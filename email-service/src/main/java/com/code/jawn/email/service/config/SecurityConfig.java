@@ -15,7 +15,11 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/api/email/send").permitAll()
+                                .requestMatchers("/api/email/register-account",
+                                        "/api/email/delete-account",
+                                        "/api/email/update-password",
+                                        "/api/email/update-email"
+                                ).permitAll()
                                 .anyRequest().authenticated()
                 );
         return http.build();

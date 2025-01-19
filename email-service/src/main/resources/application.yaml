@@ -1,12 +1,15 @@
+logging:
+  level:
+    root: INFO
+
 spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ""
-    password: ""
     properties:
       mail:
         smtp:
           auth: true
           starttls:
             enable: true
+#          ssl: true

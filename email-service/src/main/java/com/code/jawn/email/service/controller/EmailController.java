@@ -1,26 +1,64 @@
 package com.code.jawn.email.service.controller;
 
-import com.code.jawn.email.service.service.EmailService;
-import jakarta.validation.Valid;
+import com.code.jawn.email.service.context.*;
+import com.code.jawn.email.service.model.*;
+import com.code.jawn.email.service.service.EmailServiceImpl;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/email")
+@AllArgsConstructor
 public class EmailController {
+    private EmailServiceImpl emailServiceImpl;
 
-    @Autowired
-    private EmailService emailService;
-
-    @PostMapping("/send")
-    public ResponseEntity<String> sendEmail(
-            @RequestParam @Valid String to,
-            @RequestParam @Valid String subject,
-            @RequestParam @Valid String text) {
+    @PostMapping("/register-account")
+    public ResponseEntity<String> sendRegisterAccountEmail(
+            @RequestBody RegisterAccountRequest registerAccountRequest) {
+        EmailContext emailContext = new RegisterAccountEmailContext();
+        emailContext.init(registerAccountRequest);
         try {
-            emailService.sendEmail(to, subject, text);
+            emailServiceImpl.sendEmail(emailContext);
+            return ResponseEntity.ok("Email sent successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/delete-account")
+    public ResponseEntity<String> sendDeleteAccountEmail(
+            @RequestBody DeleteAccountRequest deleteAccountRequest) {
+        EmailContext emailContext = new DeleteAccountEmailContext();
+        emailContext.init(deleteAccountRequest);
+        try {
+            emailServiceImpl.sendEmail(emailContext);
+            return ResponseEntity.ok("Email sent successfully!");
+        } catch (Exception e) {
+            return ResponseEntity.ok("Error sending email: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/update-password")
+    public ResponseEntity<String> sendUpdatePasswordEmail(
+            @RequestBody UpdatePasswordRequest updatePasswordRequest) {
+        EmailContext emailContext = new UpdatePasswordEmailContext();
+        emailContext.init(updatePasswordRequest);
+        try {
+            emailServiceImpl.sendEmail(emailContext);
+            return ResponseEntity.ok("Email sent successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/update-email")
+    public ResponseEntity<String> sendUpdateEmail(
+            @RequestBody UpdateEmailRequest updateEmailRequest) {
+        EmailContext emailContext = new UpdateEmailContext();
+        emailContext.init(updateEmailRequest);
+        try {
+            emailServiceImpl.sendEmail(emailContext);
             return ResponseEntity.ok("Email sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error sending email: " + e.getMessage());

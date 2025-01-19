@@ -1,7 +1,3 @@
-logging:
-  level:
-    root: INFO
-
 spring:
   mail:
     username: ${PROD_FROM_EMAIL_ADDRESS}
