@@ -1,10 +1,12 @@
 package com.code.jawn.email.service.controller;
 
+import com.code.jawn.email.service.context.EmailContext;
 import com.code.jawn.email.service.model.DeleteAccountRequest;
 import com.code.jawn.email.service.model.RegisterAccountRequest;
 import com.code.jawn.email.service.model.UpdateEmailRequest;
 import com.code.jawn.email.service.model.UpdatePasswordRequest;
 import com.code.jawn.email.service.service.EmailService;
+import jakarta.mail.MessagingException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -25,63 +27,59 @@ public class EmailControllerTest {
     @Mock
     EmailService emailService;
     @Test
-    void send_delete_account_email_should_make_call_to_email_service(){
-        DeleteAccountRequest deleteAccountRequest = new DeleteAccountRequest("to", "username");
-        doNothing().when(emailService).sendDeleteAccountEmail(any());
+    void sendDeleteAccountEmail_shouldMakeCallToEmailService() throws MessagingException {
+        DeleteAccountRequest deleteAccountRequest = new DeleteAccountRequest("to", "from");
+        doNothing().when(emailService).sendEmail(any());
         emailController.sendDeleteAccountEmail(deleteAccountRequest);
-        verify(emailService).sendDeleteAccountEmail(deleteAccountRequest);
+        verify(emailService).sendEmail(any(EmailContext.class));
     }
     @Test
-    void send_delete_account_email_should_return_500_when_exception_is_thrown() {
-        DeleteAccountRequest deleteAccountRequest = new DeleteAccountRequest("to", "username");
-        doThrow(new RuntimeException("Email sending failed")).when(emailService)
-                .sendDeleteAccountEmail(any());
-        ResponseEntity<String> response = emailController.sendDeleteAccountEmail(deleteAccountRequest);
+    void sendDeleteAccountEmail_shouldReturn500WhenExceptionIsThrown() throws MessagingException {
+        DeleteAccountRequest deleteAccountRequest = new DeleteAccountRequest("to", "from");
+        doThrow(new RuntimeException("Email sending failed")).when(emailService).sendEmail(any());
+        ResponseEntity<String> response =  emailController.sendDeleteAccountEmail(deleteAccountRequest);
         assertTrue(Objects.requireNonNull(response.getBody()).contains("Error sending email: Email sending failed"));
     }
     @Test
-    void send_register_account_email_should_make_call_to_email_service(){
-        RegisterAccountRequest registerAccountRequest = new RegisterAccountRequest("to", "username", "code");
-        doNothing().when(emailService).sendRegisterAccountEmail(any());
+    void sendRegisterAccountEmail_shouldMakeCallToEmailService() throws MessagingException {
+        RegisterAccountRequest registerAccountRequest = new RegisterAccountRequest("to", "from", "code");
+        doNothing().when(emailService).sendEmail(any());
         emailController.sendRegisterAccountEmail(registerAccountRequest);
-        verify(emailService).sendRegisterAccountEmail(registerAccountRequest);
+        verify(emailService).sendEmail(any(EmailContext.class));
     }
     @Test
-    void send_register_account_email_should_return_500_when_exception_is_thrown() {
-        RegisterAccountRequest registerAccountRequest = new RegisterAccountRequest("to", "username", "code");
-        doThrow(new RuntimeException("Email sending failed")).when(emailService)
-                .sendRegisterAccountEmail(any());
-        ResponseEntity<String> response = emailController.sendRegisterAccountEmail(registerAccountRequest);
+    void sendRegisterAccountEmail_shouldReturn500WhenExceptionIsThrown() throws MessagingException {
+        RegisterAccountRequest registerAccountRequest = new RegisterAccountRequest("to", "from", "code");
+        doThrow(new RuntimeException("Email sending failed")).when(emailService).sendEmail(any());
+        ResponseEntity<String> response =  emailController.sendRegisterAccountEmail(registerAccountRequest);
         assertTrue(Objects.requireNonNull(response.getBody()).contains("Error sending email: Email sending failed"));
     }
     @Test
-    void send_update_password_email_should_make_call_to_email_service(){
-        UpdatePasswordRequest updatePasswordRequest = new UpdatePasswordRequest("to", "username");
-        doNothing().when(emailService).sendUpdatePasswordEmail(any());
-        emailController.sendUpdatePasswordEmail(updatePasswordRequest);
-        verify(emailService).sendUpdatePasswordEmail(updatePasswordRequest);
-    }
-    @Test
-    void send_update_password_email_should_return_500_when_exception_is_thrown() {
-        UpdatePasswordRequest updatePasswordRequest = new UpdatePasswordRequest("to", "username");
-        doThrow(new RuntimeException("Email sending failed")).when(emailService)
-                .sendUpdatePasswordEmail(any());
-        ResponseEntity<String> response = emailController.sendUpdatePasswordEmail(updatePasswordRequest);
-        assertTrue(Objects.requireNonNull(response.getBody()).contains("Error sending email: Email sending failed"));
-    }
-    @Test
-    void send_update_email_should_make_call_to_email_service(){
-        UpdateEmailRequest updateEmailRequest = new UpdateEmailRequest("to", "username");
-        doNothing().when(emailService).sendUpdateEmail(any());
+    void sendUpdateEmail_shouldMakeCallToEmailService() throws MessagingException {
+        UpdateEmailRequest updateEmailRequest = new UpdateEmailRequest("to", "from");
+        doNothing().when(emailService).sendEmail(any());
         emailController.sendUpdateEmail(updateEmailRequest);
-        verify(emailService).sendUpdateEmail(updateEmailRequest);
+        verify(emailService).sendEmail(any(EmailContext.class));
     }
     @Test
-    void send_update_email_should_return_500_when_exception_is_thrown() {
-        UpdateEmailRequest updateEmailRequest = new UpdateEmailRequest("to", "username");
-        doThrow(new RuntimeException("Email sending failed")).when(emailService)
-                .sendUpdateEmail(any());
-        ResponseEntity<String> response = emailController.sendUpdateEmail(updateEmailRequest);
+    void sendUpdateEmail_shouldReturn500WhenExceptionIsThrown() throws MessagingException {
+        UpdateEmailRequest updateEmailRequest = new UpdateEmailRequest("to", "from");
+        doThrow(new RuntimeException("Email sending failed")).when(emailService).sendEmail(any());
+        ResponseEntity<String> response =  emailController.sendUpdateEmail(updateEmailRequest);
+        assertTrue(Objects.requireNonNull(response.getBody()).contains("Error sending email: Email sending failed"));
+    }
+    @Test
+    void sendUpdatePasswordEmail_shouldMakeCallToEmailService() throws MessagingException {
+        UpdateEmailRequest updateEmailRequest = new UpdateEmailRequest("to", "from");
+        doNothing().when(emailService).sendEmail(any());
+        emailController.sendUpdateEmail(updateEmailRequest);
+        verify(emailService).sendEmail(any(EmailContext.class));
+    }
+    @Test
+    void sendUpdatePasswordEmail_shouldReturn500WhenExceptionIsThrown() throws MessagingException {
+        UpdatePasswordRequest updatePasswordRequest = new UpdatePasswordRequest("to", "from");
+        doThrow(new RuntimeException("Email sending failed")).when(emailService).sendEmail(any());
+        ResponseEntity<String> response =  emailController.sendUpdatePasswordEmail(updatePasswordRequest);
         assertTrue(Objects.requireNonNull(response.getBody()).contains("Error sending email: Email sending failed"));
     }
 }

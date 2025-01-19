@@ -10,3 +10,4 @@ spring:
           auth: true
           starttls:
             enable: true
+#          ssl: true
