@@ -18,8 +18,8 @@ public class SecurityConfig {
                                 .requestMatchers("/api/email/register-account",
                                         "/api/email/delete-account",
                                         "/api/email/update-password",
-                                        "/api/email/update-email")
-                                .permitAll()
+                                        "/api/email/update-email"
+                                ).permitAll()
                                 .anyRequest().authenticated()
                 );
         return http.build();

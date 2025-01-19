@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/email")
 @AllArgsConstructor
 public class EmailController {
-
     private EmailService emailService;
 
     @PostMapping("/register-account")
