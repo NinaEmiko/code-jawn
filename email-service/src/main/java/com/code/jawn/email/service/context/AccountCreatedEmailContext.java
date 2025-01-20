@@ -8,7 +8,7 @@ public class AccountCreatedEmailContext extends EmailContext {
         AccountCreatedRequest accountCreatedRequest = (AccountCreatedRequest) context;
 
         put("username", accountCreatedRequest.getUsername());
-        setTemplateLocation("account-created");
+        setTemplateLocation("account-created-email");
         setSubject("Code Jawn Account Created");
         setTo(accountCreatedRequest.getTo());
     }
