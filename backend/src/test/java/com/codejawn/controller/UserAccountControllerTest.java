@@ -16,8 +16,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
-import java.util.Objects;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
@@ -51,6 +49,7 @@ public class UserAccountControllerTest {
     UpdateUsernameResponse updateUsernameResponse;
     @Mock
     UserAccountResponseDTO userAccountResponseDTO;
+    private VerifyDTO verifyDTO;
     @BeforeEach
     void setup() {
         loginDTO = new LoginDTO();
@@ -96,95 +95,149 @@ public class UserAccountControllerTest {
         userAccountResponseDTO.setEmail("email");
         userAccountResponseDTO.setUsername("username");
         userAccountResponseDTO.setUserId(1L);
+
+        verifyDTO = new VerifyDTO();
+        verifyDTO.setCode("code");
+        verifyDTO.setEmail("email");
     }
 
     @Test
-    void get_user_account_should_make_call_to_user_account_service(){
+    void verifyRefresh_shouldMakeCallToUserAccountService(){
+        when(userAccountService.refreshVerificationCode(anyString())).thenReturn("SUCCESS");
+        userAccountController.verifyRefresh(verifyDTO);
+        verify(userAccountService).refreshVerificationCode("email");
+    }
+
+    @Test
+    void verifyRefresh_shouldReturnFailed(){
+        when(userAccountService.refreshVerificationCode(anyString())).thenThrow(new RuntimeException());
+        ResponseEntity<?> response = userAccountController.verifyRefresh(verifyDTO);
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
+    }
+
+    @Test
+    void verify_shouldMakeCallToUserAccountService(){
+        when(userAccountService.verify(anyString(), anyString())).thenReturn(userAccount);
+        userAccountController.verify(verifyDTO);
+        verify(userAccountService).verify("email", "code");
+    }
+
+    @Test
+    void verify_shouldReturnFailed(){
+        when(userAccountService.verify(anyString(), anyString())).thenThrow(new RuntimeException());
+        ResponseEntity<?> response = userAccountController.verify(verifyDTO);
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
+    }
+
+    @Test
+    void getUserAccount_shouldMakeCallToUserAccountService(){
         when(userAccountService.getUserAccount(anyLong())).thenReturn(userAccountResponseDTO);
         userAccountController.getUserAccount(1L);
         verify(userAccountService).getUserAccount(1L);
     }
 
     @Test
-    void login_should_make_call_to_user_account_service(){
+    void getUserAccount_shouldReturnFailed(){
+        when(userAccountService.getUserAccount(anyLong())).thenThrow(new RuntimeException());
+        ResponseEntity<?> response = userAccountController.getUserAccount(1L);
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
+    }
+
+    @Test
+    void login_shouldMakeCallToUserAccountService(){
         when(userAccountService.login(anyString(), anyString())).thenReturn(authResponseDTO);
         userAccountController.login(loginDTO);
         verify(userAccountService).login("username","password");
     }
 
     @Test
-    void register_should_make_call_to_user_account_service() {
+    void login_shouldReturnFailed(){
+        when(userAccountService.login(anyString(), anyString())).thenThrow(new RuntimeException());
+        ResponseEntity<?> response = userAccountController.login(loginDTO);
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
+    }
+
+    @Test
+    void register_shouldMakeCallToUserAccountService() {
         when(userAccountRepository.existsByUsername(anyString())).thenReturn(false);
-        when(userAccountService.register(anyString(), anyString(), anyString())).thenReturn(userAccount);
+        when(userAccountService.register(anyString(), anyString(), anyString())).thenReturn("SUCCESS");
         userAccountController.register(registerDTO);
         verify(userAccountService).register("username", "email", "password");
     }
 
     @Test
-    void update_password_should_make_call_to_user_account_service(){
+    void register_shouldReturnFailed() {
+        when(userAccountRepository.existsByUsername(anyString())).thenReturn(false);
+        when(userAccountService.register(anyString(), anyString(), anyString())).thenThrow(new RuntimeException());
+        ResponseEntity<?> response = userAccountController.register(registerDTO);
+        Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
+    }
+
+    @Test
+    void updatePassword_shouldMakeCallToUserAccountService(){
         doNothing().when(userAccountService).updatePassword(anyLong(), anyString(), anyString());
         userAccountController.updatePassword(updatePasswordDTO);
         verify(userAccountService).updatePassword(1L, "oldPassword", "newPassword");
     }
 
     @Test
-    void update_password_should_return_success(){
+    void updatePassword_shouldReturnSuccess(){
         doNothing().when(userAccountService).updatePassword(anyLong(), anyString(), anyString());
         ResponseEntity<?> response = userAccountController.updatePassword(updatePasswordDTO);
         Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
-    void update_password_should_return_failed(){
+    void updatePassword_shouldReturnFailed(){
         doThrow(new RuntimeException()).when(userAccountService).updatePassword(anyLong(), anyString(), anyString());
         ResponseEntity<?> response = userAccountController.updatePassword(updatePasswordDTO);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
-    void update_email_should_make_call_to_user_account_service(){
+    void updateEmail_shouldMakeCallToUserAccountService(){
         when(userAccountService.updateEmail(anyLong(), anyString())).thenReturn(updateEmailResponse);
         userAccountController.updateEmail(updateEmailDTO);
         verify(userAccountService).updateEmail(1L, "newEmail");
     }
 
     @Test
-    void update_email_should_return_failed(){
+    void updateEmail_shouldReturnFailed(){
         doThrow(new RuntimeException()).when(userAccountService).updateEmail(anyLong(), anyString());
         ResponseEntity<?> response = userAccountController.updateEmail(updateEmailDTO);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
-    void update_username_should_make_call_to_user_account_service(){
+    void updateUsername_shouldMakeCallToUserAccountService(){
         when(userAccountService.updateUsername(anyLong(), anyString())).thenReturn(updateUsernameResponse);
         userAccountController.updateUsername(updateUsernameDTO);
         verify(userAccountService).updateUsername(1L, "newUsername");
     }
 
     @Test
-    void update_username_should_return_failed(){
+    void updateUsername_shouldReturnFailed(){
         doThrow(new RuntimeException()).when(userAccountService).updateUsername(anyLong(), anyString());
         ResponseEntity<?> response =  userAccountController.updateUsername(updateUsernameDTO);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
-    void delete_account_should_make_call_to_user_account_service(){
+    void deleteAccount_shouldMakeCallToUserAccountService(){
         when(userAccountService.deleteUser(anyLong())).thenReturn("");
         userAccountController.deleteAccount(1L);
         verify(userAccountService).deleteUser(1L);
     }
 
     @Test
-    void delete_account_should_return_failed(){
+    void deleteAccount_shouldReturnFailed(){
         when(userAccountService.deleteUser(anyLong())).thenThrow(new RuntimeException());
         ResponseEntity<?> response = userAccountController.deleteAccount(1L);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
-    void register_should_return_username_is_taken() {
+    void register_shouldReturnUsernameIsTaken() {
         when(userAccountRepository.existsByUsername(anyString())).thenReturn(true);
         ResponseEntity<?> response = userAccountController.register(registerDTO);
         verify(userAccountService, times(0)).register("username", "email", "password");
@@ -192,7 +245,7 @@ public class UserAccountControllerTest {
     }
 
     @Test
-    void auth_response_dto_fields_should_match(){
+    void authResponseDtoFields_shouldMatch(){
         Assertions.assertEquals(authResponseDTO.getUserId(), 1L);
         Assertions.assertEquals(authResponseDTO.getUsername(), "username");
         Assertions.assertEquals(authResponseDTO.getEmail(), "email");

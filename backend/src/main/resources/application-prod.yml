@@ -23,6 +23,8 @@ logging:
 
 URL: ${PROD_ORIGIN_URL}
 
+email-service-url: ${EMAIL_SERVICE_URL}
+
 cors:
   allowed-origins: ${PROD_ORIGIN_URL}
   allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"

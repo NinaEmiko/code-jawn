@@ -30,19 +30,51 @@ public class UserAccountController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<UserAccountResponseDTO> getUserAccount(@PathVariable @Valid Long id){
+    public ResponseEntity<?> getUserAccount(@PathVariable @Valid Long id){
         log.info("Received request for user account with id: {}", id);
-        UserAccountResponseDTO userAccountResponseDTO = userAccountService.getUserAccount(id);
-        return new ResponseEntity<>(userAccountResponseDTO, HttpStatus.OK);
+        try {
+            UserAccountResponseDTO userAccountResponseDTO = userAccountService.getUserAccount(id);
+            return new ResponseEntity<>(userAccountResponseDTO, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponseDTO> login(@RequestBody @Valid LoginDTO loginDTO){
+    public ResponseEntity<?> login(@RequestBody @Valid LoginDTO loginDTO){
         log.info("Received login request for user account with username: {}", loginDTO.getUsername());
         String username = loginDTO.getUsername();
         String password = loginDTO.getPassword();
-        AuthResponseDTO authResponseDTO = userAccountService.login(username, password);
-        return new ResponseEntity<>(authResponseDTO, HttpStatus.OK);
+        try {
+            AuthResponseDTO authResponseDTO = userAccountService.login(username, password);
+            return new ResponseEntity<>(authResponseDTO, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/verify-refresh")
+    public ResponseEntity<?> verifyRefresh(@RequestBody @Valid VerifyDTO verifyDTO){
+        log.info("Received verification refresh request for user account with email: {}", verifyDTO.getEmail());
+        try {
+            String response = userAccountService.refreshVerificationCode(verifyDTO.getEmail());
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/verify")
+    public ResponseEntity<?> verify(@RequestBody @Valid VerifyDTO verifyDTO){
+        log.info("Received verification request for user account with email: {}", verifyDTO.getEmail());
+        String email = verifyDTO.getEmail();
+        String code = verifyDTO.getCode();
+        try {
+            UserAccount userAccount = userAccountService.verify(email, code);
+            return new ResponseEntity<>(userAccount, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("/register")
@@ -56,9 +88,12 @@ public class UserAccountController {
         String email = registerDTO.getEmail();
         String password = registerDTO.getPassword();
 
-        UserAccount userAccount = userAccountService.register(userName, email, password);
-
-        return new ResponseEntity<>(userAccount, HttpStatus.OK);
+        try {
+            String response = userAccountService.register(userName, email, password);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PutMapping("/update-password")
