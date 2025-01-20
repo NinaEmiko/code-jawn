@@ -1,5 +1,6 @@
 package com.codejawn.service;
 
+import com.codejawn.client.EmailClientService;
 import com.codejawn.dto.AuthResponseDTO;
 import com.codejawn.dto.UserAccountResponseDTO;
 import com.codejawn.model.*;
@@ -7,6 +8,7 @@ import com.codejawn.model.java.JavaDataTypesLT;
 import com.codejawn.model.java.JavaLT;
 import com.codejawn.repository.RoleRepository;
 import com.codejawn.repository.UserAccountRepository;
+import com.codejawn.repository.VerificationCodeRepository;
 import com.codejawn.response.UpdateEmailResponse;
 import com.codejawn.response.UpdateUsernameResponse;
 import com.codejawn.security.JWTGenerator;
@@ -63,6 +65,11 @@ public class UserAccountServiceTest {
     Authentication authentication;
     @Mock
     UserAccountResponseDTO userAccountResponseDTO;
+    @Mock
+    VerificationCodeRepository verificationCodeRepository;
+    @Mock
+    EmailClientService emailClientService;
+    private VerificationCode verificationCode;
 
     @BeforeEach
     void setup() {
@@ -96,6 +103,103 @@ public class UserAccountServiceTest {
         userAccountResponseDTO.setEmail("email");
         userAccountResponseDTO.setUsername("username");
         userAccountResponseDTO.setUserId(1L);
+
+        verificationCode = new VerificationCode();
+        verificationCode.setId(1L);
+        verificationCode.setEmail("email");
+        verificationCode.setCode("code");
+    }
+
+    @Test
+    void refreshVerificationCode_shouldReturnSuccess() {
+        when(verificationCodeRepository.findByEmail(anyString())).thenReturn(Optional.ofNullable(verificationCode));
+        when(verificationCodeRepository.save(any())).thenReturn(verificationCode);
+        when(emailClientService.sendRequest(any(), any())).thenReturn("SUCCESS");
+
+        String response = userAccountService.refreshVerificationCode("email");
+
+        Assertions.assertEquals(response, "SUCCESS");
+        verify(emailClientService).sendRequest(any(), any());
+        verify(verificationCodeRepository).save(any());
+        verify(verificationCodeRepository).findByEmail(anyString());
+    }
+
+    @Test
+    void refreshVerificationCode_shouldThrowRegisterUserError() {
+        when(verificationCodeRepository.findByEmail(anyString())).thenReturn(Optional.ofNullable(verificationCode));
+        when(verificationCodeRepository.save(any())).thenThrow(new RuntimeException());
+
+        Assertions.assertThrows(RuntimeException.class, () ->
+            userAccountService.refreshVerificationCode("email")
+        );
+
+        verify(emailClientService, times(0)).sendRequest(any(), any());
+        verify(verificationCodeRepository).save(any());
+        verify(verificationCodeRepository).findByEmail(anyString());
+    }
+
+    @Test
+    void refreshVerificationCode_shouldThrowVerificationCodeNotFoundError() {
+        when(verificationCodeRepository.findByEmail(anyString())).thenReturn(Optional.empty());
+
+        Assertions.assertThrows(RuntimeException.class, () ->
+                userAccountService.refreshVerificationCode("email")
+        );
+
+        verify(emailClientService, times(0)).sendRequest(any(), any());
+        verify(verificationCodeRepository, times(0)).save(any());
+        verify(verificationCodeRepository).findByEmail(anyString());
+    }
+
+    @Test
+    void verify_shouldReturnUserAccount() {
+        when(verificationCodeRepository.findByEmail(anyString())).thenReturn(Optional.ofNullable(verificationCode));
+        when(roleRepository.findByName(anyString())).thenReturn(Optional.ofNullable(role));
+        when(userAccountRepository.save(any())).thenReturn(userAccount);
+
+        userAccountService.verify("email", "code");
+
+        verify(verificationCodeRepository).findByEmail(anyString());
+        verify(roleRepository).findByName(anyString());
+        verify(userAccountRepository).save(any());
+        verify(verificationCodeRepository).delete(any());
+    }
+
+    @Test
+    void verify_shouldThrowVerificationCodeNotFoundError() {
+        when(verificationCodeRepository.findByEmail(anyString())).thenReturn(Optional.empty());
+
+        Assertions.assertThrows(RuntimeException.class, () ->
+                userAccountService.verify("email", "code")
+        );
+
+        verify(verificationCodeRepository, times(0)).delete(any());
+        verify(verificationCodeRepository).findByEmail(anyString());
+    }
+
+    @Test
+    void verify_shouldThrowVerificationCodeIncorrectError() {
+        when(verificationCodeRepository.findByEmail(anyString())).thenReturn(Optional.ofNullable(verificationCode));
+        Assertions.assertThrows(RuntimeException.class, () ->
+                userAccountService.verify("email", "wrong-code")
+        );
+
+        verify(verificationCodeRepository).findByEmail(anyString());
+    }
+
+    @Test
+    void verify_shouldThrowRegisterUserError() {
+        when(verificationCodeRepository.findByEmail(anyString())).thenReturn(Optional.ofNullable(verificationCode));
+        when(roleRepository.findByName(anyString())).thenReturn(Optional.ofNullable(role));
+        when(userAccountRepository.save(any())).thenThrow(new RuntimeException());
+
+        Assertions.assertThrows(RuntimeException.class, () ->
+                userAccountService.verify("email", "code")
+        );
+
+        verify(verificationCodeRepository).findByEmail(anyString());
+        verify(roleRepository).findByName(anyString());
+        verify(userAccountRepository).save(any());
     }
 
     @Test
@@ -115,13 +219,28 @@ public class UserAccountServiceTest {
     @Test
     void register_should_make_call_to_repository() {
         when(passwordEncoder.encode(any())).thenReturn("password");
-        when(roleRepository.findByName(anyString())).thenReturn(Optional.ofNullable(role));
-        when(userAccountRepository.save(any())).thenReturn(userAccount);
+        when(verificationCodeRepository.save(any())).thenReturn(verificationCode);
+        when(emailClientService.sendRequest(any(), any())).thenReturn("");
 
         userAccountService.register("username", "email", "password");
 
-        verify(userAccountRepository, times(1)).save(any());
+        verify(emailClientService).sendRequest(any(), any());
+        verify(verificationCodeRepository).save(any());
     }
+
+    @Test
+    void register_should_throw_exception() {
+        when(passwordEncoder.encode(any())).thenReturn("password");
+        when(verificationCodeRepository.save(any())).thenThrow(new RuntimeException());
+
+        assertThrows(RuntimeException.class, () -> {
+            userAccountService.register("username", "email", "password");
+        });
+
+        verify(emailClientService, times(0)).sendRequest(any(), any());
+        verify(verificationCodeRepository).save(any());
+    }
+
     @Test
     void login_should_make_call_to_repository() {
         when(authenticationManager.authenticate(any())).thenReturn(authentication);
@@ -207,16 +326,19 @@ public class UserAccountServiceTest {
     void update_email_should_make_call_to_repository(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(userAccountRepository.save(any())).thenReturn(userAccount);
+        when(emailClientService.sendRequest(any(), any())).thenReturn("");
 
         userAccountService.updateEmail(1L, "newEmail");
 
-        verify(userAccountRepository, times(1)).save(userAccount);
+        verify(emailClientService).sendRequest(any(), any());
+        verify(userAccountRepository).save(userAccount);
     }
 
     @Test
     void update_email_response_should_contain_new_email(){
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(userAccountRepository.save(any())).thenReturn(userAccount);
+        when(emailClientService.sendRequest(any(), any())).thenReturn("");
 
         UpdateEmailResponse response = userAccountService.updateEmail(1L, "newEmail");
 
@@ -230,7 +352,7 @@ public class UserAccountServiceTest {
         RuntimeException e = assertThrows(RuntimeException.class, () -> {
             userAccountService.updateEmail(1L, "newEmail");
         });
-
+        verify(emailClientService, times(0)).sendRequest(any(), any());
         Assertions.assertEquals(e.getMessage(), CodeJawnError.USER_NOT_FOUND.getMessage());
     }
     @Test
@@ -248,9 +370,11 @@ public class UserAccountServiceTest {
         when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         when(passwordEncoder.encode(any())).thenReturn("newPassword");
         when(userAccountRepository.save(any())).thenReturn(userAccount);
+        when(emailClientService.sendRequest(any(), any())).thenReturn("");
 
         userAccountService.updatePassword(1L, "oldPassword","newPassword");
 
+        verify(emailClientService).sendRequest(any(), any());
         verify(userAccountRepository, times(1)).save(userAccount);
     }
     @Test
@@ -271,26 +395,35 @@ public class UserAccountServiceTest {
         assertThrows(RuntimeException.class, () -> {
             userAccountService.updatePassword(1L, "oldPassword","newPassword");
         });
+        verify(emailClientService, times(0)).sendRequest(any(), any());
     }
 
     @Test
     void delete_user_should_make_call_to_repository(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         doNothing().when(userAccountRepository).deleteById(anyLong());
+        when(emailClientService.sendRequest(any(), any())).thenReturn("");
 
         userAccountService.deleteUser(1L);
 
-        verify(userAccountRepository, times(1)).deleteById(1L);
+        verify(emailClientService).sendRequest(any(), any());
+        verify(userAccountRepository).deleteById(1L);
     }
+
     @Test
     void delete_user_should_return_success(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         doNothing().when(userAccountRepository).deleteById(anyLong());
+        when(emailClientService.sendRequest(any(), any())).thenReturn("");
 
         String response = userAccountService.deleteUser(1L);
 
         Assertions.assertEquals(response, StatusCode.SUCCESS.name());
     }
+
     @Test
     void delete_user_should_return_failed(){
+        when(userAccountRepository.findById(anyLong())).thenReturn(Optional.ofNullable(userAccount));
         doThrow(new RuntimeException()).when(userAccountRepository).deleteById(anyLong());
 
         String response = userAccountService.deleteUser(1L);

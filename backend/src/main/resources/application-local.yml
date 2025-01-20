@@ -21,6 +21,8 @@ security:
 
 URL: "http://localhost:3000"
 
+email-service-url: "http://localhost:8081"
+
 cors:
   allowed-origins: "http://localhost:3000"
   allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
