@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UpdatePasswordRequest extends EmailRequest {
-    public UpdatePasswordRequest(String to, String username) {
+public class PasswordUpdatedRequest extends EmailRequest {
+    public PasswordUpdatedRequest(String to, String username) {
         super(to, username);
     }
 }

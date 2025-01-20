@@ -9,7 +9,7 @@ public class RegisterAccountEmailContext extends EmailContext {
 
         put("username", registerAccountRequest.getUsername());
         put("code", registerAccountRequest.getCode());
-        setTemplateLocation("email-register-account");
+        setTemplateLocation("register-account-email");
         setSubject("Code Jawn Account Registration");
         setTo(registerAccountRequest.getTo());
     }
