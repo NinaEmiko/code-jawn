@@ -1,6 +1,6 @@
 package com.codejawn.controller.java;
 
-import com.codejawn.dto.UpdateLTDTO;
+import com.codejawn.model.request.lessontracker.UpdateLTRequest;
 import com.codejawn.model.java.JavaOperatorsLT;
 import com.codejawn.service.java.JavaOperatorsLTService;
 import com.codejawn.util.StatusCode;
@@ -24,7 +24,7 @@ public class JavaOperatorsLTControllerTest {
     @Mock
     JavaOperatorsLT javaOperatorsLT;
     @Mock
-    UpdateLTDTO updateLTDTO;
+    UpdateLTRequest updateLTRequest;
     @InjectMocks
     JavaOperatorsLTController javaOperatorsLTController;
 
@@ -33,9 +33,9 @@ public class JavaOperatorsLTControllerTest {
         javaOperatorsLT = new JavaOperatorsLT();
         javaOperatorsLT.setId(1L);
 
-        updateLTDTO = new UpdateLTDTO();
-        updateLTDTO.setUserId(1L);
-        updateLTDTO.setLesson("Strings");
+        updateLTRequest = new UpdateLTRequest();
+        updateLTRequest.setUserId(1L);
+        updateLTRequest.setLesson("Strings");
     }
 
     @Test
@@ -48,36 +48,36 @@ public class JavaOperatorsLTControllerTest {
     @Test
     void update_java_operators_lt_should_make_call_to_service_class(){
         when(javaOperatorsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        javaOperatorsLTController.updateJavaOperatorsLT(updateLTDTO);
+        javaOperatorsLTController.updateJavaOperatorsLT(updateLTRequest);
         verify(javaOperatorsLTService, times(1)).updateLT(1L, "Strings");
     }
 
     @Test
     void update_java_operators_lt_should_return_success(){
         when(javaOperatorsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        ResponseEntity<?> response = javaOperatorsLTController.updateJavaOperatorsLT(updateLTDTO);
+        ResponseEntity<?> response = javaOperatorsLTController.updateJavaOperatorsLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
     void update_java_operators_lt_should_return_failed(){
-        updateLTDTO.setLesson("Not a lesson");
+        updateLTRequest.setLesson("Not a lesson");
         when(javaOperatorsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.FAILED.name());
-        ResponseEntity<?> response = javaOperatorsLTController.updateJavaOperatorsLT(updateLTDTO);
+        ResponseEntity<?> response = javaOperatorsLTController.updateJavaOperatorsLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
     void reset_java_operators_lt_should_make_call_to_service_class(){
         when(javaOperatorsLTService.resetLT(anyLong())).thenReturn("");
-        javaOperatorsLTController.resetJavaOperatorsLT(updateLTDTO);
+        javaOperatorsLTController.resetJavaOperatorsLT(updateLTRequest);
         verify(javaOperatorsLTService, times(1)).resetLT(1L);
     }
 
     @Test
     void complete_java_operators_lt_should_make_call_to_service_class(){
         when(javaOperatorsLTService.completeLT(anyLong())).thenReturn("");
-        javaOperatorsLTController.completeJavaOperatorsLT(updateLTDTO);
+        javaOperatorsLTController.completeJavaOperatorsLT(updateLTRequest);
         verify(javaOperatorsLTService, times(1)).completeLT(1L);
     }
 }

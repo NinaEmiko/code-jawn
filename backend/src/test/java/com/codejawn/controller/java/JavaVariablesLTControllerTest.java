@@ -1,6 +1,6 @@
 package com.codejawn.controller.java;
 
-import com.codejawn.dto.UpdateLTDTO;
+import com.codejawn.model.request.lessontracker.UpdateLTRequest;
 import com.codejawn.model.java.JavaVariablesLT;
 import com.codejawn.service.java.JavaVariablesLTService;
 import com.codejawn.util.StatusCode;
@@ -24,7 +24,7 @@ public class JavaVariablesLTControllerTest {
     @Mock
     JavaVariablesLT javaVariablesLT;
     @Mock
-    UpdateLTDTO updateLTDTO;
+    UpdateLTRequest updateLTRequest;
     @InjectMocks
     JavaVariablesLTController javaVariablesLTController;
 
@@ -33,9 +33,9 @@ public class JavaVariablesLTControllerTest {
         javaVariablesLT = new JavaVariablesLT();
         javaVariablesLT.setId(1L);
 
-        updateLTDTO = new UpdateLTDTO();
-        updateLTDTO.setUserId(1L);
-        updateLTDTO.setLesson("Naming Variables");
+        updateLTRequest = new UpdateLTRequest();
+        updateLTRequest.setUserId(1L);
+        updateLTRequest.setLesson("Naming Variables");
     }
 
     @Test
@@ -48,36 +48,36 @@ public class JavaVariablesLTControllerTest {
     @Test
     void update_java_variables_lt_should_make_call_to_service_class(){
         when(javaVariablesLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        javaVariablesLTController.updateJavaVariablesLT(updateLTDTO);
+        javaVariablesLTController.updateJavaVariablesLT(updateLTRequest);
         verify(javaVariablesLTService, times(1)).updateLT(1L, "Naming Variables");
     }
 
     @Test
     void update_java_variables_lt_should_return_success(){
         when(javaVariablesLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        ResponseEntity<?> response = javaVariablesLTController.updateJavaVariablesLT(updateLTDTO);
+        ResponseEntity<?> response = javaVariablesLTController.updateJavaVariablesLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
     void update_java_variables_lt_should_return_failed(){
-        updateLTDTO.setLesson("Not a lesson");
+        updateLTRequest.setLesson("Not a lesson");
         when(javaVariablesLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.FAILED.name());
-        ResponseEntity<?> response = javaVariablesLTController.updateJavaVariablesLT(updateLTDTO);
+        ResponseEntity<?> response = javaVariablesLTController.updateJavaVariablesLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
     void reset_java_variables_lt_should_make_call_to_service_class(){
         when(javaVariablesLTService.resetLT(anyLong())).thenReturn("");
-        javaVariablesLTController.resetJavaVariablesLT(updateLTDTO);
+        javaVariablesLTController.resetJavaVariablesLT(updateLTRequest);
         verify(javaVariablesLTService, times(1)).resetLT(1L);
     }
 
     @Test
     void complete_java_variables_lt_should_make_call_to_service_class(){
         when(javaVariablesLTService.completeLT(anyLong())).thenReturn("");
-        javaVariablesLTController.completeJavaVariablesLT(updateLTDTO);
+        javaVariablesLTController.completeJavaVariablesLT(updateLTRequest);
         verify(javaVariablesLTService, times(1)).completeLT(1L);
     }
 }

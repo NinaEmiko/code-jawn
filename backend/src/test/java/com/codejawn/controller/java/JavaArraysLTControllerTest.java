@@ -1,6 +1,6 @@
 package com.codejawn.controller.java;
 
-import com.codejawn.dto.UpdateLTDTO;
+import com.codejawn.model.request.lessontracker.UpdateLTRequest;
 import com.codejawn.model.java.JavaArraysLT;
 import com.codejawn.service.java.JavaArraysLTService;
 import com.codejawn.util.StatusCode;
@@ -24,7 +24,7 @@ public class JavaArraysLTControllerTest {
     @Mock
     JavaArraysLT javaArraysLT;
     @Mock
-    UpdateLTDTO updateLTDTO;
+    UpdateLTRequest updateLTRequest;
     @InjectMocks
     JavaArraysLTController javaArraysLTController;
 
@@ -41,9 +41,9 @@ public class JavaArraysLTControllerTest {
         javaArraysLT.setComplete(false);
         javaArraysLT.setQuizIsComplete(false);
 
-        updateLTDTO = new UpdateLTDTO();
-        updateLTDTO.setUserId(1L);
-        updateLTDTO.setLesson("Strings");
+        updateLTRequest = new UpdateLTRequest();
+        updateLTRequest.setUserId(1L);
+        updateLTRequest.setLesson("Strings");
     }
 
     @Test
@@ -56,36 +56,36 @@ public class JavaArraysLTControllerTest {
     @Test
     void update_java_arrays_lt_should_make_call_to_service_class(){
         when(javaArraysLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        javaArraysLTController.updateJavaArraysLT(updateLTDTO);
+        javaArraysLTController.updateJavaArraysLT(updateLTRequest);
         verify(javaArraysLTService, times(1)).updateLT(1L, "Strings");
     }
 
     @Test
     void update_java_arrays_lt_should_return_success(){
         when(javaArraysLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        ResponseEntity<?> response = javaArraysLTController.updateJavaArraysLT(updateLTDTO);
+        ResponseEntity<?> response = javaArraysLTController.updateJavaArraysLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
     void update_java_arrays_lt_should_return_failed(){
-        updateLTDTO.setLesson("Not a lesson");
+        updateLTRequest.setLesson("Not a lesson");
         when(javaArraysLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.FAILED.name());
-        ResponseEntity<?> response = javaArraysLTController.updateJavaArraysLT(updateLTDTO);
+        ResponseEntity<?> response = javaArraysLTController.updateJavaArraysLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
     void reset_java_arrays_lt_should_make_call_to_service_class(){
         when(javaArraysLTService.resetLT(anyLong())).thenReturn("");
-        javaArraysLTController.resetJavaArraysLT(updateLTDTO);
+        javaArraysLTController.resetJavaArraysLT(updateLTRequest);
         verify(javaArraysLTService, times(1)).resetLT(1L);
     }
 
     @Test
     void complete_java_arrays_lt_should_make_call_to_service_class(){
         when(javaArraysLTService.completeLT(anyLong())).thenReturn("");
-        javaArraysLTController.completeJavaArraysLT(updateLTDTO);
+        javaArraysLTController.completeJavaArraysLT(updateLTRequest);
         verify(javaArraysLTService, times(1)).completeLT(1L);
     }
 }

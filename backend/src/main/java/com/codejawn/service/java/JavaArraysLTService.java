@@ -6,7 +6,7 @@ import com.codejawn.repository.java.JavaArraysLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
-import com.codejawn.util.java.JavaArraysLesson;
+import com.codejawn.util.lessons.java.JavaArraysLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

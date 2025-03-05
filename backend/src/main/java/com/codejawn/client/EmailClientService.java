@@ -1,6 +1,6 @@
 package com.codejawn.client;
 
-import com.codejawn.model.request.EmailRequest;
+import com.codejawn.model.request.email.EmailRequest;
 import com.codejawn.util.EndPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

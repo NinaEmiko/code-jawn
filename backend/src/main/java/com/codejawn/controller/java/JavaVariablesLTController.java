@@ -1,6 +1,6 @@
 package com.codejawn.controller.java;
 
-import com.codejawn.dto.UpdateLTDTO;
+import com.codejawn.model.request.lessontracker.UpdateLTRequest;
 import com.codejawn.model.java.JavaVariablesLT;
 import com.codejawn.service.java.JavaVariablesLTService;
 import jakarta.validation.Valid;
@@ -25,26 +25,26 @@ public class JavaVariablesLTController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<String> updateJavaVariablesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        log.info("Received request to update Java Variables Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
-        Long userId = updateLTDTO.getUserId();
-        String lesson = updateLTDTO.getLesson();
+    public ResponseEntity<String> updateJavaVariablesLT(@RequestBody @Valid UpdateLTRequest updateLTRequest){
+        log.info("Received request to update Java Variables Lesson Tracker for account with id: {}", updateLTRequest.getUserId());
+        Long userId = updateLTRequest.getUserId();
+        String lesson = updateLTRequest.getLesson();
         String response = javaVariablesLTService.updateLT(userId, lesson);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/reset")
-    public ResponseEntity<String> resetJavaVariablesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        log.info("Received request to reset Java Variables Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
-        Long userId = updateLTDTO.getUserId();
+    public ResponseEntity<String> resetJavaVariablesLT(@RequestBody @Valid UpdateLTRequest updateLTRequest){
+        log.info("Received request to reset Java Variables Lesson Tracker for account with id: {}", updateLTRequest.getUserId());
+        Long userId = updateLTRequest.getUserId();
         String response = javaVariablesLTService.resetLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/complete")
-    public ResponseEntity<String> completeJavaVariablesLT(@RequestBody @Valid UpdateLTDTO updateLTDTO){
-        log.info("Received request to complete Java Variables Lesson Tracker for account with id: {}", updateLTDTO.getUserId());
-        Long userId = updateLTDTO.getUserId();
+    public ResponseEntity<String> completeJavaVariablesLT(@RequestBody @Valid UpdateLTRequest updateLTRequest){
+        log.info("Received request to complete Java Variables Lesson Tracker for account with id: {}", updateLTRequest.getUserId());
+        Long userId = updateLTRequest.getUserId();
         String response = javaVariablesLTService.completeLT(userId);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

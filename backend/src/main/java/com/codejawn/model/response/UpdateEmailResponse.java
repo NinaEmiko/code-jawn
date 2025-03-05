@@ -1,4 +1,4 @@
-package com.codejawn.response;
+package com.codejawn.model.response;
 
 import lombok.Getter;
 import lombok.Setter;

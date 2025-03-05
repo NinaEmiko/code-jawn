@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { setAuthHeader } from "./helpers/axiosHelper";
 import LoginForm from "./pages/LoginForm";
-import { register, login, refreshVerificationCode, verify } from "./api/api"
+import { register, login, refreshVerificationCode, verifyAccountRegistration } from "./api/api"
 import "./styling/Answer.css"
 import "./styling/Container.css"
 import "./styling/Display.css"
@@ -89,7 +89,7 @@ function App() {
 
     const verifyCall = async (e: FormEvent, code: string) => {
       e.preventDefault();
-      const data = await verify(registerEmail, code);
+      const data = await verifyAccountRegistration(registerEmail, code);
       if (data != null) {
         Cookies.set('storedId', data.userId);
         Cookies.set('storedUsername', data.username);
@@ -105,6 +105,8 @@ function App() {
         setVerification(false);
       }
     };
+
+    console.log("currentUser.id: " +currentUser.id);
 
     const verifyRefreshCall = async (e: FormEvent) => {
       e.preventDefault();

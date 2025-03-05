@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AccountDeletedEmailRequest extends EmailRequest {
-    public AccountDeletedEmailRequest(String to, String username) {
+public class AccountCreatedEmailRequest extends EmailRequest {
+    public AccountCreatedEmailRequest(String to, String username) {
         super(to, username);
     }
 }

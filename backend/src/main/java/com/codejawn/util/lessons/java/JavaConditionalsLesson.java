@@ -1,4 +1,4 @@
-package com.codejawn.util.java;
+package com.codejawn.util.lessons.java;
 
 
 import com.codejawn.util.CodeJawnError;

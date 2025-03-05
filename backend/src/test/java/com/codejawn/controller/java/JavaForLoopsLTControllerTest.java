@@ -1,6 +1,6 @@
 package com.codejawn.controller.java;
 
-import com.codejawn.dto.UpdateLTDTO;
+import com.codejawn.model.request.lessontracker.UpdateLTRequest;
 import com.codejawn.model.java.JavaForLoopsLT;
 import com.codejawn.service.java.JavaForLoopsLTService;
 import com.codejawn.util.StatusCode;
@@ -24,7 +24,7 @@ public class JavaForLoopsLTControllerTest {
     @Mock
     JavaForLoopsLT javaForLoopsLT;
     @Mock
-    UpdateLTDTO updateLTDTO;
+    UpdateLTRequest updateLTRequest;
     @InjectMocks
     JavaForLoopsLTController javaForLoopsLTController;
 
@@ -33,9 +33,9 @@ public class JavaForLoopsLTControllerTest {
         javaForLoopsLT = new JavaForLoopsLT();
         javaForLoopsLT.setId(1L);
 
-        updateLTDTO = new UpdateLTDTO();
-        updateLTDTO.setUserId(1L);
-        updateLTDTO.setLesson("Strings");
+        updateLTRequest = new UpdateLTRequest();
+        updateLTRequest.setUserId(1L);
+        updateLTRequest.setLesson("Strings");
     }
 
     @Test
@@ -48,36 +48,36 @@ public class JavaForLoopsLTControllerTest {
     @Test
     void update_java_for_loops_lt_should_make_call_to_service_class(){
         when(javaForLoopsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        javaForLoopsLTController.updateJavaForLoopsLT(updateLTDTO);
+        javaForLoopsLTController.updateJavaForLoopsLT(updateLTRequest);
         verify(javaForLoopsLTService, times(1)).updateLT(1L, "Strings");
     }
 
     @Test
     void update_java_for_loops_lt_should_return_success(){
         when(javaForLoopsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        ResponseEntity<?> response = javaForLoopsLTController.updateJavaForLoopsLT(updateLTDTO);
+        ResponseEntity<?> response = javaForLoopsLTController.updateJavaForLoopsLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
     void update_java_for_loops_lt_should_return_failed(){
-        updateLTDTO.setLesson("Not a lesson");
+        updateLTRequest.setLesson("Not a lesson");
         when(javaForLoopsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.FAILED.name());
-        ResponseEntity<?> response = javaForLoopsLTController.updateJavaForLoopsLT(updateLTDTO);
+        ResponseEntity<?> response = javaForLoopsLTController.updateJavaForLoopsLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
     void reset_java_for_loops_lt_should_make_call_to_service_class(){
         when(javaForLoopsLTService.resetLT(anyLong())).thenReturn("");
-        javaForLoopsLTController.resetJavaForLoopsLT(updateLTDTO);
+        javaForLoopsLTController.resetJavaForLoopsLT(updateLTRequest);
         verify(javaForLoopsLTService, times(1)).resetLT(1L);
     }
 
     @Test
     void complete_java_for_loops_lt_should_make_call_to_service_class(){
         when(javaForLoopsLTService.completeLT(anyLong())).thenReturn("");
-        javaForLoopsLTController.completeJavaForLoopsLT(updateLTDTO);
+        javaForLoopsLTController.completeJavaForLoopsLT(updateLTRequest);
         verify(javaForLoopsLTService, times(1)).completeLT(1L);
     }
 }

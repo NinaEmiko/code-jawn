@@ -1,4 +1,4 @@
-package com.codejawn.model.request;
+package com.codejawn.model.request.email;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
