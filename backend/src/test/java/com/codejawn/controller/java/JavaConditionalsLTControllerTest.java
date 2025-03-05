@@ -1,6 +1,6 @@
 package com.codejawn.controller.java;
 
-import com.codejawn.dto.UpdateLTDTO;
+import com.codejawn.model.request.lessontracker.UpdateLTRequest;
 import com.codejawn.model.java.JavaConditionalsLT;
 import com.codejawn.service.java.JavaConditionalsLTService;
 import com.codejawn.util.StatusCode;
@@ -24,7 +24,7 @@ public class JavaConditionalsLTControllerTest {
     @Mock
     JavaConditionalsLT javaConditionalsLT;
     @Mock
-    UpdateLTDTO updateLTDTO;
+    UpdateLTRequest updateLTRequest;
     @InjectMocks
     JavaConditionalsLTController javaConditionalsLTController;
 
@@ -33,9 +33,9 @@ public class JavaConditionalsLTControllerTest {
         javaConditionalsLT = new JavaConditionalsLT();
         javaConditionalsLT.setId(1L);
 
-        updateLTDTO = new UpdateLTDTO();
-        updateLTDTO.setUserId(1L);
-        updateLTDTO.setLesson("Strings");
+        updateLTRequest = new UpdateLTRequest();
+        updateLTRequest.setUserId(1L);
+        updateLTRequest.setLesson("Strings");
     }
 
     @Test
@@ -48,36 +48,36 @@ public class JavaConditionalsLTControllerTest {
     @Test
     void update_java_conditionals_lt_should_make_call_to_service_class(){
         when(javaConditionalsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        javaConditionalsLTController.updateJavaConditionalsLT(updateLTDTO);
+        javaConditionalsLTController.updateJavaConditionalsLT(updateLTRequest);
         verify(javaConditionalsLTService, times(1)).updateLT(1L, "Strings");
     }
 
     @Test
     void update_java_conditionals_lt_should_return_success(){
         when(javaConditionalsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        ResponseEntity<?> response = javaConditionalsLTController.updateJavaConditionalsLT(updateLTDTO);
+        ResponseEntity<?> response = javaConditionalsLTController.updateJavaConditionalsLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
     void update_java_conditionals_lt_should_return_failed(){
-        updateLTDTO.setLesson("Not a lesson");
+        updateLTRequest.setLesson("Not a lesson");
         when(javaConditionalsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.FAILED.name());
-        ResponseEntity<?> response = javaConditionalsLTController.updateJavaConditionalsLT(updateLTDTO);
+        ResponseEntity<?> response = javaConditionalsLTController.updateJavaConditionalsLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
     void reset_java_conditionals_lt_should_make_call_to_service_class(){
         when(javaConditionalsLTService.resetLT(anyLong())).thenReturn("");
-        javaConditionalsLTController.resetJavaConditionalsLT(updateLTDTO);
+        javaConditionalsLTController.resetJavaConditionalsLT(updateLTRequest);
         verify(javaConditionalsLTService, times(1)).resetLT(1L);
     }
 
     @Test
     void complete_java_conditionals_lt_should_make_call_to_service_class(){
         when(javaConditionalsLTService.completeLT(anyLong())).thenReturn("");
-        javaConditionalsLTController.completeJavaConditionalsLT(updateLTDTO);
+        javaConditionalsLTController.completeJavaConditionalsLT(updateLTRequest);
         verify(javaConditionalsLTService, times(1)).completeLT(1L);
     }
 }

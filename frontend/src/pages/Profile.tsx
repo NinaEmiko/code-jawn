@@ -7,6 +7,7 @@ import Support from "../components/profile/other/Support";
 import Acknowledgments from "../components/profile/other/Acknowledgments";
 import Modal from "../components/Modal";
 import DeleteAccount from "../components/profile/DeleteAccount";
+import VerifyEmail from "../components/profile/VerifyEmail";
 
 const Profile = ({props}:{props:any}) => {
     const [activeComponent, setActiveComponent] = useState("");
@@ -14,6 +15,8 @@ const Profile = ({props}:{props:any}) => {
     const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
     const [updatePasswordModalIsOpen, setUpdatePasswordModalIsOpen] = useState(false);
     const [updateEmailModalIsOpen, setUpdateEmailModalIsOpen] = useState(false);
+    const [verifyEmailModalIsOpen, setVerifyEmailModalIsOpen] = useState(false);
+    const [updateEmail, setUpdateEmail] = useState('');
 
     const handleUpdateActiveComponent = (component: string) => {
         setActiveComponent(component)
@@ -37,6 +40,22 @@ const Profile = ({props}:{props:any}) => {
         setUpdateEmailModalIsOpen(!updateEmailModalIsOpen)
     }
 
+    const handleUpdateEmailRequest = async (newEmail: string) => {
+        setUpdateEmail(newEmail);
+        setUpdateEmailModalIsOpen(false);
+        setVerifyEmailModalIsOpen(true);
+    }
+
+    const handleCancelVerifyEmailModal = () => {
+        setUpdateEmail("");
+        setVerifyEmailModalIsOpen(false)
+    }
+
+    const handleSubmitVerifyEmailModal = () => {
+        props.handleUpdateEmail(updateEmail)
+        setVerifyEmailModalIsOpen(false)
+    }
+
     return (
         <>
             {showBackBtn &&
@@ -58,10 +77,21 @@ const Profile = ({props}:{props:any}) => {
                                 <a onClick={() => null } className="sub-text3">{props.currentUser.username}</a>
                                 <a onClick={() => null } className="sub-text3">{props.currentUser.email}</a>
                                 <DividerJawn />
+                                
                                 <div className="profile-header">Security</div>
-                                <a onClick={() => handleUpdateEmailModal() } className="profile-link">Update Email</a>
-                                <a onClick={() => handleUpdatePasswordModal() } className="profile-link">Update Password</a>
-                                <a onClick={() => handleDeleteModal() } className="profile-link">Delete Account</a>
+                                {props.currentUser.id != 5 ?
+                                    <>
+                                        <a onClick={() => handleUpdateEmailModal() } className="profile-link">Update Email</a>
+                                        <a onClick={() => handleUpdatePasswordModal() } className="profile-link">Update Password</a>
+                                        <a onClick={() => handleDeleteModal() } className="profile-link">Delete Account</a>
+                                    </>
+                                :
+                                    <>
+                                        <a className="profile-link">Update Email</a>
+                                        <a className="profile-link">Update Password</a>
+                                        <a className="profile-link">Delete Account</a>
+                                    </>
+                                }
                                 <DividerJawn />
                                 <div className="profile-header">Other</div>
                                 <a onClick={() => handleUpdateActiveComponent("Terms and Conditions") } className="profile-link">Terms and Conditions</a>
@@ -83,11 +113,15 @@ const Profile = ({props}:{props:any}) => {
                         }
 
                         <Modal isOpen={updateEmailModalIsOpen}>
-                            <UpdateEmail currentUser={props.currentUser} handleUpdateEmailModal={handleUpdateEmailModal} handleUpdateEmail={props.handleUpdateEmail} />
+                            <UpdateEmail currentUser={props.currentUser} handleUpdateEmailModal={handleUpdateEmailModal} handleUpdateEmailRequest={handleUpdateEmailRequest} />
                         </Modal>
 
                         <Modal isOpen={updatePasswordModalIsOpen}>
                             <UpdatePassword currentUser={props.currentUser} handleUpdatePasswordModal={handleUpdatePasswordModal} />
+                        </Modal>
+
+                        <Modal isOpen={verifyEmailModalIsOpen}>
+                            <VerifyEmail currentUser={props.currentUser} handleCancelVerifyEmailModal={handleCancelVerifyEmailModal} handleSubmitVerifyEmailModal={handleSubmitVerifyEmailModal} updateEmail={updateEmail} />
                         </Modal>
 
                         <Modal isOpen={deleteModalIsOpen}>

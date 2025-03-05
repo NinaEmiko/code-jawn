@@ -1,6 +1,6 @@
 package com.codejawn.controller.java;
 
-import com.codejawn.dto.UpdateLTDTO;
+import com.codejawn.model.request.lessontracker.UpdateLTRequest;
 import com.codejawn.model.java.JavaMethodsLT;
 import com.codejawn.service.java.JavaMethodsLTService;
 import com.codejawn.util.StatusCode;
@@ -24,7 +24,7 @@ public class JavaMethodsLTControllerTest {
     @Mock
     JavaMethodsLT javaMethodsLT;
     @Mock
-    UpdateLTDTO updateLTDTO;
+    UpdateLTRequest updateLTRequest;
     @InjectMocks
     JavaMethodsLTController javaMethodsLTController;
 
@@ -33,9 +33,9 @@ public class JavaMethodsLTControllerTest {
         javaMethodsLT = new JavaMethodsLT();
         javaMethodsLT.setId(1L);
 
-        updateLTDTO = new UpdateLTDTO();
-        updateLTDTO.setUserId(1L);
-        updateLTDTO.setLesson("Strings");
+        updateLTRequest = new UpdateLTRequest();
+        updateLTRequest.setUserId(1L);
+        updateLTRequest.setLesson("Strings");
     }
 
     @Test
@@ -48,36 +48,36 @@ public class JavaMethodsLTControllerTest {
     @Test
     void update_java_methods_lt_should_make_call_to_service_class(){
         when(javaMethodsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        javaMethodsLTController.updateJavaMethodsLT(updateLTDTO);
+        javaMethodsLTController.updateJavaMethodsLT(updateLTRequest);
         verify(javaMethodsLTService, times(1)).updateLT(1L, "Strings");
     }
 
     @Test
     void update_java_methods_lt_should_return_success(){
         when(javaMethodsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.SUCCESS.name());
-        ResponseEntity<?> response = javaMethodsLTController.updateJavaMethodsLT(updateLTDTO);
+        ResponseEntity<?> response = javaMethodsLTController.updateJavaMethodsLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.SUCCESS.name());
     }
 
     @Test
     void update_java_methods_lt_should_return_failed(){
-        updateLTDTO.setLesson("Not a lesson");
+        updateLTRequest.setLesson("Not a lesson");
         when(javaMethodsLTService.updateLT(anyLong(), anyString())).thenReturn(StatusCode.FAILED.name());
-        ResponseEntity<?> response = javaMethodsLTController.updateJavaMethodsLT(updateLTDTO);
+        ResponseEntity<?> response = javaMethodsLTController.updateJavaMethodsLT(updateLTRequest);
         Assertions.assertEquals(response.getBody(), StatusCode.FAILED.name());
     }
 
     @Test
     void reset_java_methods_lt_should_make_call_to_service_class(){
         when(javaMethodsLTService.resetLT(anyLong())).thenReturn("");
-        javaMethodsLTController.resetJavaMethodsLT(updateLTDTO);
+        javaMethodsLTController.resetJavaMethodsLT(updateLTRequest);
         verify(javaMethodsLTService, times(1)).resetLT(1L);
     }
 
     @Test
     void complete_java_methods_lt_should_make_call_to_service_class(){
         when(javaMethodsLTService.completeLT(anyLong())).thenReturn("");
-        javaMethodsLTController.completeJavaMethodsLT(updateLTDTO);
+        javaMethodsLTController.completeJavaMethodsLT(updateLTRequest);
         verify(javaMethodsLTService, times(1)).completeLT(1L);
     }
 }
