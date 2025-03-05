@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { deleteAccount } from "../../api/api";
-import { User } from "../../App";
+import { User } from "../../types/components";
 
 interface DeleteAccountProps{
     logout: ()=>void,

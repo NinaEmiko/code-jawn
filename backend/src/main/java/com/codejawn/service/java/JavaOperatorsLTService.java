@@ -6,7 +6,7 @@ import com.codejawn.repository.java.JavaOperatorsLTRepository;
 import com.codejawn.repository.UserAccountRepository;
 import com.codejawn.util.CodeJawnError;
 import com.codejawn.util.StatusCode;
-import com.codejawn.util.java.JavaOperatorsLesson;
+import com.codejawn.util.lessons.java.JavaOperatorsLesson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

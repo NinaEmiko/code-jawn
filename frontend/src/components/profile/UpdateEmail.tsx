@@ -1,17 +1,17 @@
 import { ChangeEvent, FC, FormEvent, useRef, useState } from "react"
 import { updateUserEmail } from "../../api/api";
-import Cookies from "js-cookie";
 import JustText from "../utility/JustText";
 import { User } from "../../types/components";
 
 interface UpdateEmailProps{
-    handleUpdateEmail: (newEmail: string) => void,
+    handleUpdateEmailRequest: (newEmail: string) => void,
     handleUpdateEmailModal: ()=>void,
     currentUser: User,
 }
 
-const UpdateEmail: FC<UpdateEmailProps> = ({ handleUpdateEmail, handleUpdateEmailModal, currentUser }) => {
+const UpdateEmail: FC<UpdateEmailProps> = ({ handleUpdateEmailRequest, handleUpdateEmailModal, currentUser }) => {
     const [newEmail, setNewEmail] = useState('');
+    const [message, setMessage] = useState('');
 
     const newEmailFormRef = useRef<HTMLFormElement | null>(null);
 
@@ -22,11 +22,14 @@ const UpdateEmail: FC<UpdateEmailProps> = ({ handleUpdateEmail, handleUpdateEmai
 
       const onSubmitNewEmail = async (e: FormEvent) => {    
         e.preventDefault();
-    
+        setMessage('');
+        console.log("currentUser.id: " + currentUser.id)
         const data = await updateUserEmail(currentUser.id, newEmail);
-        Cookies.set('storedEmail', data.newEmail);
-        handleUpdateEmail(data.newEmail);
-        handleUpdateEmailModal()
+        if (data == "SUCCESS"){
+            handleUpdateEmailRequest(newEmail);
+        } else {
+            setMessage("There was an issue processing your request. Please try again later.")
+        }
       };    
 
     return (
@@ -48,6 +51,7 @@ const UpdateEmail: FC<UpdateEmailProps> = ({ handleUpdateEmail, handleUpdateEmai
                 className="form-control" >
                 </input>
                 <br/>
+                <p style={{color: "red"}}>{message}</p>
                 <br/>
                 <br/>
                 <div className="modal-btn-container">

@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { setAuthHeader } from "./helpers/axiosHelper";
 import LoginForm from "./pages/LoginForm";
-import { register, login } from "./api/api"
+import { register, login, refreshVerificationCode, verifyAccountRegistration } from "./api/api"
 import "./styling/Answer.css"
 import "./styling/Container.css"
 import "./styling/Display.css"
@@ -22,10 +22,13 @@ import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import GetStarted from "./pages/GetStarted";
 import PythonSections from "./languages/PythonLanguage";
+import VerificationForm from "./pages/VerificationForm";
 
 function App() {
   const [getStarted, setGetStarted] = useState(false);
+  const [verification, setVerification] = useState(false);
   const [activeTab, setActiveTab] = useState("Select a Language");
+  const [registerEmail, setRegisterEmail] = useState("");
   const [showProfile, setShowProfile] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     username: '',
@@ -77,9 +80,17 @@ function App() {
         });
 }
 
-  const registerCall = async (e: FormEvent, username: string, email: string, password: string) => {
-    e.preventDefault();
-    const data = await register(username, email, password);
+    const registerCall = async (e: FormEvent, username: string, email: string, password: string) => {
+      e.preventDefault();
+      setRegisterEmail(email);
+      setVerification(true);
+      const data = await register(username, email, password);
+    };
+
+    const verifyCall = async (e: FormEvent, code: string) => {
+      e.preventDefault();
+      const data = await verifyAccountRegistration(registerEmail, code);
+      if (data != null) {
         Cookies.set('storedId', data.userId);
         Cookies.set('storedUsername', data.username);
         Cookies.set('storedEmail', data.email);
@@ -91,7 +102,16 @@ function App() {
           email: data.email,
           loggedIn: true,
         });
-  };
+        setVerification(false);
+      }
+    };
+
+    console.log("currentUser.id: " +currentUser.id);
+
+    const verifyRefreshCall = async (e: FormEvent) => {
+      e.preventDefault();
+      const data = await refreshVerificationCode(registerEmail);
+    };
 
   useEffect(() => {
     const auth = Cookies.get('authHeader');
@@ -120,10 +140,19 @@ function App() {
     <>
 
       {!currentUser.loggedIn &&
-        <LoginForm
-          onLogin={loginCall}
-          onRegister={registerCall}
-        />
+      <>
+        {!verification ?
+          <LoginForm
+            onLogin={loginCall}
+            onRegister={registerCall}
+          />
+          :
+          <VerificationForm 
+            onVerify={verifyCall}
+            onRefreshVerificaton={verifyRefreshCall}
+          />
+        }
+        </>
       }
 
       {currentUser.loggedIn &&

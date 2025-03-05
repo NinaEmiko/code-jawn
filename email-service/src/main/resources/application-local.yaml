@@ -1,16 +1,15 @@
-logging:
-  level:
-    root: INFO
+server:
+  port: 8081
 
 spring:
   mail:
     username: ""
     password: ""
 
-URL: "http://localhost:3000"
+URL: "http://localhost:8080"
 
 cors:
-  allowed-origins: "http://localhost:3000"
+  allowed-origins: "http://localhost:8080"
   allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
   allowed-headers: "*"
   allow-credentials: true

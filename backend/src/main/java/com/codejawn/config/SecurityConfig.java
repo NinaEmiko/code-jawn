@@ -36,6 +36,10 @@ public class SecurityConfig {
                         authorizeRequests
                                 .requestMatchers("/api/auth/login",
                                         "/api/auth/register",
+                                        "/api/auth/verify-account-registration",
+                                        "/api/auth/verify-email-updated",
+                                        "/api/auth/verify-refresh",
+                                        "/api/auth/verify-cancel",
                                         "/api/auth/get/{id}",
                                         "/api/lessons/get/{id}",
                                         "/api/java/datatypes/lessons/update",
