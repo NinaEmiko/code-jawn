@@ -77,10 +77,21 @@ const Profile = ({props}:{props:any}) => {
                                 <a onClick={() => null } className="sub-text3">{props.currentUser.username}</a>
                                 <a onClick={() => null } className="sub-text3">{props.currentUser.email}</a>
                                 <DividerJawn />
+                                
                                 <div className="profile-header">Security</div>
-                                <a onClick={() => handleUpdateEmailModal() } className="profile-link">Update Email</a>
-                                <a onClick={() => handleUpdatePasswordModal() } className="profile-link">Update Password</a>
-                                <a onClick={() => handleDeleteModal() } className="profile-link">Delete Account</a>
+                                {props.currentUser.id != 5 ?
+                                    <>
+                                        <a onClick={() => handleUpdateEmailModal() } className="profile-link">Update Email</a>
+                                        <a onClick={() => handleUpdatePasswordModal() } className="profile-link">Update Password</a>
+                                        <a onClick={() => handleDeleteModal() } className="profile-link">Delete Account</a>
+                                    </>
+                                :
+                                    <>
+                                        <a className="profile-link">Update Email</a>
+                                        <a className="profile-link">Update Password</a>
+                                        <a className="profile-link">Delete Account</a>
+                                    </>
+                                }
                                 <DividerJawn />
                                 <div className="profile-header">Other</div>
                                 <a onClick={() => handleUpdateActiveComponent("Terms and Conditions") } className="profile-link">Terms and Conditions</a>

@@ -96,47 +96,64 @@ public class UserAccountController {
     @PutMapping("/update-password")
     public ResponseEntity<String> updatePassword(@RequestBody @Valid UpdatePasswordRequest updatePasswordRequest) {
         log.info("Received request to update password for user account with id: {}", updatePasswordRequest.getId());
-
-        try{
-            userAccountService.updatePassword(updatePasswordRequest);
-            return new ResponseEntity<>(StatusCode.SUCCESS.name(), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+        if (updatePasswordRequest.getId() != 5) {
+            try {
+                userAccountService.updatePassword(updatePasswordRequest);
+                return new ResponseEntity<>(StatusCode.SUCCESS.name(), HttpStatus.OK);
+            } catch (Exception e) {
+                return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+            }
+        } else {
+            log.info("Attempt to update password for sample account");
         }
+        return null;
     }
 
     @PutMapping("/update-email")
     public ResponseEntity<String> updateEmail(@RequestBody @Valid UpdateEmailRequest updateEmailRequest) {
         log.info("Received request to update email for user account with id: {}", updateEmailRequest.getId());
-
-        try{
-            userAccountService.updateEmail(updateEmailRequest);
-            return new ResponseEntity<>(StatusCode.SUCCESS.name(), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+        if (updateEmailRequest.getId() != 5) {
+            try {
+                userAccountService.updateEmail(updateEmailRequest);
+                return new ResponseEntity<>(StatusCode.SUCCESS.name(), HttpStatus.OK);
+            } catch (Exception e) {
+                return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+            }
+        } else {
+            log.info("Attempt to update email for sample account");
         }
+        return null;
     }
 
     @PutMapping("/update-username")
     public ResponseEntity<UpdateUsernameResponse> updateUsername(@RequestBody @Valid UpdateUsernameRequest updateUsernameRequest) {
         log.info("Received request to update username for user account with id: {}", updateUsernameRequest.getId());
-
-        try{
-            UpdateUsernameResponse updateUsernameResponse = userAccountService.updateUsername(updateUsernameRequest);
-            return new ResponseEntity<>(updateUsernameResponse, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        if (updateUsernameRequest.getId() != 5) {
+            try {
+                UpdateUsernameResponse updateUsernameResponse = userAccountService.updateUsername(updateUsernameRequest);
+                return new ResponseEntity<>(updateUsernameResponse, HttpStatus.OK);
+            } catch (Exception e) {
+                return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            }
+        } else {
+            log.info("Attempt to update username for sample account");
         }
+        return null;
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteAccount(@PathVariable @Valid Long id){
         log.info("Received request to delete account with id: {}", id);
-        try{
-            userAccountService.deleteUser(id);
-            return new ResponseEntity<>(StatusCode.SUCCESS.name(), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+        if (id != 5) {
+            try {
+                userAccountService.deleteUser(id);
+                return new ResponseEntity<>(StatusCode.SUCCESS.name(), HttpStatus.OK);
+            } catch (Exception e) {
+                return new ResponseEntity<>(StatusCode.FAILED.name(), HttpStatus.BAD_REQUEST);
+            }
+        } else {
+            log.info("Attempt to delete sample account");
         }
+        return null;
     }
 }
